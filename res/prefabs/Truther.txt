@@ -1,0 +1,54 @@
+Scene: Untitled
+Entities:
+  - Entity: Truther
+    guid: b3c8787d009e1f595394d6ca5f9d5ac5f8a876b1826e7dd6c2c2c4568abc118f
+    Name: Truther
+    TransformComponent:
+      Translation: [-4.63779974, 0, 1.15108466]
+      Rotation: [0, 1.69007552, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: ModelComponent
+        guid: 6ada8621a32de72d0c740eec9b7a0f84aed9a6b03201db39b227c7bb975006a6
+        custom_name: ""
+        model_path: ./res/models/keeperInHovercraft/keeper.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: e735bd270e31d4b11eb49158831921004f211d7eda8f8978bcbfba419e0f1fb8
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: false
+        collider_type: 1
+        width: 2
+        height: 2
+        radius: 0.100000001
+        drag: 0.00999999978
+        velocity: [0, 0]
+      - ComponentName: FloaterComponent
+        guid: 421cfbe2063bdd76e97364ab932d614c8384f49e54a495bd3ad719be842fe836
+        custom_name: ""
+        sink: 0.00999999978
+        side_floaters_offset: 0.100000001
+        side_roation_strength: 5
+        forward_rotation_strength: 5
+        forward_floaters_offest: 0.100000001
+        water:
+          guid: nullptr
+      - ComponentName: TrutherComponent
+        guid: f3c13015a3633ef8fde61f1a90b58c2f68557f157fcbf28b9b607111c45c2695
+        custom_name: ""
+        maximum_speed: 2
+        acceleration: 0.5
+        deceleration: 0.100000001

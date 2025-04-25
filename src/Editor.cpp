@@ -57,6 +57,7 @@
 #include "Game/ShipEyes.h"
 #include "Game/ShipSpawner.h"
 #include "Game/Thanks.h"
+#include "Game/Truther.h"
 #include "Globals.h"
 #include "Grass.h"
 #include "Input.h"
@@ -76,6 +77,7 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
+#include "Game/Truther.h"
 // # Put new header here
 
 namespace Editor
