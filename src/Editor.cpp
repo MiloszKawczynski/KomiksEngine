@@ -41,6 +41,7 @@
 #include "Game/CustomerManager.h"
 #include "Game/EndScreen.h"
 #include "Game/Factory.h"
+#include "Game/FieldCell.h"
 #include "Game/FieldGrid.h"
 #include "Game/GameController.h"
 #include "Game/HovercraftWithoutKeeper.h"
