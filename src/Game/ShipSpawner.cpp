@@ -12,6 +12,7 @@
 #include "SceneSerializer.h"
 #include "ShipEyes.h"
 
+#include <chrono>
 #include <GLFW/glfw3.h>
 
 #include <glm/gtc/random.hpp>
