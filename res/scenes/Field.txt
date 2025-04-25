@@ -55,6 +55,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 1027177687dd53d9fac27f6bacca2a0be0845b43c41252ece1798439560c42ce
+        custom_name: ""
   - Entity: Field
     guid: 3a30ffbb7017270536467abb4b16fc3969bff48b31fa9e0be13f498c8efe0b81
     Name: Field
@@ -231,6 +234,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 6c1bbd52adba16c7b227fdc8bc603112cbbe288d9831a1987becec7ed1514e62
+        custom_name: ""
   - Entity: PatternCell
     guid: b3bfa486f592472dc69f546d56eb68028d0faef872d2d07e819f1f115d207dec
     Name: PatternCell
@@ -253,6 +259,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 46ef5b3ef676dcdd68f94a991e01ba38af0bd6c1cf720b7d5ad5d8aba7332c4b
+        custom_name: ""
   - Entity: PatternCell
     guid: 4cafda19027369e47dd904ba332cdf661d1d45f5a10913298c87279927148e2e
     Name: PatternCell
@@ -275,6 +284,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 271fb13a541a169b33a73e0e72cc2f49bb0ebff98e40b10f4d5c9afb45572531
+        custom_name: ""
   - Entity: PatternCell
     guid: 6fc28864fd792da37b1bc854062d3cafc35eebe808fef465618e4389220658c0
     Name: PatternCell
@@ -297,6 +309,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: a64d8e0d41282a9d288044f6e0da77a55e1d45c6b9cd64219b3825fa91e0bc79
+        custom_name: ""
   - Entity: PatternCell
     guid: e00de651096c0991a00789133b260cd54a08d87c44243a1c4b25ba8b89d7e98d
     Name: PatternCell
@@ -319,6 +334,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: c6e6d60521401d7c7fe206e754544326be394bd5ab94eaae9b9bdcff92cc362f
+        custom_name: ""
   - Entity: PatternCell
     guid: d36c465e98bbdc7b0d0dcdd5ed61f54cdf171a33784a4c76819541e154cdbb36
     Name: PatternCell
@@ -341,6 +359,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 77ebb1b556d573a098f5191aa955f14ba886d5fee459e5dbb4a8981a52e43710
+        custom_name: ""
   - Entity: PatternCell
     guid: 19e544a834af94d798f76f7e308a54ad80d814c23c2f84e86bc3b3e75bd3bc32
     Name: PatternCell
@@ -363,6 +384,9 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: d52ee7ac69d89e29581930b5e79a42fa56d8bd283c8da75758e62a39773f8fa2
+        custom_name: ""
   - Entity: PatternCell
     guid: c3309633d7b2eecb695ce0da672c6bf41033f8b621d31992d0a5a904504c9371
     Name: PatternCell
@@ -385,8 +409,24 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 62145da86d30210c6599efb5d7b8999768b32501baa298e55a6afbd5c2ce0748
+        custom_name: ""
+  - Entity: FieldGrid
+    guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
+    Name: FieldGrid
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: FieldGridComponent
+        guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
+        custom_name: ""
   - Entity: Row2
-    guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+    guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Name: Row2
     TransformComponent:
       Translation: [0, 0, 1]
@@ -397,17 +437,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: 03393931343ef9cd0b3475bc866318f7bcda9a085e5096d252ce7fa230758960
+    guid: 4afd086c10a92fdac9125ef11515b347ee9af227357fc3850f4c4ebb95ce798a
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: b3d8b4ca303eeeb05a5f2fe87294a1959f5f7e063a7753c5c5b6197cb1ba543c
+        guid: bed0fbc63bdd59d40d6c3906c6f0426ffbb3d461ddbdc383eac3ef78fdf1b9a2
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -418,18 +458,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 67b402d1d395fd12ad17499414ba24d9f6c31168be7aa0517ebe2975b8d2f5fb
+        custom_name: ""
   - Entity: PatternCell
-    guid: b5088eac1079ca5304360fc915347dc485c32e705ce30fdd5c1e31dae5219808
+    guid: 2afab06cc5a1da62bcb3a98f0c557f5376100f260e2d3a397e177e8a199cbeb5
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: 5e121da7110e0b068d153e70488f636e112784671b90dcf3bdfdd1f5e9196a84
+        guid: ef7a8c01f8dae5149d7d93b801b388c2498842280eb1b9baa04cbd2185d4fa19
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -440,18 +483,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 4346d8c93cc036184f35e7605fa1b031abda2497eef865713bf656c8ce756bf0
+        custom_name: ""
   - Entity: PatternCell
-    guid: 77b0635f6a021fbaa535f88caf85365a5d80f0976be8cfde9e28f229393a1dec
+    guid: cf79cfdeca26c0d81ccbbf111e898dbc94746aa3b28ea5330902a8bc52ecb029
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: b443bee8c52bdcfd7ba03af1b2e44369253ae596bbcd69f75db4cce86fc368d5
+        guid: 6416165556be6593752377db405b42283d1b63aab3c2a742a2ed0037d96a8f3e
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -462,18 +508,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 59ab47e8278c36cdf46e3ab1804d15738a0fdfa392b71c85ce0906a0f38e0b5a
+        custom_name: ""
   - Entity: PatternCell
-    guid: c58e84f3eb2b1207d6dcfc814c590531e35f477210adaa885b5fb97807157fee
+    guid: 68b08994740e1399f377618e9bc60e453f58f778efa782b7eaca596766387a8e
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: 625e3287f45d5837af678ae6d042659e56f9d645bb76a77ca421477ca8de20cc
+        guid: 1b394161ffcca32cd9b21f8b0c9355ad6d278627a0f9e49c2cf77f49bade4b7d
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -484,18 +533,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 9f6a77eac98cfadb2ee8f9509e0d7e743e0c84076f706cfb5590f8e281ccf7b8
+        custom_name: ""
   - Entity: PatternCell
-    guid: 6b79bedadb60f93b7fc9b6cebd98e2d0df6fc3a38d5ddb144a93d8e835b6fd8d
+    guid: 784a0ad506c68d369bad11fbb067f2fd410f72f73db4962b4b3923314e3b19f4
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: 8ab6f0b1574efe24a00443c0bcc37af013a806658f2c9b772ce7e5b9c3204702
+        guid: b02c735f2cd8a2cccb7f084507452464df193eb57b5ab9f5455f6d5356b95e3a
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -506,18 +558,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 595aaa1bc2cf16ad8eccc59dd1499f346df6477b4dfae231fec68faee6ac7f4d
+        custom_name: ""
   - Entity: PatternCell
-    guid: 643deb81a12ea59d39b9feed61c085ad6ce93366ba4e575fc3d3f4a61cd7478f
+    guid: dff1cb0670a0c7eb5dd72d95677cc64114d7770823a4aebcdea68341f285e9ea
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: 97da2b70a75d5bab9e7b9b0fa19088a57477789267691cdddcd91760008c1ea1
+        guid: c0cabe96e680d2cb09c57933830c67388f7fc753d95a8114d918a68a73f0f4e6
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -528,18 +583,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: fb9cae67dabc3689857c1feeaec87648a2ced740a58055ebffef947459e370ee
+        custom_name: ""
   - Entity: PatternCell
-    guid: 70b03482c51e93711e0bacf48b45b11f2691f8aec835a68bc04b948a287f4013
+    guid: dee6c14ff9bce6ec762ceadf020d36941c7e8bcdc6e4539aec99f286d0a68c89
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: c7d11851527f7ed4b67e821d92a7766c50348ff59cdfca4cdfe187d3c4cc7b90
+        guid: ac189ff769d005b5d2a85385f29ceea44cb19c9cc46cb4ae8626f0ac63f058d9
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -550,18 +608,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: e6157acb6a2ed84d4a2a84af31100c5b9229860433ae76823f2d06ada6635f4d
+        custom_name: ""
   - Entity: PatternCell
-    guid: 2b9491b96dd5b3c4198e4f74fd5a8a179e63690aa053b8c3ac2b5e8e2d098074
+    guid: 547c435aec351c977e41a7ea54d709c13240321adda2d4308c68e4dfbed90ec4
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: 2ba96c7ff03a953397179f4f3882c4b0740f6cd1c1591f6e0ea8ddb449ec4d83
+        guid: d216d8a37073c01931d91ea1f6d62dc4846e4cdbe193cacce32fe6b6e45ba916
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -572,18 +633,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 2618f93fd818c158863665bc481dc1d72a180f1a11e778673db5902595867b0b
+        custom_name: ""
   - Entity: PatternCell
-    guid: 776e66a4418bb6f68782e11c7216d3796812bba6df95b75d71927d680d7c768b
+    guid: 18d9970649bf0d2317f3738491ea9944fac976b49892bf7e9792053a4ff25d9e
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 6dc7b7e0e7c0f27fec211e6400f8b16b75730ace67f590a1de51fd48c4ee916a
+        guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Components:
       - ComponentName: Collider2DComponent
-        guid: f4a144db9887924844350dbf3cf3106b8b215233bfa281c651d19e60d7d6b732
+        guid: c806480bb5ea3a0984d058c389d21656acdef92c05018af1196d507c65303d1c
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -594,8 +658,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 3cd218f7d0faee21420010236d3be7dd0794e8ee67615ca7b51c66ac868aed84
+        custom_name: ""
   - Entity: Row3
-    guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+    guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Name: Row3
     TransformComponent:
       Translation: [0, 0, 2]
@@ -606,17 +673,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: 105f09f6889f69123f4061d88aa13968aec877e66442ce0b3dd0ea8a0020c982
+    guid: 42dd60b306727a377d0ddaf31bd8f753876e4c874fc011deb698aca01f7cca33
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 6f96f1ba72747c44486adb88e65c175898389461c128b47d4002d3ae168fd08d
+        guid: 86493780f3bf232094be18ca5e62e7868593ec79cec23c7e54db05ae456c6eba
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -627,18 +694,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 720ed3e2ade0cd25192a141c68016249219aa34cd7f0e02ea0f966df3577acb8
+        custom_name: ""
   - Entity: PatternCell
-    guid: 81b810e9776bd9fd000c0e0b80048dae4675109223e84d5694a338bee4e9805a
+    guid: 5bfc0d6dfd41b9113b2fc61f0b48dec765985e33f954605783b965368f7da8e7
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 640973f5459b17abd74f0923a46ba373c0614f6dd46a9cf1fab22ec3baa30b42
+        guid: c68d3b3a00529809c555e8e98e3a488ea02de10002b20cd00d09d19893db8ada
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -649,18 +719,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: f3ed7239f0a16173c93273c8b11fb0dbf8c630823c3dfc4b0f3f781031f2256d
+        custom_name: ""
   - Entity: PatternCell
-    guid: 2eacbff55b42a189da6bc279253c87f1f52182f184c74d9390ba1dd0d837d226
+    guid: 5e14d8aa511dcab9f9fedb00df2172dba56710b97df29815557bf539f4d323af
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 55c58a410d00e8bec85fc8e0865c5bb32bfde9eb83159b2a267621308edd6f05
+        guid: 076523ec3ca87f8f7ff1b5628356f8e6ed1741875a6b7e92f26bf919433390e7
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -671,18 +744,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 07a24604598a28dbc0cd3537a3411fe69acdd1fcd0d20d29b847e082e3ba127e
+        custom_name: ""
   - Entity: PatternCell
-    guid: cce5569ef141737c2fb015406f5e363c805f7b8b0263600c408f31ab79f0f407
+    guid: eef9bc39d3bc6585854dd9481f11e675d87b11409e65c599d5bb58bbcc29ecc2
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: c6d8ae5bb17f61a1bfbdfca0ab6e29cf506df9a656b7b9de7d0aa86a5ef17a02
+        guid: c110c2350ce7cda33d28dc3b79aee8f899d9db0fb1ad1052cfeb0b077846b545
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -693,18 +769,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: cda1cec416f98606705bf4ed80f4464405c13280876b5fa3eb06761aa3b5be63
+        custom_name: ""
   - Entity: PatternCell
-    guid: 7e2a8bae14256776b30deccdd7173ac839067bfd65898cc9035a9e9182074b85
+    guid: cb589a67f33b74b48536947b98b3a662224b5d3b3a51675940c2ed4f846d7f9f
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: bd5354f7df9fd0b676ee70ca5a200032d8f65149ffda069ff4cf31d4000183b3
+        guid: 358353de2f2b07277f594ed94ff9f1d976e47d246c6c90ffac3854592958e85e
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -715,18 +794,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: a16eaa5e2968091f7930deb255afa4a1ae74a8c3bbcc4961c5f39eb4e2ae86c9
+        custom_name: ""
   - Entity: PatternCell
-    guid: cd7729f2a2139d754cb9bb4990cfd5e88b914b5eba4e57b3333c8779d91d2343
+    guid: fd9a8fb1213a657b341d606d1fc325747a29b6ede4229a173253088f5396622a
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 460e57a616290d839b89268bf7fbb8485f8c723194d1c8c0a9046af10cdd2f25
+        guid: 0e981d0f45c49cced1ae0883bfbc76a749a6f703689cb3cbd7430ec61e0c0ce5
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -737,18 +819,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 6862fb95f2e64588a997524128d2ea7537444cfe772a30c782ea23739ee45dcd
+        custom_name: ""
   - Entity: PatternCell
-    guid: e683ef444d9c40fbf01823726ca6e74a06e4dabad4f59fbfd3874c05b39859e1
+    guid: 010366d4a0bacb2b8a6d641ea16798ab53a2e3b5146795821b53ddf981e9001d
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: f5b380d7c4a53d4b053ad91c58f1fb85dc5fe503bfa0f3e57732cea841ad6701
+        guid: 377ff1412b95581dd777c4cc8101eae4d5d950e04fe19ef4cdb0564eeb763aba
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -759,18 +844,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 45ca24b29d27763c72b0658edb283f428b22f02486cdcf7a9b06215ecebf782b
+        custom_name: ""
   - Entity: PatternCell
-    guid: 6da821fd3995ea7930bcbc2239f8b0f59fded7d837c132f3b50eefff7aee7501
+    guid: d7484bafb2e746796b956e579f4583b90fe31cdd42a50f5807cdcab2648a09df
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 7ddd232ee9af1c36da02a8146781a9b597b9a3b3a1753de8526cc83351b1a008
+        guid: cf1114d94a3ef2a69b45e8ef999bb03e1166c30b75019ca2656007072596dc53
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -781,18 +869,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 33d834d86f5e9087044f451ef3f541e43ca3000dd36f09ddcb4d275c0091611e
+        custom_name: ""
   - Entity: PatternCell
-    guid: 506453ba4f80d0dc27e6c923dfea87f4593dc124b5682c12ec3b8d09948f09f3
+    guid: 1ec267cd9b6ee2d67aaccd0ec4f88ed7b3a7797796aaa435367b49ce05ce12ab
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4b9c23b7125e6bbfab62fd47c17f43c28b85834f29e87842ce3ef5051902a6b4
+        guid: 5bef8642dce33c668013cb0292eea0114ec0956da40e6cb1bc0a087bd5c12c3b
     Components:
       - ComponentName: Collider2DComponent
-        guid: f06139506252a57d2699069cec73233ca07b3fb6971653837960c599579976d5
+        guid: bf3da335e788fe3783c00d11b70ca90e72c7a2aff8424267094acc7e8aa4c9b5
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -803,8 +894,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: bb167a74516405b02fc942d2ba5bc67a98621b30b504dc871a999da102301cbe
+        custom_name: ""
   - Entity: Row4
-    guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+    guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Name: Row4
     TransformComponent:
       Translation: [0, 0, 3]
@@ -815,17 +909,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: 4348927b1cf463e0cc52f9ac4504a0f67634bcdf73aaa30dfb0412ef00a27b9f
+    guid: ea2bd4e8e4a5431e2244d1f71ca50908945ad14fcdaf8357bbe78deeb6a60e00
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: fb2dc37a9a1f17e0182b4ac5795ee59885b8f0c7a1b7fc174057499a87563894
+        guid: 87383e6b3cbe6f8fb35e12b965ed352b5876754350624558d1c439253edcbc99
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -836,18 +930,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: c8a0d6874baf4866ad45766b40a8a44244e5aefdcb038ca8d647786587988231
+        custom_name: ""
   - Entity: PatternCell
-    guid: dc6ad109491e337293211ede0a1392971a750e96f5250d1d714030d36f979caf
+    guid: cee0c0544abede3b669196384475388a24cf36810b6328ff78f8851137ad216a
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: a0a6e96781cd1fabbbc917acb194b53901c96c795606b2edc2d70e7b1b1b53fb
+        guid: f9847431d7094fe62b2b85474f80fbebe95832ec0e2fe338bd9da40efd068a9f
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -858,18 +955,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 89a785d7e345aa2c534f29d3ee0c8aab36d8f3f8b78d56cc386e54465d462024
+        custom_name: ""
   - Entity: PatternCell
-    guid: c5f8efd95f7243d510b627d287746cc6fc06010eae267ca577e13dfd9721b314
+    guid: eb74b721ce072033c35d148776f8855d1c0f34b58d635d0bbf6b62948c49001c
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: 959a7e24a704153d1538977e5f8333f256d52939dd99f9283344cf4ff63ebcc6
+        guid: c15314577fcfa5c23ff6993b0531db33e308c0ef92e1e618c4a82ca696c13d02
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -880,18 +980,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: d499511971c9a97e565e26f34092f3b4a74b3db3b1e601281006038d3cc63b73
+        custom_name: ""
   - Entity: PatternCell
-    guid: a124f982a9bd8418cc9d66c38aad05dcee140dec32c07d4287da89737c20f0e4
+    guid: 70234528a14a613368eec70fd499bc3f269298a46560705c6162b87ebe06a9dc
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: bd1e9f43d2b08726896f4e0530ed2144c84023c85593f3a60352f0b404aabc7d
+        guid: 0147555b8d665fce6a2fc80bc04bd1c762353692423153fb423d9bb1c6deabe0
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -902,18 +1005,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 47aa5c28cd4dce25266ceded091facc89e7e3027648ab9e5e7a0050aa8979352
+        custom_name: ""
   - Entity: PatternCell
-    guid: c124b327244613706b26778a12a6227a02df696bd2d4b169720584898a3ee6e5
+    guid: c0c11d30694da10b5e3d445852e404e1f0389d3071d910acddbcd48ab27fa9f9
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: f977f46a9a21c698b2984566efc45cb96b126430858cb3a6ded0c940e1f936cc
+        guid: d069ecc2d66e84addea2c5bb91db0efa23056374997cc38e1d716f96fa6a6653
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -924,18 +1030,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: c4ad4c4c4f3bfb6519d378d5a9d0f7837be2a6b52fcc9bedfbdd484fa9f07373
+        custom_name: ""
   - Entity: PatternCell
-    guid: 02f40f5c42ea16eb413a2370d0db9f180c8d4f5039c69efefd73d81dfe7a3ba4
+    guid: 30a8926806802fda75ec2df9209abb99120bc1876445a227274687a5df82befb
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: 6f7e31b0cdcaeaadbda6835c8bebf36743fbee2c36cf8402d1e7e77506f9b2e1
+        guid: 53e29f76fbcbebe455c748b3f4af931729dea8329d56cf2fadd2ca1e27d200a7
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -946,18 +1055,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 9fd39f7ad04bcd04657361a22e04001caee9460651bce10ecff37313d54f5f83
+        custom_name: ""
   - Entity: PatternCell
-    guid: ebc3d93ed850ba5202fa56adf403d1ce6c1c8d1bb98dad0b2ae055bc66a5a8f9
+    guid: f47ec1a9bcb700ee18dc6f61937df2192050b28b950fc85fe18e9815efb7a4de
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: 514c88cdaf881aaed9df28df2cf4f18518d71337e61419516795dec8a7c09d6a
+        guid: 5687592a31672e6e409e63244e1cdce42c9a9496c2954cb4621f45c8d0a8375a
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -968,18 +1080,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 4f5834966a9f3faf510cd31835693c75b62c14375d88741884b20a6d1f30f46e
+        custom_name: ""
   - Entity: PatternCell
-    guid: 673a7805c76166189613930b982f13116d8074590026e5de8b960f302f6af54b
+    guid: 40514a007a1b3a119c99a5726600aacd051a1d7371117a22c31ccad3a8a98637
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: cbcef874d423993cfb883b6056660d9c828323392e5532a6764ae29125c85b20
+        guid: 2fda0b7695cc2044fa5b7626c9e371794f164f8e960c35a6c64b38c772c819ab
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -990,18 +1105,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 843a09530d678bb756d2f5d2827aa7546340aef432c39e38795d5cc9331fab27
+        custom_name: ""
   - Entity: PatternCell
-    guid: b6f9fb6e7c1e797ee6aa35fffb6d038dc14f5f7b917a32cde988093fad384ca0
+    guid: 36d019c8c038cb7cb46c1bea11758a2002e38817b0c9cfae01ae5d4cd8a2451e
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 11c41466df8d2cfbe47af010a67aab2362ab468e469f24e7fc759198e89b0eb1
+        guid: 46fb19862fc1613bca160042639ee100c783767dad3603071cb6e0fe9b0ffd50
     Components:
       - ComponentName: Collider2DComponent
-        guid: 9364791c18aa55295e7d6de71a9238bf419a514c2673ba1c5465968610f1bb30
+        guid: 90886e711bf68e2287480f54dc4eec5014f84c68503b6d0eaf6699d4926e6b72
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1012,8 +1130,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 6b2f78e395865482ca54564a3270ac433d143d863203134bc936f8af551c1828
+        custom_name: ""
   - Entity: Row5
-    guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+    guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Name: Row5
     TransformComponent:
       Translation: [0, 0, 4]
@@ -1024,17 +1145,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: 8cf4a57f37356811195b887d480a071dcffe67424a41c94c6be5e8dcc50a0d2f
+    guid: 00f1d06ed3b148de6a98e2d12ea957b99008a5fb2f0fd4721b9a53196f1a37b6
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 1c34f13c64155169a131435067ffc473b8db04bd64d9e2bdebfadf7cd154b530
+        guid: f5e9445585134407fd9ed33c29125372dfd94af41d59bd2ed50189c2fdab811c
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1045,18 +1166,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: f98f5e40f7476a47bdc9285e940f2f6474588ccee2e6cfae13d86c2fff01052c
+        custom_name: ""
   - Entity: PatternCell
-    guid: 2bb38ff536fbad428c64e38818b0ad7617247ab8642feb4cfa280a19417977c0
+    guid: e49aee6d70c855c6e21635ebdbe57ec804b46f0769beef76d35c6c3c497df38d
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 26b245f7627b91c9ec84865ab62593a6665a98149f7e40150292e170567b3fcb
+        guid: f8987542c04a3f4aae0c203a59b97cad9ef0b225173b14f81c46f8d871a6f0a1
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1067,18 +1191,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 69fb31bf4216a05840581c76ca300326959b0c579dd5d93bcf369a80ec4c64a2
+        custom_name: ""
   - Entity: PatternCell
-    guid: b979ae7bd8aa00781a8105bda6b34b812876090005f6bfebd67c45d96f164385
+    guid: e6d0a96b3a750ff22d63b09d4ec3eca5c0470c62d2b78ce679a00a6297f6300b
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: d42ffa5147fed37b29cc4257710d6feb8d64afa71fa92af6816a5588de345662
+        guid: cb8049e6dbbba822ce8bf8ac5c047d8ee224bae21d2b9fdb9aceca6825d2d515
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1089,18 +1216,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 6c0c0bc4d3bab323ec41b710e0c9772882d02facfad0dcde7d9a71c0f5abdf77
+        custom_name: ""
   - Entity: PatternCell
-    guid: 72c5bde5b6b3150f783ebbbeb79a48250ca40d95ba4f56adda0e6108cb76359f
+    guid: 62914877e4e38704c12f766c0dbe76f4ffae4325aeb23bca36130ba044aea7ee
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 4d3b750def8028f9f9f6c5d64da9612e2d792d23f5232d9c37f1e9aad5799c99
+        guid: 4564926bd2a1fc1c15f4132e518ee462ef503f0250e2af547f0dd0397c8cc02e
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1111,18 +1241,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 6fac52971378042a55f0abd3021cbd6da620d0a22ef7bd294ff537b1d1527444
+        custom_name: ""
   - Entity: PatternCell
-    guid: e08029fcdaa9966ad2f38e6e428d7709607c9035238d2da8c00a7ca9ef12534e
+    guid: 8ea5e889e975f541a1980ca8ee587b061977b93cf2dde1daf273a7523a4395a7
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 351ce0ac1de2d12defd05668dee49cdce26a819a1ff0730b34e62e42a94c23d8
+        guid: 491170550a36caceac0d833123db1d7901b3ff8384c58440ccf0c7aaa31391c5
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1133,18 +1266,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: ecd11e4cb329bfe0a33b6b431665ac15dbc165373e24d8ca0198c6a04567e24c
+        custom_name: ""
   - Entity: PatternCell
-    guid: a0ea4070349316e20476938d121a44502881f800004716cf2135bacfa881d69c
+    guid: 9db2ef188c448d238ad419b6a867ea0d881f957b161c6cbc424b7f625928a6e4
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 4de58201c62255d70be366c7967383ec1b7112b4d6e68c87e5fe69a31b393d16
+        guid: 125f9110c1903cf2b283cf8bd08ce573d5b6170c087e6ca830cc48e4060cc9f2
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1155,18 +1291,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 80ae0a14896188ab722e7f9e85fbbd324b36934e02dac8f8ab6ba856f829c69f
+        custom_name: ""
   - Entity: PatternCell
-    guid: 81d97bff47aa44b26e11db7a9c4d9d15d01b33f6048d0bd499bce145270e635c
+    guid: 038499c58e5c3c5997c1157554b0fad9304dfe52b2e1616a75eab65af5faa63a
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 17ef4fc49f4abc427512aaeccadf417571497f788164a8999a1af389b1437f71
+        guid: 206b924ad9e8474431f8b7fee26256ff32c27f1d1f5db1547b83a30fa83a4047
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1177,18 +1316,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 34206ba3dec875eb5a5fb229e5b6651577a295a58e1a6659b4a7508b901a901b
+        custom_name: ""
   - Entity: PatternCell
-    guid: ab50a64e1405372e6540b18a6c7f56b9d0b3aeb58545827093c883a5c36532a4
+    guid: f9ec4dba6a2d5e86a1a9047a6f0472bd26610b45d424ace84c7bb5543dc9b118
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 4eaf79de186856ec22159517a608305342324ef8ea8b14b121ec60a8bfa1ff42
+        guid: df83096e915518d03ca4ea502e492ae53feec8008773ce2f5efdb0958d41028f
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1199,18 +1341,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 880d82339b1622f4c7393da5d3fc58054595758b2d8c8b26799492f12a429770
+        custom_name: ""
   - Entity: PatternCell
-    guid: a22694d9d41e15a091834f326f9cf41a19454f3bca99cb2b42dce2e2a3ffbd05
+    guid: 11d633e34a0a8509ce241fc1663718478f6561f046e732265ecc30e2f0fa5fc4
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 3969ffad4489b3ee9490d8a936e420415995f8760a83ba1db8b9669003d7a05f
+        guid: 666ca0ad54822cb325e0f51c9415670008f302ca350cb2280d6bacabfdee2f93
     Components:
       - ComponentName: Collider2DComponent
-        guid: 2a425b5942c17f6289545b9df6b0d202d47b562a2c6b1896a9e0c8add7c53407
+        guid: ca6270d476317bab60d8d6dff9d38d10b2b955180ff679f5ce804ea5124b0fdb
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1221,8 +1366,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 577a90c27b5a84cf7e79f8de98e73497cc23718e1e59f00d57862fb22ec95758
+        custom_name: ""
   - Entity: Row6
-    guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+    guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Name: Row6
     TransformComponent:
       Translation: [0, 0, 5]
@@ -1233,17 +1381,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: fef1a8760dcaa42fc939f9b8e9748aa690c0d7aae785c2d5ab0d2ea778a4dd46
+    guid: db9599c0d65f5cc0b080dbee254bbd99b2d74c72fdd4e41de5addea5e041c6db
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 45b6e5c427ac7fb04dfbe6ba5be765d1fb7295da96b82a315c63cb726200c3f5
+        guid: 7db53d04bf2cc0d1f63587bbdf459f8d759188a1bd4dedaa235cefa6485d8751
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1254,18 +1402,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: f147dfd44ef27bcf5b9207b58e6d78c314472e0450790694084a296496fccc9f
+        custom_name: ""
   - Entity: PatternCell
-    guid: 6440d37f68b2ee71e3983c26b298ce0b68f55db016c661b574fee7df77de5fdc
+    guid: 5c4058e58397b6b38bf5f081790dcc71950b454fea80f2afef6916df491577db
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 9e9871f75f6f0b8d02db88f47a1a562fee32f9a3b3b78cb3d302d512c279b451
+        guid: 7d3682c6a488348a626a670bcae2e838df34a7306a317b9f95ed50f2b362c9c4
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1276,18 +1427,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 7fcdd5c273c1cf45b7d5a52d6d2900227f7d623a9fab41c01d9585c33dd0fdda
+        custom_name: ""
   - Entity: PatternCell
-    guid: b6bd5fdb0e9ddcc79bcc18af9d24c228039822e980df085e5671a1719f527d8d
+    guid: 9c4fe7989305db9a647257d1e1a58cc06837c577c59e46feef433d7301e7b38b
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 176c525343ae4cd7bc8aab44a13bb4e8c0e3f4dce05c8494ea27feb47b9e21a6
+        guid: 14410f72c1d0a907c3bacd90f0f6ee1e6e8e4d36c860b9b943fa9b075cbcc3ba
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1298,18 +1452,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: aaef497f37c4921c28360fd4a510e506e4d901bbcc22661216a2662169c4d654
+        custom_name: ""
   - Entity: PatternCell
-    guid: ef3a9211e84d00c24111585c2ca3a4a032e1c5086b8b4b7f1cc7bd7de1bcbf01
+    guid: 9806ff73b43a411a8321203c5ead1b8a6ffdd64a8307a122dd86a42aa1218e15
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 56b6906006e08d2900ac7f7c3d3b0493aaf43d2dd0262ea41785ef723e25be71
+        guid: cfcf5f34049055291aa07b2c1e5189bad4c42c13d941042b37775f82118b96f8
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1320,18 +1477,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 7d54d0e2e1be47b54f6cc4ca1e656711b5ce8940e1b6986cedfef96dbcf8aa78
+        custom_name: ""
   - Entity: PatternCell
-    guid: 9eea50d77e18f522d92f3f60bfbe8b7feaf26bc09d6c08b45f550e64cabaa0ea
+    guid: 0a2be192e32defc5063bf4f2c468eb0d7ee29cbf2bb4a9f36d3eeacdaf050481
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 188a5122521b0564443b356a05c0696750a017bd556982375f922da14286f839
+        guid: 5776afb063e75321ea6521e0ba0cd1d16b3a8eacfd3c560a2cec272e690d9d95
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1342,18 +1502,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 6ffa348a829458c890c05546e03f55cf528def6a0126c8a1f926783444b9b0a2
+        custom_name: ""
   - Entity: PatternCell
-    guid: a009c6bd8ff4426b6437d20eb61c209d6aafb8181c1f6050925f6c4ab63a989e
+    guid: 86ce940027ee0bc73521b2e5def6db49c7cf8a0bbb1f8917e69027a577af1375
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: f66111190111585076df832e7be352e6b0ff9ac22029316b19cd783e6fc23514
+        guid: 905370d5433ec62a710ca154c7a444f8da479ed14653a5970abfbc21fe4ec664
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1364,18 +1527,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 839698e5ae4460272248a7ed54a42ad0ff804c6f45f47941c129c284175d9dd0
+        custom_name: ""
   - Entity: PatternCell
-    guid: c9b185f9058efeda5ea7d683d8c63cce7a27582cccb7a8e503d679c74ba75bfc
+    guid: 8dbb8a6c981f9508725c80beee54a1925e684b8252bf9a775a847fff66a66465
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: cb1ddc244d407c3e4c501b505fd80d5b56a507157782143fc13a63eb670ed020
+        guid: fa0f5f6f0cbc9879b7a569bd7440167dc40bdbffc3bc9097845a0f570a0c9b14
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1386,18 +1552,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: c19d556da42f60c4e28a62a1eff6b78e3025a02d08c05ecfe0e4e55ddd26174b
+        custom_name: ""
   - Entity: PatternCell
-    guid: b236ad1c8fd272d2fb0891701c0d578213ad5076c54163eee08e4740736b6c42
+    guid: 9fd9e6024c683a05ad45d90564f128933d16854e69137e6d152d7cc23cc0722c
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: c21fe5bf14285e862a86d9c90da4fe8f7f80d7d1c49354bb4353b148dc369e4e
+        guid: 98963b4a34827d308db2868a7c5b2fd6331f103f74e3ecc0463d9379d8b6e68e
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1408,18 +1577,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 71324e8e6191373d8812cab1a09b3cdd6742822c40a4acf59e872706c617c767
+        custom_name: ""
   - Entity: PatternCell
-    guid: 484103a0ec32861b34f0be61362a615c0f537cfffeafc8933fa2994cfc62318f
+    guid: 0fed03993b07391943316298d21835482624132a9286fe335d9cc497fd9eb450
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: c834ce9a0508336938453c7f1432ebb2e997b4cc80062c656f431ed9f91cdcc1
+        guid: eb2015304f7517138b24f2c341d0f554196c8abd2b57e69e87d8f3129be7694f
     Components:
       - ComponentName: Collider2DComponent
-        guid: dee263a30ed30318fc7ba2568d6701d44a8f80ec15d40d0b4ab2c5082ce136e6
+        guid: 82eee3e90d0a206230d7747d2c1c45b838fc4e5f05a1abf46534773f114e8eda
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1430,8 +1602,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: df93204bfae6e3dd6a1de382b6df2e877e5687c66ad71721a3ec3a71b60b544f
+        custom_name: ""
   - Entity: Row7
-    guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+    guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Name: Row7
     TransformComponent:
       Translation: [0, 0, 6]
@@ -1442,17 +1617,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: cea61b3a5934f8d0a4d948b16b74e1eb45ef659c70d0fcd2f74ffed6ab825a43
+    guid: 4ac71f2610ac3ee0c2d3606b1babd5d6b03a652462b88954beea8fbfe7e22e1a
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 079aa554353ff582326669cee88efede72e516f3d185d2ba42f555ef667e53e2
+        guid: f4bdeb3d5c9e8413863008dff9ed7a9d1e59cba4417df0032265e4fbc2b73bb0
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1463,18 +1638,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: c4338f0771e963e95f63f28d4d233ad2fceee3dbee80eaf06cb51b6d1fa1528c
+        custom_name: ""
   - Entity: PatternCell
-    guid: f927aa89242db3d0039dfb4853389fb5bf62baf28b79f97345aed617ad2edb34
+    guid: d840048eeb81b3eaedca90988886040c295f5358e23cb12b6acd7b2424d3dc04
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: b761075bb1a87671d51a87396efe601d38e68d0a2541392dacc6ed22f1c03c9b
+        guid: 97c690e7e5ce963d0024677c4197be9ec0d74b2cd1ccbc64c022658d5f613ec9
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1485,18 +1663,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 9a628d0a80cf68b048bdf9f024c6f1af5610ca8bc21c5afc7f61fff16d69d046
+        custom_name: ""
   - Entity: PatternCell
-    guid: caf3f4c5c0330dd9059bd06f8fcbb44e7c712eae865eaef5eaee3684bb76e97d
+    guid: 89b9ec3e39041f0bfad10533974c85f97f4a397618450afdcd6983c4ef8ab041
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: e746088875b96a1f5543d5cbfd13e3d50f1ba2d9cb4ec61cfaba575cc1d49f09
+        guid: d13d0ef1a2fb3c16c703bdae9919e90789927a7b43dbe1fbf9ab8e9da367beb3
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1507,18 +1688,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 459cbd230dc85e6faa2739c460b403344fd6c2b9300357b48719fc581c596e47
+        custom_name: ""
   - Entity: PatternCell
-    guid: 71dc03915460b2c18516e00c6fcdce29a8ddbbde16f07d8d57a05d4c1d826938
+    guid: 7039beb09acaa2f4e4120d5385518515cfebde722619a43491ade185522fb23e
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 931e5e28cca3bd0b7bb1d985622c1ee27d83284ae45a39e8ad7d07b4d376a7d6
+        guid: 9b26e6b1b48a8c5b32cda556c04b101522a28783b7e2a1b87f4eb8f40a28444c
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1529,18 +1713,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 44ccf2004c8b3a7290824543bb61f22454bd3e523b3b5ac8119253423d7fe4b7
+        custom_name: ""
   - Entity: PatternCell
-    guid: 921b4d3c01f2ce249546fd5cf8321cc14122b35c390d7bd834b4d703d124e928
+    guid: a86245e2f0ae5b69a4046a8fde0d9d6aff510faa30b02e90f96a70974db55ee7
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 0d2fdfca91dcf50d040d329d89963fb723f09e0f43b66b3ec6e465bd3c97bbdd
+        guid: 73a231d07d11cd54e15a9391eff3952432da853c5b62142ba7d5fff6b3e975cc
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1551,18 +1738,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 7e45e6281963a62c9735d15e1f8cfd8bddd26d22d8106b372f893b29c6076918
+        custom_name: ""
   - Entity: PatternCell
-    guid: e6435a2e3230404a07e19d9e9665d45f88fd03afd2b8da1be9536d281c1a4f31
+    guid: 721105f4916975bc3cc0602dcd3d2146f271a3eeda7b28952b8026583c8b9ae6
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 0f6f3b72842be8d27b3d344434d58e20e6489f2f0da4840894e9493e6bc0013b
+        guid: a6c065ff489a164eb6651a3a8ce5fdde95d0b8501a0029b1a310c6d1c72ce776
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1573,18 +1763,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 720bd90b7925987c9ab8246b03372be856121a01282b0073eda0c0bc8bedc213
+        custom_name: ""
   - Entity: PatternCell
-    guid: 66dc88e8e82794e254ea38e52df9bc1c9a4e414e9360fb8ec4a6f9d7067b1189
+    guid: cf7b63c981f3e9e264dd3136a222efee9dea1880538940f9aa01577a2aed6f8d
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: e68d3f3dfda5f870e372a776e30b88c5bdcab7f732b59402c99cc9831e539f0b
+        guid: 5738793f9a5e0283309605398dee1453d23d8277466dbe5e005f3803b5aa8c95
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1595,18 +1788,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: e3887dd12e2dd778d687519f3c2841a2159f0fd4cbcf36f4e76ac0a4c05182c8
+        custom_name: ""
   - Entity: PatternCell
-    guid: 639b52db90ac6965d6cf90ddf45a1346f34987606b2a6a511e51ff55ecb2fd52
+    guid: eb18b3cd5437f626072850176aa22a9b9a1c3224b7522f5d865274350d691b8b
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: 604b16f06529979329add9ae11d5289bc8da5a8e9509df71351e54871ccb22d7
+        guid: 1993113408f6b97978f2a046d0fba09b626407db35c1e566bfe7fbdadc63e5bc
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1617,18 +1813,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 1406c1911e22fa13dbbf3b74833f00a62229a9cb61395b24b09fdcc5c004fa29
+        custom_name: ""
   - Entity: PatternCell
-    guid: 4a8e8ffc8f655aecbf2ac50abc29df9236391778e8db440771c6404bde5b1c0d
+    guid: c63ef8d18b9f5f38ceae474008ff41a1a93a50da23e93dcb9019e440f8b09d31
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: d6bf3aef46fe17ae29fd73880290e5ace7b2dc7c2738a8a84667e0e1c1e55ff1
+        guid: 84c07a4af85c9841ae47eb5d7b0d3135845c557202bf71e7f38d2151e3f9d90b
     Components:
       - ComponentName: Collider2DComponent
-        guid: fa3514c78582996b5b3bf18c9eb14005235243e13d04050a6928a6dd78af0979
+        guid: 791d48769227f19630896267a7c601d5a609fc6b59086ce97c9eb5c1671f832f
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1639,8 +1838,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: f302405a80e36ee32d69ce28f8c4129861706db6da52f06ce2d393865ff2b531
+        custom_name: ""
   - Entity: Row8
-    guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+    guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Name: Row8
     TransformComponent:
       Translation: [0, 0, 7]
@@ -1651,17 +1853,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: 316ded33eaa798eaef0d7728b7266bd9ce911552f680bc0173bdbbb8f28b5b7f
+    guid: ed9f449ef52b643f25d41fba1f56c1f4113446266486ddf6d8d412ce6b3fb803
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 444b395a131e04d8ec0f7db2326b335deef204a84b93565364284f06e1ee04af
+        guid: fb2f86abff1c5e80812eb0dd477bb58e1c569c783956642965d315728c7402d6
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1672,18 +1874,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 5c932f9cd78f8c3d1705629907d77323ad06def9a952cb75e5dcf455290dca2f
+        custom_name: ""
   - Entity: PatternCell
-    guid: 90164234b182a042423cfc6a373692f73a372587a6b40fda20d565470e47ca08
+    guid: d8cad04b1f1d987cbe389f73f0a721fb9fc1e826951180dfdc1d671b8e7d5b7f
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 3d9e6fd3edf79083d0c51b7cc2b86cc46127409697d333cad8016e855b6a4c83
+        guid: 1cdb36d4248b98ebe944e1e015f40422bb5dd93fdbae95ba8b6374741a88a19c
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1694,18 +1899,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: d2b70d9dd41996f42b30af34392b662c70a8e34ea8e5638308d474ed6f069309
+        custom_name: ""
   - Entity: PatternCell
-    guid: de713edbfdbedac37abda748c1df67f825768a4bdd29aa0fa3896c1127e1bbc7
+    guid: 0b98a3b719181b1393dd26572aead175291f5149d2d4e78777ee248b9220659f
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: a73612c4f95bb7f213672879cdf7a10337add7061e6ed3f4110ba94c3687128e
+        guid: 296b05a85d9d0d4825fc6e200b071f16233becf2a97671cc67fd3cf381d8cc6e
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1716,18 +1924,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: b7e865a537ff34d57d5fe1a27cb56622683e4d1616d882390db3760c3c710fba
+        custom_name: ""
   - Entity: PatternCell
-    guid: fce18dee3e4850027953c234878ef3fa62dd80430f123b69bf154e74fcbb232c
+    guid: 6b73c855bd7707745682c9cc953e0918a155ba21bc62a052fba274490f45bc30
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: e3444380288cc01a279b779c49a0b445149d58f188dff6b540e1b4d13ab00d3d
+        guid: 0b1500c4ff39706145e7fe1bec6b027ee6776cb31486558c31a960bfef1c9583
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1738,18 +1949,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: c0ddd5aea739a143b3621721fbd98123af37c5e7fff8a384da4f9610ffb1d80f
+        custom_name: ""
   - Entity: PatternCell
-    guid: 728640285c0f0f95c75fbb65dbf40be968886814d2062902c0d01e4dba8b5140
+    guid: 6e9d3a0b8e402c228d3254108077e5e2a5109dcf28168ec502b2185808ac1b77
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 8bb16cd040ec2abb9ef8d1b1ef88ba67e1571dbc33463c75f8be5628e31ea6a4
+        guid: 3d39daf6db27d5bd9f761274967f1b5642d50868c79fed3752ce6372dd176b9b
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1760,18 +1974,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: e5b4b3803f329ec3bac1fa972f5c6b02678b3d22e7fb37feb479f993f8fc9ee7
+        custom_name: ""
   - Entity: PatternCell
-    guid: ac19f6c5659f8116ae1988a0e31c8895c8ec586fd3c8e69cd9f5a1d1e8afb99a
+    guid: 23711fa2af2823809696f0f94c5653f342e97824f24cde4e7b72fb2276db2425
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: b79705203142112c7f87bc1986c2394dc26c12d8b55a0a9cdb760d25e839f888
+        guid: 438e230be5ce90cd3e8bc710c33d260bd586a386ca88b9c6887e4c1c3554f485
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1782,18 +1999,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 26494d5fec6b9ae64f233ab2f0e8fd93a73550343c748c8fac0eef03eaf69125
+        custom_name: ""
   - Entity: PatternCell
-    guid: 91f68180c757edfd452fa3eed8e603b950f3ec9bfadec4614b8eefd09cbe4f33
+    guid: 8b19f00562ff6d986f0af021cf10864c18c770c53d7734d79936fd4f907fff2b
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: ea6559a8ccbbc484c44cab45ab94a87850054834172578aa1a1e90d9036dfbf7
+        guid: 4fb23486a1dba1e4326146afcd6f6715f39fc94cd1e1172932b349fbe8694964
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1804,18 +2024,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: e4cffd849ecc811dbf5810be2ffe1c1da13973a4b6a9dc670faa35770c154f86
+        custom_name: ""
   - Entity: PatternCell
-    guid: 6d1ea6216a5304d7d58ee6963a892fc296d7c9e8d48135fb4260a60b2b02a59e
+    guid: 61817eab45d718a338027ce17e709e46a21d521bf3544a0a0e6deb806c92bc4c
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: 76d34c4c259f903b9ccda4c1392a7d760086486a6c4e71722197eb122186f5b9
+        guid: 936a9958bbeaa0c436332133ac31dfecdba8359147af7bffee6c7b0bf839a3b1
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1826,18 +2049,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 5affc74de145675fa50b474466c2fe47b848ec7ba76068d6403fdd05e6f021b0
+        custom_name: ""
   - Entity: PatternCell
-    guid: 94750c5b0a0e9324ef6a6d525593a526ded76010ca9e2e356ce46801ef097969
+    guid: 9683b8d88bc9ffb544994f973509ae8303b4b234538dc4a43b05d5bf021d43fc
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 4197812fb02a6bb21e5f88a06404c6a9d85487bb4379fe6821e6496d49a6d835
+        guid: c8acdc643d2771fb7d6fbd20cc4dc1cab81dcf15a056a7a9d3ba42b16fc0217f
     Components:
       - ComponentName: Collider2DComponent
-        guid: b3a21c55498090dd11c088190f17bb2505a3fec02f5fcee3f033a19c2b6e031a
+        guid: 8e08065895bc4eaf6532fec8519750347b0990808011fc92ecfb11aa044621f1
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1848,8 +2074,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 1e7af18508661d90b6e12870df0f94982df629543088e078195cfec566a2a884
+        custom_name: ""
   - Entity: Row9
-    guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+    guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Name: Row9
     TransformComponent:
       Translation: [0, 0, 8]
@@ -1860,17 +2089,17 @@ Entities:
     Components:
       []
   - Entity: PatternCell
-    guid: 52cf8a9446a3b16b5b21cd20df1b2121b348b881b2dfb9d2f70b164b7dd343e8
+    guid: 1c05191197cd025c9c02084e9a40e876d9c123c3a440656d0829bba204e63f92
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: e32071bac31120fc2ac0754298e27f284369d7e7d62d6c4fe7e8a483f2844124
+        guid: 086cd22390df2d44f9185a8f9e63db6ecf401ced3fdbbbadc925ff067ffb8f1d
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1881,18 +2110,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 389c7b59ad07e12b6cb71f8c644fa2ca760d914f1238c38970b3c0b480604b3c
+        custom_name: ""
   - Entity: PatternCell
-    guid: 5fb7ed9ff7e7b2b61a58faeba60c12f19585bb2889bfcde3daca3eb3f7e312af
+    guid: 4a19256ca779416f207d508fee2bbc9f862902e8fc1d4245a0a410a54ae6c0fb
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: 554c63643a215b30f477a92ed562b2c567aeab1af58a04f62c450376d171f9e2
+        guid: d43516bddbcd12a98d3ae51fe013ad59b4610ddadb5ab4ba4f06447bd74ce6be
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1903,18 +2135,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 943de89c02af309f3df18fc998cd6d6a1cd0cd0f16080739aa45daa58a634cac
+        custom_name: ""
   - Entity: PatternCell
-    guid: 45fa688ab0cd79cef242868af668be3976238df2b4f6a0940182b2cb0c0cdb50
+    guid: e1ebe7c9b96f0c676bc09e8d5d072988fc523a53945aa91338591d3ba8ed3059
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: ff445c3e4cc3ed59ff59198c747eb8d007941d2d75270cf96d3942422a11a56c
+        guid: 85253b19d4a4ae2bddb4ae1e23dcd19ce2ea560eea243700d83aa923edeb5996
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1925,18 +2160,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 753d7088730be7cee00fcbb799b6ba716a43f4e901a38ce7dc662480f0d93dff
+        custom_name: ""
   - Entity: PatternCell
-    guid: 6ec693384fd8e4841347438c544078dab7cf26e242eb73f67b9a175aad1dab48
+    guid: dd0be3ef38ce0f429dfc0f6e0bd83ec1feb109ba66f291af599b5e7f48b87753
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: a331b14d979c15d01c6c7abc7670e924d33ea9ad145a8dc183e3ead96a952e4c
+        guid: 33daf352281e039dabb6a5de617fce8d6a5790fdbad5482eef160a4b4b26daad
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1947,18 +2185,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 63cb3520489ce36f967aa5b6d10d6102598985c314408befa193a92ec3bc05da
+        custom_name: ""
   - Entity: PatternCell
-    guid: dfefc6d358c75c43c51cf99a33a6f62f35f75c4f8411028bb85b52b756e32452
+    guid: 994e6051918d68992b0f2f44ab012d06cce621212ca7695138529285cb2ff305
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: 065ca95fb563a0884e52441b3ce073223c5e336e98d8808df80fa385e05e4593
+        guid: 668585c63f5ff6d64e15055bcf7aa01b3f1aeea6a44543e123347c2086850917
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1969,18 +2210,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 3b514b917c7e93d68b3dc244ea5d93ac6cdca334ce758f5e46414a77fed12d88
+        custom_name: ""
   - Entity: PatternCell
-    guid: 52c7fdccaf46e132c81b05a6f5a7e9e892dca0e2b7b74dd48df3c6cf6cefd580
+    guid: 0315b08888d49054a7e0ac5c324b5b6a316741fdfd9ab800b005f136454fa114
     Name: PatternCell
     TransformComponent:
       Translation: [1, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: d8013237246ce385a249d8ebbd98716470857dc3f408a18b7f690e8b32195c21
+        guid: 6c05cee143fd4604a3a56c3ff0c3e7121e3de0499b5ffb612ab1d8649e60a592
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -1991,18 +2235,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 6ef265f7f98b43aefabfe01944a5d82bd0126429e861d94d3d957baf6eb2e605
+        custom_name: ""
   - Entity: PatternCell
-    guid: 4c8eb1ef823f4ae67fa45e34cb79f85176520d0bd11bbe2058f418db11e0c8a4
+    guid: 3997fe30bb006fef19f93129b5d3f880ec5211b914c29d9a9b4f7204a1f825b5
     Name: PatternCell
     TransformComponent:
       Translation: [2, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: 88183e471a2600f1f3077f842e96374bdbb49c6e874fdc82a89d177ab8017a8e
+        guid: 28ed57f4a4d1d1cf8010a803aaff784bae32e5b76fefae9612c46dd9422af6df
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -2013,18 +2260,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: b1d2884983f50dc8f7858a3b203d3c2aba413dba6df4d21c894c093d406a4695
+        custom_name: ""
   - Entity: PatternCell
-    guid: 2a60888579550917cacc9132bf5eb0504de9bbd712b42156ef2465c4cf909783
+    guid: 9b0d0bd87a0df6c02f5d282d659704272c702be851dd93f4e05878110aa6f469
     Name: PatternCell
     TransformComponent:
       Translation: [3, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: e19c88170570a16aa82588b5cd4f400c095950a16ecb114f0ef4fd8d28a81d9f
+        guid: ff77076828d94f0f02a738fd639cd73753ab818c10902ac630dd6b30a698266e
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -2035,18 +2285,21 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+      - ComponentName: FieldCellComponent
+        guid: 625962463a909dc2e0dd0ad281b0c5a95b5ad969acb14f21d7fb86140cb6f2b1
+        custom_name: ""
   - Entity: PatternCell
-    guid: 5bc787d0a8a7940e4e419b35b5d443925488c9d51a129d1d9e0d0eb93afe47df
+    guid: 6324030c6f22c98096720f000bf1f4767693233cd40cb4bf98731946be2edd30
     Name: PatternCell
     TransformComponent:
       Translation: [4, 0, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: fa50dac86890e4e15e6d42641914417dac3864a2b308b76f645b52a0743cd83f
+        guid: 957b0c63b303ebd57706d54344dbac320bd0cb28e58511f7d872672525b8e5fb
     Components:
       - ComponentName: Collider2DComponent
-        guid: a3f3d96732bb21f1f129dc423d111145aebd28763ee6e4e562ad4c2dc88d9300
+        guid: eb76798f4cc935c1e9188f73ae3ffbfdd11c2197da173e43035d81b0558e7ac2
         custom_name: ""
         offset: [0, 0]
         is_trigger: true
@@ -2057,16 +2310,6 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
-  - Entity: FieldGrid
-    guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
-    Name: FieldGrid
-    TransformComponent:
-      Translation: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: ""
-    Components:
-      - ComponentName: FieldGridComponent
-        guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
+      - ComponentName: FieldCellComponent
+        guid: ff2488bf260b09010fa366fcc88e8fbdb8902fa4e5d6265651a1834be5cf0a15
         custom_name: ""
