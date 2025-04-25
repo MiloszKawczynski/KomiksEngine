@@ -77,7 +77,6 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
-#include "Game/Truther.h"
 // # Put new header here
 
 namespace Editor
@@ -269,13 +268,29 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
 
     draw_scene_save();
 
+    ImGui::Text("Search bar");
+
+    ImGui::SetNextItemWidth(-FLT_MIN);
+    ImGui::PushItemWidth(-FLT_MIN);
+    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(ImGui::GetStyle().FramePadding.x, 5));
+    ImGui::InputText("##filter", &m_content_search_filter);
+    ImGui::PopStyleVar();
+    ImGui::PopItemWidth();
+
+    std::ranges::transform(m_content_search_filter, m_content_search_filter.begin(), [](u8 const c) { return std::tolower(c); });
+
     if (ImGui::CollapsingHeader("Models"))
     {
         for (auto const& asset : m_assets)
         {
-            if (asset.type == AssetType::Model && ImGui::Selectable(asset.path.c_str()))
+            std::string ui_name_lower(asset.path.c_str());
+            std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
+            if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
             {
-                ImGui::SetClipboardText(asset.path.c_str());
+                if (asset.type == AssetType::Model && ImGui::Selectable(asset.path.c_str()))
+                {
+                    ImGui::SetClipboardText(asset.path.c_str());
+                }
             }
         }
     }
@@ -284,9 +299,14 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
     {
         for (auto const& asset : m_assets)
         {
-            if (asset.type == AssetType::Texture && ImGui::Selectable(asset.path.c_str()))
+            std::string ui_name_lower(asset.path.c_str());
+            std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
+            if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
             {
-                ImGui::SetClipboardText(asset.path.c_str());
+                if (asset.type == AssetType::Texture && ImGui::Selectable(asset.path.c_str()))
+                {
+                    ImGui::SetClipboardText(asset.path.c_str());
+                }
             }
         }
     }
@@ -295,9 +315,14 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
     {
         for (auto const& asset : m_assets)
         {
-            if (asset.type == AssetType::Audio && ImGui::Selectable(asset.path.c_str()))
+            std::string ui_name_lower(asset.path.c_str());
+            std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
+            if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
             {
-                ImGui::SetClipboardText(asset.path.c_str());
+                if (asset.type == AssetType::Audio && ImGui::Selectable(asset.path.c_str()))
+                {
+                    ImGui::SetClipboardText(asset.path.c_str());
+                }
             }
         }
     }
@@ -308,21 +333,26 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
     {
         for (auto const& asset : m_assets)
         {
-            if (asset.type == AssetType::Scene && ImGui::Selectable(asset.path.c_str()))
+            std::string ui_name_lower(asset.path.c_str());
+            std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
+            if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
             {
-                std::filesystem::path file_path(asset.path);
-                std::string const filename = file_path.stem().string();
-
-                if (!m_append_scene && !ctrl_pressed)
+                if (asset.type == AssetType::Scene && ImGui::Selectable(asset.path.c_str()))
                 {
-                    MainScene::get_instance()->unload();
-                }
+                    std::filesystem::path file_path(asset.path);
+                    std::string const filename = file_path.stem().string();
 
-                bool const loaded = load_scene_name(filename);
+                    if (!m_append_scene && !ctrl_pressed)
+                    {
+                        MainScene::get_instance()->unload();
+                    }
 
-                if (!loaded)
-                {
-                    Debug::log("Could not load a scene.", DebugType::Error);
+                    bool const loaded = load_scene_name(filename);
+
+                    if (!loaded)
+                    {
+                        Debug::log("Could not load a scene.", DebugType::Error);
+                    }
                 }
             }
         }
@@ -332,21 +362,26 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
     {
         for (auto const& asset : m_assets)
         {
-            if (asset.type == AssetType::Prefab && ImGui::Selectable(asset.path.c_str()))
+            std::string ui_name_lower(asset.path.c_str());
+            std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
+            if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
             {
-                std::filesystem::path file_path(asset.path);
-                std::string const filename = file_path.stem().string();
-
-                if (!m_append_scene && !ctrl_pressed)
+                if (asset.type == AssetType::Prefab && ImGui::Selectable(asset.path.c_str()))
                 {
-                    MainScene::get_instance()->unload();
-                }
+                    std::filesystem::path file_path(asset.path);
+                    std::string const filename = file_path.stem().string();
 
-                bool const loaded = load_prefab(filename);
+                    if (!m_append_scene && !ctrl_pressed)
+                    {
+                        MainScene::get_instance()->unload();
+                    }
 
-                if (!loaded)
-                {
-                    Debug::log("Could not load a prefab.", DebugType::Error);
+                    bool const loaded = load_prefab(filename);
+
+                    if (!loaded)
+                    {
+                        Debug::log("Could not load a prefab.", DebugType::Error);
+                    }
                 }
             }
         }
@@ -1705,5 +1740,4 @@ bool Editor::are_debug_drawings_enabled() const
 }
 
 #endif
-
 }

@@ -277,6 +277,7 @@ private:
     std::array<std::string, 1> m_known_textures_formats = {".png"};
 
     std::string m_search_filter = {};
+    std::string m_content_search_filter = {};
     bool m_is_camera_options_locked = false;
 
     bool m_append_scene = false;
