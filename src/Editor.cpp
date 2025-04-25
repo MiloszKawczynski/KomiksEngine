@@ -41,6 +41,7 @@
 #include "Game/CustomerManager.h"
 #include "Game/EndScreen.h"
 #include "Game/Factory.h"
+#include "Game/FieldGrid.h"
 #include "Game/GameController.h"
 #include "Game/HovercraftWithoutKeeper.h"
 #include "Game/IceBound.h"

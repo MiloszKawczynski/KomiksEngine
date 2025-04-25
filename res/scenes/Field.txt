@@ -30,7 +30,7 @@ Entities:
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -38,7 +38,7 @@ Entities:
     Name: PatternCell
     TransformComponent:
       Translation: [-4, 0, -4]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: 3e1c660fbfda9dd4be9b8cbfe87c81fc09e6d8069903898a0a3534664668c6d7
@@ -60,7 +60,7 @@ Entities:
     Name: Field
     TransformComponent:
       Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [0.0500000007, 0.0500000007, 0.0500000007]
       Parent:
         guid: ""
@@ -85,7 +85,7 @@ Entities:
     TransformComponent:
       Translation: [3.57773829, -0.0115939351, -2.00527859]
       Rotation: [178.386627, -26.1934986, 176.709991]
-      Scale: [0.999995589, 0.999998271, 0.99999553]
+      Scale: [1, 1, 1]
       Parent:
         guid: ""
     Components:
@@ -214,7 +214,7 @@ Entities:
     Name: PatternCell
     TransformComponent:
       Translation: [-3, 0, -4]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: 3e1c660fbfda9dd4be9b8cbfe87c81fc09e6d8069903898a0a3534664668c6d7
@@ -236,7 +236,7 @@ Entities:
     Name: PatternCell
     TransformComponent:
       Translation: [-2, 0, -4]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: 3e1c660fbfda9dd4be9b8cbfe87c81fc09e6d8069903898a0a3534664668c6d7
@@ -258,7 +258,7 @@ Entities:
     Name: PatternCell
     TransformComponent:
       Translation: [-1, 0, -4]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: 3e1c660fbfda9dd4be9b8cbfe87c81fc09e6d8069903898a0a3534664668c6d7
@@ -280,7 +280,7 @@ Entities:
     Name: PatternCell
     TransformComponent:
       Translation: [0, 0, -4]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: 3e1c660fbfda9dd4be9b8cbfe87c81fc09e6d8069903898a0a3534664668c6d7
@@ -390,10 +390,10 @@ Entities:
     Name: Row2
     TransformComponent:
       Translation: [0, 0, 1]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -599,10 +599,10 @@ Entities:
     Name: Row3
     TransformComponent:
       Translation: [0, 0, 2]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -808,10 +808,10 @@ Entities:
     Name: Row4
     TransformComponent:
       Translation: [0, 0, 3]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -1017,10 +1017,10 @@ Entities:
     Name: Row5
     TransformComponent:
       Translation: [0, 0, 4]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -1226,10 +1226,10 @@ Entities:
     Name: Row6
     TransformComponent:
       Translation: [0, 0, 5]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -1435,10 +1435,10 @@ Entities:
     Name: Row7
     TransformComponent:
       Translation: [0, 0, 6]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -1644,10 +1644,10 @@ Entities:
     Name: Row8
     TransformComponent:
       Translation: [0, 0, 7]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -1856,7 +1856,7 @@ Entities:
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: ""
+        guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Components:
       []
   - Entity: PatternCell
@@ -2057,3 +2057,16 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+  - Entity: FieldGrid
+    guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
+    Name: FieldGrid
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: FieldGridComponent
+        guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
+        custom_name: ""
