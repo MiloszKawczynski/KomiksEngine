@@ -273,7 +273,7 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
     {
         for (auto const& asset : m_assets)
         {
-            if (asset.type != AssetType::Scene && asset.type != AssetType::Prefab && ImGui::Selectable(asset.path.c_str()))
+            if (asset.type == AssetType::Model && ImGui::Selectable(asset.path.c_str()))
             {
                 ImGui::SetClipboardText(asset.path.c_str());
             }
