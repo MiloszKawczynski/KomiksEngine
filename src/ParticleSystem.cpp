@@ -72,6 +72,16 @@ void ParticleSystem::update()
 
 void ParticleSystem::update_system()
 {
+    if (play_once && !m_first_time_spawning)
+    {
+        if (entity->transform->children.empty())
+        {
+            entity->destroy_immediate();
+        }
+
+        return;
+    }
+
     if (m_spawn_data_vector.empty())
     {
         spawn_calculations();
@@ -79,6 +89,7 @@ void ParticleSystem::update_system()
     else
     {
         //  TODO: Modes in shader/cbuffer: override/multiply color, adjustable alpha bias
+        m_first_time_spawning = false;
 
         for (i32 i = 0; i < m_random_spawn_count; i++)
         {
@@ -117,9 +128,6 @@ void ParticleSystem::update_system()
             i -= 1;
             m_random_spawn_count -= 1;
         }
-
-        if (play_once && m_spawn_data_vector.empty())
-            entity->destroy_immediate();
     }
     m_time_counter += delta_time;
 }
@@ -150,6 +158,6 @@ void ParticleSystem::spawn_calculations()
 
         m_spawn_data_vector.emplace_back(data);
     }
-    m_first_time_spawning = false;
+
     m_time_counter = 0.0;
 }
