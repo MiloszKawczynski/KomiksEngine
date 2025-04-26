@@ -46,7 +46,7 @@ bool FieldGrid::get_cell_value(u32 x, u32 y)
 
 std::weak_ptr<Entity> FieldGrid::get_cell()
 {
-    return entity->transform->children.at(glm::linearRand(0, rows_number * rows_number))->entity;
+    return entity->transform->children.at(glm::linearRand(0, rows_number * rows_number - 1))->entity;
 }
 
 float FieldGrid::calculate_faked_similarity()

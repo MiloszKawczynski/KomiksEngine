@@ -11,6 +11,7 @@
 #if EDITOR
 #include "imgui_extensions.h"
 #endif
+#include <Game/EndScreenFoliage.h>
 #include <Globals.h>
 
 std::shared_ptr<CowManager> CowManager::create()
@@ -67,6 +68,14 @@ void CowManager::update()
     if (time > 0.0f)
     {
         time -= delta_time;
+    }
+    else
+    {
+        if (!does_level_ended)
+        {
+            end_level();
+            does_level_ended = true;
+        }
     }
 }
 
@@ -168,4 +177,10 @@ void CowManager::spawn_jeep()
 void CowManager::activate_ufo()
 {
     ufo.lock()->choose_position();
+}
+
+void CowManager::end_level()
+{
+    auto end_screen = SceneSerializer::load_prefab("EndScreenFoliage");
+    end_screen->get_component<EndScreenFoliage>()->update_background();
 }
