@@ -1,17 +1,17 @@
 Scene: Untitled
 Entities:
   - Entity: Wheat2
-    guid: a87dbf48cc8afff67df579b2e5e5e1b1f74f8c92b6f753550d6681c31be8eb82
+    guid: b3c23d31189fa8ff8f8adafe62213578c6a7e84753369b83f8dde3a737d5d32b
     Name: Wheat2
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
-      Scale: [0.25, 0.200000003, 0.25]
+      Scale: [0.200000003, 0.200000003, 0.200000003]
       Parent:
         guid: ""
     Components:
       - ComponentName: ModelComponent
-        guid: a7a7f49373269477d1efaf3cc3bc0750a3282fc149a2973b902ba240416beb20
+        guid: 25f65fdee02059d81e1110670911c24fca240095fca3f968059b9f06b3e13e5b
         custom_name: ""
         model_path: ./res/models\wheat2\wheat2.gltf
         material:
@@ -25,5 +25,5 @@ Entities:
           CastsShadows: true
           IsBillboard: false
       - ComponentName: WheatComponent
-        guid: 339a201bee891363db3134d6815ac5391106d1738a2bdb3777a12896a92d25f8
+        guid: 553d7ca124422f9626b9294b332433c8f5b6239aedf4bc21eb514d2cf3968ccc
         custom_name: ""
