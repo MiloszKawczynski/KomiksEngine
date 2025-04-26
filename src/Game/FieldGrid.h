@@ -22,7 +22,10 @@ public:
     float punishment_multiplier = 0.08f;
 
 private:
-    i32 m_rows_number = 9;
+    void generate_grid_colliders();
+
+    i32 m_rows_number = 13;
+    float cell_size_and_offset = 9.0f / 13.0f;
     std::vector<std::weak_ptr<Entity>> m_grid_rows = {};
 
     // A DATABASE OF REFERENCE GRID PATTERNS
