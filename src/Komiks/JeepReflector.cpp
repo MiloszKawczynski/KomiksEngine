@@ -26,6 +26,9 @@ void JeepReflector::awake()
 
     m_spotlight = entity->get_component<SpotLight>();
 
+    // HACK: We need a really low far plane for some reason.
+    m_spotlight.lock()->m_far_plane = 0.01f;
+
     if (m_spotlight.expired())
     {
         Debug::log("No spotlight attached to JeepReflector!", DebugType::Error);
@@ -49,7 +52,7 @@ void JeepReflector::update()
 
     {
         auto new_position = jeep_entity->transform->get_position();
-        new_position.y = 0.6f;
+        new_position.y = 0.4f;
         entity->transform->set_position(new_position);
 
         auto const light_locked = m_spotlight.lock();
@@ -64,25 +67,6 @@ void JeepReflector::update()
         light_locked->cut_off = cos(aperture);
         light_locked->outer_cut_off = cos(aperture);
         light_locked->entity->transform->orient_towards(destination);
-    }
-
-    // Rotation
-    return;
-    //set_destination()
-
-    glm::quat const current_quat = entity->transform->get_rotation();
-
-    float t = 0.1f;
-    glm::quat const smooth_quat = glm::slerp(current_quat, m_target_rot, t);
-
-    glm::vec3 const smooth_euler_rad = glm::eulerAngles(smooth_quat);
-    glm::vec3 const smooth_euler_deg = glm::degrees(smooth_euler_rad);
-    entity->transform->set_rotation(smooth_euler_deg);
-
-    float angle_diff = glm::degrees(glm::angle(smooth_quat * glm::inverse(m_target_rot)));
-    if (angle_diff < 0.5f)
-    {
-        //m_bending = false;
     }
 }
 

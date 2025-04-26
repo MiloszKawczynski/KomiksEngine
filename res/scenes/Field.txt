@@ -336,3 +336,110 @@ Entities:
         m_pcf_num_samples: 16
         m_light_world_size: 0.5
         m_light_frustum_width: 30
+  - Entity: JeepAndReflector
+    guid: 211d8e9051c54dcd96cf972a5135961c03eae137229845a7fa28dbb267af7ef2
+    Name: JeepAndReflector
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      []
+  - Entity: Jeep
+    guid: de4323d49d9d37dea7626c4f3f9a0bcea8bc7451212460a7965554e7668b67b8
+    Name: Jeep
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [2, 2, 2]
+      Parent:
+        guid: 211d8e9051c54dcd96cf972a5135961c03eae137229845a7fa28dbb267af7ef2
+    Components:
+      - ComponentName: PathComponent
+        guid: 9783e6320b95210fe81d3c092570c87a6a74c4b31f1d4e56e0ed9d9e37c7ab9d
+        custom_name: ""
+        points:
+          - [-5.01866913, -4.75103235]
+          - [-5.01866913, 5.15290737]
+          - [5.06346655, 5.15290737]
+          - [5.06346655, -5.07014847]
+          - [-4.8888793, -5.07014847]
+      - ComponentName: ModelComponent
+        guid: 9533b0da69d8a2b131401c877463c5687157eca01db542e74c70759f6303e656
+        custom_name: ""
+        model_path: ./res/models\jeep_base\jeep.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: JeepComponent
+        guid: d92eba6d994e6c937f6fc30a33a6a4ef39de9c0f20a7fab688f3cb9bcfa1a31c
+        custom_name: ""
+        maximum_speed: 5
+        acceleration: 0.200000003
+        deceleration: 0.100000001
+        player:
+          guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
+  - Entity: Child
+    guid: 530d7664d3f7e5039fcdf837f32621e6457bb4c8f3018c9311cef57bfae7e73c
+    Name: Child
+    TransformComponent:
+      Translation: [0, -0.0479924344, -0.150000006]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: de4323d49d9d37dea7626c4f3f9a0bcea8bc7451212460a7965554e7668b67b8
+    Components:
+      - ComponentName: Collider2DComponent
+        guid: 20c2b17a6147e4ab896d4be29755c63fa59f870e0ae31427532986743f321163
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: false
+        collider_type: 1
+        width: 1
+        height: 1
+        radius: 0.349999994
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Reflector
+    guid: 68842699f5f06a896b672b0bc8db042bd4de3fddf17e21a4f19a06704e675403
+    Name: Reflector
+    TransformComponent:
+      Translation: [0.31099999, 0.751999974, 0.484887719]
+      Rotation: [0, -7.19999981, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 211d8e9051c54dcd96cf972a5135961c03eae137229845a7fa28dbb267af7ef2
+    Components:
+      - ComponentName: SpotLightComponent
+        guid: 5cfe95afdd26ee45d65263cb57164e4d3949689089bfe84acf26cae23bcc763c
+        custom_name: ""
+        constant: 1
+        linear: 0.0900000036
+        quadratic: 0.0320000015
+        scattering_factor: 1
+        cut_off: 0.843391418
+        outer_cut_off: 0.49999997
+        ambient: [0.200000003, 0.200000003, 0.200000003]
+        diffuse: [1, 1, 1]
+        specular: [1, 1, 1]
+        m_near_plane: -9.75
+        m_far_plane: 0.100000001
+        m_blocker_search_num_samples: 16
+        m_pcf_num_samples: 16
+        m_light_world_size: 0.5
+        m_light_frustum_width: 30
+      - ComponentName: JeepReflectorComponent
+        guid: 38fd4da77debad54345f506eb952497ef7a310fa6709561a076bb8433ee0b7ee
+        custom_name: ""
+        jeep:
+          guid: d92eba6d994e6c937f6fc30a33a6a4ef39de9c0f20a7fab688f3cb9bcfa1a31c
