@@ -28,6 +28,6 @@ private:
     glm::vec2 m_destination = {};
     std::weak_ptr<Collider2D> m_collider = {};
     float m_height = 0.0f;
-    float m_gravitation = 0.01f;
+    float m_gravitation = 0.001f;
     float m_velocity = 0.0f;
 };

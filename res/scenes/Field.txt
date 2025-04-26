@@ -131,9 +131,9 @@ Entities:
         maximum_speed: 2
         acceleration: 0.5
         deceleration: 0.100000001
-        jump_power: 0.100000001
+        jump_power: 0.0250000004
         jump_horizontal_power: 2.5
-        gravitation: 0.00499999989
+        gravitation: 0.00100000005
         suck_power: 0.00999999978
         is_sucked: false
         wheat_overlay:
@@ -268,7 +268,7 @@ Entities:
     Name: UFO
     TransformComponent:
       Translation: [10.7037325, 2, -0.799844265]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: ""

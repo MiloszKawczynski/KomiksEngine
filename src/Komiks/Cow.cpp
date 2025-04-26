@@ -75,7 +75,11 @@ void Cow::fixed_update()
     }
     else
     {
-        m_height += 0.01f;
+        if (m_height < 1.25f)
+        {
+            m_height += 0.01f;
+        }
+
         entity->transform->set_local_position(
             {entity->transform->get_local_position().x, m_height, entity->transform->get_local_position().z});
     }

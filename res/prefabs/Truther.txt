@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Truther
-    guid: 5fb017fb9d39c9b1c920e4ef8513f8f55a9aadb9ea0f976c0276ccad2e635162
+    guid: 3158f00debfc8690357db50344611bb0d6972948668d8189d9bb342c484e53ca
     Name: Truther
     TransformComponent:
       Translation: [-4.63779974, 0, 1.15108466]
@@ -11,7 +11,7 @@ Entities:
         guid: ""
     Components:
       - ComponentName: ModelComponent
-        guid: 970ddd72925076bb3aa80eabf3ab80bc7540704ee6129dca00f48304bbf8c2e0
+        guid: b48b31c6f0b372d5cf29496a122d0833bf52fe89be13bc37258a6fa1e5593db2
         custom_name: ""
         model_path: ./res/models/keeperInHovercraft/keeper.gltf
         material:
@@ -25,7 +25,7 @@ Entities:
           CastsShadows: true
           IsBillboard: false
       - ComponentName: Collider2DComponent
-        guid: 593610a2b2528f49ca403f974c7c9b150ec18bee6d2a545aaf486e8955ecefb9
+        guid: f51b8f896383cf0e7284b55dc8ed02dcce0ab65ffde7076c83e914c07a99e004
         custom_name: ""
         offset: [0, 0]
         is_trigger: false
@@ -37,14 +37,16 @@ Entities:
         drag: 0.00999999978
         velocity: [0, 0]
       - ComponentName: TrutherComponent
-        guid: 4664d58c626710ea356589d64f51f98f2a71d70a9a9663a3b1b007f3e5436a2d
+        guid: ba47e9e7a7cbebd6b512dd484b8a60bd26458d3d66c259c35540982e1a78795d
         custom_name: ""
         truther_bends: true
         maximum_speed: 2
         acceleration: 0.5
         deceleration: 0.100000001
-        jump_power: 0.100000001
+        jump_power: 0.0250000004
         jump_horizontal_power: 2.5
-        gravitation: 0.00499999989
+        gravitation: 0.00100000005
+        suck_power: 0.00999999978
+        is_sucked: false
         wheat_overlay:
           guid: nullptr

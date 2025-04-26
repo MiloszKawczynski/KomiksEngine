@@ -108,8 +108,7 @@ void UFO::update()
         glm::vec3 cow_position = l_cow->entity->transform->get_local_position();
 
         l_cow->is_sucked = false;
-        if (glm::distance(glm::vec2(cow_position.x, cow_position.z), glm::vec2(my_position.x, my_position.z)) < 1.69f
-            && cow_position.y < 1.25f)
+        if (glm::distance(glm::vec2(cow_position.x, cow_position.z), glm::vec2(my_position.x, my_position.z)) < 1.69f)
         {
             l_cow->is_sucked = true;
             l_cow->entity->transform->set_local_position(glm::mix(cow_position, my_position, 0.04f));
