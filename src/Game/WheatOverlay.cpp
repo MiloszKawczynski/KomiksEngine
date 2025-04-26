@@ -33,12 +33,13 @@ void WheatOverlay::update()
     {
         m_timer += delta_time;
 
-        m_flash = std::pow(std::sin(m_timer), 2);
+        m_flash = std::pow(std::sin(m_timer), 2) * 0.25 + 0.25;
 
         set_overlay_alpha(m_flash);
     }
     else
     {
+        m_timer = 0.0f;
         set_overlay_alpha(0.0f);
     }
 }
