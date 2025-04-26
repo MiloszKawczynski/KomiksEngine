@@ -76,6 +76,7 @@
 #include "Komiks/Wheat.h"
 #include "Quad.h"
 #include "Game/WheatOverlay.h"
+#include "Komiks/UFO.h"
 // # Put new header here
 
 SceneSerializer::SceneSerializer(std::shared_ptr<Scene> const& scene) : m_scene(scene)
@@ -822,6 +823,15 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "guid" << YAML::Value << cowmanager->guid;
         out << YAML::Key << "custom_name" << YAML::Value << cowmanager->custom_name;
         out << YAML::Key << "paths" << YAML::Value << cowmanager->paths;
+        out << YAML::EndMap;
+    }
+    else
+    if (auto const ufo = std::dynamic_pointer_cast<class UFO>(component); ufo != nullptr)
+    {
+        out << YAML::BeginMap;
+        out << YAML::Key << "ComponentName" << YAML::Value << "UFOComponent";
+        out << YAML::Key << "guid" << YAML::Value << ufo->guid;
+        out << YAML::Key << "custom_name" << YAML::Value << ufo->custom_name;
         out << YAML::EndMap;
     }
     else
@@ -2737,6 +2747,23 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->paths = component["paths"].as<std::vector<std::weak_ptr<Path>>>();
             }
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
+    if (component_name == "UFOComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = UFO::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class UFO>(get_from_pool(component["guid"].as<std::string>()));
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
         }

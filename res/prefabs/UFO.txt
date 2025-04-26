@@ -1,0 +1,67 @@
+Scene: Untitled
+Entities:
+  - Entity: UFO
+    guid: 0d071c30977b943f3f6720c1ffcf322f34ba1744ffade35283c470245470df45
+    Name: UFO
+    TransformComponent:
+      Translation: [0, 4.91106224, 0]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: UFOComponent
+        guid: 3131db697670eac4b242a056b1d11909639ac222bdcf06377b1ae4e962d3e7a8
+        custom_name: ""
+  - Entity: Model
+    guid: 80b847a4e809c8a8963391796faef9619312ccdb93dc0ceeba53ee684d73b923
+    Name: Model
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 0d071c30977b943f3f6720c1ffcf322f34ba1744ffade35283c470245470df45
+    Components:
+      - ComponentName: ModelComponent
+        guid: aab56be45574d71524354db0fc9a6f623113843048a5110a18ac6108be8478ee
+        custom_name: ""
+        model_path: ./res/models\hovercraft\hovercraft.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Spotlight
+    guid: db4f5d422f9a52e7949996750e5f72a079ea9402470e8659fc1b9df1c55fa7e1
+    Name: Spotlight
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [-89.9999847, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 0d071c30977b943f3f6720c1ffcf322f34ba1744ffade35283c470245470df45
+    Components:
+      - ComponentName: SpotLightComponent
+        guid: 95fc05972e420bcc993d8744d3f7bc3ad8066ae84b9a095f469a00d9500015e1
+        custom_name: ""
+        constant: 1
+        linear: 1
+        quadratic: 1
+        scattering_factor: 0.061999999
+        cut_off: 0.967998862
+        outer_cut_off: 0.901674092
+        ambient: [0.200000003, 0.200000003, 0.200000003]
+        diffuse: [0.133333325, 1, 0]
+        specular: [1, 1, 1]
+        m_near_plane: 0.5
+        m_far_plane: 25.2299995
+        m_blocker_search_num_samples: 16
+        m_pcf_num_samples: 16
+        m_light_world_size: 0.5
+        m_light_frustum_width: 30
