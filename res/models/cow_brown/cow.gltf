@@ -64,7 +64,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":827,
+			"count":830,
 			"max":[
 				0.13211242854595184,
 				0.28275585174560547,
@@ -80,13 +80,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":827,
+			"count":830,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":827,
+			"count":830,
 			"type":"VEC2"
 		},
 		{
@@ -99,26 +99,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":9924,
+			"byteLength":9960,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":9924,
-			"byteOffset":9924,
+			"byteLength":9960,
+			"byteOffset":9960,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6616,
-			"byteOffset":19848,
+			"byteLength":6640,
+			"byteOffset":19920,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":4344,
-			"byteOffset":26464,
+			"byteOffset":26560,
 			"target":34963
 		}
 	],
@@ -130,7 +130,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":30808,
+			"byteLength":30904,
 			"uri":"cow.bin"
 		}
 	]
