@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Cow
-    guid: 1fd419407780aa92efed4148001738e6e7bb19840f1fb4fffd336c67f8514dc7
+    guid: 5a3914eef5bcb856f281590bd50cd901bfe9d9fbc90833eeca6ac108698e4fe6
     Name: Cow
     TransformComponent:
       Translation: [0, 0, 0.0820000023]
@@ -11,84 +11,36 @@ Entities:
         guid: ""
     Components:
       - ComponentName: CowComponent
-        guid: 2a5cf8ce017f2ff46a90a0551b40dadbf7ad3da64cef7ad58ee4a19d75d874a6
+        guid: c6c93f79c0b46d95af49d026d8a3f4e3a9da341c79d12eb15156ef818a4aea02
         custom_name: ""
         cow_manager:
           guid: nullptr
       - ComponentName: Collider2DComponent
-        guid: 9c78f05887ff15b6135d12bcf2dbf1619d79e066a45c4db4e41b3d8ae22f9053
+        guid: 1c8ff8768111b681405db853aed0f73636d30ff5baf02e1551df09d4d3652bd5
         custom_name: ""
         offset: [0, 0]
         is_trigger: false
         is_static: false
         collider_type: 1
-        width: 1
-        height: 1
+        width: 0.449999988
+        height: 1.10000002
         radius: 0.400000006
         drag: 0.00999999978
         velocity: [0, 0]
   - Entity: Child
-    guid: 3824e4f6ed4491fd2072dd81e0131dd04fb1053ec3eaeee8a39fd63c145f35d9
+    guid: 3acd8a40aa741b9becb78b4ea66f48b3054beeb4bbf42fa72ca2483fbbb29452
     Name: Child
     TransformComponent:
-      Translation: [-0.390467435, 0.420016676, -7.4505806e-08]
-      Rotation: [0, 0, -90]
-      Scale: [2.49998665, 2.99998665, 2.5]
+      Translation: [-0.0126386657, 0, -0.0455761291]
+      Rotation: [0, 90, 0]
+      Scale: [2.19992399, 2.20000005, 2.19992399]
       Parent:
-        guid: 1fd419407780aa92efed4148001738e6e7bb19840f1fb4fffd336c67f8514dc7
+        guid: 5a3914eef5bcb856f281590bd50cd901bfe9d9fbc90833eeca6ac108698e4fe6
     Components:
       - ComponentName: ModelComponent
-        guid: 3bda41c2efb41f86acd6b56bfa5982c90f05168e261dc08f7aefbcdf66d45a10
+        guid: 4f38df291e6a864b811c5ee862f46be944f2ed421d583e7830e8caf9178381b3
         custom_name: ""
-        model_path: ./res/models\penguin\body.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-  - Entity: Left
-    guid: a23cb5f0814f6ba5833597f2b761f487ed4ca081b00bf3d4f3de6b3977da9b80
-    Name: Left
-    TransformComponent:
-      Translation: [-1.93715096e-06, 0.171999976, -0.0818487555]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: 3824e4f6ed4491fd2072dd81e0131dd04fb1053ec3eaeee8a39fd63c145f35d9
-    Components:
-      - ComponentName: ModelComponent
-        guid: 513a09bcc9b593252b36050b17b8a58ca981f63a4b6c75ff6f4cea289ce46621
-        custom_name: ""
-        model_path: ./res/models\penguin\wing_left.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-  - Entity: Right
-    guid: c4af5bd692af58e9d9fa4cac47d9788d9c2e6cab516b820c66a5cfd5a499f460
-    Name: Right
-    TransformComponent:
-      Translation: [0, 0.172000006, 0.0820000023]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: 3824e4f6ed4491fd2072dd81e0131dd04fb1053ec3eaeee8a39fd63c145f35d9
-    Components:
-      - ComponentName: ModelComponent
-        guid: 16e9eba9ee7bf56ee13ba57a49ac98885e448eea2330e4c239ab55b54c042c22
-        custom_name: ""
-        model_path: ./res/models\penguin\wing_right.gltf
+        model_path: ./res/models\cow\cow.gltf
         material:
           Shader:
             VertexPath: ./res/shaders/lit.hlsl
