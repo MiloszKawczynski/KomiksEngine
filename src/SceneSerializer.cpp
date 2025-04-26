@@ -838,6 +838,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "custom_name" << YAML::Value << ufo->custom_name;
         out << YAML::Key << "field_grid" << YAML::Value << ufo->field_grid;
         out << YAML::Key << "truther" << YAML::Value << ufo->truther;
+        out << YAML::Key << "attract_bean" << YAML::Value << ufo->attract_bean;
         out << YAML::EndMap;
     }
     else
@@ -2793,6 +2794,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["truther"].IsDefined())
             {
                 deserialized_component->truther = component["truther"].as<std::weak_ptr<Truther>>();
+            }
+            if (component["attract_bean"].IsDefined())
+            {
+                deserialized_component->attract_bean = component["attract_bean"].as<std::weak_ptr<SpotLight>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

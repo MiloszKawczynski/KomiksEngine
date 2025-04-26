@@ -38,29 +38,53 @@ void UFO::start()
 
 void UFO::update()
 {
-    if (m_move_timer < m_move_duration)
+    if (m_is_active)
     {
-        m_move_timer += delta_time * 0.5f;
-
-        float t = glm::clamp(m_move_timer / m_move_duration, 0.0f, 1.0f); // progress [0,1]
-        float eased_t = glm::backEaseOut(t); // smooth it
-
-        glm::vec3 new_position = glm::mix(m_start_position, m_destination, eased_t); // interpolate
-
-        entity->transform->set_position(new_position);
-    }
-    else
-    {
-        entity->transform->set_position(m_destination); // snap exactly at the end
-
-        for (auto& wheat : Wheat::all_wheat)
+        if (m_move_timer < m_move_duration)
         {
-            auto const l_wheat = wheat.lock();
+            m_move_timer += delta_time * 0.5f;
 
-            if (glm::distance(AK::convert_3d_to_2d(m_destination), AK::convert_3d_to_2d(l_wheat->entity->transform->get_position()))
-                < 1.69f)
+            float t = glm::clamp(m_move_timer / m_move_duration, 0.0f, 1.0f); // progress [0,1]
+            float eased_t = glm::backEaseOut(t); // smooth it
+
+            glm::vec3 new_position = glm::mix(m_start_position, m_destination, eased_t); // interpolate
+
+            entity->transform->set_position(new_position);
+        }
+        else
+        {
+            if (!m_is_unbending_done)
             {
-                l_wheat->set_bended(false, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - m_destination));
+                entity->transform->set_position(m_destination); // snap exactly at the end
+
+                for (auto& wheat : Wheat::all_wheat)
+                {
+                    auto const l_wheat = wheat.lock();
+
+                    if (glm::distance(AK::convert_3d_to_2d(m_destination), AK::convert_3d_to_2d(l_wheat->entity->transform->get_position()))
+                        < 1.69f)
+                    {
+                        l_wheat->set_bended(false, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - m_destination));
+                    }
+                }
+
+                m_beam_radius = 40.0f;
+
+                m_is_unbending_done = true;
+            }
+            else
+            {
+                if (m_beam_radius < 22.0f)
+                {
+                    m_destination = {(rand() % 2 == 0 ? -9.0f : 9.0), 2.0f, (rand() % 2 == 0 ? -7.0f : 7.0f)};
+                    m_move_timer = 0.0f;
+                    m_is_unbending_done = false;
+                    m_start_position = entity->transform->get_position();
+                }
+                else
+                {
+                    m_beam_radius = std::lerp(m_beam_radius, 20.0f, 0.1f);
+                }
             }
         }
     }
@@ -74,6 +98,8 @@ void UFO::update()
         truther.lock()->is_sucked = true;
         truther.lock()->entity->transform->set_local_position(glm::mix(truther_position, my_position, 0.03f));
     }
+
+    attract_bean.lock()->outer_cut_off = glm::cos(glm::radians(m_beam_radius));
 }
 
 #if EDITOR
@@ -87,16 +113,18 @@ void UFO::draw_editor()
         choose_position();
         m_start_position = entity->transform->get_position();
         m_move_timer = 0.0f;
+        m_is_active = true;
     }
 
     ImGuiEx::draw_ptr("Field Grid", field_grid);
     ImGuiEx::draw_ptr("Truther", truther);
+    ImGuiEx::draw_ptr("Attract Bean", attract_bean);
 }
 #endif
 
 void UFO::choose_position()
 {
-    glm::vec3 target = field_grid.lock()->get_cell().lock()->transform->get_local_position();
+    glm::vec3 target = field_grid.lock()->get_cell().lock()->transform->get_position();
 
     m_destination = {target.x, 2.0f, target.z};
 }
