@@ -39,6 +39,11 @@ void FieldGrid::set_cell(bool value, u32 x, u32 y)
     m_current_field_status[rows_number * y + x] = value;
 }
 
+void FieldGrid::set_cell(bool value, u32 id)
+{
+    m_current_field_status[id] = value;
+}
+
 bool FieldGrid::get_cell_value(u32 x, u32 y)
 {
     return m_current_field_status[rows_number * y + x];
@@ -71,11 +76,25 @@ float FieldGrid::calculate_faked_similarity()
             downed++;
     }
 
+    Debug::log(std::to_string(good), DebugType::Warning);
+    Debug::log(std::to_string(all), DebugType::Warning);
+
     similarity = static_cast<float>(good) / static_cast<float>(all);
+
+    Debug::log(std::to_string(similarity), DebugType::Warning);
+    Debug::log(std::to_string(downed_reference), DebugType::Warning);
+    Debug::log(std::to_string(downed), DebugType::Warning);
+
     similarity -= abs(static_cast<float>(downed_reference) - static_cast<float>(downed)) * punishment_multiplier;
+
+    Debug::log(std::to_string(similarity), DebugType::Warning);
+
     similarity = std::clamp(similarity, 0.0f, 1.0f);
 
     // similarity = AK::Math::map_range_clamped(0.5f, 1.0f, 0.0f, 1.0f, similarity);
+
+    Debug::log(std::to_string(similarity * 100.0f), DebugType::Warning);
+
     return similarity * 100.0f; // %
 }
 
