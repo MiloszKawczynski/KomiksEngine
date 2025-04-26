@@ -38,8 +38,6 @@ private:
 
     void update_quad() const;
 
-    std::shared_ptr<Material> m_particle_material = {};
-
     ID3D11Buffer* m_constant_buffer_particle = nullptr;
 
     std::shared_ptr<Mesh> m_mesh = {};

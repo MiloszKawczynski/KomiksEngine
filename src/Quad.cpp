@@ -30,8 +30,7 @@ std::shared_ptr<Quad> Quad::create()
     return quad;
 }
 
-Quad::Quad(AK::Badge<Quad>, std::string const& sprite_path, std::shared_ptr<Material> const& mat)
-    : Drawable(mat), path(sprite_path), m_particle_material(mat)
+Quad::Quad(AK::Badge<Quad>, std::string const& sprite_path, std::shared_ptr<Material> const& mat) : Drawable(mat), path(sprite_path)
 {
 }
 
@@ -83,7 +82,7 @@ void Quad::reprepare()
 
 void Quad::update_quad() const
 {
-    m_particle_material->color = m_color;
+    material->color = m_color;
 }
 
 void Quad::update()
