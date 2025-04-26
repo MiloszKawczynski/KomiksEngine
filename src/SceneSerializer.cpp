@@ -52,6 +52,9 @@
 #include "Game/ShipSpawner.h"
 #include "Game/Thanks.h"
 #include "Game/Truther.h"
+#include "Komiks/Cow.h"
+#include "Komiks/CowManager.h"
+#include "Komiks/Wheat.h"
 #include "Light.h"
 #include "Model.h"
 #include "NowPromptTrigger.h"
@@ -68,9 +71,6 @@
 #include "Sprite.h"
 #include "Water.h"
 #include "yaml-cpp-extensions.h"
-#include "Game/Truther.h"
-#include "Game/FieldGrid.h"
-#include "Komiks/Wheat.h"
 // # Put new header here
 
 SceneSerializer::SceneSerializer(std::shared_ptr<Scene> const& scene) : m_scene(scene)
@@ -733,6 +733,26 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "custom_name" << YAML::Value << playerinput->custom_name;
         out << YAML::Key << "player_speed" << YAML::Value << playerinput->player_speed;
         out << YAML::Key << "camera_speed" << YAML::Value << playerinput->camera_speed;
+        out << YAML::EndMap;
+    }
+    else
+    if (auto const cow = std::dynamic_pointer_cast<class Cow>(component); cow != nullptr)
+    {
+        out << YAML::BeginMap;
+        out << YAML::Key << "ComponentName" << YAML::Value << "CowComponent";
+        out << YAML::Key << "guid" << YAML::Value << cow->guid;
+        out << YAML::Key << "custom_name" << YAML::Value << cow->custom_name;
+        out << YAML::Key << "cow_manager" << YAML::Value << cow->cow_manager;
+        out << YAML::EndMap;
+    }
+    else
+    if (auto const cowmanager = std::dynamic_pointer_cast<class CowManager>(component); cowmanager != nullptr)
+    {
+        out << YAML::BeginMap;
+        out << YAML::Key << "ComponentName" << YAML::Value << "CowManagerComponent";
+        out << YAML::Key << "guid" << YAML::Value << cowmanager->guid;
+        out << YAML::Key << "custom_name" << YAML::Value << cowmanager->custom_name;
+        out << YAML::Key << "paths" << YAML::Value << cowmanager->paths;
         out << YAML::EndMap;
     }
     else
@@ -2533,6 +2553,48 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["camera_speed"].IsDefined())
             {
                 deserialized_component->camera_speed = component["camera_speed"].as<float>();
+            }
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
+    if (component_name == "CowComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = Cow::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class Cow>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["cow_manager"].IsDefined())
+            {
+                deserialized_component->cow_manager = component["cow_manager"].as<std::weak_ptr<CowManager>>();
+            }
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
+    if (component_name == "CowManagerComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = CowManager::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class CowManager>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["paths"].IsDefined())
+            {
+                deserialized_component->paths = component["paths"].as<std::vector<std::weak_ptr<Path>>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

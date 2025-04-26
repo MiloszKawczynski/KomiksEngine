@@ -1,0 +1,89 @@
+Scene: Untitled
+Entities:
+  - Entity: Cow
+    guid: f15d6e604b5453a61eca348a27468693778a4443eb4dd44ff2fcf43df4568af3
+    Name: Cow
+    TransformComponent:
+      Translation: [0, 0, 0.0820000023]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: CowComponent
+        guid: 32c0f42b87f55aa2e7bdbf8e0940c87fd70c59ea4bc53ff52b5011224c51ebc6
+        custom_name: ""
+        cow_manager:
+          guid: nullptr
+  - Entity: Child
+    guid: e487b1612503efc5d4167e3c635ab310d51d9d6d84dad5790165c93907c5bb59
+    Name: Child
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: f15d6e604b5453a61eca348a27468693778a4443eb4dd44ff2fcf43df4568af3
+    Components:
+      - ComponentName: ModelComponent
+        guid: 4195c0370ef89d4fd86c79e1a8ff3f354aa3beabe75db17e4185ff9e5253041d
+        custom_name: ""
+        model_path: ./res/models\penguin\body.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Left
+    guid: f63cc0a595319685c37138401d4f40a5d2965548dc5f3eeab8911645450ce3d0
+    Name: Left
+    TransformComponent:
+      Translation: [0, 0.172000006, -0.0820000023]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: e487b1612503efc5d4167e3c635ab310d51d9d6d84dad5790165c93907c5bb59
+    Components:
+      - ComponentName: ModelComponent
+        guid: 4df9e8140e332edc3dd21087c53ee1e19ca83a9e1c0a1f72a506fac27ff72b72
+        custom_name: ""
+        model_path: ./res/models\penguin\wing_left.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Right
+    guid: 97cd3bb0774d4dd4c1fb4a184373286269addaaac9fb8a0ece6a77f7c7a2f851
+    Name: Right
+    TransformComponent:
+      Translation: [0, 0.172000006, 0.0820000023]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: e487b1612503efc5d4167e3c635ab310d51d9d6d84dad5790165c93907c5bb59
+    Components:
+      - ComponentName: ModelComponent
+        guid: a6c616824cb5e5263a9958c5b4917b12856a9cf3c5d39bc38c630c9e6fcc6524
+        custom_name: ""
+        model_path: ./res/models\penguin\wing_right.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
