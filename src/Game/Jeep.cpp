@@ -120,6 +120,14 @@ void Jeep::fixed_update()
         entity->transform->set_euler_angles({0.0f, new_rotation, 0.0f});
     }
 
+    glm::vec2 const direction =
+        glm::normalize(glm::vec2(entity->transform->get_local_position().x, entity->transform->get_local_position().z));
+
+    float desired_yaw = glm::degrees(std::atan2(direction.y, direction.x));
+
+    entity->transform->children.at(0)->entity.lock()->transform->set_euler_angles(
+        {0.0f, -desired_yaw + 90 - entity->transform->get_euler_angles().y, 0.0f});
+
     handle_input();
 }
 
