@@ -73,6 +73,23 @@ void Truther::update()
         }
     }
 
+    if (m_do_flip)
+    {
+        auto const l_model_entity = model_entity.lock();
+        m_flip_rotation += delta_time * 820.0f; // degrees per second (2 full spins per second)
+
+        // Cap the rotation so it doesn't spin infinitely
+        if (m_flip_rotation > 360.0f)
+        {
+            m_flip_rotation = 0.0f;
+            m_do_flip = false; // Flip finished
+        }
+
+        auto euler = l_model_entity->transform->get_euler_angles();
+        euler.z = -m_flip_rotation;
+        l_model_entity->transform->set_euler_angles(euler);
+    }
+
     if (m_height < 0.01f)
     {
         static float tilt_time = 0.0f;
@@ -119,7 +136,9 @@ void Truther::update()
         l_model_entity->transform->set_local_position(model_pos);
 
         // Apply tilt to model (tilting left/right like legs)
-        l_model_entity->transform->set_euler_angles({tilt_angle, 0.0f, 0.0f});
+        auto euler = l_model_entity->transform->get_euler_angles();
+        euler.x = tilt_angle;
+        l_model_entity->transform->set_euler_angles(euler);
     }
 }
 
@@ -144,6 +163,8 @@ void Truther::fixed_update()
     {
         vertical++;
     }
+
+    m_last_jump_timer += delta_time;
 
     if (m_stun_timer > 0.0f)
     {
@@ -208,6 +229,20 @@ void Truther::fixed_update()
     {
         m_velocity += jump_power;
         m_speed *= jump_horizontal_power;
+
+        m_jump_count++;
+
+        if (m_last_jump_timer < 3.0f)
+        {
+            m_do_flip = (m_jump_count % 2 == 0); // Every second jump triggers a flip
+        }
+        m_last_jump_timer = 0.0f;
+
+        auto euler = model_entity.lock()->transform->get_euler_angles();
+        euler.z = 0.0f;
+        model_entity.lock()->transform->set_euler_angles(euler);
+
+        m_flip_rotation = 0.0f; // Reset flip progress
     }
 
     if (!is_sucked)
