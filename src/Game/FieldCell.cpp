@@ -55,6 +55,19 @@ void FieldCell::awake()
     }
 }
 
+void FieldCell::update()
+{
+    if (is_cell_bended(25))
+    {
+        m_field_grid_ref->set_cell(1, m_id);
+    }
+
+    if (!is_cell_bended(25))
+    {
+        m_field_grid_ref->set_cell(0, m_id);
+    }
+}
+
 bool FieldCell::is_cell_bended(float percent_limit)
 {
     u32 bended_num = 0;

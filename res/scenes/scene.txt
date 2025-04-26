@@ -74,7 +74,7 @@ Entities:
       - ComponentName: QuadComponent
         guid: 17e2287326a82c9bf3f82d4d612c0986d0baf07ec1b8cc5e1b4a8bf2e0aa9c48
         custom_name: ""
-        path: ./res/textures/UI\testOverlay.png
+        path: ./res/textures/UI\overlay00.png
         material:
           Shader:
             VertexPath: ./res/shaders/particle.hlsl
@@ -115,8 +115,10 @@ Entities:
           guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
         clock_text_ref:
           guid: 3e30b6fe8c278dccea14f63fa492095ae232ca110685e7489ef1d38920d0b3f8
-        map_time: 180
+        friel_grid:
+          guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
         event_timer: 0
+        does_level_ended: false
       - ComponentName: PathComponent
         guid: f61646bebcca77f6a9d5ac6c0550002e637ce0e4b4431ccf284a89a6a2a6460f
         custom_name: ""
