@@ -1975,14 +1975,14 @@ Entities:
     TransformComponent:
       Translation: [-4.63779974, 0, 1.15108466]
       Rotation: [0, 1.69007552, 0]
-      Scale: [1, 1, 1]
+      Scale: [2, 2, 2]
       Parent:
         guid: ""
     Components:
       - ComponentName: ModelComponent
         guid: 27c3357bf2f9d3287bf22b1be6e58777a9ba049c91f976753265588ce22b423f
         custom_name: ""
-        model_path: ./res/models/keeperInHovercraft/keeper.gltf
+        model_path: ./res/models\truther\truther.gltf
         material:
           Shader:
             VertexPath: ./res/shaders/lit.hlsl
