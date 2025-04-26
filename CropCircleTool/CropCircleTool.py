@@ -19,7 +19,7 @@ def process_png(image_name):
         output_text += "    "
         for x in range(img.width):
             
-            if get_pixel(img, x, y, (255, 255, 255)):
+            if get_pixel(img, x, y, (255, 255, 255)) or get_pixel(img, x, y, (255, 0, 0)):
                 output_text += "1, "
             else:
                 output_text += "0, "
