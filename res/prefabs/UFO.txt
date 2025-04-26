@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: UFO
-    guid: 9a03dbdcf1bd4bdc1e175951d30c040279974cdddc09fb4820695c7daa26a7f8
+    guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
     Name: UFO
     TransformComponent:
       Translation: [0, 4.91106224, 0]
@@ -11,24 +11,26 @@ Entities:
         guid: ""
     Components:
       - ComponentName: UFOComponent
-        guid: 529b19a00c4915be97e57dbe578b6e03195f316311ba88c32759b623860e551f
+        guid: e5eb28e8b4216125bb715facfda0141f3b202f5efa4382a74b36bf69a535b0bb
         custom_name: ""
         field_grid:
           guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
         truther:
-          guid: a257d100732de8ed400504a41ec9a66792106687fe9a6c125234eb52d29af50d
+          guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
+        attract_bean:
+          guid: 4fa65e859f3c3d017dcd3ad1a9a2e39e793dcedad2ae634ef7740f5ee8913667
   - Entity: Model
-    guid: 28ec8dacc3e638c11f040d4113a9381cbccd2086c80e661484313abd17f7d62f
+    guid: 01a90328e0a7836a86f734760ca3f6c8b830280f5932f5756e31d0fb18b98f1c
     Name: Model
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 9a03dbdcf1bd4bdc1e175951d30c040279974cdddc09fb4820695c7daa26a7f8
+        guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
     Components:
       - ComponentName: ModelComponent
-        guid: c437a912b245399dc7cd7abc09cffb4b72f671a370fc1495b7ee2c09e94e9b62
+        guid: f19a6560fa58664a057ef55b9bae97fcbf8701b48d59d31f4b1df3c90ad59875
         custom_name: ""
         model_path: ./res/models\hovercraft\hovercraft.gltf
         material:
@@ -42,29 +44,29 @@ Entities:
           CastsShadows: true
           IsBillboard: false
   - Entity: Spotlight
-    guid: 30e8c59b608bc8b80b31009cdf0ad88bfab9ade049d44c7cf04e6578d73db70d
+    guid: 40c5a9d99245f18f967ef42b9af96a30131546d1a0564c77180f16329d9193d6
     Name: Spotlight
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [-89.9999847, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 9a03dbdcf1bd4bdc1e175951d30c040279974cdddc09fb4820695c7daa26a7f8
+        guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
     Components:
       - ComponentName: SpotLightComponent
-        guid: 09cc37fb9012f07a1db0f1d8c797fc7922c41bfe4ed56efef96dd0f26bb2bd1d
+        guid: 4fa65e859f3c3d017dcd3ad1a9a2e39e793dcedad2ae634ef7740f5ee8913667
         custom_name: ""
         constant: 1
         linear: 1
         quadratic: 1
         scattering_factor: 0.061999999
-        cut_off: 0.967998862
-        outer_cut_off: 0.901674092
+        cut_off: 0.843391418
+        outer_cut_off: 0.937239408
         ambient: [0.200000003, 0.200000003, 0.200000003]
         diffuse: [0.133333325, 1, 0]
         specular: [1, 1, 1]
         m_near_plane: 0.5
-        m_far_plane: 25.2299995
+        m_far_plane: 0.100000001
         m_blocker_search_num_samples: 16
         m_pcf_num_samples: 16
         m_light_world_size: 0.5

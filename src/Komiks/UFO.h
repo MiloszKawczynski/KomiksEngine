@@ -29,10 +29,14 @@ public:
 
     std::weak_ptr<FieldGrid> field_grid = {};
     std::weak_ptr<Truther> truther = {};
+    std::weak_ptr<SpotLight> attract_bean = {};
 
 private:
     glm::vec3 m_destination = {};
     glm::vec3 m_start_position = {};
     float m_move_timer = 0.0f;
     float m_move_duration = 2.5f;
+    float m_beam_radius = 20.0f;
+    bool m_is_unbending_done = false;
+    bool m_is_active = false;
 };
