@@ -82,7 +82,6 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
-#include "Komiks/Wheat.h"
 #include "Quad.h"
 #include "Game/WheatOverlay.h"
 // # Put new header here
