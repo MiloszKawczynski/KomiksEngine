@@ -81,7 +81,6 @@ void CowManager::spawn_cow()
     glm::vec2 spawn_position = path.lock()->get_point_at(glm::linearRand(0.0f, 1.0f));
 
     cow->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
-    cow->transform->set_parent(GameController::get_instance()->current_scene.lock()->transform);
 
     auto const cow_comp = cow->get_component<Cow>();
     m_cows.push_back(cow_comp);

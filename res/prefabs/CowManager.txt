@@ -1,29 +1,26 @@
 Scene: Untitled
 Entities:
   - Entity: CowManager
-    guid: 7c867d6e084ed269a576bbb6809710d326c8f2951cf11663770489c6d3117b7d
+    guid: 6bf888202ea9e3cb76638f1d9b0445c680785083a08e2a0cf3e09458a7c310a3
     Name: CowManager
     TransformComponent:
-      Translation: [1.36704719, 0, -1.92907214]
+      Translation: [0, 0, 0]
       Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: ""
     Components:
       - ComponentName: CowManagerComponent
-        guid: 2b7be52b7701a7fa1a4f2f30b3c56501d1645a6dc7cb0792d36c92c62c8fc8a9
+        guid: 9c8a3dd0189ec1010f98d0ce08eb1967f9869296c922cf1d4bd26c83b9e2621c
         custom_name: ""
         paths:
           []
       - ComponentName: PathComponent
-        guid: 8ccf078eba015a10ccff96efd91b03ecbe4153030417db200993d3385cfa08e2
+        guid: 9ecca788953fdde995a5618e1c2bf0e956eb15b57429794dd8d6fe5c65b729d7
         custom_name: ""
         points:
-          - [0, 0]
-          - [3.33738256, 0.0735655725]
-      - ComponentName: PathComponent
-        guid: 782d280c823cdad1321198162d7afd4a2a433d5f4e8aa9dd181df9557556902f
-        custom_name: ""
-        points:
-          - [4.37604237, 0.309524775]
-          - [1.36704719, -1.92907214]
+          - [-5.01866913, -4.75103235]
+          - [-5.01866913, 5.15290737]
+          - [5.06346655, 5.15290737]
+          - [5.06346655, -5.07014847]
+          - [-4.8888793, -5.07014847]
