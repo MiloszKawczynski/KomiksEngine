@@ -57,14 +57,14 @@
 		{
 			"mimeType":"image/png",
 			"name":"tree",
-			"uri":"tree.png"
+			"uri":"textures/tree.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":847,
+			"count":848,
 			"max":[
 				0.26441729068756104,
 				1.2965340614318848,
@@ -80,13 +80,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":847,
+			"count":848,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":847,
+			"count":848,
 			"type":"VEC2"
 		},
 		{
@@ -99,26 +99,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":10164,
+			"byteLength":10176,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":10164,
-			"byteOffset":10164,
+			"byteLength":10176,
+			"byteOffset":10176,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6776,
-			"byteOffset":20328,
+			"byteLength":6784,
+			"byteOffset":20352,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":5412,
-			"byteOffset":27104,
+			"byteOffset":27136,
 			"target":34963
 		}
 	],
@@ -130,7 +130,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":32516,
+			"byteLength":32548,
 			"uri":"tree.bin"
 		}
 	]
