@@ -100,6 +100,21 @@ void UFO::update()
     }
 
     attract_bean.lock()->outer_cut_off = glm::cos(glm::radians(m_beam_radius));
+
+    for (auto& cow : cow_manager.lock()->cows)
+    {
+        auto const l_cow = cow.lock();
+
+        glm::vec3 cow_position = l_cow->entity->transform->get_local_position();
+
+        l_cow->is_sucked = false;
+        if (glm::distance(glm::vec2(cow_position.x, cow_position.z), glm::vec2(my_position.x, my_position.z)) < 1.69f
+            && cow_position.y < 1.25f)
+        {
+            l_cow->is_sucked = true;
+            l_cow->entity->transform->set_local_position(glm::mix(cow_position, my_position, 0.04f));
+        }
+    }
 }
 
 #if EDITOR
@@ -118,6 +133,7 @@ void UFO::draw_editor()
     ImGuiEx::draw_ptr("Field Grid", field_grid);
     ImGuiEx::draw_ptr("Truther", truther);
     ImGuiEx::draw_ptr("Attract Bean", attract_bean);
+    ImGuiEx::draw_ptr("Cow Manager", cow_manager);
 }
 #endif
 

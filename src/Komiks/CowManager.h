@@ -23,9 +23,8 @@ public:
     glm::vec2 get_random_position_with_minimal_distance(glm::vec3 current_position) const;
 
     std::vector<std::weak_ptr<Path>> paths = {};
+    std::vector<std::weak_ptr<Cow>> cows = {};
 
 private:
     void spawn_cow();
-
-    std::vector<std::weak_ptr<Cow>> m_cows = {};
 };
