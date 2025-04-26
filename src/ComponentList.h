@@ -23,6 +23,7 @@
     ENUMERATE_COMPONENT(Customer, "Customer") \
     ENUMERATE_COMPONENT(CustomerManager, "Customer Manager") \
     ENUMERATE_COMPONENT(Factory, "Factory") \
+    ENUMERATE_COMPONENT(FieldGrid, "Field Grid") \
     ENUMERATE_COMPONENT(GameController, "Game Controller") \
     ENUMERATE_COMPONENT(HovercraftWithoutKeeper, "Hovercraft Without Keeper") \
     ENUMERATE_COMPONENT(IceBound, "Ice Bound") \
@@ -46,6 +47,7 @@
     ENUMERATE_COMPONENT(Button, "Button") \
     ENUMERATE_COMPONENT(Model, "Model") \
     ENUMERATE_COMPONENT(Panel, "Panel") \
+    ENUMERATE_COMPONENT(Quad, "Quad") \
     ENUMERATE_COMPONENT(ScreenText, "Screen Text") \
     ENUMERATE_COMPONENT(Cube, "Cube") \
     ENUMERATE_COMPONENT(Sphere, "Sphere") \

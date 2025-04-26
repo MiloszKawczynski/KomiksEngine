@@ -71,6 +71,10 @@
 #include "Sprite.h"
 #include "Water.h"
 #include "yaml-cpp-extensions.h"
+#include "Game/Truther.h"
+#include "Game/FieldGrid.h"
+#include "Komiks/Wheat.h"
+#include "Quad.h"
 // # Put new header here
 
 SceneSerializer::SceneSerializer(std::shared_ptr<Scene> const& scene) : m_scene(scene)
@@ -228,7 +232,16 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
             out << YAML::Key << "bold" << YAML::Value << screentext->bold;
             out << YAML::Key << "button_ref" << YAML::Value << screentext->button_ref;
         }
-        else if (auto const panel = std::dynamic_pointer_cast<class Panel>(component); panel != nullptr)
+        else
+        if (auto const quad = std::dynamic_pointer_cast<class Quad>(component); quad != nullptr)
+        {
+            out << YAML::Key << "ComponentName" << YAML::Value << "QuadComponent";
+            out << YAML::Key << "guid" << YAML::Value << quad->guid;
+            out << YAML::Key << "custom_name" << YAML::Value << quad->custom_name;
+            out << YAML::Key << "path" << YAML::Value << quad->path;
+        }
+        else
+        if (auto const panel = std::dynamic_pointer_cast<class Panel>(component); panel != nullptr)
         {
             out << YAML::Key << "ComponentName" << YAML::Value << "PanelComponent";
             out << YAML::Key << "guid" << YAML::Value << panel->guid;
@@ -1283,7 +1296,33 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             deserialized_component->reprepare();
         }
     }
-    else if (component_name == "ScreenTextComponent")
+        else
+    if (component_name == "QuadComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = Quad::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class Quad>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["path"].IsDefined())
+            {
+                deserialized_component->path = component["path"].as<std::string>();
+            }
+            if (component["material"].IsDefined())
+            {
+                deserialized_component->material = component["material"].as<std::shared_ptr<Material>>();
+            }
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
+    if (component_name == "ScreenTextComponent")
     {
         if (first_pass)
         {
@@ -2559,7 +2598,23 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
         }
     }
         else
-    if (component_name == "CowComponent")
+    if (component_name == "WheatComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = Wheat::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class Wheat>(get_from_pool(component["guid"].as<std::string>()));
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
     {
         if (first_pass)
         {
