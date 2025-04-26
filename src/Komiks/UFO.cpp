@@ -52,6 +52,17 @@ void UFO::update()
     else
     {
         entity->transform->set_position(m_destination); // snap exactly at the end
+
+        for (auto& wheat : Wheat::all_wheat)
+        {
+            auto const l_wheat = wheat.lock();
+
+            if (glm::distance(AK::convert_3d_to_2d(m_destination), AK::convert_3d_to_2d(l_wheat->entity->transform->get_position()))
+                < 1.69f)
+            {
+                l_wheat->set_bended(false, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - m_destination));
+            }
+        }
     }
 
     glm::vec3 truther_position = truther.lock()->entity->transform->get_local_position();
