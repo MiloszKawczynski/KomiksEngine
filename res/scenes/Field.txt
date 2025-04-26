@@ -160,3 +160,102 @@ Entities:
           - [4.31568956, 3.94553423]
           - [4.40853262, -5.15308332]
           - [-4.9686141, -5.24592638]
+  - Entity: Borders
+    guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
+    Name: Borders
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      []
+  - Entity: Wall1
+    guid: 33a7cfc5121145c6d3b0cf91542b10cb0792f8fa371c0edd4585042e5be578de
+    Name: Wall1
+    TransformComponent:
+      Translation: [0, 0, -7.20375633]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
+    Components:
+      - ComponentName: Collider2DComponent
+        guid: d63f4a1cae026b42de95fc230892a89fd50e64b007e91667ada46eda909e7572
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 30
+        height: 1
+        radius: 1
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Wall2
+    guid: 7edbcdccaa23cce63a021b6e5eab52a5a4bc05d75fd4587b9ed776aeb6eddca3
+    Name: Wall2
+    TransformComponent:
+      Translation: [-9.29716301, 0, -0.550646842]
+      Rotation: [180, 76.058403, 180]
+      Scale: [0.999988854, 1, 0.999988854]
+      Parent:
+        guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
+    Components:
+      - ComponentName: Collider2DComponent
+        guid: fde80b5ed74c677e3a98474cc6cf8d0479c3627308112c6fab9bc3529ffda71d
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 30
+        height: 1
+        radius: 1
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Wall3
+    guid: 385cb88f817164d486e33e58c2500901fa68a4711f59367b258713dff4327b72
+    Name: Wall3
+    TransformComponent:
+      Translation: [0, 0, 5.96555138]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
+    Components:
+      - ComponentName: Collider2DComponent
+        guid: 25f47439c2a89873a6cc9e17ffbd71902e4cf62e796a786049c052ed6f2ed82d
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 30
+        height: 1
+        radius: 1
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Wall4
+    guid: d3fd76296e511a65fef74351c8dac10bb5cec8529565be46fc93266626fefa67
+    Name: Wall4
+    TransformComponent:
+      Translation: [9.24847507, 0, -0.550646842]
+      Rotation: [-4.7007793e-06, 76.0223083, -4.9962764e-06]
+      Scale: [0.999997675, 1, 0.999997675]
+      Parent:
+        guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
+    Components:
+      - ComponentName: Collider2DComponent
+        guid: f64a402a613c53c682c2c83aaf0f1dcb9f74d98c7adc855eecca7a3862f42ad7
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 30
+        height: 1
+        radius: 1
+        drag: 0.00999999978
+        velocity: [0, 0]
