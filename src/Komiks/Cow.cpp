@@ -66,7 +66,7 @@ void Cow::update()
     {
         auto const l_wheat = wheat.lock();
 
-        if (glm::distance(cow_position, l_wheat->entity->transform->get_position()) < 0.15f)
+        if (glm::distance(cow_position, l_wheat->entity->transform->get_position()) < 0.5f)
         {
             l_wheat->set_bended(false, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - cow_position));
         }
