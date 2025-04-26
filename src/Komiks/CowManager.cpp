@@ -26,6 +26,9 @@ void CowManager::awake()
 {
     set_can_tick(true);
 
+    // TODO: Change to proper sound path
+    Sound::play_sound("./res/audio/ost_loop.wav", true);
+
     get_spawn_paths();
 
     spawn_truther();
