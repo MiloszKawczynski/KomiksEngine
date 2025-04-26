@@ -27,6 +27,9 @@ public:
 
     glm::vec2 get_speed() const;
 
+    // Bend or unbend
+    bool truther_bends = true;
+
     float maximum_speed = 5.0f;
     float acceleration = 0.2f;
     float deceleration = 0.1f;
