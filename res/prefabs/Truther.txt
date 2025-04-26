@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Truther
-    guid: b3c8787d009e1f595394d6ca5f9d5ac5f8a876b1826e7dd6c2c2c4568abc118f
+    guid: 08b14d442087d2e1a3d7825198ad88fe5bbe2319de31228e42754ead5b914487
     Name: Truther
     TransformComponent:
       Translation: [-4.63779974, 0, 1.15108466]
@@ -11,7 +11,7 @@ Entities:
         guid: ""
     Components:
       - ComponentName: ModelComponent
-        guid: 6ada8621a32de72d0c740eec9b7a0f84aed9a6b03201db39b227c7bb975006a6
+        guid: 27c3357bf2f9d3287bf22b1be6e58777a9ba049c91f976753265588ce22b423f
         custom_name: ""
         model_path: ./res/models/keeperInHovercraft/keeper.gltf
         material:
@@ -25,7 +25,7 @@ Entities:
           CastsShadows: true
           IsBillboard: false
       - ComponentName: Collider2DComponent
-        guid: e735bd270e31d4b11eb49158831921004f211d7eda8f8978bcbfba419e0f1fb8
+        guid: 88778e29f0a0f40f425b7ff6d9ffa173580f4edeb632e85465206db7fa51163f
         custom_name: ""
         offset: [0, 0]
         is_trigger: false
@@ -37,7 +37,7 @@ Entities:
         drag: 0.00999999978
         velocity: [0, 0]
       - ComponentName: FloaterComponent
-        guid: 421cfbe2063bdd76e97364ab932d614c8384f49e54a495bd3ad719be842fe836
+        guid: 897e63b1113e1b599f5e804c251a002ceb4769334887634041357e50df0a688b
         custom_name: ""
         sink: 0.00999999978
         side_floaters_offset: 0.100000001
@@ -47,8 +47,10 @@ Entities:
         water:
           guid: nullptr
       - ComponentName: TrutherComponent
-        guid: f3c13015a3633ef8fde61f1a90b58c2f68557f157fcbf28b9b607111c45c2695
+        guid: a257d100732de8ed400504a41ec9a66792106687fe9a6c125234eb52d29af50d
         custom_name: ""
         maximum_speed: 2
         acceleration: 0.5
         deceleration: 0.100000001
+        wheat_overlay:
+          guid: 1ab2d38c995cac9a1964e9ce26d1e814c6bb98067b60ae50ca8d3405893e236c

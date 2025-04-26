@@ -29,11 +29,23 @@ void WheatOverlay::awake()
 
 void WheatOverlay::update()
 {
-    m_timer += delta_time;
+    if (is_flash_on)
+    {
+        m_timer += delta_time;
 
-    m_flash = std::pow(std::sin(m_timer), 2);
+        m_flash = std::pow(std::sin(m_timer), 2);
 
-    entity->get_component<Quad>()->set_alpha(m_flash);
+        set_overlay_alpha(m_flash);
+    }
+    else
+    {
+        set_overlay_alpha(0.0f);
+    }
+}
+
+void WheatOverlay::set_overlay_alpha(float alpha)
+{
+    entity->get_component<Quad>()->set_alpha(alpha);
 }
 
 #if EDITOR
