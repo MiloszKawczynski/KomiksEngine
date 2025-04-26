@@ -2,8 +2,10 @@
 
 #include "AK/AK.h"
 #include "Camera.h"
+#include "Collider2D.h"
 #include "CowManager.h"
 #include "Entity.h"
+#include "Game/Truther.h"
 #include "Globals.h"
 #include "Wheat.h"
 
@@ -25,6 +27,8 @@ Cow::Cow(AK::Badge<Cow>)
 void Cow::awake()
 {
     set_can_tick(true);
+
+    m_collider = entity->get_component<Collider2D>();
 }
 
 void Cow::start()
@@ -67,4 +71,29 @@ void Cow::update()
             l_wheat->set_bended(false, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - cow_position));
         }
     }
+}
+
+void Cow::on_collision_enter(std::shared_ptr<Collider2D> const& other)
+{
+    auto const truther = other->entity->get_component<Truther>();
+
+    if (truther == nullptr)
+    {
+        return;
+    }
+
+    auto const collider_locked = m_collider.lock();
+    collider_locked->add_force(truther->get_speed() * 0.05f);
+    collider_locked->velocity = glm::clamp(collider_locked->velocity, {-3.0f, -3.0f}, {3.0f, 3.0f});
+
+    // Choose another random destination after being poked by the player
+
+    if (cow_manager.expired())
+    {
+        return;
+    }
+
+    auto const l_cow_manager = cow_manager.lock();
+
+    m_destination = l_cow_manager->get_random_position_with_minimal_distance(entity->transform->get_position());
 }
