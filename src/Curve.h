@@ -20,10 +20,8 @@ public:
     glm::vec2 get_point_at(float x) const;
     float get_y_at(float x) const;
     void add_points(std::initializer_list<glm::vec2> new_points);
+    float length() const;
 
 protected:
     explicit Curve();
-
-private:
-    float length() const;
 };
