@@ -1,0 +1,63 @@
+Scene: Untitled
+Entities:
+  - Entity: Jeep
+    guid: c5fa8f7a331ee908b8e5877316d91ba8cc9f7650cd0448601b478caf05ab08fe
+    Name: Jeep
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [2, 2, 2]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: PathComponent
+        guid: dcd7612f26c980a2804eb8cf4a87c060f589d7428e1a42fcd1f7f1aa265771d1
+        custom_name: ""
+        points:
+          - [-5.01866913, -4.75103235]
+          - [-5.01866913, 5.15290737]
+          - [5.06346655, 5.15290737]
+          - [5.06346655, -5.07014847]
+          - [-4.8888793, -5.07014847]
+      - ComponentName: ModelComponent
+        guid: 542555c04aacab659d4879e7b62b537ed4640188ac176756aea36cf8a5e415eb
+        custom_name: ""
+        model_path: ./res/models\jeep_base\jeep.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Reflector
+    guid: 00424f1e22d38c64d2ce1cb7eff71349358537a02506b036751a5412d9bede9f
+    Name: Reflector
+    TransformComponent:
+      Translation: [0, 0.176889941, 0.200230256]
+      Rotation: [0, -0, 0]
+      Scale: [0.999998987, 1, 0.999999225]
+      Parent:
+        guid: c5fa8f7a331ee908b8e5877316d91ba8cc9f7650cd0448601b478caf05ab08fe
+    Components:
+      - ComponentName: SpotLightComponent
+        guid: 39c4ac5f08c1eda564c787d049091becd3c487d8b54c5353777f41185a047092
+        custom_name: ""
+        constant: 1
+        linear: 0.0900000036
+        quadratic: 0.0320000015
+        scattering_factor: 1
+        cut_off: 0.843391418
+        outer_cut_off: 0.976076424
+        ambient: [0.200000003, 0.200000003, 0.200000003]
+        diffuse: [1, 1, 1]
+        specular: [1, 1, 1]
+        m_near_plane: 0.5
+        m_far_plane: 25
+        m_blocker_search_num_samples: 16
+        m_pcf_num_samples: 16
+        m_light_world_size: 0.5
+        m_light_frustum_width: 30
