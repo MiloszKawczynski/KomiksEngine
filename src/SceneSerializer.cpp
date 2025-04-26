@@ -602,6 +602,18 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::EndMap;
     }
     else
+    if (auto const jeep = std::dynamic_pointer_cast<class Jeep>(component); jeep != nullptr)
+    {
+        out << YAML::BeginMap;
+        out << YAML::Key << "ComponentName" << YAML::Value << "JeepComponent";
+        out << YAML::Key << "guid" << YAML::Value << jeep->guid;
+        out << YAML::Key << "custom_name" << YAML::Value << jeep->custom_name;
+        out << YAML::Key << "maximum_speed" << YAML::Value << jeep->maximum_speed;
+        out << YAML::Key << "acceleration" << YAML::Value << jeep->acceleration;
+        out << YAML::Key << "deceleration" << YAML::Value << jeep->deceleration;
+        out << YAML::EndMap;
+    }
+    else
     if (auto const levelcontroller = std::dynamic_pointer_cast<class LevelController>(component); levelcontroller != nullptr)
     {
         out << YAML::BeginMap;
@@ -2188,6 +2200,35 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
         else
         {
             auto const deserialized_component = std::dynamic_pointer_cast<class IceBound>(get_from_pool(component["guid"].as<std::string>()));
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
+    if (component_name == "JeepComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = Jeep::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class Jeep>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["maximum_speed"].IsDefined())
+            {
+                deserialized_component->maximum_speed = component["maximum_speed"].as<float>();
+            }
+            if (component["acceleration"].IsDefined())
+            {
+                deserialized_component->acceleration = component["acceleration"].as<float>();
+            }
+            if (component["deceleration"].IsDefined())
+            {
+                deserialized_component->deceleration = component["deceleration"].as<float>();
+            }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
         }
