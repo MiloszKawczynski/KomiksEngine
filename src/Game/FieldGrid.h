@@ -15,8 +15,45 @@ public:
     virtual void draw_editor() override;
 #endif
 
+    void set_cell(bool value, u32 x, u32 y);
+    bool get_cell_value(u32 x, u32 y);
+    float calculate_faked_similarity(); // In percent
+
+    float punishment_multiplier = 0.08f;
+
 private:
     i32 m_rows_number = 9;
-
     std::vector<std::weak_ptr<Entity>> m_grid_rows = {};
+
+    // A DATABASE OF REFERENCE GRID PATTERNS
+    // This is a vector containing patterns (vectors of 0s and 1s)
+    std::vector<pattern> m_patterns = {{
+        0, 0, 0, 0, 0, 0, 0, 0, 0, //
+        0, 0, 1, 0, 0, 0, 1, 0, 0, //
+        0, 0, 1, 0, 0, 0, 1, 0, 0, //
+        0, 0, 0, 0, 0, 0, 0, 0, 0, //
+        0, 0, 0, 0, 0, 0, 0, 0, 0, //
+        0, 1, 0, 0, 0, 0, 0, 1, 0, //
+        0, 1, 0, 0, 0, 0, 0, 1, 0, //
+        0, 0, 1, 1, 1, 1, 1, 0, 0, //
+        0, 0, 0, 0, 0, 0, 0, 0, 0, //
+    }};
+    u32 m_selected_pattern_id = 0;
+
+    // clang-format off
+    pattern m_current_field_status =
+    {
+{
+    0, 0, 0, 0, 0, 0, 0, 0, 0, //
+    0, 0, 0, 0, 1, 1, 0, 0, 0, //
+    0, 0, 1, 1, 0, 1, 1, 0, 0, //
+    0, 1, 1, 0, 0, 0, 1, 1, 0, //
+    0, 0, 0, 0, 0, 0, 1, 1, 0, //
+    0, 0, 1, 1, 0, 1, 1, 0, 0, //
+    0, 0, 1, 0, 0, 1, 0, 0, 0, //
+    0, 0, 1, 1, 1, 1, 0, 0, 0, //
+    0, 0, 0, 0, 0, 0, 0, 0, 0, //
+}
+    };
+    // clang-format on
 };
