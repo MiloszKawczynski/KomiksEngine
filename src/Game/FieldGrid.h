@@ -24,7 +24,7 @@ public:
 
 private:
     void generate_grid_colliders();
-    float cell_size_and_offset = 9.0f / 13.0f;
+    float cell_size_and_offset = 9.0f / static_cast<float>(rows_number);
     std::vector<std::weak_ptr<Entity>> m_grid_rows = {};
 
     // A DATABASE OF REFERENCE GRID PATTERNS
