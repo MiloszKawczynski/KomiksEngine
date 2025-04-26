@@ -44,6 +44,7 @@
     ENUMERATE_COMPONENT(PlayerInput, "Player Input") \
     ENUMERATE_COMPONENT(Cow, "Cow") \
     ENUMERATE_COMPONENT(CowManager, "Cow Manager") \
+    ENUMERATE_COMPONENT(UFO, "UFO") \
     ENUMERATE_COMPONENT(Wheat, "Wheat") \
     ENUMERATE_COMPONENT(Path, "Path") \
     ENUMERATE_COMPONENT(Button, "Button") \
