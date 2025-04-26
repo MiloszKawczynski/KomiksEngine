@@ -1,6 +1,7 @@
 #include "Cow.h"
 
 #include "AK/AK.h"
+#include "AK/Math.h"
 #include "Camera.h"
 #include "Collider2D.h"
 #include "CowManager.h"
@@ -103,7 +104,14 @@ void Cow::fixed_update()
         }
     }
 
-    // Rotating cows
+    // Mincing
+
+    glm::vec3 pos = entity->transform->get_position();
+    float const sin_mapped_value = AK::Math::map_range_clamped(-1.0f, 1.0f, -0.05f, 0.05f, sin(glfwGetTime() * 8.0f));
+    pos.y += sin_mapped_value;
+    entity->transform->set_position(pos);
+
+    // Rotating
 
     glm::vec2 const direction = m_destination - AK::convert_3d_to_2d(entity->transform->get_position());
     float rotation = atan2(direction.x, direction.y) * (180.0f / 3.14f) - 90.0f;
