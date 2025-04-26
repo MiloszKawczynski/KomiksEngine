@@ -102,6 +102,35 @@ void Cow::update()
     }
 }
 
+void Cow::fixed_update()
+{
+    Component::fixed_update();
+
+    glm::vec2 const direction = m_destination - AK::convert_3d_to_2d(entity->transform->get_position());
+    float rotation = atan2(direction.x, direction.y) * (180.0f / 3.14f) - 90.0f;
+    float actual_rotation = entity->transform->get_euler_angles().y;
+
+    while (rotation > 180.0f)
+        rotation -= 360.0f;
+    while (rotation < -180.0f)
+        rotation += 360.0f;
+
+    while (actual_rotation > 180.0f)
+        actual_rotation -= 360.0f;
+    while (actual_rotation < -180.0f)
+        actual_rotation += 360.0f;
+
+    float delta = rotation - actual_rotation;
+    while (delta > 180.0f)
+        delta -= 360.0f;
+    while (delta < -180.0f)
+        delta += 360.0f;
+
+    float new_rotation = actual_rotation + delta * 0.05f;
+
+    entity->transform->set_euler_angles({0.0f, new_rotation, 0.0f});
+}
+
 void Cow::on_collision_enter(std::shared_ptr<Collider2D> const& other)
 {
     auto const truther = other->entity->get_component<Truther>();
