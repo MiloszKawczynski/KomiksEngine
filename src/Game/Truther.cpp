@@ -69,7 +69,7 @@ void Truther::update()
 
         if (glm::distance(truther_position, l_wheat->entity->transform->get_position()) < 0.15f)
         {
-            l_wheat->set_bended(true, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - truther_position));
+            l_wheat->set_bended(truther_bends, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - truther_position));
         }
     }
 }
@@ -194,6 +194,14 @@ void Truther::fixed_update()
 void Truther::draw_editor()
 {
     Component::draw_editor();
+
+    ImGui::Text("Does the truther bend or unbend wheat?");
+    ImGui::Text("For testing.");
+    ImGui::Checkbox("Bending", &truther_bends);
+
+    ImGui::Spacing();
+    ImGui::Spacing();
+    ImGui::Spacing();
 
     ImGuiEx::InputFloat("Acceleration", &acceleration);
     ImGuiEx::InputFloat("Deceleration", &deceleration);
