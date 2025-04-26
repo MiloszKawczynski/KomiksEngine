@@ -43,8 +43,10 @@ void Cow::start()
     m_destination = l_cow_manager->get_random_position_with_minimal_distance(entity->transform->get_position());
 }
 
-void Cow::update()
+void Cow::fixed_update()
 {
+    Component::fixed_update();
+
     if (!is_sucked)
     {
         if (m_height == 0.0f)
@@ -100,11 +102,8 @@ void Cow::update()
             l_wheat->set_bended(false, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - cow_position));
         }
     }
-}
 
-void Cow::fixed_update()
-{
-    Component::fixed_update();
+    // Rotating cows
 
     glm::vec2 const direction = m_destination - AK::convert_3d_to_2d(entity->transform->get_position());
     float rotation = atan2(direction.x, direction.y) * (180.0f / 3.14f) - 90.0f;

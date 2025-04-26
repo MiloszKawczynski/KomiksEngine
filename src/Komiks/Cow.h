@@ -18,7 +18,6 @@ public:
 
     virtual void awake() override;
     virtual void start() override;
-    virtual void update() override;
     virtual void fixed_update() override;
     virtual void on_collision_enter(std::shared_ptr<Collider2D> const& other) override;
 
