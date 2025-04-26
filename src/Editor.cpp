@@ -66,6 +66,7 @@
 #include "Input.h"
 #include "Komiks/Cow.h"
 #include "Komiks/CowManager.h"
+#include "Komiks/UFO.h"
 #include "Komiks/Wheat.h"
 #include "Light.h"
 #include "Model.h"
@@ -84,9 +85,6 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
-#include "Quad.h"
-#include "Game/WheatOverlay.h"
-#include "Komiks/UFO.h"
 // # Put new header here
 
 namespace Editor

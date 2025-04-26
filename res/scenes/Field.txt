@@ -134,6 +134,8 @@ Entities:
         jump_power: 0.100000001
         jump_horizontal_power: 2.5
         gravitation: 0.00499999989
+        suck_power: 0.00999999978
+        is_sucked: false
         wheat_overlay:
           guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
   - Entity: CowManager
@@ -150,6 +152,8 @@ Entities:
         guid: cd975188fef08d9230966c62bcd8b17301f1d92b55c5530ff46c6bbd11f7b886
         custom_name: ""
         paths:
+          []
+        cows:
           []
       - ComponentName: PathComponent
         guid: f61646bebcca77f6a9d5ac6c0550002e637ce0e4b4431ccf284a89a6a2a6460f
@@ -259,3 +263,76 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
+  - Entity: UFO
+    guid: 2be3ada3349915525f2c90162d4375699a168ee90591958278e0180fd0acadd3
+    Name: UFO
+    TransformComponent:
+      Translation: [10.7037325, 2, -0.799844265]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: UFOComponent
+        guid: 67c4c11fc698a69d1f66fac1900544ca1fd7b3cb6a67fee75c64fc598355b341
+        custom_name: ""
+        field_grid:
+          guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
+        truther:
+          guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
+        attract_bean:
+          guid: 8a95f79540b4302d459357ebf62376b19a3954c4db53e5414252ca438af79c88
+        cow_manager:
+          guid: cd975188fef08d9230966c62bcd8b17301f1d92b55c5530ff46c6bbd11f7b886
+  - Entity: Model
+    guid: f08780859539b89f0eef53e4fbda12e7ec327554854e8b0c49b910f4085152e9
+    Name: Model
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.5, 0.5, 0.5]
+      Parent:
+        guid: 2be3ada3349915525f2c90162d4375699a168ee90591958278e0180fd0acadd3
+    Components:
+      - ComponentName: ModelComponent
+        guid: d7acca22183c1ff9b3a02c0d5985d4c54d80bd3335c29faee8dd22547a30d277
+        custom_name: ""
+        model_path: ./res/models\ufo\ufo.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Spotlight
+    guid: a9c7c6a1414f804eb0d2ea0cbfc430726b73dac4d83c57e709cbcbb2d95a386f
+    Name: Spotlight
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [-89.9999847, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 2be3ada3349915525f2c90162d4375699a168ee90591958278e0180fd0acadd3
+    Components:
+      - ComponentName: SpotLightComponent
+        guid: 8a95f79540b4302d459357ebf62376b19a3954c4db53e5414252ca438af79c88
+        custom_name: ""
+        constant: 1
+        linear: 1
+        quadratic: 1
+        scattering_factor: 0.061999999
+        cut_off: 0.843391418
+        outer_cut_off: 0.937239408
+        ambient: [0.200000003, 0.200000003, 0.200000003]
+        diffuse: [0.133333325, 1, 0]
+        specular: [1, 1, 1]
+        m_near_plane: 0.5
+        m_far_plane: 0.100000001
+        m_blocker_search_num_samples: 16
+        m_pcf_num_samples: 16
+        m_light_world_size: 0.5
+        m_light_frustum_width: 30
