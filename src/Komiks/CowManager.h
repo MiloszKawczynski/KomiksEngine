@@ -5,6 +5,7 @@
 #include "Game/Path.h"
 #include "Komiks/UFO.h"
 #include "Sound.h"
+#include <Game/FieldGrid.h>
 #include <Game/Jeep.h>
 #include <Game/WheatOverlay.h>
 #include <ScreenText.h>
@@ -35,9 +36,10 @@ public:
     std::weak_ptr<Jeep> jeep = {};
     std::weak_ptr<WheatOverlay> wheat_overlay = {};
     std::weak_ptr<ScreenText> clock_text_ref = {};
+    std::weak_ptr<FieldGrid> friel_grid = {};
 
     NON_SERIALIZED
-    float map_time = 15.0f;
+    float map_time = 90.0f;
     NON_SERIALIZED
     float time = 0.0f;
 
