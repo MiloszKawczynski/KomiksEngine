@@ -55,6 +55,11 @@ void Wheat::update()
     }
 }
 
+bool Wheat::is_bended() const
+{
+    return m_bended;
+}
+
 // Direction is only needed if bended == true
 void Wheat::set_bended(bool bended, glm::vec2 const& direction)
 {
