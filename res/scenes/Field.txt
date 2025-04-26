@@ -13,9 +13,9 @@ Entities:
       - ComponentName: DirectionalLightComponent
         guid: 56a706067ac647eea69a96100221e57d42675b28e6d4459533e978967f41d403
         custom_name: ""
-        ambient: [0.104691222, 0.0543209799, 0.222222209]
-        diffuse: [0.0901234522, 0.330452949, 0.811111093]
-        specular: [0.337499976, 0.557500005, 0.75]
+        ambient: [1, 1, 1]
+        diffuse: [1, 1, 1]
+        specular: [1, 1, 1]
         m_near_plane: -25
         m_far_plane: 25
         m_blocker_search_num_samples: 16
@@ -51,7 +51,7 @@ Entities:
     Name: FieldGrid
     TransformComponent:
       Translation: [-4, 0, -4]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: ""
@@ -59,19 +59,47 @@ Entities:
       - ComponentName: FieldGridComponent
         guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
         custom_name: ""
+        rows_number: 13
         punishment_multiplier: 0.0799999982
+  - Entity: WheatOverlay
+    guid: 14df9823c4f2ca876e56d80dac17e0ba22ea2f69a59f988a379419513fa550bd
+    Name: WheatOverlay
+    TransformComponent:
+      Translation: [0, 0.649999976, 0]
+      Rotation: [-89.9999847, 0, 0]
+      Scale: [4.5, 4.49996948, 0.999996185]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: QuadComponent
+        guid: 17e2287326a82c9bf3f82d4d612c0986d0baf07ec1b8cc5e1b4a8bf2e0aa9c48
+        custom_name: ""
+        path: ./res/textures/UI\testOverlay.png
+        material:
+          Shader:
+            VertexPath: ./res/shaders/particle.hlsl
+            FragmentPath: ./res/shaders/particle.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 1000
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+      - ComponentName: WheatOverlayComponent
+        guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
+        custom_name: ""
   - Entity: Truther
-    guid: f985c78c32df9c333845eb5c7a1502dd6c95e53a767455605dd4f3c7219c117f
+    guid: 20052525263cbb091601283e5b80c47bfc96cc83d869e24868c4e89f467a2975
     Name: Truther
     TransformComponent:
-      Translation: [-3.54030871, 0, 0.917244911]
-      Rotation: [0, 1.6900754, 0]
+      Translation: [-4.63779974, 0, 1.15108466]
+      Rotation: [0, 1.69007552, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: ""
     Components:
       - ComponentName: ModelComponent
-        guid: 96424fe88257dc9550136ecf439a80164db2e1a7856b7c2aae609b673f841bc1
+        guid: 0dba841ea1f8e3f72070ba7515b819ce88b9cb9f3918c4200cd5635afe96d89a
         custom_name: ""
         model_path: ./res/models/keeperInHovercraft/keeper.gltf
         material:
@@ -85,7 +113,7 @@ Entities:
           CastsShadows: true
           IsBillboard: false
       - ComponentName: Collider2DComponent
-        guid: ab847e72053e3b2779e563e77a81df0f15e00d6734eaa1025cf14a46a2c8611a
+        guid: 727af3fc53a31f030bdfac70706a247470d9afdfa08edaa0e471ee81f8803198
         custom_name: ""
         offset: [0, 0]
         is_trigger: false
@@ -96,20 +124,15 @@ Entities:
         radius: 0.100000001
         drag: 0.00999999978
         velocity: [0, 0]
-      - ComponentName: FloaterComponent
-        guid: 9946f603f96b849a6fb748d97ccbc38aef34a35a747164546364b2b9b02f0276
-        custom_name: ""
-        sink: 0.00999999978
-        side_floaters_offset: 0.100000001
-        side_roation_strength: 5
-        forward_rotation_strength: 5
-        forward_floaters_offest: 0.100000001
-        water:
-          guid: nullptr
       - ComponentName: TrutherComponent
-        guid: 44f566300092ef96377059684a8532e365210da16efb4c73ba42b16baa44eef2
+        guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
         custom_name: ""
         truther_bends: true
         maximum_speed: 2
         acceleration: 0.5
         deceleration: 0.100000001
+        jump_power: 0.100000001
+        jump_horizontal_power: 1.5
+        gravitation: 0.00499999989
+        wheat_overlay:
+          guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
