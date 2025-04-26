@@ -96,6 +96,11 @@ void Truther::fixed_update()
         vertical++;
     }
 
+    if (m_stun_timer > 0.0f)
+    {
+        m_stun_timer -= fixed_delta_time;
+    }
+
     wheat_overlay.lock()->is_flash_on = false;
     if (Input::input->get_key(GLFW_KEY_LEFT_SHIFT))
     {
@@ -103,6 +108,12 @@ void Truther::fixed_update()
         vertical = 0;
 
         wheat_overlay.lock()->is_flash_on = true;
+    }
+
+    if (m_stun_timer > 0)
+    {
+        horizontal = 0;
+        vertical = 0;
     }
 
     if (m_height == 0.0f)
@@ -253,6 +264,18 @@ void Truther::suck()
     {
         m_height += suck_power;
     }
+}
+
+void Truther::stun()
+{
+    if (m_stun_timer > 0.0f)
+    {
+        return;
+    }
+
+    m_stun_timer = 2.5f;
+
+    m_velocity += (1.3f * jump_power);
 }
 
 void Truther::handle_input()
