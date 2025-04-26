@@ -44,7 +44,7 @@ void Jeep::awake()
 
     find_new_target();
 
-    entity->transform->set_local_position({m_target.x, 0.0f, m_target.y});
+    entity->transform->set_local_position({m_target.x, 0.375f, m_target.y});
 }
 
 void Jeep::update()

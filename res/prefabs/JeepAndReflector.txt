@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: JeepAndReflector
-    guid: 613ba43fd3447b38ae965c5d31234fb1491afc48c477aa8e2d5818d204bd4109
+    guid: cdf51d7fe8a7d46f6f6077dacf59ec81ad5819d8b5ea0e12578f80ea187a86ca
     Name: JeepAndReflector
     TransformComponent:
       Translation: [0, 0, 0]
@@ -12,17 +12,17 @@ Entities:
     Components:
       []
   - Entity: Jeep
-    guid: a1d0a8f9dbb12bb1c39c6e21adb43f1f0f518f931f69ecbf7b2965c6fa07d790
+    guid: 0c0f008160bc688a845043e984eb958e03ad802c67b937947a9c5cb5fee36f31
     Name: Jeep
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [2, 2, 2]
       Parent:
-        guid: 613ba43fd3447b38ae965c5d31234fb1491afc48c477aa8e2d5818d204bd4109
+        guid: cdf51d7fe8a7d46f6f6077dacf59ec81ad5819d8b5ea0e12578f80ea187a86ca
     Components:
       - ComponentName: PathComponent
-        guid: b3d7b1a41657f8a06675a70a42c1fc33dea3a3ce6ff837f9065a6213fbf337a9
+        guid: cb645bfadfe9172c7b1474e2655fa0f6b9d0329411034f8937314549b2663b8d
         custom_name: ""
         points:
           - [-5.01866913, -4.75103235]
@@ -31,7 +31,7 @@ Entities:
           - [5.06346655, -5.07014847]
           - [-4.8888793, -5.07014847]
       - ComponentName: ModelComponent
-        guid: 352dbadd7232c1e2be7a15304040aa08e8c7d7cbbfd37f0fae577aba589ec360
+        guid: f25a23f2809ba7e38962945af2d9c74b599c1d5e58324ebbc15feeca070380d3
         custom_name: ""
         model_path: ./res/models\jeep_base\jeep.gltf
         material:
@@ -45,25 +45,47 @@ Entities:
           CastsShadows: true
           IsBillboard: false
       - ComponentName: JeepComponent
-        guid: d6e09ed86b350ddd50aa0eef6e3e1d6e304be30d5c51315bffd3f075afb243ea
+        guid: 49409ce80767412f985d888eec09e7d8ed69280693333fa16d5e864587571ba0
         custom_name: ""
         maximum_speed: 5
         acceleration: 0.200000003
         deceleration: 0.100000001
         player:
           guid: nullptr
+  - Entity: Child
+    guid: 1bec74cbf04309d2be28ecfd510fef5969cbe0aa104724d59cf1805634108932
+    Name: Child
+    TransformComponent:
+      Translation: [0, -0.0479924344, -0.150000006]
+      Rotation: [0, -0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 0c0f008160bc688a845043e984eb958e03ad802c67b937947a9c5cb5fee36f31
+    Components:
+      - ComponentName: Collider2DComponent
+        guid: b0d9b3c25a3b664021555c97d9c6a48b7aa9ef34ba7a050791508a94c6b2827d
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: false
+        collider_type: 1
+        width: 1
+        height: 1
+        radius: 0.349999994
+        drag: 0.00999999978
+        velocity: [0, 0]
   - Entity: Reflector
-    guid: 9bd91ed2ed38cd474a9e0b9266a38b65cb337cefac154c739a52cac7988417f2
+    guid: 3e7f918ecd6baa52eaccf2d9bc5fb133b66cdf4520a73ed5736a3c262db2bedc
     Name: Reflector
     TransformComponent:
-      Translation: [0.31099999, 0.751999974, -0.485000014]
+      Translation: [0.31099999, 0.751999974, 0.484887719]
       Rotation: [0, -7.19999981, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 613ba43fd3447b38ae965c5d31234fb1491afc48c477aa8e2d5818d204bd4109
+        guid: cdf51d7fe8a7d46f6f6077dacf59ec81ad5819d8b5ea0e12578f80ea187a86ca
     Components:
       - ComponentName: SpotLightComponent
-        guid: 5a3558afa6d657572a15198b6fcec1cf79abbc52d7fceef01796c99b3574aaf5
+        guid: a407e808d6b60691affbd157402d71fe6a7240066ad4e30d1a6eeb2d0eb75f88
         custom_name: ""
         constant: 1
         linear: 0.0900000036
@@ -81,7 +103,7 @@ Entities:
         m_light_world_size: 0.5
         m_light_frustum_width: 30
       - ComponentName: JeepReflectorComponent
-        guid: 1aee7eb04bc0b2483bc0ef3f3e93289b059b54796ac56fa1671bdefa50f6915c
+        guid: 99ae6794287d2ef6c9e39c7c3118c6b2ef7a0610c991e84cf8febe994d39dc7b
         custom_name: ""
         jeep:
-          guid: d6e09ed86b350ddd50aa0eef6e3e1d6e304be30d5c51315bffd3f075afb243ea
+          guid: 49409ce80767412f985d888eec09e7d8ed69280693333fa16d5e864587571ba0
