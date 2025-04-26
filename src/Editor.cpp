@@ -79,6 +79,7 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
+#include "Komiks/Wheat.h"
 // # Put new header here
 
 namespace Editor

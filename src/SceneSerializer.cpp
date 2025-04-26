@@ -68,6 +68,9 @@
 #include "Sprite.h"
 #include "Water.h"
 #include "yaml-cpp-extensions.h"
+#include "Game/Truther.h"
+#include "Game/FieldGrid.h"
+#include "Komiks/Wheat.h"
 // # Put new header here
 
 SceneSerializer::SceneSerializer(std::shared_ptr<Scene> const& scene) : m_scene(scene)
@@ -730,6 +733,15 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "custom_name" << YAML::Value << playerinput->custom_name;
         out << YAML::Key << "player_speed" << YAML::Value << playerinput->player_speed;
         out << YAML::Key << "camera_speed" << YAML::Value << playerinput->camera_speed;
+        out << YAML::EndMap;
+    }
+    else
+    if (auto const wheat = std::dynamic_pointer_cast<class Wheat>(component); wheat != nullptr)
+    {
+        out << YAML::BeginMap;
+        out << YAML::Key << "ComponentName" << YAML::Value << "WheatComponent";
+        out << YAML::Key << "guid" << YAML::Value << wheat->guid;
+        out << YAML::Key << "custom_name" << YAML::Value << wheat->custom_name;
         out << YAML::EndMap;
     }
     else
@@ -2526,7 +2538,24 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             deserialized_component->reprepare();
         }
     }
-    else
+        else
+    if (component_name == "WheatComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = Wheat::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class Wheat>(get_from_pool(component["guid"].as<std::string>()));
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
     {
         std::cout << "Error. Deserialization of component " << component_name << " failed."
                   << "\n";

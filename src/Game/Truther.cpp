@@ -42,12 +42,14 @@ void Truther::awake()
     set_can_tick(true);
 
     // FOR TESTING
-    i32 wheat_count = 32;
+    auto const wheat_grid = Entity::create("WheatGrid");
+    i32 wheat_count = 2048;
     for (i32 i = 0; i < wheat_count; i++)
     {
         auto wheat = SceneSerializer::load_prefab("Wheat");
-        float x = (i % 8) * 0.7f; // X position (8 per row)
-        float z = (i / 8) * 0.6f; // Z position (new row every 8)
+        wheat->transform->set_parent(wheat_grid->transform);
+        float x = (i % 48) * 0.2f;
+        float z = (i / 48) * 0.2f;
         wheat->transform->set_local_position({x, 0.0f, z});
     }
 }
@@ -65,7 +67,7 @@ void Truther::update()
 
         auto const l_wheat = wheat.lock();
 
-        if (glm::distance(truther_position, l_wheat->entity->transform->get_position()) < 0.1f)
+        if (glm::distance(truther_position, l_wheat->entity->transform->get_position()) < 0.15f)
         {
             l_wheat->set_bended(true, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - truther_position));
         }

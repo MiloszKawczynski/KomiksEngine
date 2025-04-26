@@ -97,6 +97,7 @@ void Engine::create_game()
     asset_preloader->preload_text_asset("./res/prefabs/Customer.txt");
     asset_preloader->preload_text_asset("./res/prefabs/Keeper.txt");
     asset_preloader->preload_text_asset("./res/prefabs/Buoy.txt");
+    asset_preloader->preload_text_asset("./res/prefabs/Wheat.txt");
 
 #if EDITOR
     m_editor->set_scene(main_scene);

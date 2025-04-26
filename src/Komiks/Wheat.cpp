@@ -1,11 +1,9 @@
 #include "Wheat.h"
 
 #include "AK/AK.h"
-#include "AK/Math.h"
 #include "Camera.h"
 #include "Entity.h"
 #include "Globals.h"
-#include "SceneSerializer.h"
 
 #include <glm/gtc/random.hpp>
 
@@ -31,23 +29,44 @@ void Wheat::awake()
     all_wheat.push_back(static_pointer_cast<Wheat>(shared_from_this()));
 }
 
-void Wheat::update()
+void Wheat::start()
 {
-    if (!m_bended)
-        return;
-
-    glm::vec3 current_euler_deg = entity->transform->get_euler_angles();
-    glm::vec3 current_euler_rad = glm::radians(current_euler_deg);
-    glm::quat current_quat = glm::quat(current_euler_rad);
-
-    float t = 0.1f;
-    glm::quat smooth_quat = glm::slerp(current_quat, m_target_rot, t);
-
-    glm::vec3 smooth_euler_rad = glm::eulerAngles(smooth_quat);
-    glm::vec3 smooth_euler_deg = glm::degrees(smooth_euler_rad);
-    entity->transform->set_rotation(smooth_euler_deg);
+    m_default_rotation = entity->transform->get_rotation();
 }
 
+void Wheat::update()
+{
+    // FOR TESTING Automatic unbending after X time
+    if (m_timer > 0.0f)
+    {
+        m_timer -= delta_time;
+    }
+    else if (m_timer < 0.0f)
+    {
+        set_bended(false);
+        m_timer = 0.0f;
+    }
+
+    if (!m_bending)
+        return;
+
+    glm::quat const current_quat = entity->transform->get_rotation();
+
+    float t = 0.1f;
+    glm::quat const smooth_quat = glm::slerp(current_quat, m_target_rot, t);
+
+    glm::vec3 const smooth_euler_rad = glm::eulerAngles(smooth_quat);
+    glm::vec3 const smooth_euler_deg = glm::degrees(smooth_euler_rad);
+    entity->transform->set_rotation(smooth_euler_deg);
+
+    float angle_diff = glm::degrees(glm::angle(smooth_quat * glm::inverse(m_target_rot)));
+    if (angle_diff < 0.5f)
+    {
+        m_bending = false;
+    }
+}
+
+// Direction is only needed if bended == true
 void Wheat::set_bended(bool bended, glm::vec2 const& direction)
 {
     if (m_bended == bended)
@@ -56,7 +75,19 @@ void Wheat::set_bended(bool bended, glm::vec2 const& direction)
     }
 
     m_bended = bended;
-    set_destination(direction);
+    m_bending = true;
+
+    if (!m_bended)
+    {
+        m_target_rot = m_default_rotation;
+    }
+    else
+    {
+        set_destination(direction);
+
+        // FOR TESTING
+        m_timer = 2.0f;
+    }
 }
 
 void Wheat::set_destination(glm::vec2 destination)
@@ -74,8 +105,4 @@ void Wheat::set_destination(glm::vec2 destination)
     float angle_deg = 90.0f;
     float angle_rad = glm::radians(angle_deg);
     m_target_rot = glm::angleAxis(angle_rad, axis);
-
-    // Step 4: Convert to Euler angles in degrees
-    glm::vec3 euler_rad = glm::eulerAngles(m_target_rot);
-    m_destination = glm::degrees(euler_rad);
 }
