@@ -138,6 +138,9 @@ void UFO::draw_editor()
 
 void UFO::choose_position()
 {
+    m_start_position = entity->transform->get_position();
+    m_move_timer = 0.0f;
+    m_is_active = true;
     glm::vec3 target = field_grid.lock()->get_cell().lock()->transform->get_position();
 
     m_destination = {target.x, 2.0f, target.z};

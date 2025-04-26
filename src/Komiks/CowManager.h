@@ -3,7 +3,10 @@
 #include "Component.h"
 #include "Cow.h"
 #include "Game/Path.h"
+#include "Komiks/UFO.h"
 #include "Sound.h"
+
+class UFO;
 
 class CowManager final : public Component
 {
@@ -24,7 +27,12 @@ public:
 
     std::vector<std::weak_ptr<Path>> paths = {};
     std::vector<std::weak_ptr<Cow>> cows = {};
+    std::weak_ptr<UFO> ufo = {};
+
+    float event_timer = 0.0f;
 
 private:
     void spawn_cow();
+    void spawn_ufo();
+    void activate_ufo();
 };
