@@ -1,0 +1,29 @@
+Scene: Untitled
+Entities:
+  - Entity: WheatOverlay
+    guid: f98150904d640f4bf9d0ec662bd49934fe8fe3befbe94381be137cb815142bc2
+    Name: WheatOverlay
+    TransformComponent:
+      Translation: [0, 1, 0]
+      Rotation: [-90, 0, 0]
+      Scale: [4.5, 4.5, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: QuadComponent
+        guid: 9a5a0e9c2aa159ab6b114ff2d4448eb2a2c6b994ab8dd132eccb23372ac9ee93
+        custom_name: ""
+        path: ./res/textures/UI\testOverlay.png
+        material:
+          Shader:
+            VertexPath: ./res/shaders/particle.hlsl
+            FragmentPath: ./res/shaders/particle.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 1000
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+      - ComponentName: WheatOverlayComponent
+        guid: 30e548ed79694615145e3fad5ad804b95053da3f59b85eeb3c59ccac8a0ad81d
+        custom_name: ""

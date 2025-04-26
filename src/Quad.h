@@ -25,11 +25,7 @@ public:
     virtual void reprepare() override;
     void prepare();
 
-    NON_SERIALIZED
-    bool rotate = true;
-
-    NON_SERIALIZED
-    ParticleType particle_type = ParticleType::Default;
+    void set_alpha(float alpha);
 
     std::string path = "./res/textures/particle.png";
 

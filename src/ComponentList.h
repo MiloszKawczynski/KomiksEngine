@@ -39,6 +39,7 @@
     ENUMERATE_COMPONENT(ShipSpawner, "Ship Spawner") \
     ENUMERATE_COMPONENT(Thanks, "Thanks") \
     ENUMERATE_COMPONENT(Truther, "Truther") \
+    ENUMERATE_COMPONENT(WheatOverlay, "Wheat Overlay") \
     ENUMERATE_COMPONENT(PlayerInput, "Player Input") \
     ENUMERATE_COMPONENT(Cow, "Cow") \
     ENUMERATE_COMPONENT(CowManager, "Cow Manager") \

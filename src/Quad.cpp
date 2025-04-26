@@ -25,7 +25,7 @@ std::shared_ptr<Quad> Quad::create()
 
     auto quad = std::make_shared<Quad>(AK::Badge<Quad> {}, "./res/textures/particle.png", particle_material);
 
-    quad->prepare();
+    //quad->prepare();
 
     return quad;
 }
@@ -98,6 +98,11 @@ bool Quad::is_particle() const
 void Quad::prepare()
 {
     m_mesh = create_sprite();
+}
+
+void Quad::set_alpha(float alpha)
+{
+    m_color.a = alpha;
 }
 
 std::shared_ptr<Mesh> Quad::create_sprite() const
