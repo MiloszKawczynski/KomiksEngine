@@ -109,7 +109,6 @@ void UFO::draw_editor()
 
     if (ImGui::Button("Spawn"))
     {
-        entity->transform->set_position({6.0f, 2.0f, 0.0f});
         choose_position();
         m_start_position = entity->transform->get_position();
         m_move_timer = 0.0f;
