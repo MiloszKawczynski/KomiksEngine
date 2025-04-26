@@ -45,8 +45,37 @@ void Cow::start()
 
 void Cow::update()
 {
-    entity->transform->set_position(
-        AK::convert_2d_to_3d(AK::move_towards(AK::convert_3d_to_2d(entity->transform->get_position()), m_destination, 0.3f * delta_time)));
+    if (!is_sucked)
+    {
+        if (m_height == 0.0f)
+        {
+            entity->transform->set_position(AK::convert_2d_to_3d(
+                AK::move_towards(AK::convert_3d_to_2d(entity->transform->get_position()), m_destination, 0.3f * delta_time)));
+        }
+        else
+        {
+            if (m_height != 0.0f)
+            {
+                m_velocity -= m_gravitation;
+            }
+
+            if (m_height < 0.0f)
+            {
+                m_height = 0.0f;
+                m_velocity = 0.0f;
+            }
+
+            m_height += m_velocity;
+            entity->transform->set_local_position(
+                {entity->transform->get_local_position().x, m_height, entity->transform->get_local_position().z});
+        }
+    }
+    else
+    {
+        m_height += 0.01f;
+        entity->transform->set_local_position(
+            {entity->transform->get_local_position().x, m_height, entity->transform->get_local_position().z});
+    }
 
     static float target_epsilon = 0.05f;
     if (glm::distance(AK::convert_3d_to_2d(entity->transform->get_position()), m_destination) < target_epsilon)

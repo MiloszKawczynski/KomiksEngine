@@ -22,8 +22,12 @@ public:
     virtual void on_collision_enter(std::shared_ptr<Collider2D> const& other) override;
 
     std::weak_ptr<CowManager> cow_manager = {};
+    bool is_sucked = false;
 
 private:
     glm::vec2 m_destination = {};
     std::weak_ptr<Collider2D> m_collider = {};
+    float m_height = 0.0f;
+    float m_gravitation = 0.01f;
+    float m_velocity = 0.0f;
 };

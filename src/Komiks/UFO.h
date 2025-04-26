@@ -4,6 +4,7 @@
 
 #include "AK/Badge.h"
 
+#include "CowManager.h"
 #include "Game/Truther.h"
 #include <Game/FieldCell.h>
 #include <glm/vec2.hpp>
@@ -30,6 +31,7 @@ public:
     std::weak_ptr<FieldGrid> field_grid = {};
     std::weak_ptr<Truther> truther = {};
     std::weak_ptr<SpotLight> attract_bean = {};
+    std::weak_ptr<CowManager> cow_manager = {};
 
 private:
     glm::vec3 m_destination = {};

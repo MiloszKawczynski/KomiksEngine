@@ -4,7 +4,7 @@ Entities:
     guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
     Name: UFO
     TransformComponent:
-      Translation: [0, 4.91106224, 0]
+      Translation: [0, 2, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
@@ -19,6 +19,8 @@ Entities:
           guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
         attract_bean:
           guid: 4fa65e859f3c3d017dcd3ad1a9a2e39e793dcedad2ae634ef7740f5ee8913667
+        cow_manager:
+          guid: cd975188fef08d9230966c62bcd8b17301f1d92b55c5530ff46c6bbd11f7b886
   - Entity: Model
     guid: 01a90328e0a7836a86f734760ca3f6c8b830280f5932f5756e31d0fb18b98f1c
     Name: Model

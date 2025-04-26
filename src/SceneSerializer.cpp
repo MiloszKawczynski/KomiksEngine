@@ -817,6 +817,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "guid" << YAML::Value << cow->guid;
         out << YAML::Key << "custom_name" << YAML::Value << cow->custom_name;
         out << YAML::Key << "cow_manager" << YAML::Value << cow->cow_manager;
+        out << YAML::Key << "is_sucked" << YAML::Value << cow->is_sucked;
         out << YAML::EndMap;
     }
     else
@@ -827,6 +828,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "guid" << YAML::Value << cowmanager->guid;
         out << YAML::Key << "custom_name" << YAML::Value << cowmanager->custom_name;
         out << YAML::Key << "paths" << YAML::Value << cowmanager->paths;
+        out << YAML::Key << "cows" << YAML::Value << cowmanager->cows;
         out << YAML::EndMap;
     }
     else
@@ -839,6 +841,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "field_grid" << YAML::Value << ufo->field_grid;
         out << YAML::Key << "truther" << YAML::Value << ufo->truther;
         out << YAML::Key << "attract_bean" << YAML::Value << ufo->attract_bean;
+        out << YAML::Key << "cow_manager" << YAML::Value << ufo->cow_manager;
         out << YAML::EndMap;
     }
     else
@@ -2749,6 +2752,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->cow_manager = component["cow_manager"].as<std::weak_ptr<CowManager>>();
             }
+            if (component["is_sucked"].IsDefined())
+            {
+                deserialized_component->is_sucked = component["is_sucked"].as<bool>();
+            }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
         }
@@ -2769,6 +2776,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["paths"].IsDefined())
             {
                 deserialized_component->paths = component["paths"].as<std::vector<std::weak_ptr<Path>>>();
+            }
+            if (component["cows"].IsDefined())
+            {
+                deserialized_component->cows = component["cows"].as<std::vector<std::weak_ptr<Cow>>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
@@ -2798,6 +2809,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["attract_bean"].IsDefined())
             {
                 deserialized_component->attract_bean = component["attract_bean"].as<std::weak_ptr<SpotLight>>();
+            }
+            if (component["cow_manager"].IsDefined())
+            {
+                deserialized_component->cow_manager = component["cow_manager"].as<std::weak_ptr<CowManager>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

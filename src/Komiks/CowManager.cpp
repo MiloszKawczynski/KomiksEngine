@@ -83,7 +83,7 @@ void CowManager::spawn_cow()
     cow->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
 
     auto const cow_comp = cow->get_component<Cow>();
-    m_cows.push_back(cow_comp);
+    cows.push_back(cow_comp);
 
     cow_comp->cow_manager = std::static_pointer_cast<CowManager>(shared_from_this());
 }
