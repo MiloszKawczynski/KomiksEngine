@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: WheatOverlay
-    guid: f98150904d640f4bf9d0ec662bd49934fe8fe3befbe94381be137cb815142bc2
+    guid: 82b1a8825ec248bc70289e0620f1eb5e7aa7b15766def99bc4dac228c7e94172
     Name: WheatOverlay
     TransformComponent:
       Translation: [0, 1, 0]
@@ -11,7 +11,7 @@ Entities:
         guid: ""
     Components:
       - ComponentName: QuadComponent
-        guid: 9a5a0e9c2aa159ab6b114ff2d4448eb2a2c6b994ab8dd132eccb23372ac9ee93
+        guid: d44825b45851067ed12e3454a80915858b1fc948caff86921eacd1cca6065731
         custom_name: ""
         path: ./res/textures/UI\testOverlay.png
         material:
@@ -25,5 +25,5 @@ Entities:
           CastsShadows: false
           IsBillboard: false
       - ComponentName: WheatOverlayComponent
-        guid: 30e548ed79694615145e3fad5ad804b95053da3f59b85eeb3c59ccac8a0ad81d
+        guid: 1ab2d38c995cac9a1964e9ce26d1e814c6bb98067b60ae50ca8d3405893e236c
         custom_name: ""

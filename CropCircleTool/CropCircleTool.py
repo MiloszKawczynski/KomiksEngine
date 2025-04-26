@@ -34,7 +34,7 @@ def process_png(image_name):
 def generate_high_res(image_name):
     base_img = Image.open(image_name + ".png")
     lookup_img = Image.open("cropLookup.png")
-    target = Image.new("RGB", (base_img.width * 10, base_img.height * 10), (255, 255, 255))
+    target = Image.new("RGB", (base_img.width * 40, base_img.height * 40), (255, 255, 255))
 
     for y in range(base_img.height):
         for x in range(base_img.width):
@@ -78,9 +78,9 @@ def generate_high_res(image_name):
                     lookup_x = 2
                     lookup_y = 1
 
-            for sy in range(10):
-                for sx in range(10):
-                    target.putpixel((x * 10 + sx, y * 10 + sy), lookup_img.getpixel((lookup_x * 10 + sx, lookup_y * 10 + sy))[:3])
+            for sy in range(40):
+                for sx in range(40):
+                    target.putpixel((x * 40 + sx, y * 40 + sy), lookup_img.getpixel((lookup_x * 40 + sx, lookup_y * 40 + sy))[:3])
 
     for y in range(base_img.height):
         for x in range(base_img.width):
@@ -135,9 +135,9 @@ def generate_high_res(image_name):
                     lookup_x = 6
                     lookup_y = 1
 
-                for sy in range(10):
-                    for sx in range(10):
-                        target.putpixel((x * 10 + sx, y * 10 + sy), lookup_img.getpixel((lookup_x * 10 + sx, lookup_y * 10 + sy))[:3])
+                for sy in range(40):
+                    for sx in range(40):
+                        target.putpixel((x * 40 + sx, y * 40 + sy), lookup_img.getpixel((lookup_x * 40 + sx, lookup_y * 40 + sy))[:3])
 
     for y in range(base_img.height):
         for x in range(base_img.width):
@@ -186,9 +186,9 @@ def generate_high_res(image_name):
                     lookup_x = 1
                     lookup_y = 0
 
-                for sy in range(10):
-                    for sx in range(10):
-                        target.putpixel((x * 10 + sx, y * 10 + sy), lookup_img.getpixel((lookup_x * 10 + sx, lookup_y * 10 + sy))[:3])
+                for sy in range(40):
+                    for sx in range(40):
+                        target.putpixel((x * 40 + sx, y * 40 + sy), lookup_img.getpixel((lookup_x * 40 + sx, lookup_y * 40 + sy))[:3])
 
     target = target.convert("RGBA")
 
