@@ -218,6 +218,23 @@ void Particle::move() const
         new_position = m_original_position + change;
         break;
     }
+    case ParticleType::StunStars:
+    {
+        if (entity->transform->parent.expired())
+            break;
+
+        glm::vec3 const parent_position = entity->transform->parent.lock()->get_position(); // Assuming parent exists.
+        float angle = (m_random_seed * glm::two_pi<float>()) + m_current_lifetime * 5.0f; // each particle offset + rotates over time
+        float radius = 0.3f; // orbit radius
+
+        change.x = cos(angle) * radius;
+        change.y = sin(angle * 2.0f) * 0.1f; // slight vertical wobble
+        change.z = sin(angle) * radius;
+        change *= 0.5f;
+
+        new_position = parent_position + change;
+        break;
+    }
     case ParticleType::Snow:
     {
         glm::vec3 const p = entity->transform->get_position();

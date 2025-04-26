@@ -39,7 +39,7 @@ void ParticleSystem::draw_editor()
     Component::draw_editor();
 
     // Dropdown list
-    std::array const particle_types = {"Default", "Prompt", "Snow", "Fish"};
+    std::array const particle_types = {"Default", "Prompt", "Snow", "Fish", "StunStars"};
     i32 current_item_index = static_cast<i32>(particle_type);
     if (ImGui::Combo("Particle type", &current_item_index, particle_types.data(), particle_types.size()))
     {

@@ -276,6 +276,10 @@ void Truther::stun()
     m_stun_timer = 2.5f;
 
     m_velocity += (1.3f * jump_power);
+
+    auto particles = SceneSerializer::load_prefab("StunStars");
+    particles->transform->set_parent(entity->transform);
+    particles->transform->set_local_position({0.0f, 0.7f, 0.0f});
 }
 
 void Truther::handle_input()
