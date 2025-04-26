@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "Input.h"
+#include "WheatOverlay.h"
 
 class Truther final : public Component
 {
@@ -29,6 +30,8 @@ public:
     float maximum_speed = 5.0f;
     float acceleration = 0.2f;
     float deceleration = 0.1f;
+
+    std::weak_ptr<WheatOverlay> wheat_overlay = {};
 
 private:
     void handle_input();

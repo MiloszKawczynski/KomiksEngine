@@ -736,6 +736,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "maximum_speed" << YAML::Value << truther->maximum_speed;
         out << YAML::Key << "acceleration" << YAML::Value << truther->acceleration;
         out << YAML::Key << "deceleration" << YAML::Value << truther->deceleration;
+        out << YAML::Key << "wheat_overlay" << YAML::Value << truther->wheat_overlay;
         out << YAML::EndMap;
     }
     else if (auto const playerinput = std::dynamic_pointer_cast<class PlayerInput>(component); playerinput != nullptr)
@@ -2567,6 +2568,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["deceleration"].IsDefined())
             {
                 deserialized_component->deceleration = component["deceleration"].as<float>();
+            }
+            if (component["wheat_overlay"].IsDefined())
+            {
+                deserialized_component->wheat_overlay = component["wheat_overlay"].as<std::weak_ptr<WheatOverlay>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

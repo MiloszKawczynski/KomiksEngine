@@ -96,6 +96,15 @@ void Truther::fixed_update()
         vertical++;
     }
 
+    wheat_overlay.lock()->is_flash_on = false;
+    if (Input::input->get_key(GLFW_KEY_SPACE))
+    {
+        horizontal = 0;
+        vertical = 0;
+
+        wheat_overlay.lock()->is_flash_on = true;
+    }
+
     m_speed.x += horizontal * acceleration;
     m_speed.y += vertical * acceleration;
 
@@ -166,6 +175,8 @@ void Truther::draw_editor()
     ImGuiEx::InputFloat("Acceleration", &acceleration);
     ImGuiEx::InputFloat("Deceleration", &deceleration);
     ImGuiEx::InputFloat("Maximum speed", &maximum_speed);
+
+    ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
 }
 #endif
 
