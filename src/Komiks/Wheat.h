@@ -19,6 +19,7 @@ public:
     virtual void start() override;
     virtual void update() override;
 
+    bool is_bended() const;
     void set_bended(bool bended, glm::vec2 const& direction = {});
     void set_destination(glm::vec2 destination);
 

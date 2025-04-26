@@ -19,12 +19,11 @@ public:
     bool get_cell_value(u32 x, u32 y);
     float calculate_faked_similarity(); // In percent
 
+    i32 rows_number = 13;
     float punishment_multiplier = 0.08f;
 
 private:
     void generate_grid_colliders();
-
-    i32 m_rows_number = 13;
     float cell_size_and_offset = 9.0f / 13.0f;
     std::vector<std::weak_ptr<Entity>> m_grid_rows = {};
 
