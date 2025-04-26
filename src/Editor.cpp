@@ -60,6 +60,7 @@
 #include "Game/ShipSpawner.h"
 #include "Game/Thanks.h"
 #include "Game/Truther.h"
+#include "Game/WheatOverlay.h"
 #include "Globals.h"
 #include "Grass.h"
 #include "Input.h"
@@ -73,6 +74,7 @@
 #include "Particle.h"
 #include "ParticleSystem.h"
 #include "PointLight.h"
+#include "Quad.h"
 #include "RendererDX11.h"
 #include "SceneSerializer.h"
 #include "ScreenText.h"
@@ -82,8 +84,6 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
-#include "Quad.h"
-#include "Game/WheatOverlay.h"
 // # Put new header here
 
 namespace Editor
