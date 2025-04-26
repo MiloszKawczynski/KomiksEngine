@@ -55,16 +55,6 @@ void FieldCell::awake()
     }
 }
 
-void FieldCell::update()
-{
-    Component::update();
-
-    if (is_cell_bended(25) && m_id == 0)
-        Debug::log("YES");
-    if (!is_cell_bended(25) && m_id == 0)
-        Debug::log("NO");
-}
-
 bool FieldCell::is_cell_bended(float percent_limit)
 {
     u32 bended_num = 0;
