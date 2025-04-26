@@ -567,6 +567,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "ComponentName" << YAML::Value << "FieldGridComponent";
         out << YAML::Key << "guid" << YAML::Value << fieldgrid->guid;
         out << YAML::Key << "custom_name" << YAML::Value << fieldgrid->custom_name;
+        out << YAML::Key << "rows_number" << YAML::Value << fieldgrid->rows_number;
         out << YAML::Key << "punishment_multiplier" << YAML::Value << fieldgrid->punishment_multiplier;
         out << YAML::EndMap;
     }
@@ -776,6 +777,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "ComponentName" << YAML::Value << "TrutherComponent";
         out << YAML::Key << "guid" << YAML::Value << truther->guid;
         out << YAML::Key << "custom_name" << YAML::Value << truther->custom_name;
+        out << YAML::Key << "truther_bends" << YAML::Value << truther->truther_bends;
         out << YAML::Key << "maximum_speed" << YAML::Value << truther->maximum_speed;
         out << YAML::Key << "acceleration" << YAML::Value << truther->acceleration;
         out << YAML::Key << "deceleration" << YAML::Value << truther->deceleration;
@@ -832,6 +834,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "ComponentName" << YAML::Value << "UFOComponent";
         out << YAML::Key << "guid" << YAML::Value << ufo->guid;
         out << YAML::Key << "custom_name" << YAML::Value << ufo->custom_name;
+        out << YAML::Key << "field_grid" << YAML::Value << ufo->field_grid;
         out << YAML::EndMap;
     }
     else
@@ -2107,6 +2110,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
         else
         {
             auto const deserialized_component = std::dynamic_pointer_cast<class FieldGrid>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["rows_number"].IsDefined())
+            {
+                deserialized_component->rows_number = component["rows_number"].as<i32>();
+            }
             if (component["punishment_multiplier"].IsDefined())
             {
                 deserialized_component->punishment_multiplier = component["punishment_multiplier"].as<float>();
@@ -2635,6 +2642,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
         else
         {
             auto const deserialized_component = std::dynamic_pointer_cast<class Truther>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["truther_bends"].IsDefined())
+            {
+                deserialized_component->truther_bends = component["truther_bends"].as<bool>();
+            }
             if (component["maximum_speed"].IsDefined())
             {
                 deserialized_component->maximum_speed = component["maximum_speed"].as<float>();
@@ -2764,6 +2775,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
         else
         {
             auto const deserialized_component = std::dynamic_pointer_cast<class UFO>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["field_grid"].IsDefined())
+            {
+                deserialized_component->field_grid = component["field_grid"].as<std::weak_ptr<FieldGrid>>();
+            }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
         }

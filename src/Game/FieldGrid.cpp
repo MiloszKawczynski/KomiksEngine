@@ -6,6 +6,7 @@
 #include "imgui_extensions.h"
 
 #include <algorithm>
+#include <glm/gtc/random.hpp>
 
 std::shared_ptr<FieldGrid> FieldGrid::create()
 {
@@ -41,6 +42,11 @@ void FieldGrid::set_cell(bool value, u32 x, u32 y)
 bool FieldGrid::get_cell_value(u32 x, u32 y)
 {
     return m_current_field_status[rows_number * y + x];
+}
+
+std::weak_ptr<Entity> FieldGrid::get_cell()
+{
+    return entity->transform->children.at(glm::linearRand(0, rows_number * rows_number))->entity;
 }
 
 float FieldGrid::calculate_faked_similarity()

@@ -4,6 +4,7 @@
 
 #include "AK/Badge.h"
 
+#include <Game/FieldCell.h>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 
@@ -20,7 +21,10 @@ public:
 
 #if EDITOR
     virtual void draw_editor() override;
+    void choose_position();
 #endif
+
+    std::weak_ptr<FieldGrid> field_grid = {};
 
 private:
     glm::vec3 m_destination = {};

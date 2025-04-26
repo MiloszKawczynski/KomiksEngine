@@ -31,15 +31,13 @@ void UFO::awake()
 
 void UFO::start()
 {
-    m_destination = {0.0f, 2.0f, 0.0f}; //get_random_position_with_minimal_distance(entity->transform->get_position());
+    m_destination = {0.0f, 2.0f, 0.0f};
     m_start_position = entity->transform->get_position();
     m_move_timer = 0.0f;
 }
 
 void UFO::update()
 {
-    //entity->transform->set_position(AK::move_towards(entity->transform->get_position(), m_destination, 0.2f * delta_time));
-
     if (m_move_timer < m_move_duration)
     {
         m_move_timer += delta_time;
@@ -65,9 +63,18 @@ void UFO::draw_editor()
     if (ImGui::Button("Spawn"))
     {
         entity->transform->set_position({6.0f, 2.0f, 0.0f});
-        m_destination = {0.0f, 2.0f, 0.0f};
+        choose_position();
         m_start_position = entity->transform->get_position();
         m_move_timer = 0.0f;
     }
+
+    ImGuiEx::draw_ptr("Field Grid", field_grid);
 }
 #endif
+
+void UFO::choose_position()
+{
+    glm::vec3 target = field_grid.lock()->get_cell().lock()->transform->get_local_position();
+
+    m_destination = {target.x, 2.0f, target.z};
+}
