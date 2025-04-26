@@ -31,6 +31,4 @@ private:
     glm::vec3 m_pushed_destination = {};
     bool m_bended = false;
     bool m_bending = true;
-
-    float m_timer = 0.0f;
 };
