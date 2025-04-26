@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Truther
-    guid: 3158f00debfc8690357db50344611bb0d6972948668d8189d9bb342c484e53ca
+    guid: 1aed61d28f947cd44667e2ecbb040ff6f8d5a5bea650aea0f11b0a9e9a21021b
     Name: Truther
     TransformComponent:
       Translation: [-4.63779974, 0, 1.15108466]
@@ -10,8 +10,46 @@ Entities:
       Parent:
         guid: ""
     Components:
+      - ComponentName: TrutherComponent
+        guid: fa0f13804a18b0784a8ec8900115b0b2ab1b9bc25b8b7ba1a83cd43aaefb2191
+        custom_name: ""
+        truther_bends: true
+        maximum_speed: 2
+        acceleration: 0.5
+        deceleration: 0.100000001
+        jump_power: 0.0250000004
+        jump_horizontal_power: 2.5
+        gravitation: 0.00100000005
+        suck_power: 0.00999999978
+        is_sucked: false
+        wheat_overlay:
+          guid: nullptr
+        model_entity:
+          guid: c47671a93665ab00063233a351ce8bf1cca4a20fdd01294c560f675bee4de337
+      - ComponentName: Collider2DComponent
+        guid: 3131aace83d9d5298ce2c630e143c5603a650dd6b2ccf0e86ec04660f9e7a818
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: false
+        collider_type: 1
+        width: 2
+        height: 2
+        radius: 0.100000001
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Model
+    guid: c47671a93665ab00063233a351ce8bf1cca4a20fdd01294c560f675bee4de337
+    Name: Model
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 1aed61d28f947cd44667e2ecbb040ff6f8d5a5bea650aea0f11b0a9e9a21021b
+    Components:
       - ComponentName: ModelComponent
-        guid: b48b31c6f0b372d5cf29496a122d0833bf52fe89be13bc37258a6fa1e5593db2
+        guid: 2348de2442b41b47c638ffc9fc8f3c9317d6654fddb41850e704f93cd815f4bb
         custom_name: ""
         model_path: ./res/models\truther\truther.gltf
         material:
@@ -24,29 +62,3 @@ Entities:
           NeedsForward: false
           CastsShadows: true
           IsBillboard: false
-      - ComponentName: Collider2DComponent
-        guid: f51b8f896383cf0e7284b55dc8ed02dcce0ab65ffde7076c83e914c07a99e004
-        custom_name: ""
-        offset: [0, 0]
-        is_trigger: false
-        is_static: false
-        collider_type: 1
-        width: 2
-        height: 2
-        radius: 0.100000001
-        drag: 0.00999999978
-        velocity: [0, 0]
-      - ComponentName: TrutherComponent
-        guid: ba47e9e7a7cbebd6b512dd484b8a60bd26458d3d66c259c35540982e1a78795d
-        custom_name: ""
-        truther_bends: true
-        maximum_speed: 2
-        acceleration: 0.5
-        deceleration: 0.100000001
-        jump_power: 0.0250000004
-        jump_horizontal_power: 2.5
-        gravitation: 0.00100000005
-        suck_power: 0.00999999978
-        is_sucked: false
-        wheat_overlay:
-          guid: 1ab2d38c995cac9a1964e9ce26d1e814c6bb98067b60ae50ca8d3405893e236c

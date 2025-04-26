@@ -72,6 +72,55 @@ void Truther::update()
             l_wheat->set_bended(truther_bends, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - truther_position));
         }
     }
+
+    if (m_height < 0.01f)
+    {
+        static float tilt_time = 0.0f;
+        static float model_height = 0.0f;
+        static float hop_velocity = 0.0f;
+        static float tilt_angle_max = 6.0f;
+
+        // Update time
+        float speed_length = glm::length(m_speed);
+
+        float additional_speed = glm::clamp(speed_length / maximum_speed, 0.0f, 1.0f);
+
+        tilt_time += delta_time * (2.0f + additional_speed * 4.0f);
+
+        // Calculate tilt using sine wave
+        float tilt_angle = glm::sin(tilt_time) * tilt_angle_max;
+
+        // Detect crossing points for hop
+        static bool previous_positive = true;
+        bool current_positive = tilt_angle >= 0.0f;
+        bool flipped = (current_positive != previous_positive);
+        previous_positive = current_positive;
+
+        // If flipped, hop
+        if (flipped)
+        {
+            hop_velocity = 0.05f;
+        }
+
+        // Update hopping
+        hop_velocity -= 1.0f * delta_time * 0.5f; // gravity
+        model_height += hop_velocity;
+
+        if (model_height < 0.0f)
+        {
+            model_height = 0.0f;
+            hop_velocity = 0.0f;
+        }
+
+        // Set model position and rotation
+        auto const l_model_entity = model_entity.lock();
+        auto model_pos = l_model_entity->transform->get_local_position();
+        model_pos.y = model_height;
+        l_model_entity->transform->set_local_position(model_pos);
+
+        // Apply tilt to model (tilting left/right like legs)
+        l_model_entity->transform->set_euler_angles({tilt_angle, 0.0f, 0.0f});
+    }
 }
 
 void Truther::fixed_update()
@@ -238,6 +287,7 @@ void Truther::draw_editor()
     ImGuiEx::InputFloat("suck power", &suck_power);
 
     ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
+    ImGuiEx::draw_ptr("Model Entity", model_entity);
 }
 #endif
 

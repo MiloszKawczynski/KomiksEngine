@@ -44,6 +44,7 @@ public:
     bool is_sucked = false;
 
     std::weak_ptr<WheatOverlay> wheat_overlay = {};
+    std::weak_ptr<Entity> model_entity = {};
 
 private:
     void handle_input();
