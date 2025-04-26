@@ -53,4 +53,9 @@ private:
     float m_height = 0.0f;
     float m_velocity = 0.0f;
     float m_stun_timer = 0.0f;
+
+    i32 m_jump_count = 0;
+    float m_flip_rotation = 0.0f;
+    float m_last_jump_timer = 0.0f;
+    bool m_do_flip = false;
 };
