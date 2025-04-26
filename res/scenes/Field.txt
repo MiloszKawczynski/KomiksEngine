@@ -50,7 +50,7 @@ Entities:
     guid: 18ed7c178c21b57e7b713f7b77c72f1553aa9784f3e603737cf54a0024fb94ba
     Name: FieldGrid
     TransformComponent:
-      Translation: [-4, 0, -4]
+      Translation: [-4, -0.0689999983, -4]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
@@ -176,7 +176,7 @@ Entities:
     Name: Wall1
     TransformComponent:
       Translation: [0, 0, -7.20375633]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
@@ -199,7 +199,7 @@ Entities:
     TransformComponent:
       Translation: [-9.29716301, 0, -0.550646842]
       Rotation: [180, 76.058403, 180]
-      Scale: [0.999988854, 1, 0.999988854]
+      Scale: [1, 1, 1]
       Parent:
         guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
     Components:
@@ -220,7 +220,7 @@ Entities:
     Name: Wall3
     TransformComponent:
       Translation: [0, 0, 5.96555138]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
@@ -243,7 +243,7 @@ Entities:
     TransformComponent:
       Translation: [9.24847507, 0, -0.550646842]
       Rotation: [-4.7007793e-06, 76.0223083, -4.9962764e-06]
-      Scale: [0.999997675, 1, 0.999997675]
+      Scale: [1, 1, 1]
       Parent:
         guid: 9d0bb15a0f7f0864831214098653f5e3ae0b387faa091b4bc0b4ca1c4322469b
     Components:
