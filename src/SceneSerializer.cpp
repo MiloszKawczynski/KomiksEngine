@@ -802,6 +802,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "suck_power" << YAML::Value << truther->suck_power;
         out << YAML::Key << "is_sucked" << YAML::Value << truther->is_sucked;
         out << YAML::Key << "wheat_overlay" << YAML::Value << truther->wheat_overlay;
+        out << YAML::Key << "model_entity" << YAML::Value << truther->model_entity;
         out << YAML::EndMap;
     }
     else
@@ -2751,6 +2752,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["wheat_overlay"].IsDefined())
             {
                 deserialized_component->wheat_overlay = component["wheat_overlay"].as<std::weak_ptr<WheatOverlay>>();
+            }
+            if (component["model_entity"].IsDefined())
+            {
+                deserialized_component->model_entity = component["model_entity"].as<std::weak_ptr<Entity>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
