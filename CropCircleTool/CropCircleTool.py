@@ -13,20 +13,20 @@ def process_png(image_name):
     img = Image.open(image_name + ".png")
     
     output_text = ""
-    output_text += "std::vector<bool> m_crop_pattern = {\n"
+    output_text += "{\n"
 
     for y in range(img.height):
         output_text += "    "
         for x in range(img.width):
             
-            if get_pixel(img, x, y):
+            if get_pixel(img, x, y, (255, 255, 255)):
                 output_text += "1, "
             else:
                 output_text += "0, "
 
         output_text += "//\n"
 
-    output_text += "};\n"
+    output_text += "}\n"
 
     pyperclip.copy(output_text)
     print("Wygenerowane dane zostały skopiowane do schowka!")
