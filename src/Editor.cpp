@@ -85,6 +85,8 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
+#include "Game/Jeep.h"
+#include "Komiks/JeepReflector.h"
 // # Put new header here
 
 namespace Editor

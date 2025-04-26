@@ -77,6 +77,8 @@
 #include "Quad.h"
 #include "Game/WheatOverlay.h"
 #include "Komiks/UFO.h"
+#include "Game/Jeep.h"
+#include "Komiks/JeepReflector.h"
 // # Put new header here
 
 SceneSerializer::SceneSerializer(std::shared_ptr<Scene> const& scene) : m_scene(scene)
@@ -611,6 +613,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "maximum_speed" << YAML::Value << jeep->maximum_speed;
         out << YAML::Key << "acceleration" << YAML::Value << jeep->acceleration;
         out << YAML::Key << "deceleration" << YAML::Value << jeep->deceleration;
+        out << YAML::Key << "player" << YAML::Value << jeep->player;
         out << YAML::EndMap;
     }
     else
@@ -841,6 +844,16 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "custom_name" << YAML::Value << cowmanager->custom_name;
         out << YAML::Key << "paths" << YAML::Value << cowmanager->paths;
         out << YAML::Key << "cows" << YAML::Value << cowmanager->cows;
+        out << YAML::EndMap;
+    }
+    else
+    if (auto const jeepreflector = std::dynamic_pointer_cast<class JeepReflector>(component); jeepreflector != nullptr)
+    {
+        out << YAML::BeginMap;
+        out << YAML::Key << "ComponentName" << YAML::Value << "JeepReflectorComponent";
+        out << YAML::Key << "guid" << YAML::Value << jeepreflector->guid;
+        out << YAML::Key << "custom_name" << YAML::Value << jeepreflector->custom_name;
+        out << YAML::Key << "jeep" << YAML::Value << jeepreflector->jeep;
         out << YAML::EndMap;
     }
     else
@@ -2229,6 +2242,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->deceleration = component["deceleration"].as<float>();
             }
+            if (component["player"].IsDefined())
+            {
+                deserialized_component->player = component["player"].as<std::weak_ptr<Truther>>();
+            }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
         }
@@ -2821,6 +2838,27 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["cows"].IsDefined())
             {
                 deserialized_component->cows = component["cows"].as<std::vector<std::weak_ptr<Cow>>>();
+            }
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
+    if (component_name == "JeepReflectorComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = JeepReflector::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class JeepReflector>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["jeep"].IsDefined())
+            {
+                deserialized_component->jeep = component["jeep"].as<std::weak_ptr<Jeep>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
