@@ -5,6 +5,7 @@
 #include "CowManager.h"
 #include "Entity.h"
 #include "Globals.h"
+#include "Wheat.h"
 
 #include <glm/gtc/random.hpp>
 
@@ -54,5 +55,16 @@ void Cow::update()
         auto const l_cow_manager = cow_manager.lock();
 
         m_destination = l_cow_manager->get_random_position_with_minimal_distance(entity->transform->get_position());
+    }
+
+    auto const cow_position = entity->transform->get_position();
+    for (auto& wheat : Wheat::all_wheat)
+    {
+        auto const l_wheat = wheat.lock();
+
+        if (glm::distance(cow_position, l_wheat->entity->transform->get_position()) < 0.15f)
+        {
+            l_wheat->set_bended(false, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - cow_position));
+        }
     }
 }

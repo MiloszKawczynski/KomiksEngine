@@ -36,17 +36,6 @@ void Wheat::start()
 
 void Wheat::update()
 {
-    // FOR TESTING Automatic unbending after X time
-    if (m_timer > 0.0f)
-    {
-        m_timer -= delta_time;
-    }
-    else if (m_timer < 0.0f)
-    {
-        set_bended(false);
-        m_timer = 0.0f;
-    }
-
     if (!m_bending)
         return;
 
@@ -84,9 +73,6 @@ void Wheat::set_bended(bool bended, glm::vec2 const& direction)
     else
     {
         set_destination(direction);
-
-        // FOR TESTING
-        m_timer = 2.0f;
     }
 }
 
