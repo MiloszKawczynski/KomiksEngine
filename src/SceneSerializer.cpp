@@ -784,6 +784,8 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "jump_power" << YAML::Value << truther->jump_power;
         out << YAML::Key << "jump_horizontal_power" << YAML::Value << truther->jump_horizontal_power;
         out << YAML::Key << "gravitation" << YAML::Value << truther->gravitation;
+        out << YAML::Key << "suck_power" << YAML::Value << truther->suck_power;
+        out << YAML::Key << "is_sucked" << YAML::Value << truther->is_sucked;
         out << YAML::Key << "wheat_overlay" << YAML::Value << truther->wheat_overlay;
         out << YAML::EndMap;
     }
@@ -835,6 +837,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "guid" << YAML::Value << ufo->guid;
         out << YAML::Key << "custom_name" << YAML::Value << ufo->custom_name;
         out << YAML::Key << "field_grid" << YAML::Value << ufo->field_grid;
+        out << YAML::Key << "truther" << YAML::Value << ufo->truther;
         out << YAML::EndMap;
     }
     else
@@ -2670,6 +2673,14 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->gravitation = component["gravitation"].as<float>();
             }
+            if (component["suck_power"].IsDefined())
+            {
+                deserialized_component->suck_power = component["suck_power"].as<float>();
+            }
+            if (component["is_sucked"].IsDefined())
+            {
+                deserialized_component->is_sucked = component["is_sucked"].as<bool>();
+            }
             if (component["wheat_overlay"].IsDefined())
             {
                 deserialized_component->wheat_overlay = component["wheat_overlay"].as<std::weak_ptr<WheatOverlay>>();
@@ -2778,6 +2789,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["field_grid"].IsDefined())
             {
                 deserialized_component->field_grid = component["field_grid"].as<std::weak_ptr<FieldGrid>>();
+            }
+            if (component["truther"].IsDefined())
+            {
+                deserialized_component->truther = component["truther"].as<std::weak_ptr<Truther>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

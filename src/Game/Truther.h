@@ -27,6 +27,8 @@ public:
 
     glm::vec2 get_speed() const;
 
+    void suck();
+
     // Bend or unbend
     bool truther_bends = true;
 
@@ -36,6 +38,9 @@ public:
     float jump_power = 0.5f;
     float jump_horizontal_power = 2.0f;
     float gravitation = 0.01f;
+    float suck_power = 0.01f;
+
+    bool is_sucked = false;
 
     std::weak_ptr<WheatOverlay> wheat_overlay = {};
 
