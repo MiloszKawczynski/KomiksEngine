@@ -32,7 +32,7 @@ public:
     float acceleration = 0.2f;
     float deceleration = 0.1f;
 
-    std::weak_ptr<Truther> player;
+    std::weak_ptr<Truther> player = {};
 
     NON_SERIALIZED
     float light_range = 0.69f * 3.0f;
