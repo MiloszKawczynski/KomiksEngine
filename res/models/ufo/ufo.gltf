@@ -64,7 +64,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":704,
+			"count":1928,
 			"max":[
 				1.8255336284637451,
 				0.8395062685012817,
@@ -80,45 +80,45 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":704,
+			"count":1928,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":704,
+			"count":1928,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":1056,
+			"count":3672,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":8448,
+			"byteLength":23136,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":8448,
-			"byteOffset":8448,
+			"byteLength":23136,
+			"byteOffset":23136,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5632,
-			"byteOffset":16896,
+			"byteLength":15424,
+			"byteOffset":46272,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2112,
-			"byteOffset":22528,
+			"byteLength":7344,
+			"byteOffset":61696,
 			"target":34963
 		}
 	],
@@ -130,7 +130,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":24640,
+			"byteLength":69040,
 			"uri":"ufo.bin"
 		}
 	]
