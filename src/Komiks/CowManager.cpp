@@ -28,11 +28,15 @@ void CowManager::awake()
 
     get_spawn_paths();
 
+    spawn_truther();
+
     spawn_cow();
     spawn_cow();
     spawn_cow();
 
     spawn_ufo();
+
+    spawn_jeep();
 }
 
 void CowManager::update()
@@ -52,6 +56,7 @@ void CowManager::draw_editor()
     Component::draw_editor();
 
     ImGui::Text((std::to_string(event_timer)).c_str());
+    ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
 }
 #endif
 
@@ -85,6 +90,19 @@ glm::vec2 CowManager::get_random_position_with_minimal_distance(glm::vec3 curren
     return spawn_position;
 }
 
+void CowManager::spawn_truther()
+{
+    std::shared_ptr<Entity> new_truther = SceneSerializer::load_prefab("Truther");
+
+    glm::vec2 spawn_position = glm::vec2(0.0f, 4.5f);
+
+    new_truther->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
+
+    auto const truther_comp = new_truther->get_component<Truther>();
+    truther = truther_comp;
+    truther.lock()->wheat_overlay = wheat_overlay;
+}
+
 void CowManager::spawn_cow()
 {
     std::shared_ptr<Entity> cow = SceneSerializer::load_prefab("Cow");
@@ -110,6 +128,20 @@ void CowManager::spawn_ufo()
 
     auto const ufo_comp = new_ufo->get_component<UFO>();
     ufo = ufo_comp;
+    ufo.lock()->truther = truther;
+}
+
+void CowManager::spawn_jeep()
+{
+    std::shared_ptr<Entity> new_jeep = SceneSerializer::load_prefab("JeepAndReflector");
+
+    glm::vec2 spawn_position = glm::vec2((rand() % 2 == 0 ? -9.0f : 9.0), (rand() % 2 == 0 ? -7.0f : 7.0f));
+
+    new_jeep->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
+
+    auto const jeep_comp = new_jeep->transform->children[0]->entity.lock()->get_component<Jeep>();
+    jeep = jeep_comp;
+    jeep.lock()->player = truther;
 }
 
 void CowManager::activate_ufo()

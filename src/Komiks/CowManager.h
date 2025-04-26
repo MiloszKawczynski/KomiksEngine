@@ -5,6 +5,8 @@
 #include "Game/Path.h"
 #include "Komiks/UFO.h"
 #include "Sound.h"
+#include <Game/Jeep.h>
+#include <Game/WheatOverlay.h>
 
 class UFO;
 
@@ -27,12 +29,17 @@ public:
 
     std::vector<std::weak_ptr<Path>> paths = {};
     std::vector<std::weak_ptr<Cow>> cows = {};
+    std::weak_ptr<Truther> truther = {};
     std::weak_ptr<UFO> ufo = {};
+    std::weak_ptr<Jeep> jeep = {};
+    std::weak_ptr<WheatOverlay> wheat_overlay = {};
 
     float event_timer = 0.0f;
 
 private:
+    void spawn_truther();
     void spawn_cow();
     void spawn_ufo();
+    void spawn_jeep();
     void activate_ufo();
 };

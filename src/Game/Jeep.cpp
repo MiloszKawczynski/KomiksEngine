@@ -70,8 +70,8 @@ void Jeep::fixed_update()
         m_invincibility_timer -= fixed_delta_time;
     }
 
-    horizontal = glm::sign(m_target.x - entity->transform->get_local_position().x);
-    vertical = glm::sign(m_target.y - entity->transform->get_local_position().z);
+    horizontal = glm::sign(m_target.x - entity->transform->get_position().x);
+    vertical = glm::sign(m_target.y - entity->transform->get_position().z);
 
     m_speed.x += horizontal * acceleration;
     m_speed.y += vertical * acceleration;

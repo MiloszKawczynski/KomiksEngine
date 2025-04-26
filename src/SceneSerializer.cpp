@@ -844,7 +844,10 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "custom_name" << YAML::Value << cowmanager->custom_name;
         out << YAML::Key << "paths" << YAML::Value << cowmanager->paths;
         out << YAML::Key << "cows" << YAML::Value << cowmanager->cows;
+        out << YAML::Key << "truther" << YAML::Value << cowmanager->truther;
         out << YAML::Key << "ufo" << YAML::Value << cowmanager->ufo;
+        out << YAML::Key << "jeep" << YAML::Value << cowmanager->jeep;
+        out << YAML::Key << "wheat_overlay" << YAML::Value << cowmanager->wheat_overlay;
         out << YAML::Key << "event_timer" << YAML::Value << cowmanager->event_timer;
         out << YAML::EndMap;
     }
@@ -2841,9 +2844,21 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->cows = component["cows"].as<std::vector<std::weak_ptr<Cow>>>();
             }
+            if (component["truther"].IsDefined())
+            {
+                deserialized_component->truther = component["truther"].as<std::weak_ptr<Truther>>();
+            }
             if (component["ufo"].IsDefined())
             {
                 deserialized_component->ufo = component["ufo"].as<std::weak_ptr<UFO>>();
+            }
+            if (component["jeep"].IsDefined())
+            {
+                deserialized_component->jeep = component["jeep"].as<std::weak_ptr<Jeep>>();
+            }
+            if (component["wheat_overlay"].IsDefined())
+            {
+                deserialized_component->wheat_overlay = component["wheat_overlay"].as<std::weak_ptr<WheatOverlay>>();
             }
             if (component["event_timer"].IsDefined())
             {
