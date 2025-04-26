@@ -132,7 +132,31 @@ Entities:
         acceleration: 0.5
         deceleration: 0.100000001
         jump_power: 0.100000001
-        jump_horizontal_power: 1.5
+        jump_horizontal_power: 2.5
         gravitation: 0.00499999989
         wheat_overlay:
           guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
+  - Entity: CowManager
+    guid: f95f1a8d937b4b1457a04818977dcd3b8065624c70de733b241e63f712162992
+    Name: CowManager
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: CowManagerComponent
+        guid: cd975188fef08d9230966c62bcd8b17301f1d92b55c5530ff46c6bbd11f7b886
+        custom_name: ""
+        paths:
+          []
+      - ComponentName: PathComponent
+        guid: f61646bebcca77f6a9d5ac6c0550002e637ce0e4b4431ccf284a89a6a2a6460f
+        custom_name: ""
+        points:
+          - [-5, -4.75]
+          - [-4.87577105, 3.94553423]
+          - [4.31568956, 3.94553423]
+          - [4.40853262, -5.15308332]
+          - [-4.9686141, -5.24592638]
