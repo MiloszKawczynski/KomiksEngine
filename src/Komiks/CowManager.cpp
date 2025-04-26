@@ -11,6 +11,7 @@
 #if EDITOR
 #include "imgui_extensions.h"
 #endif
+#include <Globals.h>
 
 std::shared_ptr<CowManager> CowManager::create()
 {
@@ -30,16 +31,27 @@ void CowManager::awake()
     spawn_cow();
     spawn_cow();
     spawn_cow();
+
+    spawn_ufo();
 }
 
 void CowManager::update()
 {
+    event_timer += delta_time;
+
+    if (event_timer >= 40.0f)
+    {
+        activate_ufo();
+        event_timer = 0.0f;
+    }
 }
 
 #if EDITOR
 void CowManager::draw_editor()
 {
     Component::draw_editor();
+
+    ImGui::Text((std::to_string(event_timer)).c_str());
 }
 #endif
 
@@ -86,4 +98,21 @@ void CowManager::spawn_cow()
     cows.push_back(cow_comp);
 
     cow_comp->cow_manager = std::static_pointer_cast<CowManager>(shared_from_this());
+}
+
+void CowManager::spawn_ufo()
+{
+    std::shared_ptr<Entity> new_ufo = SceneSerializer::load_prefab("UFO");
+
+    glm::vec2 spawn_position = glm::vec2((rand() % 2 == 0 ? -9.0f : 9.0), (rand() % 2 == 0 ? -7.0f : 7.0f));
+
+    new_ufo->transform->set_local_position({spawn_position.x, 2.0f, spawn_position.y});
+
+    auto const ufo_comp = new_ufo->get_component<UFO>();
+    ufo = ufo_comp;
+}
+
+void CowManager::activate_ufo()
+{
+    ufo.lock()->choose_position();
 }

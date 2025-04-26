@@ -844,6 +844,8 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "custom_name" << YAML::Value << cowmanager->custom_name;
         out << YAML::Key << "paths" << YAML::Value << cowmanager->paths;
         out << YAML::Key << "cows" << YAML::Value << cowmanager->cows;
+        out << YAML::Key << "ufo" << YAML::Value << cowmanager->ufo;
+        out << YAML::Key << "event_timer" << YAML::Value << cowmanager->event_timer;
         out << YAML::EndMap;
     }
     else
@@ -2838,6 +2840,14 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["cows"].IsDefined())
             {
                 deserialized_component->cows = component["cows"].as<std::vector<std::weak_ptr<Cow>>>();
+            }
+            if (component["ufo"].IsDefined())
+            {
+                deserialized_component->ufo = component["ufo"].as<std::weak_ptr<UFO>>();
+            }
+            if (component["event_timer"].IsDefined())
+            {
+                deserialized_component->event_timer = component["event_timer"].as<float>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
