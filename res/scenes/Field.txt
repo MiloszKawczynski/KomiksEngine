@@ -82,136 +82,6 @@ Entities:
           NeedsForward: false
           CastsShadows: true
           IsBillboard: false
-  - Entity: Keeper
-    guid: 31e1c72f169bfe1f7bf25e682ad87ce1a46dd9698c8f9e6052d80bc1cbcb3b0e
-    Name: Keeper
-    TransformComponent:
-      Translation: [3.57773829, -0.0115939351, -2.00527859]
-      Rotation: [178.386627, -26.1934986, 176.709991]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: ""
-    Components:
-      - ComponentName: ModelComponent
-        guid: 95f2cbed501935b9e9635eb4e589fcbd6c9eb8e93201f5cc74721dacb4dbd8ed
-        custom_name: ""
-        model_path: ./res/models/keeperInHovercraft/keeper.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-      - ComponentName: Collider2DComponent
-        guid: c887f2c039e59c3dcbc448c77e35e5cdf1909047f7d7cd9f8e002f89ad717eca
-        custom_name: ""
-        offset: [0, 0]
-        is_trigger: false
-        is_static: false
-        collider_type: 1
-        width: 2
-        height: 2
-        radius: 0.100000001
-        drag: 0.00999999978
-        velocity: [0, 0]
-      - ComponentName: LighthouseKeeperComponent
-        guid: 493b3d6711b1c12c9bed91f97de66b12c685c63bbac32e5dd62ad7ba29d84ace
-        custom_name: ""
-        maximum_speed: 5
-        acceleration: 0.200000003
-        deceleration: 0.100000001
-        lighthouse:
-          guid: nullptr
-        port:
-          guid: nullptr
-        keeper_dust:
-          guid: 01a89b8559159e9dd19893aed7532de5fc7da9fc4aa5f268ce2fcb5e5b60dd16
-        keeper_splash:
-          guid: accd132c0cf4c3c92257dabec080f4e2a22082e1f37f1bbfc8ba60f0537f071d
-        packages:
-          []
-      - ComponentName: FloaterComponent
-        guid: 556ad12fb1d05d132821e4a5df5c51227baa4031019ebb1fafe11344b8324a41
-        custom_name: ""
-        sink: 0.00999999978
-        side_floaters_offset: 0.100000001
-        side_roation_strength: 5
-        forward_rotation_strength: 5
-        forward_floaters_offest: 0.100000001
-        water:
-          guid: nullptr
-  - Entity: KeeperDust
-    guid: 19b59d2f9e488ea79896c187021943034c4f97063e67a950c3fc8bdc8c6e115a
-    Name: KeeperDust
-    TransformComponent:
-      Translation: [-0.400000006, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: 31e1c72f169bfe1f7bf25e682ad87ce1a46dd9698c8f9e6052d80bc1cbcb3b0e
-    Components:
-      - ComponentName: ParticleSystemComponent
-        guid: 01a89b8559159e9dd19893aed7532de5fc7da9fc4aa5f268ce2fcb5e5b60dd16
-        custom_name: ""
-        particle_type: 0
-        play_once: false
-        rotate_particles: true
-        spawn_instantly: false
-        sprite_path: ./res/textures/particle.png
-        min_spawn_interval: 0
-        max_spawn_interval: 0.100000001
-        start_velocity_1: [-1.20000005, 0, -1.20000005]
-        start_velocity_2: [1.20000005, 0, 1.20000005]
-        min_spawn_alpha: 0.5
-        max_spawn_alpha: 0.800000012
-        start_min_particle_size: [0.0399999991, 0.0399999991, 0.0399999991]
-        start_max_particle_size: [0.0399999991, 0.0399999991, 0.0399999991]
-        emitter_bounds: 0.100000001
-        min_spawn_count: 15
-        max_spawn_count: 15
-        start_color_1: [0.211111128, 0.65814811, 1, 1]
-        end_color_1: [0.377777755, 0.66814816, 1, 0]
-        lifetime_1: 0.200000003
-        lifetime_2: 0.200000003
-        m_simulate_in_world_space: false
-  - Entity: KeeperSplash
-    guid: bca68ae40c4d11f955ff9092d2baee209834718f7ceac25f4237b5fef41e7b7f
-    Name: KeeperSplash
-    TransformComponent:
-      Translation: [-0.400000006, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: 31e1c72f169bfe1f7bf25e682ad87ce1a46dd9698c8f9e6052d80bc1cbcb3b0e
-    Components:
-      - ComponentName: ParticleSystemComponent
-        guid: accd132c0cf4c3c92257dabec080f4e2a22082e1f37f1bbfc8ba60f0537f071d
-        custom_name: ""
-        particle_type: 0
-        play_once: false
-        rotate_particles: true
-        spawn_instantly: false
-        sprite_path: ./res/textures/particle.png
-        min_spawn_interval: 0
-        max_spawn_interval: 0.100000001
-        start_velocity_1: [-1.20000005, 0, -1.20000005]
-        start_velocity_2: [1.20000005, 0, 1.20000005]
-        min_spawn_alpha: 0.5
-        max_spawn_alpha: 0.800000012
-        start_min_particle_size: [0.0149999997, 0.0500000007, 0.0149999997]
-        start_max_particle_size: [0.0149999997, 0.0500000007, 0.0149999997]
-        emitter_bounds: 0.119999997
-        min_spawn_count: 15
-        max_spawn_count: 15
-        start_color_1: [0, 0.185740888, 0.327777803, 1]
-        end_color_1: [0, 0.127037168, 0.272222221, 0]
-        lifetime_1: 0.200000003
-        lifetime_2: 0.200000003
-        m_simulate_in_world_space: false
   - Entity: PatternCell
     guid: 99a3e45213184ef0b752c12fc30482ddfeb8a14d2ec47ddc3ea2559e9cfaf910
     Name: PatternCell
@@ -417,7 +287,7 @@ Entities:
     Name: FieldGrid
     TransformComponent:
       Translation: [0, 0, 0]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: ""
@@ -425,6 +295,7 @@ Entities:
       - ComponentName: FieldGridComponent
         guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
         custom_name: ""
+        punishment_multiplier: 0.0799999982
   - Entity: Row2
     guid: f48ba09b18c50a332b54f025f344db3df0f6b8d78443c97b182bd03afb103ee4
     Name: Row2
@@ -2313,3 +2184,55 @@ Entities:
       - ComponentName: FieldCellComponent
         guid: ff2488bf260b09010fa366fcc88e8fbdb8902fa4e5d6265651a1834be5cf0a15
         custom_name: ""
+  - Entity: Truther
+    guid: f985c78c32df9c333845eb5c7a1502dd6c95e53a767455605dd4f3c7219c117f
+    Name: Truther
+    TransformComponent:
+      Translation: [-3.54030871, 0, 0.917244911]
+      Rotation: [0, 1.6900754, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: ModelComponent
+        guid: 96424fe88257dc9550136ecf439a80164db2e1a7856b7c2aae609b673f841bc1
+        custom_name: ""
+        model_path: ./res/models/keeperInHovercraft/keeper.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: ab847e72053e3b2779e563e77a81df0f15e00d6734eaa1025cf14a46a2c8611a
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: false
+        collider_type: 1
+        width: 2
+        height: 2
+        radius: 0.100000001
+        drag: 0.00999999978
+        velocity: [0, 0]
+      - ComponentName: FloaterComponent
+        guid: 9946f603f96b849a6fb748d97ccbc38aef34a35a747164546364b2b9b02f0276
+        custom_name: ""
+        sink: 0.00999999978
+        side_floaters_offset: 0.100000001
+        side_roation_strength: 5
+        forward_rotation_strength: 5
+        forward_floaters_offest: 0.100000001
+        water:
+          guid: nullptr
+      - ComponentName: TrutherComponent
+        guid: 44f566300092ef96377059684a8532e365210da16efb4c73ba42b16baa44eef2
+        custom_name: ""
+        maximum_speed: 2
+        acceleration: 0.5
+        deceleration: 0.100000001
