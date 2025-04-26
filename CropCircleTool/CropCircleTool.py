@@ -47,10 +47,10 @@ def generate_high_res(image_name):
             down = min(y + 1, base_img.height - 1)
 
             thisPixel = get_pixel(base_img, x, y, (255, 0, 0))
-            leftPixel = get_pixel(base_img, left, y, (255, 255, 255))
-            rightPixel = get_pixel(base_img, right, y, (255, 255, 255))
-            upPixel = get_pixel(base_img, x, up, (255, 255, 255))
-            downPixel = get_pixel(base_img, x, down, (255, 255, 255))
+            leftPixel = get_pixel(base_img, left, y, (255, 255, 255)) or get_pixel(base_img, left, y, (255, 0, 0))
+            rightPixel = get_pixel(base_img, right, y, (255, 255, 255)) or get_pixel(base_img, right, y, (255, 0, 0))
+            upPixel = get_pixel(base_img, x, up, (255, 255, 255)) or get_pixel(base_img, x, up, (255, 0, 0))
+            downPixel = get_pixel(base_img, x, down, (255, 255, 255)) or get_pixel(base_img, x, down, (255, 0, 0))
 
             if (thisPixel):
 
