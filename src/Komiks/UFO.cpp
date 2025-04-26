@@ -40,7 +40,7 @@ void UFO::update()
 {
     if (m_move_timer < m_move_duration)
     {
-        m_move_timer += delta_time;
+        m_move_timer += delta_time * 0.5f;
 
         float t = glm::clamp(m_move_timer / m_move_duration, 0.0f, 1.0f); // progress [0,1]
         float eased_t = glm::backEaseOut(t); // smooth it
@@ -52,6 +52,16 @@ void UFO::update()
     else
     {
         entity->transform->set_position(m_destination); // snap exactly at the end
+    }
+
+    glm::vec3 truther_position = truther.lock()->entity->transform->get_local_position();
+    glm::vec3 my_position = entity->transform->get_local_position();
+
+    truther.lock()->is_sucked = false;
+    if (glm::distance(glm::vec2(truther_position.x, truther_position.z), glm::vec2(my_position.x, my_position.z)) < 1.69f)
+    {
+        truther.lock()->is_sucked = true;
+        truther.lock()->entity->transform->set_local_position(glm::mix(truther_position, my_position, 0.03f));
     }
 }
 
@@ -69,6 +79,7 @@ void UFO::draw_editor()
     }
 
     ImGuiEx::draw_ptr("Field Grid", field_grid);
+    ImGuiEx::draw_ptr("Truther", truther);
 }
 #endif
 

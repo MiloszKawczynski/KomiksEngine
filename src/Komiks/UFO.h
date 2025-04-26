@@ -4,9 +4,12 @@
 
 #include "AK/Badge.h"
 
+#include "Game/Truther.h"
 #include <Game/FieldCell.h>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
+
+class Thruter;
 
 class UFO final : public Component
 {
@@ -25,6 +28,7 @@ public:
 #endif
 
     std::weak_ptr<FieldGrid> field_grid = {};
+    std::weak_ptr<Truther> truther = {};
 
 private:
     glm::vec3 m_destination = {};

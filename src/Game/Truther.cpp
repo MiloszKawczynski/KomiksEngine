@@ -110,6 +110,14 @@ void Truther::fixed_update()
         m_speed.x += horizontal * acceleration;
         m_speed.y += vertical * acceleration;
     }
+    else
+    {
+        if (is_sucked)
+        {
+            m_speed.x += horizontal * acceleration * 0.2f;
+            m_speed.y += vertical * acceleration * 0.2f;
+        }
+    }
 
     if (horizontal == 0)
     {
@@ -131,7 +139,7 @@ void Truther::fixed_update()
         m_speed.y = 0.0f;
     }
 
-    if (glm::length(m_speed) > maximum_speed && m_height == 0.0f)
+    if (glm::length(m_speed) > maximum_speed && (m_height == 0.0f || is_sucked))
     {
         m_speed = glm::normalize(m_speed) * maximum_speed;
     }
@@ -142,9 +150,16 @@ void Truther::fixed_update()
         m_speed *= jump_horizontal_power;
     }
 
-    if (m_height != 0.0f)
+    if (!is_sucked)
     {
-        m_velocity -= gravitation;
+        if (m_height != 0.0f)
+        {
+            m_velocity -= gravitation;
+        }
+    }
+    else
+    {
+        suck();
     }
 
     if (m_height < 0.0f)
@@ -209,6 +224,7 @@ void Truther::draw_editor()
     ImGuiEx::InputFloat("Jump power", &jump_power);
     ImGuiEx::InputFloat("Gravitation", &gravitation);
     ImGuiEx::InputFloat("jump_horizontal_power", &jump_horizontal_power);
+    ImGuiEx::InputFloat("suck power", &suck_power);
 
     ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
 }
@@ -229,6 +245,14 @@ void Truther::on_destroyed()
 glm::vec2 Truther::get_speed() const
 {
     return m_speed;
+}
+
+void Truther::suck()
+{
+    if (m_height < 1.25f)
+    {
+        m_height += suck_power;
+    }
 }
 
 void Truther::handle_input()
