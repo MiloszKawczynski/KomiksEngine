@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Truther
-    guid: 08b14d442087d2e1a3d7825198ad88fe5bbe2319de31228e42754ead5b914487
+    guid: e33640478afa8d2272baea71a4328ba389e9764e86c5693f37c9365735d31609
     Name: Truther
     TransformComponent:
       Translation: [-4.63779974, 0, 1.15108466]
@@ -11,7 +11,7 @@ Entities:
         guid: ""
     Components:
       - ComponentName: ModelComponent
-        guid: 27c3357bf2f9d3287bf22b1be6e58777a9ba049c91f976753265588ce22b423f
+        guid: 12e6a42d165960bcb0f9e97858574122aa79522da7142ebacfd65563f223d4a7
         custom_name: ""
         model_path: ./res/models/keeperInHovercraft/keeper.gltf
         material:
@@ -25,7 +25,7 @@ Entities:
           CastsShadows: true
           IsBillboard: false
       - ComponentName: Collider2DComponent
-        guid: 88778e29f0a0f40f425b7ff6d9ffa173580f4edeb632e85465206db7fa51163f
+        guid: 7581931ddf8f40b9b41e683c44706837bfc2fc59a4c428e617e828c06b4ca640
         custom_name: ""
         offset: [0, 0]
         is_trigger: false
@@ -36,18 +36,8 @@ Entities:
         radius: 0.100000001
         drag: 0.00999999978
         velocity: [0, 0]
-      - ComponentName: FloaterComponent
-        guid: 897e63b1113e1b599f5e804c251a002ceb4769334887634041357e50df0a688b
-        custom_name: ""
-        sink: 0.00999999978
-        side_floaters_offset: 0.100000001
-        side_roation_strength: 5
-        forward_rotation_strength: 5
-        forward_floaters_offest: 0.100000001
-        water:
-          guid: nullptr
       - ComponentName: TrutherComponent
-        guid: a257d100732de8ed400504a41ec9a66792106687fe9a6c125234eb52d29af50d
+        guid: 4c59e58ffa8ce1899996099244b78ab25bd101cec3b0284b1a1f87fed451c852
         custom_name: ""
         maximum_speed: 2
         acceleration: 0.5
@@ -56,4 +46,4 @@ Entities:
         jump_horizontal_power: 1.5
         gravitation: 0.00499999989
         wheat_overlay:
-          guid: 1ab2d38c995cac9a1964e9ce26d1e814c6bb98067b60ae50ca8d3405893e236c
+          guid: nullptr

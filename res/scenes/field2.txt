@@ -2004,16 +2004,6 @@ Entities:
         radius: 0.100000001
         drag: 0.00999999978
         velocity: [0, 0]
-      - ComponentName: FloaterComponent
-        guid: 897e63b1113e1b599f5e804c251a002ceb4769334887634041357e50df0a688b
-        custom_name: ""
-        sink: 0.00999999978
-        side_floaters_offset: 0.100000001
-        side_roation_strength: 5
-        forward_rotation_strength: 5
-        forward_floaters_offest: 0.100000001
-        water:
-          guid: nullptr
       - ComponentName: TrutherComponent
         guid: a257d100732de8ed400504a41ec9a66792106687fe9a6c125234eb52d29af50d
         custom_name: ""
