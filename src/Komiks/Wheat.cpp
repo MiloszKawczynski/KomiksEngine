@@ -25,7 +25,6 @@ Wheat::Wheat(AK::Badge<Wheat>)
 void Wheat::awake()
 {
     set_can_tick(true);
-
     all_wheat.push_back(static_pointer_cast<Wheat>(shared_from_this()));
 }
 

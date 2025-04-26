@@ -55,9 +55,10 @@ void FieldCell::update()
 {
     Component::update();
 
-    if (is_cell_bended(25))
-        Debug::log("Cell X: " + std::to_string(m_id / m_field_grid_ref->rows_number)
-                   + ", Y: " + std::to_string(m_id % m_field_grid_ref->rows_number));
+    if (is_cell_bended(25) && m_id == 0)
+        Debug::log("YES");
+    if (!is_cell_bended(25) && m_id == 0)
+        Debug::log("NO");
 }
 
 bool FieldCell::is_cell_bended(float percent_limit)
