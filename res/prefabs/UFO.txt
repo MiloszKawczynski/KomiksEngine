@@ -27,14 +27,14 @@ Entities:
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
+      Scale: [0.5, 0.5, 0.5]
       Parent:
         guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
     Components:
       - ComponentName: ModelComponent
         guid: f19a6560fa58664a057ef55b9bae97fcbf8701b48d59d31f4b1df3c90ad59875
         custom_name: ""
-        model_path: ./res/models\hovercraft\hovercraft.gltf
+        model_path: ./res/models\ufo\ufo.gltf
         material:
           Shader:
             VertexPath: ./res/shaders/lit.hlsl
