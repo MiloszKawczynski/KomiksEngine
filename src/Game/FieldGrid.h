@@ -17,6 +17,7 @@ public:
 
     void set_cell(bool value, u32 x, u32 y);
     bool get_cell_value(u32 x, u32 y);
+    std::weak_ptr<Entity> get_cell();
     float calculate_faked_similarity(); // In percent
 
     i32 rows_number = 13;

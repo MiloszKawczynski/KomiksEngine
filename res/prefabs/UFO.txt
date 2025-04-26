@@ -1,30 +1,32 @@
 Scene: Untitled
 Entities:
   - Entity: UFO
-    guid: 0d071c30977b943f3f6720c1ffcf322f34ba1744ffade35283c470245470df45
+    guid: 2f2091ec80ebcb95792c5cbe7c7cf3c8f6001f8ef350d3986758867fbc5c2ccd
     Name: UFO
     TransformComponent:
       Translation: [0, 4.91106224, 0]
-      Rotation: [0, -0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: ""
     Components:
       - ComponentName: UFOComponent
-        guid: 3131db697670eac4b242a056b1d11909639ac222bdcf06377b1ae4e962d3e7a8
+        guid: be8dffd2cbb4202347cba5839db9ff3db2cc22956a0a7026d77e4b27fb2bcb2a
         custom_name: ""
+        field_grid:
+          guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
   - Entity: Model
-    guid: 80b847a4e809c8a8963391796faef9619312ccdb93dc0ceeba53ee684d73b923
+    guid: a3aa47a747c2e9f68b837bc88329ff7dafefae24faf6fbbc1fced8e790ba12a0
     Name: Model
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 0d071c30977b943f3f6720c1ffcf322f34ba1744ffade35283c470245470df45
+        guid: 2f2091ec80ebcb95792c5cbe7c7cf3c8f6001f8ef350d3986758867fbc5c2ccd
     Components:
       - ComponentName: ModelComponent
-        guid: aab56be45574d71524354db0fc9a6f623113843048a5110a18ac6108be8478ee
+        guid: 5acf87a58a1ae6e6a42b58a004305743c040d6659ee7059ca1b2f29e65897e7b
         custom_name: ""
         model_path: ./res/models\hovercraft\hovercraft.gltf
         material:
@@ -38,17 +40,17 @@ Entities:
           CastsShadows: true
           IsBillboard: false
   - Entity: Spotlight
-    guid: db4f5d422f9a52e7949996750e5f72a079ea9402470e8659fc1b9df1c55fa7e1
+    guid: beca63b6ed25a3b9e34628cfecd0b5b9877c68fb50f20a2a27103bc8318987cc
     Name: Spotlight
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [-89.9999847, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 0d071c30977b943f3f6720c1ffcf322f34ba1744ffade35283c470245470df45
+        guid: 2f2091ec80ebcb95792c5cbe7c7cf3c8f6001f8ef350d3986758867fbc5c2ccd
     Components:
       - ComponentName: SpotLightComponent
-        guid: 95fc05972e420bcc993d8744d3f7bc3ad8066ae84b9a095f469a00d9500015e1
+        guid: d20f0faa4276d2c798fc75e5f8563611f9ae3e6d6cb860bcbed84f2de9bdd488
         custom_name: ""
         constant: 1
         linear: 1

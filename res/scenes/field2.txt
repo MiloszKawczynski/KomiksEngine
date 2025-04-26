@@ -1940,6 +1940,7 @@ Entities:
       - ComponentName: FieldGridComponent
         guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
         custom_name: ""
+        rows_number: 13
         punishment_multiplier: 0.0799999982
   - Entity: WheatOverlay
     guid: 82b1a8825ec248bc70289e0620f1eb5e7aa7b15766def99bc4dac228c7e94172
@@ -2007,6 +2008,7 @@ Entities:
       - ComponentName: TrutherComponent
         guid: a257d100732de8ed400504a41ec9a66792106687fe9a6c125234eb52d29af50d
         custom_name: ""
+        truther_bends: true
         maximum_speed: 2
         acceleration: 0.5
         deceleration: 0.100000001
@@ -2015,3 +2017,70 @@ Entities:
         gravitation: 0.00499999989
         wheat_overlay:
           guid: 1ab2d38c995cac9a1964e9ce26d1e814c6bb98067b60ae50ca8d3405893e236c
+  - Entity: UFO
+    guid: 9a03dbdcf1bd4bdc1e175951d30c040279974cdddc09fb4820695c7daa26a7f8
+    Name: UFO
+    TransformComponent:
+      Translation: [0, 4.91106224, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: UFOComponent
+        guid: 529b19a00c4915be97e57dbe578b6e03195f316311ba88c32759b623860e551f
+        custom_name: ""
+        field_grid:
+          guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
+  - Entity: Model
+    guid: 28ec8dacc3e638c11f040d4113a9381cbccd2086c80e661484313abd17f7d62f
+    Name: Model
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 9a03dbdcf1bd4bdc1e175951d30c040279974cdddc09fb4820695c7daa26a7f8
+    Components:
+      - ComponentName: ModelComponent
+        guid: c437a912b245399dc7cd7abc09cffb4b72f671a370fc1495b7ee2c09e94e9b62
+        custom_name: ""
+        model_path: ./res/models\hovercraft\hovercraft.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Spotlight
+    guid: 30e8c59b608bc8b80b31009cdf0ad88bfab9ade049d44c7cf04e6578d73db70d
+    Name: Spotlight
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [-89.9999847, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 9a03dbdcf1bd4bdc1e175951d30c040279974cdddc09fb4820695c7daa26a7f8
+    Components:
+      - ComponentName: SpotLightComponent
+        guid: 09cc37fb9012f07a1db0f1d8c797fc7922c41bfe4ed56efef96dd0f26bb2bd1d
+        custom_name: ""
+        constant: 1
+        linear: 1
+        quadratic: 1
+        scattering_factor: 0.061999999
+        cut_off: 0.967998862
+        outer_cut_off: 0.901674092
+        ambient: [0.200000003, 0.200000003, 0.200000003]
+        diffuse: [0.133333325, 1, 0]
+        specular: [1, 1, 1]
+        m_near_plane: 0.5
+        m_far_plane: 25.2299995
+        m_blocker_search_num_samples: 16
+        m_pcf_num_samples: 16
+        m_light_world_size: 0.5
+        m_light_frustum_width: 30
