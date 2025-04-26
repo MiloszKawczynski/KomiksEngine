@@ -30,6 +30,9 @@ public:
     float maximum_speed = 5.0f;
     float acceleration = 0.2f;
     float deceleration = 0.1f;
+    float jump_power = 0.5f;
+    float jump_horizontal_power = 2.0f;
+    float gravitation = 0.01f;
 
     std::weak_ptr<WheatOverlay> wheat_overlay = {};
 
@@ -37,4 +40,6 @@ private:
     void handle_input();
 
     glm::vec2 m_speed = glm::vec2(0.0f, 0.0f);
+    float m_height = 0.0f;
+    float m_velocity = 0.0f;
 };

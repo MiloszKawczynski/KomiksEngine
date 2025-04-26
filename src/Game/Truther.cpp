@@ -97,7 +97,7 @@ void Truther::fixed_update()
     }
 
     wheat_overlay.lock()->is_flash_on = false;
-    if (Input::input->get_key(GLFW_KEY_SPACE))
+    if (Input::input->get_key(GLFW_KEY_LEFT_SHIFT))
     {
         horizontal = 0;
         vertical = 0;
@@ -105,8 +105,11 @@ void Truther::fixed_update()
         wheat_overlay.lock()->is_flash_on = true;
     }
 
-    m_speed.x += horizontal * acceleration;
-    m_speed.y += vertical * acceleration;
+    if (m_height == 0.0f)
+    {
+        m_speed.x += horizontal * acceleration;
+        m_speed.y += vertical * acceleration;
+    }
 
     if (horizontal == 0)
     {
@@ -128,15 +131,35 @@ void Truther::fixed_update()
         m_speed.y = 0.0f;
     }
 
-    if (glm::length(m_speed) > maximum_speed)
+    if (glm::length(m_speed) > maximum_speed && m_height == 0.0f)
     {
         m_speed = glm::normalize(m_speed) * maximum_speed;
     }
+
+    if (Input::input->get_key(GLFW_KEY_SPACE) && m_height == 0.0f)
+    {
+        m_velocity += jump_power;
+        m_speed *= jump_horizontal_power;
+    }
+
+    if (m_height != 0.0f)
+    {
+        m_velocity -= gravitation;
+    }
+
+    if (m_height < 0.0f)
+    {
+        m_height = 0.0f;
+        m_velocity = 0.0f;
+    }
+
+    m_height += m_velocity;
 
     glm::vec3 speed_vector = glm::vec3(m_speed.x, 0.0f, m_speed.y);
     speed_vector *= fixed_delta_time;
 
     entity->transform->set_local_position(entity->transform->get_local_position() + speed_vector);
+    entity->transform->set_local_position({entity->transform->get_local_position().x, m_height, entity->transform->get_local_position().z});
 
     if (glm::length(m_speed) >= maximum_speed * 0.25f)
     {
@@ -175,6 +198,9 @@ void Truther::draw_editor()
     ImGuiEx::InputFloat("Acceleration", &acceleration);
     ImGuiEx::InputFloat("Deceleration", &deceleration);
     ImGuiEx::InputFloat("Maximum speed", &maximum_speed);
+    ImGuiEx::InputFloat("Jump power", &jump_power);
+    ImGuiEx::InputFloat("Gravitation", &gravitation);
+    ImGuiEx::InputFloat("jump_horizontal_power", &jump_horizontal_power);
 
     ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
 }

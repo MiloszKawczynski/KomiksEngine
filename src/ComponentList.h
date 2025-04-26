@@ -2,12 +2,12 @@
 
 #include "AK/Types.h"
 
-// # Auto component list start
-#define ENUMERATE_COMPONENTS                                                    \
-    ENUMERATE_COMPONENT(Camera, "Camera")                                       \
-    ENUMERATE_COMPONENT(Collider2D, "Collider2D")                               \
-    ENUMERATE_COMPONENT(Curve, "Curve")                                         \
-    ENUMERATE_COMPONENT(DebugInputController, "Debug Input Controller")         \
+    // # Auto component list start
+#define ENUMERATE_COMPONENTS \
+    ENUMERATE_COMPONENT(Camera, "Camera") \
+    ENUMERATE_COMPONENT(Collider2D, "Collider2D") \
+    ENUMERATE_COMPONENT(Curve, "Curve") \
+    ENUMERATE_COMPONENT(DebugInputController, "Debug Input Controller") \
     ENUMERATE_COMPONENT(DialoguePromptController, "Dialogue Prompt Controller") \
     ENUMERATE_COMPONENT(ExampleDynamicText, "Example Dynamic Text") \
     ENUMERATE_COMPONENT(ExampleUIBar, "Example UIBar") \
@@ -23,6 +23,7 @@
     ENUMERATE_COMPONENT(Customer, "Customer") \
     ENUMERATE_COMPONENT(CustomerManager, "Customer Manager") \
     ENUMERATE_COMPONENT(Factory, "Factory") \
+    ENUMERATE_COMPONENT(FieldCell, "Field Cell") \
     ENUMERATE_COMPONENT(FieldGrid, "Field Grid") \
     ENUMERATE_COMPONENT(GameController, "Game Controller") \
     ENUMERATE_COMPONENT(HovercraftWithoutKeeper, "Hovercraft Without Keeper") \

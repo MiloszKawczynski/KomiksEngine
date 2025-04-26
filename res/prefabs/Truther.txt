@@ -52,5 +52,8 @@ Entities:
         maximum_speed: 2
         acceleration: 0.5
         deceleration: 0.100000001
+        jump_power: 0.100000001
+        jump_horizontal_power: 1.5
+        gravitation: 0.00499999989
         wheat_overlay:
           guid: 1ab2d38c995cac9a1964e9ce26d1e814c6bb98067b60ae50ca8d3405893e236c
