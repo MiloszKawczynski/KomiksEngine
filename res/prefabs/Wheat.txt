@@ -1,0 +1,29 @@
+Scene: Untitled
+Entities:
+  - Entity: Wheat
+    guid: 7a991e77bb224c01f133f0d27121a55ebb0dce6c78d5cdace512d996e0bd7183
+    Name: Wheat
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: ModelComponent
+        guid: 201a1a6c77c471a136bd60ec2d65f75aa1bff57edcba94e7dd8017e4a9575d75
+        custom_name: ""
+        model_path: ./res/models\buoy\light_buoy.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: WheatComponent
+        guid: 9d937a0897509208f576dd71f429b37593201b7b1d22cf0f86f000611bf03385
+        custom_name: ""

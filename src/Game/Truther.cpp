@@ -1,6 +1,7 @@
 #include "Truther.h"
 
 #include "AK/AK.h"
+#include "AK/Math.h"
 #include "Camera.h"
 #include "Entity.h"
 #include "ExampleUIBar.h"
@@ -9,6 +10,7 @@
 #include "GameController.h"
 #include "Globals.h"
 #include "IceBound.h"
+#include "Komiks/Wheat.h"
 #include "LevelController.h"
 #include "Lighthouse.h"
 #include "PhysicsEngine.h"
@@ -38,10 +40,36 @@ Truther::Truther(AK::Badge<Truther>)
 void Truther::awake()
 {
     set_can_tick(true);
+
+    // FOR TESTING
+    i32 wheat_count = 32;
+    for (i32 i = 0; i < wheat_count; i++)
+    {
+        auto wheat = SceneSerializer::load_prefab("Wheat");
+        float x = (i % 8) * 0.7f; // X position (8 per row)
+        float z = (i / 8) * 0.6f; // Z position (new row every 8)
+        wheat->transform->set_local_position({x, 0.0f, z});
+    }
 }
 
 void Truther::update()
 {
+    auto const truther_position = entity->transform->get_position();
+
+    for (auto& wheat : Wheat::all_wheat)
+    {
+        if (wheat.expired())
+        {
+            continue;
+        }
+
+        auto const l_wheat = wheat.lock();
+
+        if (glm::distance(truther_position, l_wheat->entity->transform->get_position()) < 0.1f)
+        {
+            l_wheat->set_bended(true, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - truther_position));
+        }
+    }
 }
 
 void Truther::fixed_update()
