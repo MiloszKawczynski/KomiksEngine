@@ -24,8 +24,17 @@ FieldCell::FieldCell(AK::Badge<FieldCell>)
 void FieldCell::initialize()
 {
     Component::initialize();
-    // if (entity->transform->parent.expired())
-    //     return;
+}
+
+void FieldCell::awake()
+{
+    Component::awake();
+
+    set_can_tick(true);
+
+    m_field_grid_ref = entity->transform->parent.lock()->entity.lock()->get_component<FieldGrid>();
+    if (m_field_grid_ref != nullptr)
+        Debug::log("FieldGrid in a FieldCell component instance is NULL!", DebugType::Error);
 
     i32 wheat_count = 16;
     for (i32 i = 0; i < wheat_count; i++)
@@ -38,17 +47,6 @@ void FieldCell::initialize()
         wheat->is_serialized = false;
         m_wheats.push_back(wheat->get_component<Wheat>());
     }
-}
-
-void FieldCell::awake()
-{
-    Component::awake();
-
-    set_can_tick(true);
-
-    m_field_grid_ref = entity->transform->parent.lock()->entity.lock()->get_component<FieldGrid>();
-    if (m_field_grid_ref != nullptr)
-        Debug::log("FieldGrid in a FieldCell component instance is NULL!", DebugType::Error);
 }
 
 void FieldCell::update()
