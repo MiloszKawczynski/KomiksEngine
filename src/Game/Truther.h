@@ -28,6 +28,7 @@ public:
     glm::vec2 get_speed() const;
 
     void suck();
+    void stun();
 
     // Bend or unbend
     bool truther_bends = true;
@@ -50,4 +51,5 @@ private:
     glm::vec2 m_speed = glm::vec2(0.0f, 0.0f);
     float m_height = 0.0f;
     float m_velocity = 0.0f;
+    float m_stun_timer = 0.0f;
 };

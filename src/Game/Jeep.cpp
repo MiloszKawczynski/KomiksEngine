@@ -56,7 +56,19 @@ void Jeep::fixed_update()
     i32 horizontal = 0;
     i32 vertical = 0;
 
-    find_new_target();
+    if (m_targeting_player)
+    {
+        m_target = AK::convert_3d_to_2d(player.lock()->entity->transform->get_position());
+    }
+    else
+    {
+        find_new_target();
+    }
+
+    if (m_invincibility_timer > 0.0f)
+    {
+        m_invincibility_timer -= fixed_delta_time;
+    }
 
     horizontal = glm::sign(m_target.x - entity->transform->get_local_position().x);
     vertical = glm::sign(m_target.y - entity->transform->get_local_position().z);
@@ -123,12 +135,30 @@ void Jeep::fixed_update()
     glm::vec2 const direction =
         glm::normalize(glm::vec2(entity->transform->get_local_position().x, entity->transform->get_local_position().z));
 
-    float desired_yaw = glm::degrees(std::atan2(direction.y, direction.x));
+    {
+        if (player.expired())
+        {
+            return;
+        }
 
-    entity->transform->children.at(0)->entity.lock()->transform->set_euler_angles(
-        {0.0f, -desired_yaw + 90 - entity->transform->get_euler_angles().y, 0.0f});
+        auto const l_player = player.lock();
+        auto const jeep_entity_pos = AK::convert_3d_to_2d(entity->transform->get_position());
+        auto const player_pos = AK::convert_3d_to_2d(l_player->entity->transform->get_position());
 
-    handle_input();
+        // Determine if player is close enough to target
+        if (m_invincibility_timer <= 0.0f && glm::distance(jeep_entity_pos, player_pos) < light_range)
+        {
+            m_targeting_player = true;
+        }
+
+        if (glm::distance(jeep_entity_pos, player_pos) < m_player_stun_range)
+        {
+            player.lock()->stun();
+
+            m_targeting_player = false;
+            m_invincibility_timer = 5.0f;
+        }
+    }
 }
 
 #if EDITOR
@@ -139,6 +169,7 @@ void Jeep::draw_editor()
     ImGuiEx::InputFloat("Acceleration", &acceleration);
     ImGuiEx::InputFloat("Deceleration", &deceleration);
     ImGuiEx::InputFloat("Maximum speed", &maximum_speed);
+    ImGuiEx::draw_ptr("Truther", player);
 }
 #endif
 

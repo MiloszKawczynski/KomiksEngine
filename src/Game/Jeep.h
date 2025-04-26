@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "Input.h"
+#include "Truther.h"
 #include "WheatOverlay.h"
 
 class Jeep final : public Component
@@ -31,6 +32,11 @@ public:
     float acceleration = 0.2f;
     float deceleration = 0.1f;
 
+    std::weak_ptr<Truther> player;
+
+    NON_SERIALIZED
+    float light_range = 0.69f * 3.0f;
+
 private:
     void handle_input();
 
@@ -39,4 +45,7 @@ private:
     glm::vec2 m_speed = glm::vec2(0.0f, 0.0f);
     glm::vec2 m_target;
     float m_point_on_path = 0.0f;
+    float m_player_stun_range = 0.15f;
+    float m_invincibility_timer = 0.0f;
+    bool m_targeting_player = false;
 };
