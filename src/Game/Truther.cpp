@@ -40,6 +40,18 @@ Truther::Truther(AK::Badge<Truther>)
 void Truther::awake()
 {
     set_can_tick(true);
+
+    // This is for generating wheat field
+    // i32 wheat_count = 2500;
+    // auto const wheat_container = Entity::create("WheatContainer");
+    // for (i32 i = 0; i < wheat_count; i++)
+    // {
+    //     auto wheat = SceneSerializer::load_prefab("Wheat");
+    //     float x = (i % 50) * 0.2f; // X position (8 per row)
+    //     float z = (i / 50) * 0.2f; // Z position (new row every 8)
+    //     wheat->transform->set_local_position({x, 0.0f, z});
+    //     wheat->transform->set_parent(wheat_container->transform);
+    // }
 }
 
 void Truther::update()
