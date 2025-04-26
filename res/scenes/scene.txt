@@ -113,6 +113,9 @@ Entities:
           guid: nullptr
         wheat_overlay:
           guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
+        clock_text_ref:
+          guid: 3e30b6fe8c278dccea14f63fa492095ae232ca110685e7489ef1d38920d0b3f8
+        map_time: 180
         event_timer: 0
       - ComponentName: PathComponent
         guid: f61646bebcca77f6a9d5ac6c0550002e637ce0e4b4431ccf284a89a6a2a6460f
@@ -549,3 +552,86 @@ Entities:
         radius: 1.5
         drag: 0.00999999978
         velocity: [0, 0]
+  - Entity: UI_MainPanel
+    guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
+    Name: UI_MainPanel
+    TransformComponent:
+      Translation: [0, 0.850000024, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.197734162, 0.153902978, 0.172426298]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: PanelComponent
+        guid: dd239f3cb6aa9cc02896c537779c9e0b6f6984cddeb16d4333abed7a61959c26
+        custom_name: ""
+        background_path: ./res/textures/UI/panel.png
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+      - ComponentName: ClockComponent
+        guid: b5b9611506ae6e3e854883ee7b415e407fb3cb86dc48429134351cc0539b1d21
+        custom_name: ""
+  - Entity: Glass
+    guid: 11f32051eb12cb6b92cc8d2d12a6d4989f821e3ce0c23c1a1bf294c062850d91
+    Name: Glass
+    TransformComponent:
+      Translation: [0, 0, -2.18367338]
+      Rotation: [0, 0, 0]
+      Scale: [1, 0.899999797, 0.999999881]
+      Parent:
+        guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
+    Components:
+      - ComponentName: PanelComponent
+        guid: 12f2e2a59d25061dedf4daaeb607e272902d1fae3a12b8872ce42992ae7b8ff6
+        custom_name: ""
+        background_path: ./res/textures/UI/glass.png
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+  - Entity: Clock
+    guid: 2aa34bf2d99be8004b1251d9d226b6afdecf8c486dea420c46386cbdcc4d0bb9
+    Name: Clock
+    TransformComponent:
+      Translation: [0, 0.351999998, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
+    Components:
+      - ComponentName: ScreenTextComponent
+        guid: 3e30b6fe8c278dccea14f63fa492095ae232ca110685e7489ef1d38920d0b3f8
+        custom_name: ""
+        text: 21:38
+        position: [0, 0]
+        font_size: 40
+        color: 4278229503
+        flags: 2053
+        font_name: KG The Last Time
+        bold: true
+        button_ref:
+          guid: nullptr
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3003
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
