@@ -16,6 +16,7 @@ public:
     explicit Wheat(AK::Badge<Wheat>);
 
     virtual void awake() override;
+    virtual void on_destroyed() override;
     virtual void start() override;
     virtual void update() override;
 

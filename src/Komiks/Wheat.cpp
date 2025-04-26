@@ -28,6 +28,12 @@ void Wheat::awake()
     all_wheat.push_back(static_pointer_cast<Wheat>(shared_from_this()));
 }
 
+void Wheat::on_destroyed()
+{
+    // HACK: Destroying one wheat clears the whole list.
+    all_wheat.clear();
+}
+
 void Wheat::start()
 {
     m_default_rotation = entity->transform->get_rotation();
