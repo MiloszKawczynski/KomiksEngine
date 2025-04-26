@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Cow
-    guid: 5a3914eef5bcb856f281590bd50cd901bfe9d9fbc90833eeca6ac108698e4fe6
+    guid: 7be8470f028e298b138227b0977c5de5bc37d60f2bebb91a37cff988bd87fbc3
     Name: Cow
     TransformComponent:
       Translation: [0, 0, 0.0820000023]
@@ -11,12 +11,13 @@ Entities:
         guid: ""
     Components:
       - ComponentName: CowComponent
-        guid: c6c93f79c0b46d95af49d026d8a3f4e3a9da341c79d12eb15156ef818a4aea02
+        guid: 5e5b851b0c0c34acf7c16bd383c4de5398bf39d0497cdf256ddf255541b164b7
         custom_name: ""
         cow_manager:
           guid: nullptr
+        is_sucked: false
       - ComponentName: Collider2DComponent
-        guid: 1c8ff8768111b681405db853aed0f73636d30ff5baf02e1551df09d4d3652bd5
+        guid: fce3893bdad894f70bbb98ec52a7349607396c39e5e8552eb574f54553c194a0
         custom_name: ""
         offset: [0, 0]
         is_trigger: false
@@ -28,17 +29,17 @@ Entities:
         drag: 0.00999999978
         velocity: [0, 0]
   - Entity: Child
-    guid: 3acd8a40aa741b9becb78b4ea66f48b3054beeb4bbf42fa72ca2483fbbb29452
+    guid: 288dcb42ab04b6af49fe1788490850e2d570b92862971d03625c79e40d3ebeaa
     Name: Child
     TransformComponent:
       Translation: [-0.0126386657, 0, -0.0455761291]
       Rotation: [0, 90, 0]
-      Scale: [2.19992399, 2.20000005, 2.19992399]
+      Scale: [1.64999998, 1.64999998, 1.64999998]
       Parent:
-        guid: 5a3914eef5bcb856f281590bd50cd901bfe9d9fbc90833eeca6ac108698e4fe6
+        guid: 7be8470f028e298b138227b0977c5de5bc37d60f2bebb91a37cff988bd87fbc3
     Components:
       - ComponentName: ModelComponent
-        guid: 4f38df291e6a864b811c5ee862f46be944f2ed421d583e7830e8caf9178381b3
+        guid: 6f46e2486ec82e0b8a1cdf96e790007cdfd2ffe00473fd3b3dc86731d20773d2
         custom_name: ""
         model_path: ./res/models\cow\cow.gltf
         material:
