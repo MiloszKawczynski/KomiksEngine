@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Jeep
-    guid: c5fa8f7a331ee908b8e5877316d91ba8cc9f7650cd0448601b478caf05ab08fe
+    guid: 2670858d8230c6ae12adc63acc874d21d1ba8198137a1453cad859fe1906d327
     Name: Jeep
     TransformComponent:
       Translation: [0, 0, 0]
@@ -11,7 +11,7 @@ Entities:
         guid: ""
     Components:
       - ComponentName: PathComponent
-        guid: dcd7612f26c980a2804eb8cf4a87c060f589d7428e1a42fcd1f7f1aa265771d1
+        guid: c7a9c186c8ab9136abaefb00e3a15ee0aa8f1fcdbf023b444de676d021bb6cd5
         custom_name: ""
         points:
           - [-5.01866913, -4.75103235]
@@ -20,7 +20,7 @@ Entities:
           - [5.06346655, -5.07014847]
           - [-4.8888793, -5.07014847]
       - ComponentName: ModelComponent
-        guid: 542555c04aacab659d4879e7b62b537ed4640188ac176756aea36cf8a5e415eb
+        guid: 18aad8f371fabb1d125de5cf0a7b741bb1dc5a41ab1bbfd4b51694b1e6e2e89c
         custom_name: ""
         model_path: ./res/models\jeep_base\jeep.gltf
         material:
@@ -33,18 +33,24 @@ Entities:
           NeedsForward: false
           CastsShadows: true
           IsBillboard: false
+      - ComponentName: JeepComponent
+        guid: 5fd0cbc30f9392a15a7c8fbf20107b6d0ae083259736a3cc48b2174450ea9737
+        custom_name: ""
+        maximum_speed: 5
+        acceleration: 0.200000003
+        deceleration: 0.100000001
   - Entity: Reflector
-    guid: 00424f1e22d38c64d2ce1cb7eff71349358537a02506b036751a5412d9bede9f
+    guid: 6d2721cb7bc8b46a30d7dadae31cfc595d46e6338fcd048d4c88cf2fafd431d7
     Name: Reflector
     TransformComponent:
       Translation: [0, 0.176889941, 0.200230256]
-      Rotation: [0, -0, 0]
-      Scale: [0.999998987, 1, 0.999999225]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
       Parent:
-        guid: c5fa8f7a331ee908b8e5877316d91ba8cc9f7650cd0448601b478caf05ab08fe
+        guid: 2670858d8230c6ae12adc63acc874d21d1ba8198137a1453cad859fe1906d327
     Components:
       - ComponentName: SpotLightComponent
-        guid: 39c4ac5f08c1eda564c787d049091becd3c487d8b54c5353777f41185a047092
+        guid: ad335c5c92a21320c6a5ed7cdcae65389659d7879d9497ced641c3fef2f45ac7
         custom_name: ""
         constant: 1
         linear: 0.0900000036
