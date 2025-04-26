@@ -1,6 +1,8 @@
 #include "FieldGrid.h"
 
 #include "AK/Math.h"
+#include "Collider2D.h"
+#include "FieldCell.h"
 #include "imgui_extensions.h"
 
 #include <algorithm>
@@ -18,7 +20,7 @@ void FieldGrid::initialize()
 {
     Component::initialize();
     m_grid_rows.resize(m_rows_number);
-    Debug::log(std::to_string(calculate_faked_similarity()));
+    generate_grid_colliders();
 }
 
 #if EDITOR
@@ -78,4 +80,25 @@ float FieldGrid::calculate_faked_similarity()
 
     // similarity = AK::Math::map_range_clamped(0.5f, 1.0f, 0.0f, 1.0f, similarity);
     return similarity * 100.0f; // %
+}
+
+void FieldGrid::generate_grid_colliders()
+{
+    for (u32 i = 0; i < m_rows_number; i++)
+    {
+        for (u32 j = 0; j < m_rows_number; j++)
+        {
+            auto const cell_entity = Entity::create("cell_collider");
+            auto const grid_ptr = std::make_shared<pattern>(m_current_field_status);
+            cell_entity->add_component(FieldCell::create(grid_ptr, j * m_rows_number + i, cell_size_and_offset));
+            auto const col_2d = cell_entity->add_component(Collider2D::create({cell_size_and_offset, cell_size_and_offset}));
+            col_2d->is_trigger = true;
+            cell_entity->transform->set_parent(entity->transform);
+            cell_entity->is_serialized = false;
+
+            glm::vec3 pos = cell_entity->transform->get_local_position();
+            pos = pos + glm::vec3(j * cell_size_and_offset, 0.0f, i * cell_size_and_offset);
+            cell_entity->transform->set_local_position(pos);
+        }
+    }
 }
