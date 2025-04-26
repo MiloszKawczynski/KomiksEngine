@@ -7,6 +7,7 @@
 #include "Sound.h"
 #include <Game/Jeep.h>
 #include <Game/WheatOverlay.h>
+#include <ScreenText.h>
 
 class UFO;
 
@@ -33,6 +34,11 @@ public:
     std::weak_ptr<UFO> ufo = {};
     std::weak_ptr<Jeep> jeep = {};
     std::weak_ptr<WheatOverlay> wheat_overlay = {};
+    std::weak_ptr<ScreenText> clock_text_ref = {};
+
+    float map_time = 180.0f;
+    NON_SERIALIZED
+    float time = 0.0f;
 
     float event_timer = 0.0f;
 

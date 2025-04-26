@@ -40,6 +40,8 @@ void CowManager::awake()
     spawn_ufo();
 
     spawn_jeep();
+
+    time = map_time;
 }
 
 void CowManager::update()
@@ -51,6 +53,21 @@ void CowManager::update()
         activate_ufo();
         event_timer = 0.0f;
     }
+
+    std::string min = "00";
+    std::string sec = "00";
+    AK::extract_time(time, min, sec);
+
+    auto const clock_locked = clock_text_ref.lock();
+    clock_locked->set_text(min + ":" + sec);
+
+    clock_locked->color = 0xFFD6856B;
+    clock_locked->font_size = 65;
+
+    if (time > 0.0f)
+    {
+        time -= delta_time;
+    }
 }
 
 #if EDITOR
@@ -60,6 +77,7 @@ void CowManager::draw_editor()
 
     ImGui::Text((std::to_string(event_timer)).c_str());
     ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
+    ImGuiEx::draw_ptr("clock text ref", clock_text_ref);
 }
 #endif
 
