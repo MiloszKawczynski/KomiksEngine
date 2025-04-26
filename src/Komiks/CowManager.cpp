@@ -34,13 +34,13 @@ void CowManager::awake()
 
     spawn_truther();
 
-    spawn_cow();
-    spawn_cow();
-    spawn_cow();
+    //spawn_cow();
+    //spawn_cow();
+    //spawn_cow();
 
-    spawn_ufo();
+    //spawn_ufo();
 
-    spawn_jeep();
+    //spawn_jeep();
 
     time = map_time;
 }
@@ -51,7 +51,7 @@ void CowManager::update()
 
     if (event_timer >= 40.0f)
     {
-        activate_ufo();
+        //activate_ufo();
         event_timer = 0.0f;
     }
 
@@ -73,6 +73,7 @@ void CowManager::update()
     {
         if (!does_level_ended)
         {
+            friel_grid.lock()->calculate_faked_similarity();
             end_level();
             does_level_ended = true;
         }
@@ -87,6 +88,7 @@ void CowManager::draw_editor()
     ImGui::Text((std::to_string(event_timer)).c_str());
     ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
     ImGuiEx::draw_ptr("clock text ref", clock_text_ref);
+    ImGuiEx::draw_ptr("friel grid", friel_grid);
 }
 #endif
 

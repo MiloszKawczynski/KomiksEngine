@@ -859,6 +859,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "jeep" << YAML::Value << cowmanager->jeep;
         out << YAML::Key << "wheat_overlay" << YAML::Value << cowmanager->wheat_overlay;
         out << YAML::Key << "clock_text_ref" << YAML::Value << cowmanager->clock_text_ref;
+        out << YAML::Key << "friel_grid" << YAML::Value << cowmanager->friel_grid;
         out << YAML::Key << "event_timer" << YAML::Value << cowmanager->event_timer;
         out << YAML::Key << "does_level_ended" << YAML::Value << cowmanager->does_level_ended;
         out << YAML::EndMap;
@@ -2900,6 +2901,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["clock_text_ref"].IsDefined())
             {
                 deserialized_component->clock_text_ref = component["clock_text_ref"].as<std::weak_ptr<ScreenText>>();
+            }
+            if (component["friel_grid"].IsDefined())
+            {
+                deserialized_component->friel_grid = component["friel_grid"].as<std::weak_ptr<FieldGrid>>();
             }
             if (component["event_timer"].IsDefined())
             {

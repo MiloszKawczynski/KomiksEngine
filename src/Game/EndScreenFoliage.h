@@ -27,6 +27,8 @@ public:
     virtual void hide() override;
 
     std::weak_ptr<Button> next_level_button = {};
+    float percentage = 0.0f;
+    float percentage_gained = 0.0f;
 
 private:
     bool m_is_animation_end = false;
