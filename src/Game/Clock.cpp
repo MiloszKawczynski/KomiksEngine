@@ -63,7 +63,7 @@ void Clock::update_visibility(bool const hide) const
 {
     glm::vec3 position = entity->transform->get_local_position();
 
-    if (GameController::get_instance()->get_level_number() == 0 || hide)
+    if (hide)
     {
         entity->transform->set_local_position({position.x, -5.0f, position.z});
     }

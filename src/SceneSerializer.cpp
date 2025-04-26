@@ -79,6 +79,7 @@
 #include "Komiks/UFO.h"
 #include "Game/Jeep.h"
 #include "Komiks/JeepReflector.h"
+#include "Game/EndScreenFoliage.h"
 // # Put new header here
 
 SceneSerializer::SceneSerializer(std::shared_ptr<Scene> const& scene) : m_scene(scene)
@@ -705,6 +706,14 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
     {
         out << YAML::BeginMap;
         // # Put new Popup kid here
+        if (auto const endscreenfoliage = std::dynamic_pointer_cast<class EndScreenFoliage>(component); endscreenfoliage != nullptr)
+        {
+            out << YAML::Key << "ComponentName" << YAML::Value << "EndScreenFoliageComponent";
+            out << YAML::Key << "guid" << YAML::Value << endscreenfoliage->guid;
+            out << YAML::Key << "custom_name" << YAML::Value << endscreenfoliage->custom_name;
+            out << YAML::Key << "next_level_button" << YAML::Value << endscreenfoliage->next_level_button;
+        }
+        else
         if (auto const endscreen = std::dynamic_pointer_cast<class EndScreen>(component); endscreen != nullptr)
         {
             out << YAML::Key << "ComponentName" << YAML::Value << "EndScreenComponent";
@@ -850,8 +859,8 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "jeep" << YAML::Value << cowmanager->jeep;
         out << YAML::Key << "wheat_overlay" << YAML::Value << cowmanager->wheat_overlay;
         out << YAML::Key << "clock_text_ref" << YAML::Value << cowmanager->clock_text_ref;
-        out << YAML::Key << "map_time" << YAML::Value << cowmanager->map_time;
         out << YAML::Key << "event_timer" << YAML::Value << cowmanager->event_timer;
+        out << YAML::Key << "does_level_ended" << YAML::Value << cowmanager->does_level_ended;
         out << YAML::EndMap;
     }
     else
@@ -2562,6 +2571,27 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
         }
     }
         else
+    if (component_name == "EndScreenFoliageComponent")
+    {
+        if (first_pass)
+        {
+            auto const deserialized_component = EndScreenFoliage::create();
+            deserialized_component->guid = component["guid"].as<std::string>();
+            deserialized_component->custom_name = component["custom_name"].as<std::string>();
+            deserialized_pool.emplace_back(deserialized_component);
+        }
+        else
+        {
+            auto const deserialized_component = std::dynamic_pointer_cast<class EndScreenFoliage>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["next_level_button"].IsDefined())
+            {
+                deserialized_component->next_level_button = component["next_level_button"].as<std::weak_ptr<Button>>();
+            }
+            deserialized_entity->add_component(deserialized_component);
+            deserialized_component->reprepare();
+        }
+    }
+        else
     if (component_name == "PortComponent")
     {
         if (first_pass)
@@ -2871,13 +2901,13 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->clock_text_ref = component["clock_text_ref"].as<std::weak_ptr<ScreenText>>();
             }
-            if (component["map_time"].IsDefined())
-            {
-                deserialized_component->map_time = component["map_time"].as<float>();
-            }
             if (component["event_timer"].IsDefined())
             {
                 deserialized_component->event_timer = component["event_timer"].as<float>();
+            }
+            if (component["does_level_ended"].IsDefined())
+            {
+                deserialized_component->does_level_ended = component["does_level_ended"].as<bool>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

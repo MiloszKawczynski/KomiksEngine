@@ -62,5 +62,6 @@
     ENUMERATE_COMPONENT(PointLight, "Point Light") \
     ENUMERATE_COMPONENT(SpotLight, "Spot Light") \
     ENUMERATE_COMPONENT(EndScreen, "End Screen") \
+    ENUMERATE_COMPONENT(EndScreenFoliage, "End Screen Foliage") \
     // # Auto component list end
     // # Put new component here

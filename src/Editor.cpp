@@ -87,6 +87,7 @@
 #include "Water.h"
 #include "Game/Jeep.h"
 #include "Komiks/JeepReflector.h"
+#include "Game/EndScreenFoliage.h"
 // # Put new header here
 
 namespace Editor

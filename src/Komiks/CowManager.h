@@ -36,11 +36,14 @@ public:
     std::weak_ptr<WheatOverlay> wheat_overlay = {};
     std::weak_ptr<ScreenText> clock_text_ref = {};
 
-    float map_time = 180.0f;
+    NON_SERIALIZED
+    float map_time = 15.0f;
     NON_SERIALIZED
     float time = 0.0f;
 
     float event_timer = 0.0f;
+
+    bool does_level_ended = false;
 
 private:
     void spawn_truther();
@@ -48,4 +51,5 @@ private:
     void spawn_ufo();
     void spawn_jeep();
     void activate_ufo();
+    void end_level();
 };
