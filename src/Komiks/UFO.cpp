@@ -70,6 +70,8 @@ void UFO::update()
 
                 m_beam_radius = 40.0f;
 
+                Sound::play_sound("./res/audio/Komiks/ufo_active.wav");
+
                 m_is_unbending_done = true;
             }
             else
@@ -80,6 +82,8 @@ void UFO::update()
                     m_move_timer = 0.0f;
                     m_is_unbending_done = false;
                     m_start_position = entity->transform->get_position();
+
+                    Sound::play_sound("./res/audio/Komiks/ufo_idle.wav");
                 }
                 else
                 {
