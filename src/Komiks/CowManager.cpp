@@ -62,6 +62,8 @@ void CowManager::clear_map()
             cow.lock()->entity->destroy_immediate();
         }
     }
+
+    cows.clear();
 }
 
 void CowManager::awake()
