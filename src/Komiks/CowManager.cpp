@@ -77,6 +77,11 @@ void CowManager::awake()
 
     get_spawn_paths();
 
+    setup_level();
+}
+
+void CowManager::setup_level()
+{
     does_level_ended = false;
 
     spawn_truther();
