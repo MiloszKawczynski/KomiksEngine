@@ -175,7 +175,7 @@ void CowManager::update()
     auto const clock_locked = clock_text_ref.lock();
     clock_locked->set_text(min + ":" + sec);
 
-    clock_locked->color = 0xFFD6856B;
+    clock_locked->color = 0xFF007800;
     clock_locked->font_size = 65;
 
     if (time > 0.0f)

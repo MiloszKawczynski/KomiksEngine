@@ -42,6 +42,8 @@ void EndScreenFoliage::awake()
 
     Clock::get_instance()->update_visibility(true);
 
+    percentage_text.lock()->color = 0xFF007800;
+
     set_can_tick(true);
 }
 
