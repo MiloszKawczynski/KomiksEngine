@@ -134,6 +134,8 @@ void EndScreenFoliage::update_background()
 
 void EndScreenFoliage::next_level()
 {
+    CowManager::get_instance()->clear_map();
+    CowManager::get_instance()->awake();
     hide();
 }
 
