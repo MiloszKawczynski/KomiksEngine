@@ -50,7 +50,7 @@ void CowManager::clear_map()
 
     if (!jeep.expired())
     {
-        jeep.lock()->entity->destroy_immediate();
+        jeep.lock()->entity->transform->parent.lock()->entity.lock()->destroy_immediate();
     }
 
     if (!ufo.expired())
@@ -306,13 +306,13 @@ void CowManager::spawn_jeep()
 {
     std::shared_ptr<Entity> new_jeep = SceneSerializer::load_prefab("JeepAndReflector");
 
-    glm::vec2 spawn_position = glm::vec2((rand() % 2 == 0 ? -9.0f : 9.0), (rand() % 2 == 0 ? -7.0f : 7.0f));
-
-    new_jeep->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
+    glm::vec2 spawn_position = glm::vec2((rand() % 2 == 0 ? -9.0f : 9.0f), (rand() % 2 == 0 ? -7.0f : 7.0f));
 
     auto const jeep_comp = new_jeep->transform->children[0]->entity.lock()->get_component<Jeep>();
     jeep = jeep_comp;
     jeep.lock()->player = truther;
+
+    jeep_comp->entity->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
 }
 
 void CowManager::activate_ufo()
