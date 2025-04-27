@@ -96,6 +96,8 @@ void CowManager::setup_level()
     case (0):
     {
         spawn_cow();
+        spawn_jeep();
+        activate_jeep();
         time = 31.0f;
         set_pattern(0);
         dialogue_prompt_controller.lock()->play_content(0);
@@ -108,6 +110,7 @@ void CowManager::setup_level()
         spawn_cow();
         spawn_jeep();
         time = 61.0f;
+        m_event_time_threshold = 15.0f;
         set_pattern(2);
         dialogue_prompt_controller.lock()->play_content(1);
         break;
@@ -119,6 +122,8 @@ void CowManager::setup_level()
         spawn_cow();
         spawn_ufo();
         spawn_jeep();
+        activate_jeep();
+        m_event_time_threshold = 20.0f;
 
         time = 91.0f;
 
@@ -153,7 +158,7 @@ void CowManager::update()
     if (event_timer >= 5.0f && m_level == 1)
         dialogue_prompt_controller.lock()->end_content();
 
-    if (event_timer >= 40.0f && !does_level_ended)
+    if (event_timer >= m_event_time_threshold && !does_level_ended)
     {
         switch (m_level)
         {
@@ -177,15 +182,8 @@ void CowManager::update()
 
         case (2):
         {
-            if (jeep.lock()->is_active == false)
-            {
-                activate_jeep();
-            }
-            else
-            {
-                activate_ufo();
-                change_jeep_direction();
-            }
+            activate_ufo();
+            change_jeep_direction();
             break;
         }
         default:
@@ -265,7 +263,7 @@ void CowManager::spawn_truther()
 {
     std::shared_ptr<Entity> new_truther = SceneSerializer::load_prefab("Truther");
 
-    glm::vec2 spawn_position = glm::vec2(0.0f, 4.5f);
+    glm::vec2 spawn_position = glm::vec2(0.0f, -4.5f);
 
     new_truther->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
 

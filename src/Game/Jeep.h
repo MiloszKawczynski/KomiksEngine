@@ -21,7 +21,7 @@ public:
 
     glm::vec2 get_speed() const;
 
-    float maximum_speed = 5.0f;
+    float maximum_speed = 2.0f;
     float acceleration = 0.2f;
     float deceleration = 0.1f;
 

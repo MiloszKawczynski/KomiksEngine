@@ -855,6 +855,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "ComponentName" << YAML::Value << "CowManagerComponent";
         out << YAML::Key << "guid" << YAML::Value << cowmanager->guid;
         out << YAML::Key << "custom_name" << YAML::Value << cowmanager->custom_name;
+        out << YAML::Key << "dialogue_prompt_controller" << YAML::Value << cowmanager->dialogue_prompt_controller;
         out << YAML::Key << "paths" << YAML::Value << cowmanager->paths;
         out << YAML::Key << "cows" << YAML::Value << cowmanager->cows;
         out << YAML::Key << "truther" << YAML::Value << cowmanager->truther;
@@ -2901,6 +2902,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
         else
         {
             auto const deserialized_component = std::dynamic_pointer_cast<class CowManager>(get_from_pool(component["guid"].as<std::string>()));
+            if (component["dialogue_prompt_controller"].IsDefined())
+            {
+                deserialized_component->dialogue_prompt_controller = component["dialogue_prompt_controller"].as<std::weak_ptr<DialoguePromptController>>();
+            }
             if (component["paths"].IsDefined())
             {
                 deserialized_component->paths = component["paths"].as<std::vector<std::weak_ptr<Path>>>();
