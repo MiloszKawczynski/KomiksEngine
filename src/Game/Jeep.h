@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "Input.h"
+#include "Sound.h"
 #include "Truther.h"
 #include "WheatOverlay.h"
 
@@ -40,6 +41,8 @@ private:
 
     void find_new_target();
 
+    static std::shared_ptr<Sound> m_jeep_sound;
+    bool m_sound_was_spawned = false;
     glm::vec2 m_speed = glm::vec2(0.0f, 0.0f);
     glm::vec2 m_target;
     float m_point_on_path = 0.0f;

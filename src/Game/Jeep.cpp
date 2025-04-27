@@ -29,6 +29,8 @@
 #endif
 #include "Path.h"
 
+std::shared_ptr<Sound> Jeep::m_jeep_sound = {};
+
 std::shared_ptr<Jeep> Jeep::create()
 {
     return std::make_shared<Jeep>(AK::Badge<Jeep> {});
@@ -54,6 +56,13 @@ void Jeep::fixed_update()
 
     if (is_active)
     {
+        if (!m_sound_was_spawned && m_jeep_sound == nullptr)
+        {
+            m_jeep_sound = Sound::play_sound("./res/audio/Komiks/silnik4.wav", true);
+            m_jeep_sound->set_volume(6.5f);
+            m_sound_was_spawned = true;
+        }
+
         if (m_targeting_player)
         {
             m_target = AK::convert_3d_to_2d(player.lock()->entity->transform->get_position());
@@ -156,6 +165,14 @@ void Jeep::fixed_update()
                 m_targeting_player = false;
                 m_invincibility_timer = 5.0f;
             }
+        }
+    }
+    else
+    {
+        if (m_jeep_sound != nullptr)
+        {
+            m_jeep_sound->stop_with_fade(2000.0f);
+            m_sound_was_spawned = false;
         }
     }
 }
