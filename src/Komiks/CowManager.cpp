@@ -76,7 +76,7 @@ void CowManager::awake()
 
 void CowManager::start()
 {
-    Sound::play_sound("./res/audio/Komiks/foliarzostpropozycja3.mp3");
+    auto const sound = Sound::play_sound("./res/audio/Komiks/foliarzostpropozycja3.mp3", true);
 
     get_spawn_paths();
 
