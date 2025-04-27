@@ -228,34 +228,6 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
-  - Entity: Fog
-    guid: 6f79cc0aa1db25ef2e969a9911279e7fc2a5b5f36e6581792dbecaa3f99d4206
-    Name: Fog
-    TransformComponent:
-      Translation: [1.94851136, 50, -1.91566777]
-      Rotation: [122.148193, -43.2912178, 147.991226]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: ""
-    Components:
-      - ComponentName: SpotLightComponent
-        guid: 9cbaaf06e50b9228dab4ff0985c21e0c4cfee3c4db417a56a71c29be309afa90
-        custom_name: ""
-        constant: 1
-        linear: 0.105999999
-        quadratic: 0.075000003
-        scattering_factor: 0.330000013
-        cut_off: 0.730531871
-        outer_cut_off: 0.948787808
-        ambient: [0.112870365, 0.320225418, 0.383333325]
-        diffuse: [0.388238668, 0.477777779, 0.360987663]
-        specular: [0.811111093, 0.757037044, 0.757037044]
-        m_near_plane: 13.7799997
-        m_far_plane: 0.270000011
-        m_blocker_search_num_samples: 16
-        m_pcf_num_samples: 16
-        m_light_world_size: 0.5
-        m_light_frustum_width: 30
   - Entity: Decor
     guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Name: Decor
