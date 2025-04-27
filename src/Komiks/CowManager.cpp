@@ -95,10 +95,9 @@ void CowManager::setup_level()
     {
     case (0):
     {
+        dialogue_prompt_controller.lock()->play_content(0);
         spawn_cow();
-
-        time = 20.0f;
-
+        time = 31.0f;
         set_pattern(0);
         break;
     }
@@ -106,9 +105,10 @@ void CowManager::setup_level()
     case (1):
     {
         spawn_cow();
+        spawn_cow();
         spawn_jeep();
 
-        time = 20.0f;
+        time = 61.0f;
 
         set_pattern(2);
         break;
@@ -117,10 +117,11 @@ void CowManager::setup_level()
     case (2):
     {
         spawn_cow();
+        spawn_cow();
         spawn_ufo();
         spawn_jeep();
 
-        time = 20.0f;
+        time = 91.0f;
 
         set_pattern(1);
         break;
@@ -146,6 +147,9 @@ void CowManager::update()
     }
 
     event_timer += delta_time;
+
+    if (event_timer >= 5.0f)
+        dialogue_prompt_controller.lock()->end_content();
 
     if (event_timer >= 40.0f && !does_level_ended)
     {
@@ -218,6 +222,7 @@ void CowManager::draw_editor()
     Component::draw_editor();
 
     ImGui::Text((std::to_string(event_timer)).c_str());
+    ImGuiEx::draw_ptr("Dialogue Prompt Controller", dialogue_prompt_controller);
     ImGuiEx::draw_ptr("Wheat Overlay", wheat_overlay);
     ImGuiEx::draw_ptr("clock text ref", clock_text_ref);
     ImGuiEx::draw_ptr("friel grid", friel_grid);
@@ -286,7 +291,7 @@ void CowManager::spawn_ufo()
 {
     std::shared_ptr<Entity> new_ufo = SceneSerializer::load_prefab("UFO");
 
-    glm::vec2 spawn_position = glm::vec2((rand() % 2 == 0 ? -9.0f : 9.0), (rand() % 2 == 0 ? -7.0f : 7.0f));
+    glm::vec2 spawn_position = glm::vec2((rand() % 2 == 0 ? -15.0f : 15.0), (rand() % 2 == 0 ? -15.0f : 15.0f));
 
     new_ufo->transform->set_local_position({spawn_position.x, 2.0f, spawn_position.y});
 
