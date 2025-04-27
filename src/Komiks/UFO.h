@@ -10,6 +10,7 @@
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 
+class ParticleSystem;
 class Thruter;
 
 class UFO final : public Component
@@ -33,6 +34,7 @@ public:
     std::weak_ptr<Truther> truther = {};
     std::weak_ptr<SpotLight> attract_bean = {};
     std::weak_ptr<CowManager> cow_manager = {};
+    std::weak_ptr<ParticleSystem> particles = {};
 
 private:
     glm::vec3 m_destination = {};

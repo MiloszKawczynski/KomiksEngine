@@ -7,6 +7,7 @@
 #include "Game/CustomerManager.h"
 #include "Game/GameController.h"
 #include "Globals.h"
+#include "Komiks/CowManager.h"
 #include "RendererDX11.h"
 #include "ResourceManager.h"
 
@@ -112,6 +113,11 @@ void Particle::awake()
 
         m_fish_offset = {AK::random_float(-m_velocity.y, m_velocity.y), AK::random_float(-m_velocity.y, m_velocity.y),
                          AK::random_float(-m_velocity.y, m_velocity.y)};
+    }
+
+    if (CowManager::get_instance() != nullptr && !CowManager::get_instance()->ufo.expired())
+    {
+        m_customer_group_position = CowManager::get_instance()->ufo.lock()->entity->transform->get_position();
     }
 }
 
@@ -250,7 +256,7 @@ void Particle::move() const
     {
         float t = m_current_lifetime / m_lifetime;
 
-        new_position = glm::mix(entity->transform->parent.lock()->get_position(), m_customer_group_position, t) + m_fish_offset;
+        new_position = glm::mix(entity->transform->get_position(), m_customer_group_position, t * 0.5f) + m_fish_offset;
 
         auto const rot = entity->transform->get_euler_angles();
         glm::vec3 const d_rot = {0.0f, 0.0f, delta_time * m_velocity.y * 600.0f};

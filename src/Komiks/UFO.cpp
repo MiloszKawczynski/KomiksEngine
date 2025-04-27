@@ -6,7 +6,9 @@
 #include "Entity.h"
 #include "Game/Truther.h"
 #include "Globals.h"
+#include "ParticleSystem.h"
 #include "Wheat.h"
+
 #include "glm/gtx/easing.hpp"
 
 #include <glm/gtc/random.hpp>
@@ -71,6 +73,8 @@ void UFO::update()
                 m_beam_radius = 40.0f;
 
                 Sound::play_sound("./res/audio/Komiks/ufo_active.wav");
+                particles.lock()->max_spawn_count = 20;
+                particles.lock()->min_spawn_count = 25;
 
                 m_is_unbending_done = true;
             }
@@ -84,6 +88,8 @@ void UFO::update()
                     m_start_position = entity->transform->get_position();
 
                     Sound::play_sound("./res/audio/Komiks/ufo_idle.wav");
+                    particles.lock()->max_spawn_count = 0;
+                    particles.lock()->min_spawn_count = 0;
                 }
                 else
                 {
@@ -104,6 +110,11 @@ void UFO::update()
     }
 
     attract_bean.lock()->outer_cut_off = glm::cos(glm::radians(m_beam_radius));
+
+    if (cow_manager.expired())
+    {
+        return;
+    }
 
     for (auto& cow : cow_manager.lock()->cows)
     {
@@ -137,6 +148,7 @@ void UFO::draw_editor()
     ImGuiEx::draw_ptr("Truther", truther);
     ImGuiEx::draw_ptr("Attract Bean", attract_bean);
     ImGuiEx::draw_ptr("Cow Manager", cow_manager);
+    ImGuiEx::draw_ptr("Particles", particles);
 }
 #endif
 

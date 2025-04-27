@@ -889,6 +889,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "truther" << YAML::Value << ufo->truther;
         out << YAML::Key << "attract_bean" << YAML::Value << ufo->attract_bean;
         out << YAML::Key << "cow_manager" << YAML::Value << ufo->cow_manager;
+        out << YAML::Key << "particles" << YAML::Value << ufo->particles;
         out << YAML::EndMap;
     }
     else
@@ -2999,6 +3000,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["cow_manager"].IsDefined())
             {
                 deserialized_component->cow_manager = component["cow_manager"].as<std::weak_ptr<CowManager>>();
+            }
+            if (component["particles"].IsDefined())
+            {
+                deserialized_component->particles = component["particles"].as<std::weak_ptr<ParticleSystem>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

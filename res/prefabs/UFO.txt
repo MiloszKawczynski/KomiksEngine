@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: UFO
-    guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
+    guid: 5f652a20fb6c134da3d7637795fd0714d62c3a31270569ba4881f17bb494b82d
     Name: UFO
     TransformComponent:
       Translation: [0, 2, 0]
@@ -11,28 +11,30 @@ Entities:
         guid: ""
     Components:
       - ComponentName: UFOComponent
-        guid: e5eb28e8b4216125bb715facfda0141f3b202f5efa4382a74b36bf69a535b0bb
+        guid: c891824ea7deb87f36d28d72c33e1f3d7212de648a2c14f1e72b1d0b8607b4b9
         custom_name: ""
         field_grid:
-          guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
+          guid: nullptr
         truther:
-          guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
+          guid: nullptr
         attract_bean:
-          guid: 4fa65e859f3c3d017dcd3ad1a9a2e39e793dcedad2ae634ef7740f5ee8913667
+          guid: 37579be976959da3e8fd30fe1863e0f31cdeb91cd957a62a74ac9eba866ec965
         cow_manager:
-          guid: cd975188fef08d9230966c62bcd8b17301f1d92b55c5530ff46c6bbd11f7b886
+          guid: nullptr
+        particles:
+          guid: 1a9dcd7e24663a262c8f23c8213fae205ed31c323473e375ff5571fefc93a1a0
   - Entity: Model
-    guid: 01a90328e0a7836a86f734760ca3f6c8b830280f5932f5756e31d0fb18b98f1c
+    guid: e45aea5f11dbdc5424b6289ffdda71ee353a5d244119592dc27f2d58d0f6bd68
     Name: Model
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [0.5, 0.5, 0.5]
       Parent:
-        guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
+        guid: 5f652a20fb6c134da3d7637795fd0714d62c3a31270569ba4881f17bb494b82d
     Components:
       - ComponentName: ModelComponent
-        guid: f19a6560fa58664a057ef55b9bae97fcbf8701b48d59d31f4b1df3c90ad59875
+        guid: 9bfce45e0b5401582f3eac44952d3274e033962185adf611207c0c91e0913cea
         custom_name: ""
         model_path: ./res/models\ufo\ufo.gltf
         material:
@@ -46,17 +48,17 @@ Entities:
           CastsShadows: true
           IsBillboard: false
   - Entity: Spotlight
-    guid: 40c5a9d99245f18f967ef42b9af96a30131546d1a0564c77180f16329d9193d6
+    guid: 19de254442511a94c5b83189990f10279d6197bc3f4396e8d3857e5b5f710472
     Name: Spotlight
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [-89.9999847, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 51452ca9e7e09f190967d48f73ea455c6c5e618ba91dfb4313d9b57c6a621a52
+        guid: 5f652a20fb6c134da3d7637795fd0714d62c3a31270569ba4881f17bb494b82d
     Components:
       - ComponentName: SpotLightComponent
-        guid: 4fa65e859f3c3d017dcd3ad1a9a2e39e793dcedad2ae634ef7740f5ee8913667
+        guid: 37579be976959da3e8fd30fe1863e0f31cdeb91cd957a62a74ac9eba866ec965
         custom_name: ""
         constant: 1
         linear: 1
@@ -73,3 +75,37 @@ Entities:
         m_pcf_num_samples: 16
         m_light_world_size: 0.5
         m_light_frustum_width: 30
+  - Entity: UFOParticles
+    guid: 264497942039a30bff7c30dae75f5c8324118a934168436f6cddf6d706832dfc
+    Name: UFOParticles
+    TransformComponent:
+      Translation: [0, -1.60000002, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 5f652a20fb6c134da3d7637795fd0714d62c3a31270569ba4881f17bb494b82d
+    Components:
+      - ComponentName: ParticleSystemComponent
+        guid: 1a9dcd7e24663a262c8f23c8213fae205ed31c323473e375ff5571fefc93a1a0
+        custom_name: ""
+        particle_type: 3
+        play_once: false
+        rotate_particles: true
+        spawn_instantly: false
+        sprite_path: ./res/textures/particle.png
+        min_spawn_interval: 0.5
+        max_spawn_interval: 1
+        start_velocity_1: [-0.100000001, 0.200000003, -0.100000001]
+        start_velocity_2: [0.100000001, 0.400000006, 0.100000001]
+        min_spawn_alpha: 0.5
+        max_spawn_alpha: 0.800000012
+        start_min_particle_size: [0.0299999993, 0.0299999993, 0.0299999993]
+        start_max_particle_size: [0.0599999987, 0.0599999987, 0.0599999987]
+        emitter_bounds: 0.300000012
+        min_spawn_count: 20
+        max_spawn_count: 25
+        start_color_1: [0.100000024, 1, 0, 1]
+        end_color_1: [0, 0.717647076, 0.0675432533, 0]
+        lifetime_1: 2
+        lifetime_2: 2.5
+        m_simulate_in_world_space: false
