@@ -1,0 +1,23 @@
+Scene: Untitled
+Entities:
+  - Entity: CameraKomiks
+    guid: 8038790700afc6285186bffea45b028d5d2639e96e872c43c53000701c9e0178
+    Name: CameraKomiks
+    TransformComponent:
+      Translation: [0, 17, 14.6499996]
+      Rotation: [-50, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: CameraComponent
+        guid: 35a4fc6273759026e9ed94a27dcb10525f624df6bc1c4ac3d18dc0cfdf58437c
+        custom_name: ""
+        width: 1280
+        height: 720
+        fov: 0.409803301
+        near_plane: 0.100000001
+        far_plane: 1000
+      - ComponentName: SoundListenerComponent
+        guid: 7dc14fc9912d6a16fd6e2ed9e96de3125fa41326c14941ce80a4d48d3e7997f6
+        custom_name: ""

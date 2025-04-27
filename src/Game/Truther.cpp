@@ -56,6 +56,11 @@ void Truther::awake()
 
 void Truther::update()
 {
+    if (entity == nullptr || Camera::get_main_camera() == nullptr || Camera::get_main_camera()->entity == nullptr)
+    {
+        return;
+    }
+
     auto const truther_position = entity->transform->get_position();
     m_grass_sound_timer += delta_time;
 

@@ -25,8 +25,9 @@ public:
 
 #if EDITOR
     virtual void draw_editor() override;
-    void choose_position();
 #endif
+
+    void choose_position();
 
     std::weak_ptr<FieldGrid> field_grid = {};
     std::weak_ptr<Truther> truther = {};

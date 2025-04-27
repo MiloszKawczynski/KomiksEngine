@@ -70,12 +70,14 @@ void JeepReflector::update()
     }
 }
 
+#if EDITOR
 void JeepReflector::draw_editor()
 {
     Component::draw_editor();
 
     ImGuiEx::draw_ptr("Jeep", jeep);
 }
+#endif
 
 void JeepReflector::set_destination(glm::vec2 destination)
 {

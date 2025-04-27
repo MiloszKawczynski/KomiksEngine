@@ -213,5 +213,13 @@ void Camera::draw_editor()
     float fov_angle = glm::degrees(get_main_camera()->fov);
     ImGui::InputFloat("Camera FoV", &fov_angle, 1.0f, 90.0f);
     fov = glm::radians(fov_angle);
+
+    if (ImGui::Button("Set to Editor camera"))
+    {
+        auto cam = get_main_camera();
+
+        entity->transform->set_position(cam->entity->transform->get_position());
+        entity->transform->set_euler_angles(cam->entity->transform->get_euler_angles());
+    }
 }
 #endif
