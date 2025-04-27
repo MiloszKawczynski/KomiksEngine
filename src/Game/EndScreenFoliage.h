@@ -7,6 +7,7 @@
 #include "Panel.h"
 #include "Popup.h"
 #include "ScreenText.h"
+#include "Sound.h"
 
 class EndScreenFoliage final : public Popup
 {

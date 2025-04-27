@@ -93,6 +93,11 @@ void EndScreenFoliage::update()
         }
     }
 
+    if (m_timer == 0.0f)
+    {
+        Sound::play_sound("./res/audio/Komiks/dzyngiel.mp3");
+    }
+
     m_timer += delta_time;
 
     float t = glm::clamp(m_timer / 6.0f, 0.0f, 1.0f); // progress [0,1]
