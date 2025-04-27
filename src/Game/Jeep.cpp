@@ -185,7 +185,7 @@ void Jeep::find_new_target()
 {
     auto path = entity->get_component<Path>();
 
-    m_point_on_path += 0.0005f * direction;
+    m_point_on_path += 0.0004f * direction;
 
     if (m_point_on_path > 1.0f)
     {
