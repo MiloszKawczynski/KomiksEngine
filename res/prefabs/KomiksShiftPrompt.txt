@@ -1,0 +1,36 @@
+Scene: Untitled
+Entities:
+  - Entity: KomiksShiftPrompt
+    guid: 7497d69247ea793e9973e97be2178dc407d943909c23307e5b48e83268b49c9b
+    Name: KomiksShiftPrompt
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: ParticleSystemComponent
+        guid: 3b52dbf1dea6260e85141c1cd579fb82b864de9fe846860b30bf2db48632f1f6
+        custom_name: ""
+        particle_type: 1
+        play_once: false
+        rotate_particles: false
+        spawn_instantly: true
+        sprite_path: ./res/textures/UI\komiks_shift.png
+        min_spawn_interval: 100000
+        max_spawn_interval: 100000
+        start_velocity_1: [-0.100000001, 0.200000003, -0.100000001]
+        start_velocity_2: [0.100000001, 1, 0.100000001]
+        min_spawn_alpha: 0.5
+        max_spawn_alpha: 0.800000012
+        start_min_particle_size: [1, 1, 1]
+        start_max_particle_size: [1, 1, 1]
+        emitter_bounds: 0.100000001
+        min_spawn_count: 1
+        max_spawn_count: 1
+        start_color_1: [1, 1, 1, 1]
+        end_color_1: [1, 1, 1, 1]
+        lifetime_1: 100000
+        lifetime_2: 100000
+        m_simulate_in_world_space: true
