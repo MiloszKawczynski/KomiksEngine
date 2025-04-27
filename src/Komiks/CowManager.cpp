@@ -152,7 +152,7 @@ void CowManager::setup_level()
 
         time = 91.0f;
 
-        set_pattern(glm::linearRand(3, 4));
+        set_pattern(glm::linearRand(3, 6));
         break;
     }
     default:
