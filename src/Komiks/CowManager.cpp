@@ -141,6 +141,22 @@ void CowManager::setup_level()
         set_pattern(1);
         break;
     }
+
+    case (3):
+    {
+        spawn_cow();
+        spawn_cow();
+        spawn_cow();
+        spawn_ufo();
+        spawn_jeep();
+        activate_jeep();
+        m_event_time_threshold = 20.0f;
+
+        time = 91.0f;
+
+        set_pattern(glm::linearRand(3, 4));
+        break;
+    }
     default:
         break;
     }
@@ -152,6 +168,11 @@ void CowManager::update()
     {
         m_frame_skip -= 1;
         return;
+    }
+
+    if (Input::input->get_key(GLFW_KEY_F5))
+    {
+        time = 1.0f;
     }
 
     if (flash_at_start_timer > 0.0f)
@@ -211,6 +232,13 @@ void CowManager::update()
         }
 
         case (2):
+        {
+            activate_ufo();
+            change_jeep_direction();
+            break;
+        }
+
+        case (3):
         {
             activate_ufo();
             change_jeep_direction();
@@ -363,7 +391,10 @@ void CowManager::change_jeep_direction()
 
 void CowManager::end_level()
 {
-    m_level++;
+    if (m_level < 3)
+    {
+        m_level++;
+    }
     does_level_ended = true;
 
     auto end_screen = SceneSerializer::load_prefab("EndScreenFoliage");
