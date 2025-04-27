@@ -36,6 +36,28 @@ std::shared_ptr<CowManager> CowManager::get_instance()
     return m_instance;
 }
 
+void CowManager::clear_map()
+{
+    truther.lock()->entity->destroy_immediate();
+
+    if (!jeep.expired())
+    {
+        jeep.lock()->entity->destroy_immediate();
+    }
+
+    if (!ufo.expired())
+    {
+        ufo.lock()->entity->destroy_immediate();
+    }
+
+    for (auto& cow : cows)
+    {
+        if (!cow.expired())
+        {
+            cow.lock()->entity->destroy_immediate();
+        }
+    }
+}
 
 void CowManager::awake()
 {
@@ -44,6 +66,8 @@ void CowManager::awake()
     Sound::play_sound("./res/audio/Komiks/foliarzostpropozycja3.mp3");
 
     get_spawn_paths();
+
+    does_level_ended = false;
 
     spawn_truther();
 

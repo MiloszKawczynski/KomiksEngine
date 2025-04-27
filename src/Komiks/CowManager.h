@@ -21,6 +21,9 @@ public:
     explicit CowManager(AK::Badge<CowManager>);
 
     static std::shared_ptr<CowManager> get_instance();
+
+    void clear_map();
+
     virtual void awake() override;
     virtual void update() override;
 #if EDITOR
