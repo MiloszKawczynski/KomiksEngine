@@ -57,6 +57,7 @@ void Truther::awake()
 void Truther::update()
 {
     auto const truther_position = entity->transform->get_position();
+    m_grass_sound_timer += delta_time;
 
     for (auto& wheat : Wheat::all_wheat)
     {
@@ -69,6 +70,17 @@ void Truther::update()
 
         if (glm::distance(truther_position, l_wheat->entity->transform->get_position()) < 0.15f)
         {
+            if (!l_wheat->is_bended() && m_grass_sound_timer > 0.5f)
+            {
+                i32 rand = AK::random_int(1, 8);
+                auto const dir =
+                    glm::normalize(Camera::get_main_camera()->entity->transform->get_position() - entity->transform->get_position());
+                Sound::play_sound("./res/audio/Komiks/siano" + std::to_string(rand) + ".wav");
+                /*Sound::play_sound_at_location("./res/audio/Komiks/siano" + std::to_string(rand) + ".wav", entity->transform->get_position(),
+                                              dir, 0.7f);*/
+                m_grass_sound_timer = 0.0f;
+            }
+
             l_wheat->set_bended(truther_bends, AK::convert_3d_to_2d(l_wheat->entity->transform->get_position() - truther_position));
         }
     }

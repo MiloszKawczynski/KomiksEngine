@@ -21,6 +21,8 @@ public:
     virtual void fixed_update() override;
     virtual void on_collision_enter(std::shared_ptr<Collider2D> const& other) override;
 
+    void play_sound_per_chance(float const chance) const;
+
     std::weak_ptr<CowManager> cow_manager = {};
     bool is_sucked = false;
 

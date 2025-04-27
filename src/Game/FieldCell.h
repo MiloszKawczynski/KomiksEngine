@@ -13,6 +13,7 @@ public:
     explicit FieldCell(AK::Badge<FieldCell>);
     virtual void initialize() override;
     virtual void awake() override;
+    virtual void update() override;
 
     // This percent of wheat needs to be bended to treat a cell as bended
     bool is_cell_bended(float percent_limit);

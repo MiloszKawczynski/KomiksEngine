@@ -27,8 +27,7 @@ void CowManager::awake()
 {
     set_can_tick(true);
 
-    // TODO: Change to proper sound path
-    Sound::play_sound("./res/audio/ost_loop.wav", true);
+    Sound::play_sound("./res/audio/Komiks/foliarzostpropozycja3.mp3");
 
     get_spawn_paths();
 

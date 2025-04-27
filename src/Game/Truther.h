@@ -58,4 +58,5 @@ private:
     float m_flip_rotation = 0.0f;
     float m_last_jump_timer = 0.0f;
     bool m_do_flip = false;
+    float m_grass_sound_timer = 0.0f;
 };
