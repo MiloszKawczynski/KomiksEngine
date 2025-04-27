@@ -40,8 +40,6 @@ public:
     std::weak_ptr<FieldGrid> friel_grid = {};
 
     NON_SERIALIZED
-    float map_time = 180.0f;
-    NON_SERIALIZED
     float time = 0.0f;
 
     float event_timer = 0.0f;
@@ -59,4 +57,6 @@ private:
     void end_level();
 
     inline static std::shared_ptr<CowManager> m_instance;
+
+    u32 m_level = 0;
 };

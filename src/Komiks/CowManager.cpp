@@ -47,32 +47,84 @@ void CowManager::awake()
 
     spawn_truther();
 
-    //spawn_cow();
-    //spawn_cow();
-    //spawn_cow();
+    event_timer = 0.0f;
 
-    //spawn_ufo();
+    switch (m_level)
+    {
+    case (0):
+    {
+        spawn_cow();
 
-    spawn_jeep();
+        time = 20.0f;
+        break;
+    }
 
-    time = map_time;
+    case (1):
+    {
+        spawn_cow();
+        spawn_jeep();
+
+        time = 120.0f;
+        break;
+    }
+
+    case (2):
+    {
+        spawn_cow();
+        spawn_ufo();
+        spawn_jeep();
+
+        time = 180.0f;
+        break;
+    }
+    default:
+        break;
+    }
 }
 
 void CowManager::update()
 {
     event_timer += delta_time;
 
-    if (event_timer >= 40.0f)
+    if (event_timer >= 40.0f && !does_level_ended)
     {
-        if (jeep.lock()->is_active == false)
+        switch (m_level)
         {
-            activate_jeep();
-        }
-        else
+        case (0):
         {
-            change_jeep_direction();
+            break;
         }
-        //activate_ufo();
+
+        case (1):
+        {
+            if (jeep.lock()->is_active == false)
+            {
+                activate_jeep();
+            }
+            else
+            {
+                change_jeep_direction();
+            }
+            break;
+        }
+
+        case (2):
+        {
+            if (jeep.lock()->is_active == false)
+            {
+                activate_jeep();
+            }
+            else
+            {
+                activate_ufo();
+                change_jeep_direction();
+            }
+            break;
+        }
+        default:
+            break;
+        }
+
         event_timer = 0.0f;
     }
 
@@ -96,6 +148,7 @@ void CowManager::update()
         {
             //friel_grid.lock()->calculate_faked_similarity();
 
+            m_level++;
             end_level();
             does_level_ended = true;
         }
