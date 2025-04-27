@@ -101,9 +101,9 @@ void CowManager::setup_level()
         time = 31.0f;
         set_pattern(0);
         dialogue_prompt_controller.lock()->play_content(0);
-
+        m_event_time_threshold = 10.0f;
         m_wasd_prompt = SceneSerializer::load_prefab("KomiksWASDPrompt");
-        m_wasd_prompt.lock()->transform->set_position({0.162, 1.5f, 0.0f});
+        m_wasd_prompt.lock()->transform->set_position({0.162, 1.5f, 2.5f});
         m_wasd_prompt.lock()->transform->set_parent(entity->transform);
 
         break;
@@ -119,7 +119,7 @@ void CowManager::setup_level()
         set_pattern(2);
         dialogue_prompt_controller.lock()->play_content(1);
         m_space_prompt = SceneSerializer::load_prefab("KomiksSpacePrompt");
-        m_space_prompt.lock()->transform->set_position({0.162, 1.5f, 0.0f});
+        m_space_prompt.lock()->transform->set_position({0.162, 1.5f, 2.5f});
         m_space_prompt.lock()->transform->set_parent(entity->transform);
         m_space_shown = true;
         break;
@@ -173,7 +173,7 @@ void CowManager::update()
     if (!m_shift_shown && event_timer >= 8.0f && m_level == 0)
     {
         m_shift_prompt = SceneSerializer::load_prefab("KomiksShiftPrompt");
-        m_shift_prompt.lock()->transform->set_position({0.16, 1.5f, 0.0f});
+        m_shift_prompt.lock()->transform->set_position({0.15, 1.5f, 2.5f});
         m_shift_prompt.lock()->transform->set_parent(entity->transform);
         m_shift_shown = true;
     }
