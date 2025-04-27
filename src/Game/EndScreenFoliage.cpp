@@ -22,6 +22,7 @@
 #include "imgui_extensions.h"
 #include <imgui.h>
 #endif
+#include <glm/gtx/easing.hpp>
 
 std::shared_ptr<EndScreenFoliage> EndScreenFoliage::create()
 {
@@ -87,6 +88,20 @@ void EndScreenFoliage::update()
         }
     }
 
+    m_timer += delta_time;
+
+    float t = glm::clamp(m_timer / 6.0f, 0.0f, 1.0f); // progress [0,1]
+    float eased_t = glm::quarticEaseIn(t); // smooth it
+
+    percentage = glm::mix(percentage, percentage_gained, eased_t); // interpolate
+
+    float scale = percentage / 100; //glm::mix(percentage / 100, 0.0f, 0.95f);
+
+    percentage_text.lock()->set_text(std::to_string(static_cast<int>(percentage)) + "%");
+    percentage_text.lock()->font_size = (percentage / 100.0f) * 3 * 40 + 40;
+    percentage_bar.lock()->entity->transform->set_local_position({0.0, -0.95f * (1 - scale), 0.0f});
+    percentage_bar.lock()->entity->transform->set_local_scale({0.95f, scale, 1.0f});
+
     if (Input::input->get_key_down(GLFW_KEY_F4))
     {
         hide();
@@ -102,6 +117,8 @@ void EndScreenFoliage::draw_editor()
     Popup::draw_editor();
 
     ImGuiEx::draw_ptr("Next level button", next_level_button);
+    ImGuiEx::draw_ptr("percentage text", percentage_text);
+    ImGuiEx::draw_ptr("percentage bar", percentage_bar);
 }
 #endif
 
