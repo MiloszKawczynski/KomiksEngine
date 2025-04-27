@@ -24,8 +24,9 @@ public:
 
     void clear_map();
 
-    virtual void awake() override;
     void setup_level();
+    virtual void awake() override;
+    virtual void start() override;
     virtual void update() override;
 #if EDITOR
     virtual void draw_editor() override;
@@ -67,4 +68,5 @@ private:
     float flash_at_start_timer = 3.5f;
 
     u32 m_level = 0;
+    i32 m_frame_skip = 2;
 };

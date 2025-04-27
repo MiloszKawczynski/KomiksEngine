@@ -72,7 +72,10 @@ void CowManager::clear_map()
 void CowManager::awake()
 {
     set_can_tick(true);
+}
 
+void CowManager::start()
+{
     Sound::play_sound("./res/audio/Komiks/foliarzostpropozycja3.mp3");
 
     get_spawn_paths();
@@ -129,6 +132,12 @@ void CowManager::setup_level()
 
 void CowManager::update()
 {
+    if (m_frame_skip > 0)
+    {
+        m_frame_skip -= 1;
+        return;
+    }
+
     if (flash_at_start_timer > 0.0f)
     {
         flash_at_start_timer -= delta_time;
