@@ -180,7 +180,10 @@ void CowManager::update()
         wheat_overlay.lock()->is_flash_on = true;
     }
 
-    event_timer += delta_time;
+    if (has_player_moved_this_level)
+    {
+        event_timer += delta_time;
+    }
 
     if (event_timer >= 5.0f && m_level == 0)
         dialogue_prompt_controller.lock()->end_content();
