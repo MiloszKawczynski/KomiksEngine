@@ -13,6 +13,7 @@
 #endif
 #include <Game/EndScreenFoliage.h>
 #include <Globals.h>
+#include <Quad.h>
 
 std::shared_ptr<CowManager> CowManager::create()
 {
@@ -89,6 +90,8 @@ void CowManager::awake()
         spawn_cow();
 
         time = 20.0f;
+
+        set_pattern(0);
         break;
     }
 
@@ -97,7 +100,9 @@ void CowManager::awake()
         spawn_cow();
         spawn_jeep();
 
-        time = 120.0f;
+        time = 20.0f;
+
+        set_pattern(2);
         break;
     }
 
@@ -107,7 +112,9 @@ void CowManager::awake()
         spawn_ufo();
         spawn_jeep();
 
-        time = 180.0f;
+        time = 20.0f;
+
+        set_pattern(1);
         break;
     }
     default:
@@ -312,4 +319,13 @@ void CowManager::end_level()
 
     end_screen_comp->update_background();
     end_screen_comp->percentage_gained = friel_grid.lock()->calculate_faked_similarity();
+}
+
+void CowManager::set_pattern(u32 id)
+{
+    auto quad = wheat_overlay.lock()->entity->get_component<Quad>();
+    quad->path = "./res/textures/UI/overlay0" + std::to_string(id) + ".png";
+    quad->reprepare();
+
+    friel_grid.lock()->set_pattern(id);
 }
