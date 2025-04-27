@@ -502,7 +502,7 @@ Entities:
     guid: 2aa34bf2d99be8004b1251d9d226b6afdecf8c486dea420c46386cbdcc4d0bb9
     Name: Clock
     TransformComponent:
-      Translation: [0, 0.100000001, 0]
+      Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
@@ -516,7 +516,7 @@ Entities:
         font_size: 40
         color: 4278229503
         flags: 2053
-        font_name: KG The Last Time
+        font_name: Lucida Console
         bold: true
         button_ref:
           guid: nullptr
