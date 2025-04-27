@@ -451,9 +451,9 @@ Entities:
     guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
     Name: UI_MainPanel
     TransformComponent:
-      Translation: [0, 0.850000024, 0]
+      Translation: [0.769999981, 0.800000012, 0]
       Rotation: [0, 0, 0]
-      Scale: [0.197734162, 0.153902978, 0.172426298]
+      Scale: [0.200000003, 0.150000006, 0.172000006]
       Parent:
         guid: ""
     Components:
@@ -480,7 +480,7 @@ Entities:
     TransformComponent:
       Translation: [0, 0, -2.18367338]
       Rotation: [0, 0, 0]
-      Scale: [1, 0.899999797, 0.999999881]
+      Scale: [1, 1, 1]
       Parent:
         guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
     Components:
@@ -502,7 +502,7 @@ Entities:
     guid: 2aa34bf2d99be8004b1251d9d226b6afdecf8c486dea420c46386cbdcc4d0bb9
     Name: Clock
     TransformComponent:
-      Translation: [0, 0.351999998, 0]
+      Translation: [0, 0.100000001, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:

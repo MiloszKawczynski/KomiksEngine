@@ -69,6 +69,6 @@ void Clock::update_visibility(bool const hide) const
     }
     else
     {
-        entity->transform->set_local_position({position.x, 0.85f, position.z});
+        entity->transform->set_local_position({position.x, 0.80f, position.z});
     }
 }
