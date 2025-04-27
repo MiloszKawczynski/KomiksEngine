@@ -567,7 +567,7 @@ Entities:
       - ComponentName: PanelComponent
         guid: dd239f3cb6aa9cc02896c537779c9e0b6f6984cddeb16d4333abed7a61959c26
         custom_name: ""
-        background_path: ./res/textures/UI/panel.png
+        background_path: ./res/textures/UI\UFOclock_base.png
         material:
           Shader:
             VertexPath: ./res/shaders/ui.hlsl
@@ -594,7 +594,7 @@ Entities:
       - ComponentName: PanelComponent
         guid: 12f2e2a59d25061dedf4daaeb607e272902d1fae3a12b8872ce42992ae7b8ff6
         custom_name: ""
-        background_path: ./res/textures/UI/glass.png
+        background_path: ./res/textures/UI\UFOclock_glass.png
         material:
           Shader:
             VertexPath: ./res/shaders/ui.hlsl
