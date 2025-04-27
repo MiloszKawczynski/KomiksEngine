@@ -70,6 +70,13 @@ private:
     float flash_at_start_timer = 3.5f;
     float m_event_time_threshold = 0.0f;
 
+    std::weak_ptr<Entity> m_wasd_prompt = {};
+    std::weak_ptr<Entity> m_shift_prompt = {};
+    std::weak_ptr<Entity> m_space_prompt = {};
+
+    bool m_space_shown = false;
+    bool m_shift_shown = false;
+
     u32 m_level = 0;
     i32 m_frame_skip = 2;
 };
