@@ -39,7 +39,7 @@ public:
     std::weak_ptr<FieldGrid> friel_grid = {};
 
     NON_SERIALIZED
-    float map_time = 5.0f;
+    float map_time = 180.0f;
     NON_SERIALIZED
     float time = 0.0f;
 
@@ -53,5 +53,7 @@ private:
     void spawn_ufo();
     void spawn_jeep();
     void activate_ufo();
+    void activate_jeep();
+    void change_jeep_direction();
     void end_level();
 };

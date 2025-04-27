@@ -40,7 +40,7 @@ void CowManager::awake()
 
     //spawn_ufo();
 
-    //spawn_jeep();
+    spawn_jeep();
 
     time = map_time;
 }
@@ -51,6 +51,14 @@ void CowManager::update()
 
     if (event_timer >= 40.0f)
     {
+        if (jeep.lock()->is_active == false)
+        {
+            activate_jeep();
+        }
+        else
+        {
+            change_jeep_direction();
+        }
         //activate_ufo();
         event_timer = 0.0f;
     }
@@ -180,6 +188,16 @@ void CowManager::spawn_jeep()
 void CowManager::activate_ufo()
 {
     ufo.lock()->choose_position();
+}
+
+void CowManager::activate_jeep()
+{
+    jeep.lock()->is_active = true;
+}
+
+void CowManager::change_jeep_direction()
+{
+    jeep.lock()->direction *= -1.0f;
 }
 
 void CowManager::end_level()
