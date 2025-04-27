@@ -614,6 +614,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "maximum_speed" << YAML::Value << jeep->maximum_speed;
         out << YAML::Key << "acceleration" << YAML::Value << jeep->acceleration;
         out << YAML::Key << "deceleration" << YAML::Value << jeep->deceleration;
+        out << YAML::Key << "is_active" << YAML::Value << jeep->is_active;
         out << YAML::Key << "player" << YAML::Value << jeep->player;
         out << YAML::EndMap;
     }
@@ -2263,6 +2264,10 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["deceleration"].IsDefined())
             {
                 deserialized_component->deceleration = component["deceleration"].as<float>();
+            }
+            if (component["is_active"].IsDefined())
+            {
+                deserialized_component->is_active = component["is_active"].as<bool>();
             }
             if (component["player"].IsDefined())
             {

@@ -32,10 +32,15 @@ public:
     float acceleration = 0.2f;
     float deceleration = 0.1f;
 
+    bool is_active = false;
+
     std::weak_ptr<Truther> player = {};
 
     NON_SERIALIZED
     float light_range = 0.69f * 3.0f;
+
+    NON_SERIALIZED
+    float direction = 1.0f;
 
 private:
     void handle_input();
