@@ -59,6 +59,8 @@ private:
     void change_jeep_direction();
     void end_level();
 
+    void set_pattern(u32 id);
+
     inline static std::shared_ptr<CowManager> m_instance;
 
     float flash_at_start_timer = 3.5f;
