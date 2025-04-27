@@ -38,6 +38,8 @@ std::shared_ptr<CowManager> CowManager::get_instance()
 
 void CowManager::clear_map()
 {
+    flash_at_start_timer = 3.5f;
+
     for (auto& wheat : Wheat::all_wheat)
     {
         wheat.lock()->set_bended(false);
@@ -115,6 +117,13 @@ void CowManager::awake()
 
 void CowManager::update()
 {
+    if (flash_at_start_timer > 0.0f)
+    {
+        flash_at_start_timer -= delta_time;
+
+        wheat_overlay.lock()->is_flash_on = true;
+    }
+
     event_timer += delta_time;
 
     if (event_timer >= 40.0f && !does_level_ended)

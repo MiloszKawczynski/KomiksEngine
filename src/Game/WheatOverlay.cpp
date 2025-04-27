@@ -35,12 +35,25 @@ void WheatOverlay::update()
 
         m_flash = std::pow(std::sin(m_timer), 2) * 0.25 + 0.25;
 
+        if (m_flash < 0.26)
+        {
+            is_flash_on = false;
+        }
+
         set_overlay_alpha(m_flash);
     }
     else
     {
-        m_timer = 0.0f;
-        set_overlay_alpha(0.0f);
+        if (m_flash > 0.0f)
+        {
+            m_flash = std::lerp(m_flash, 0.0f, 0.1f);
+            set_overlay_alpha(m_flash);
+        }
+        else
+        {
+            m_timer = 0.0f;
+            set_overlay_alpha(0.0f);
+        }
     }
 }
 
