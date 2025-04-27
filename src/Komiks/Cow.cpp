@@ -8,6 +8,7 @@
 #include "Entity.h"
 #include "Game/Truther.h"
 #include "Globals.h"
+#include "Model.h"
 #include "Wheat.h"
 
 #include <glm/gtc/random.hpp>
@@ -38,6 +39,24 @@ void Cow::start()
     {
         return;
     }
+
+    auto child = Entity::create("ModelChild");
+    child->transform->set_parent(entity->transform);
+
+    i32 rand = AK::random_int(0, 1);
+
+    if (rand == 0)
+    {
+        child->add_component<Model>(Model::create("./res/models/cow/cow.gltf", default_material));
+    }
+    else
+    {
+        child->add_component<Model>(Model::create("./res/models/cow_brown/cow.gltf", default_material));
+    }
+
+    child->transform->set_local_position({-0.013f, 0.0f, -0.046f});
+    child->transform->set_euler_angles({0.0f, 90.0f, 0.0f});
+    child->transform->set_local_scale({1.65f, 1.65f, 1.65f});
 
     auto const l_cow_manager = cow_manager.lock();
 

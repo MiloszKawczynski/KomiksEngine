@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: Cow
-    guid: 7be8470f028e298b138227b0977c5de5bc37d60f2bebb91a37cff988bd87fbc3
+    guid: 1fa42de9f444cf005b5db760d370b25af0ef4dd073c6e24815ede2c706d75756
     Name: Cow
     TransformComponent:
       Translation: [0, 0, 0.0820000023]
@@ -11,13 +11,13 @@ Entities:
         guid: ""
     Components:
       - ComponentName: CowComponent
-        guid: 5e5b851b0c0c34acf7c16bd383c4de5398bf39d0497cdf256ddf255541b164b7
+        guid: 8b09a95cd36bc64501e98a771de7137cb9001d95e619623c53f094e955062fa2
         custom_name: ""
         cow_manager:
           guid: nullptr
         is_sucked: false
       - ComponentName: Collider2DComponent
-        guid: fce3893bdad894f70bbb98ec52a7349607396c39e5e8552eb574f54553c194a0
+        guid: 740d8fbb96b21c059656fbdc338d2ba6a55ba45dc09f60fbe884df74c8194798
         custom_name: ""
         offset: [0, 0]
         is_trigger: false
@@ -28,27 +28,3 @@ Entities:
         radius: 0.400000006
         drag: 0.00999999978
         velocity: [0, 0]
-  - Entity: Child
-    guid: 288dcb42ab04b6af49fe1788490850e2d570b92862971d03625c79e40d3ebeaa
-    Name: Child
-    TransformComponent:
-      Translation: [-0.0126386657, 0, -0.0455761291]
-      Rotation: [0, 90, 0]
-      Scale: [1.64999998, 1.64999998, 1.64999998]
-      Parent:
-        guid: 7be8470f028e298b138227b0977c5de5bc37d60f2bebb91a37cff988bd87fbc3
-    Components:
-      - ComponentName: ModelComponent
-        guid: 6f46e2486ec82e0b8a1cdf96e790007cdfd2ffe00473fd3b3dc86731d20773d2
-        custom_name: ""
-        model_path: ./res/models\cow\cow.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
