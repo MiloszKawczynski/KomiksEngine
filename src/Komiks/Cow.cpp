@@ -166,3 +166,13 @@ void Cow::on_collision_enter(std::shared_ptr<Collider2D> const& other)
 
     m_destination = l_cow_manager->get_random_position_with_minimal_distance(entity->transform->get_position());
 }
+
+void Cow::play_sound_per_chance(float const chance) const
+{
+    if (glm::linearRand(0.0f, 1.0f) < chance)
+    {
+        i32 rand = AK::random_int(1, 8);
+        auto sound = Sound::play_sound("./res/audio/Komiks/krowa" + std::to_string(rand) + ".wav");
+        sound->set_volume(1.6f);
+    }
+}
