@@ -53,6 +53,9 @@ public:
 
     bool does_level_ended = false;
 
+    NON_SERIALIZED
+    bool has_player_moved_this_level = false;
+
 private:
     void spawn_truther();
     void spawn_cow();

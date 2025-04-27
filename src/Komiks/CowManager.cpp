@@ -87,6 +87,8 @@ void CowManager::setup_level()
 {
     does_level_ended = false;
 
+    has_player_moved_this_level = false;
+
     spawn_truther();
 
     event_timer = 0.0f;
@@ -233,7 +235,10 @@ void CowManager::update()
 
     if (time > 0.0f)
     {
-        time -= delta_time;
+        if (has_player_moved_this_level)
+        {
+            time -= delta_time;
+        }
     }
     else
     {

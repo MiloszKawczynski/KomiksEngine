@@ -10,6 +10,7 @@
 #include "GameController.h"
 #include "Globals.h"
 #include "IceBound.h"
+#include "Komiks/CowManager.h"
 #include "Komiks/Wheat.h"
 #include "LevelController.h"
 #include "Lighthouse.h"
@@ -164,21 +165,43 @@ void Truther::fixed_update()
     i32 horizontal = 0;
     i32 vertical = 0;
 
+    auto const cow_manager = CowManager::get_instance();
+
     if (Input::input->get_key(GLFW_KEY_D))
     {
         horizontal++;
+
+        if (cow_manager != nullptr)
+        {
+            cow_manager->has_player_moved_this_level = true;
+        }
     }
     if (Input::input->get_key(GLFW_KEY_A))
     {
         horizontal--;
+
+        if (cow_manager != nullptr)
+        {
+            cow_manager->has_player_moved_this_level = true;
+        }
     }
     if (Input::input->get_key(GLFW_KEY_W))
     {
         vertical--;
+
+        if (cow_manager != nullptr)
+        {
+            cow_manager->has_player_moved_this_level = true;
+        }
     }
     if (Input::input->get_key(GLFW_KEY_S))
     {
         vertical++;
+
+        if (cow_manager != nullptr)
+        {
+            cow_manager->has_player_moved_this_level = true;
+        }
     }
 
     m_last_jump_timer += delta_time;
