@@ -170,11 +170,7 @@ void CowManager::update()
     {
         if (!does_level_ended)
         {
-            //friel_grid.lock()->calculate_faked_similarity();
-
-            m_level++;
             end_level();
-            does_level_ended = true;
         }
     }
 }
@@ -292,9 +288,12 @@ void CowManager::change_jeep_direction()
 
 void CowManager::end_level()
 {
+    m_level++;
+    does_level_ended = true;
+
     auto end_screen = SceneSerializer::load_prefab("EndScreenFoliage");
     auto end_screen_comp = end_screen->get_component<EndScreenFoliage>();
 
     end_screen_comp->update_background();
-    end_screen_comp->percentage_gained = 69;
+    end_screen_comp->percentage_gained = friel_grid.lock()->calculate_faked_similarity();
 }
