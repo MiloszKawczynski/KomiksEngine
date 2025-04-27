@@ -25,6 +25,7 @@ public:
     void clear_map();
 
     virtual void awake() override;
+    void setup_level();
     virtual void update() override;
 #if EDITOR
     virtual void draw_editor() override;
