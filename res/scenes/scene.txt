@@ -880,6 +880,7 @@ Entities:
           guid: b14ed9aceabb93228fecc9f35409646975a2cd0d5b6dad4dbf1d43202933e825
         dialogue_objects:
           - [true, "", Show them NO HUMAN could make these signs..., "", ""]
+          - [true, "", Don't get caught!, "", ""]
   - Entity: Parent
     guid: bb3b3ab7e3f628803e744f2b08639b6cfaba29d7d921ec13dcb19802eaddd747
     Name: Parent

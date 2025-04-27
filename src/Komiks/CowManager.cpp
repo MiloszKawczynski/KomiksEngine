@@ -95,10 +95,10 @@ void CowManager::setup_level()
     {
     case (0):
     {
-        dialogue_prompt_controller.lock()->play_content(0);
         spawn_cow();
         time = 31.0f;
         set_pattern(0);
+        dialogue_prompt_controller.lock()->play_content(0);
         break;
     }
 
@@ -107,10 +107,9 @@ void CowManager::setup_level()
         spawn_cow();
         spawn_cow();
         spawn_jeep();
-
         time = 61.0f;
-
         set_pattern(2);
+        dialogue_prompt_controller.lock()->play_content(1);
         break;
     }
 
@@ -148,7 +147,10 @@ void CowManager::update()
 
     event_timer += delta_time;
 
-    if (event_timer >= 5.0f)
+    if (event_timer >= 5.0f && m_level == 0)
+        dialogue_prompt_controller.lock()->end_content();
+
+    if (event_timer >= 5.0f && m_level == 1)
         dialogue_prompt_controller.lock()->end_content();
 
     if (event_timer >= 40.0f && !does_level_ended)
