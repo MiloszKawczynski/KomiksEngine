@@ -38,6 +38,11 @@ std::shared_ptr<CowManager> CowManager::get_instance()
 
 void CowManager::clear_map()
 {
+    for (auto& wheat : Wheat::all_wheat)
+    {
+        wheat.lock()->set_bended(false);
+    }
+
     truther.lock()->entity->destroy_immediate();
 
     if (!jeep.expired())
