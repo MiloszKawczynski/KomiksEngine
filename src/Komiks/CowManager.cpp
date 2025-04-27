@@ -98,12 +98,10 @@ void CowManager::setup_level()
     case (0):
     {
         spawn_cow();
-        spawn_jeep();
-        activate_jeep();
-        time = 31.0f;
+        time = 46.0f;
         set_pattern(0);
         dialogue_prompt_controller.lock()->play_content(0);
-        m_event_time_threshold = 10.0f;
+        m_event_time_threshold = 15.0f;
         m_wasd_prompt = SceneSerializer::load_prefab("KomiksWASDPrompt");
         m_wasd_prompt.lock()->transform->set_position({0.162, 1.5f, 2.5f});
         m_wasd_prompt.lock()->transform->set_parent(entity->transform);
