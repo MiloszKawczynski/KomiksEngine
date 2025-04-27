@@ -39,7 +39,7 @@ public:
     std::weak_ptr<FieldGrid> friel_grid = {};
 
     NON_SERIALIZED
-    float map_time = 90.0f;
+    float map_time = 5.0f;
     NON_SERIALIZED
     float time = 0.0f;
 

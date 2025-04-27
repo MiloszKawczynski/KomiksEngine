@@ -73,7 +73,8 @@ void CowManager::update()
     {
         if (!does_level_ended)
         {
-            friel_grid.lock()->calculate_faked_similarity();
+            //friel_grid.lock()->calculate_faked_similarity();
+
             end_level();
             does_level_ended = true;
         }
@@ -184,5 +185,8 @@ void CowManager::activate_ufo()
 void CowManager::end_level()
 {
     auto end_screen = SceneSerializer::load_prefab("EndScreenFoliage");
-    end_screen->get_component<EndScreenFoliage>()->update_background();
+    auto end_screen_comp = end_screen->get_component<EndScreenFoliage>();
+
+    end_screen_comp->update_background();
+    end_screen_comp->percentage_gained = 69;
 }

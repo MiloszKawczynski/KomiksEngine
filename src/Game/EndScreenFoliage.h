@@ -4,7 +4,9 @@
 #include "AK/Types.h"
 #include "Button.h"
 #include "Component.h"
+#include "Panel.h"
 #include "Popup.h"
+#include "ScreenText.h"
 
 class EndScreenFoliage final : public Popup
 {
@@ -29,9 +31,12 @@ public:
     std::weak_ptr<Button> next_level_button = {};
     float percentage = 0.0f;
     float percentage_gained = 0.0f;
+    std::weak_ptr<ScreenText> percentage_text = {};
+    std::weak_ptr<Panel> percentage_bar = {};
 
 private:
     bool m_is_animation_end = false;
 
     std::string m_win_background_path = "./res/textures/UI/UFOend_lvl.png";
+    float m_timer = 0.0f;
 };

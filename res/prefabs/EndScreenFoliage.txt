@@ -1,17 +1,17 @@
 Scene: Untitled
 Entities:
   - Entity: EndScreenFoliage
-    guid: a0bec8a682b438250128ff970620bf62dccbed7699fa4ae85f219e0e432f6a5e
+    guid: d599af05a5af31ab099a516dea5076b9a1c4bcd86e98bb6f9b5a056ea679d4cc
     Name: EndScreenFoliage
     TransformComponent:
-      Translation: [0, -2, 0]
+      Translation: [0, 2, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
         guid: ""
     Components:
       - ComponentName: PanelComponent
-        guid: 0808f4286a7f3076fc2bbeab6dc43a6cf9d0101dd3731a32f7a502b0a257dbe4
+        guid: 9a0022412c17882492f0a33460aba054cee0996235c54446adaabd26c9bf24d3
         custom_name: ""
         background_path: ./res/textures/UI\UFOend_lvl.png
         material:
@@ -25,41 +25,175 @@ Entities:
           CastsShadows: false
           IsBillboard: false
       - ComponentName: EndScreenFoliageComponent
-        guid: 1694b8ed57d462c9b07105c4abd014752e2fbd9966525e0e244ab743faa5abc6
+        guid: a8a9666976153a5025f15682ee5a4a475e3f6529eee7bbec7dde3db9ef912634
         custom_name: ""
         next_level_button:
-          guid: 91b870e8430e2e0980351f8f27196078084d21181bad538fdf5f4101c70f77c0
+          guid: cb59c4e976f1c44de0cbbb13efca0a2d90b02006d2c75402311d2dc2ab321e72
+        percentage: 0
+        percentage_gained: 0
+        percentage_text:
+          guid: 16559f5379a6b0148afafb60c32c1b064fedf51f1c6f1ccd8be3cf5f90924e5f
+        percentage_bar:
+          guid: 6e3b197a46538cbaa08202e5a1451cad7ef9036277cb6c1f0a6912879b6ff117
   - Entity: Buttons
-    guid: d13289e8d2ba365ca19e87e14cafc19f1c480317f32ec4ca43d51439a9927026
+    guid: fc90c656e1130b04d6c82ede3e3df0dcab0de7df6beb55b1a30e65ef0267a330
     Name: Buttons
     TransformComponent:
-      Translation: [0.35497725, -0.136922449, 0.0601075329]
-      Rotation: [0, 0, 0]
+      Translation: [0.300000012, -0.61284411, 0.0601073354]
+      Rotation: [0, -0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: a0bec8a682b438250128ff970620bf62dccbed7699fa4ae85f219e0e432f6a5e
+        guid: d599af05a5af31ab099a516dea5076b9a1c4bcd86e98bb6f9b5a056ea679d4cc
     Components:
       []
   - Entity: ButtonNextLevel
-    guid: 962741f9b16cce9f2f4100d376e20d0c3b262abd4c601601d00c24ba91731db7
+    guid: 2982dd013033546e38ae4a17efc02a2763dfcfca3c5745996a3057b3537ff3d6
     Name: ButtonNextLevel
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [0.129999995, 0.073368609, 1]
       Parent:
-        guid: d13289e8d2ba365ca19e87e14cafc19f1c480317f32ec4ca43d51439a9927026
+        guid: fc90c656e1130b04d6c82ede3e3df0dcab0de7df6beb55b1a30e65ef0267a330
     Components:
       - ComponentName: ButtonComponent
-        guid: 91b870e8430e2e0980351f8f27196078084d21181bad538fdf5f4101c70f77c0
+        guid: cb59c4e976f1c44de0cbbb13efca0a2d90b02006d2c75402311d2dc2ab321e72
         custom_name: ""
-        path_default: ./res/textures/UI\buttons\default\b_next_level_default.png
-        path_hovered: ./res/textures/UI\buttons\hover\b_next_level_hover.png
-        path_pressed: ./res/textures/UI\buttons\click\b_next_level_click.png
+        path_default: ./res/textures/UI\buttons\UFObtn\nxt_lvl.png
+        path_hovered: ./res/textures/UI\buttons\UFObtn\nxt_lvl_hover.png
+        path_pressed: ./res/textures/UI\buttons\UFObtn\nxt_lvl_click.png
         top_left_corner: [0, 0]
         top_right_corner: [0, 0]
         bottom_left_corner: [0, 0]
         bottom_right_corner: [0, 0]
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+  - Entity: Percentage
+    guid: 1d629d6340ed6eda0164c4aee116c11b41b2da4d42010f766d2f4e3a1eebd62a
+    Name: Percentage
+    TransformComponent:
+      Translation: [0.300000012, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: d599af05a5af31ab099a516dea5076b9a1c4bcd86e98bb6f9b5a056ea679d4cc
+    Components:
+      - ComponentName: ScreenTextComponent
+        guid: 16559f5379a6b0148afafb60c32c1b064fedf51f1c6f1ccd8be3cf5f90924e5f
+        custom_name: ""
+        text: Example text
+        position: [0, 0]
+        font_size: 40
+        color: 4278229503
+        flags: 2053
+        font_name: KG The Last Time
+        bold: false
+        button_ref:
+          guid: nullptr
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3003
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+  - Entity: Bar
+    guid: 86fc3a53943ddba8ee497038088400936a11086b4d0437e1edefd838ac7c08fd
+    Name: Bar
+    TransformComponent:
+      Translation: [-0.5, -0.100000001, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.200000003, 0.600000024, 1]
+      Parent:
+        guid: d599af05a5af31ab099a516dea5076b9a1c4bcd86e98bb6f9b5a056ea679d4cc
+    Components:
+      - ComponentName: PanelComponent
+        guid: 106d3d9c6dc1988d8b673b4768b0a542e9bae8d5f66d32a89caab9a2e456d5c7
+        custom_name: ""
+        background_path: ./res/textures/white.jpg
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+  - Entity: BarValue
+    guid: 2a795a7fa5a3abf402e082c3bfccb325fa501fd0414fdfa57be38b119dd6a7dd
+    Name: BarValue
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.899999976, 0.949999988, 1]
+      Parent:
+        guid: 86fc3a53943ddba8ee497038088400936a11086b4d0437e1edefd838ac7c08fd
+    Components:
+      - ComponentName: PanelComponent
+        guid: 6e3b197a46538cbaa08202e5a1451cad7ef9036277cb6c1f0a6912879b6ff117
+        custom_name: ""
+        background_path: ./res/textures/water.jpg
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+  - Entity: Alien
+    guid: cd9444e5669653ac185ac769580486493f544fd7afcb37b3f1a0882d4b321f40
+    Name: Alien
+    TransformComponent:
+      Translation: [-0.689558268, 0.396312296, 0]
+      Rotation: [0.999999881, 1.00000012, -8.33890346e-10]
+      Scale: [0.300000012, 0.300000012, 0.5]
+      Parent:
+        guid: d599af05a5af31ab099a516dea5076b9a1c4bcd86e98bb6f9b5a056ea679d4cc
+    Components:
+      - ComponentName: PanelComponent
+        guid: 412319c7a15e7b18280d24cd92487e7a91d0a24e7f796c91dd35f023deb4c94e
+        custom_name: ""
+        background_path: ./res/textures/UI\alien_head.png
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+  - Entity: Human
+    guid: f2a9aa8081cd576b4ffdefbbde3284b2abb8111f34ad9d11f721928b4efc2f68
+    Name: Human
+    TransformComponent:
+      Translation: [-0.297646582, -0.649639726, 0]
+      Rotation: [0.999999881, 1.00000012, -8.33890346e-10]
+      Scale: [0.300000012, 0.300000012, 0.5]
+      Parent:
+        guid: d599af05a5af31ab099a516dea5076b9a1c4bcd86e98bb6f9b5a056ea679d4cc
+    Components:
+      - ComponentName: PanelComponent
+        guid: 559f71e9579a45654e22803a470d1daeda289d6492858a4aa4e471308699b221
+        custom_name: ""
+        background_path: ./res/textures/UI\truther_head.png
         material:
           Shader:
             VertexPath: ./res/shaders/ui.hlsl

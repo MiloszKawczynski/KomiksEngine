@@ -712,6 +712,10 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
             out << YAML::Key << "guid" << YAML::Value << endscreenfoliage->guid;
             out << YAML::Key << "custom_name" << YAML::Value << endscreenfoliage->custom_name;
             out << YAML::Key << "next_level_button" << YAML::Value << endscreenfoliage->next_level_button;
+            out << YAML::Key << "percentage" << YAML::Value << endscreenfoliage->percentage;
+            out << YAML::Key << "percentage_gained" << YAML::Value << endscreenfoliage->percentage_gained;
+            out << YAML::Key << "percentage_text" << YAML::Value << endscreenfoliage->percentage_text;
+            out << YAML::Key << "percentage_bar" << YAML::Value << endscreenfoliage->percentage_bar;
         }
         else
         if (auto const endscreen = std::dynamic_pointer_cast<class EndScreen>(component); endscreen != nullptr)
@@ -2587,6 +2591,22 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["next_level_button"].IsDefined())
             {
                 deserialized_component->next_level_button = component["next_level_button"].as<std::weak_ptr<Button>>();
+            }
+            if (component["percentage"].IsDefined())
+            {
+                deserialized_component->percentage = component["percentage"].as<float>();
+            }
+            if (component["percentage_gained"].IsDefined())
+            {
+                deserialized_component->percentage_gained = component["percentage_gained"].as<float>();
+            }
+            if (component["percentage_text"].IsDefined())
+            {
+                deserialized_component->percentage_text = component["percentage_text"].as<std::weak_ptr<ScreenText>>();
+            }
+            if (component["percentage_bar"].IsDefined())
+            {
+                deserialized_component->percentage_bar = component["percentage_bar"].as<std::weak_ptr<Panel>>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
