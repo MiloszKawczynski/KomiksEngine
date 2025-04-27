@@ -4,8 +4,8 @@ Entities:
     guid: e7c60e3bde9c8a912f83b05c10e97cf9a07ca32ee3b846e09db5684cbf686937
     Name: A_DIRECTIONAL
     TransformComponent:
-      Translation: [0.793070316, 15.000061, -1.47294796]
-      Rotation: [163.07811, 35.3733673, -114.878563]
+      Translation: [-4.59880877, 15.000061, -4.11201572]
+      Rotation: [122.635269, 22.2374134, -138.00563]
       Scale: [1, 1, 1]
       Parent:
         guid: ""
@@ -13,9 +13,9 @@ Entities:
       - ComponentName: DirectionalLightComponent
         guid: 56a706067ac647eea69a96100221e57d42675b28e6d4459533e978967f41d403
         custom_name: ""
-        ambient: [0.477777779, 0.371604949, 0.371604949]
-        diffuse: [0.253580213, 0.268880665, 0.288888872]
-        specular: [0.74444443, 0.736172795, 0.736172795]
+        ambient: [0.422037035, 0.49892059, 0.883333325]
+        diffuse: [0.40925926, 0.668462992, 0.866666675]
+        specular: [0.0722222328, 0.0722222328, 0.0722222328]
         m_near_plane: -25
         m_far_plane: 25
         m_blocker_search_num_samples: 16
@@ -244,12 +244,12 @@ Entities:
         constant: 1
         linear: 0.105999999
         quadratic: 0.075000003
-        scattering_factor: 0.462000012
-        cut_off: 0.694168508
-        outer_cut_off: 0.978577316
-        ambient: [0, 0, 0]
-        diffuse: [1, 1, 1]
-        specular: [1, 1, 1]
+        scattering_factor: 0.330000013
+        cut_off: 0.730531871
+        outer_cut_off: 0.948787808
+        ambient: [0.112870365, 0.320225418, 0.383333325]
+        diffuse: [0.388238668, 0.477777779, 0.360987663]
+        specular: [0.811111093, 0.757037044, 0.757037044]
         m_near_plane: 13.7799997
         m_far_plane: 0.270000011
         m_blocker_search_num_samples: 16
@@ -267,49 +267,13 @@ Entities:
         guid: ""
     Components:
       []
-  - Entity: Fence
-    guid: 018fed97645658170297ffc03680ebc6d9d5b3e33ac5f7c03af66980ee55f7d4
-    Name: Fence
-    TransformComponent:
-      Translation: [-7.47422457, 6.10351562e-05, 1.73950005]
-      Rotation: [180, -11.8761721, 180]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
-    Components:
-      - ComponentName: ModelComponent
-        guid: ec6479117e20af9ea9e88b7587a8328a666e2ea43f73f6c4b58fac4e205cba38
-        custom_name: ""
-        model_path: ./res/models\fence\fence.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-      - ComponentName: Collider2DComponent
-        guid: b0412875a512d953b397a2d8122cff2175e567374365def545dfaf6a504a03ea
-        custom_name: ""
-        offset: [0, 0]
-        is_trigger: false
-        is_static: true
-        collider_type: 0
-        width: 0.150000006
-        height: 0.5
-        radius: 1
-        drag: 0.00999999978
-        velocity: [0, 0]
   - Entity: Tree
     guid: b25063763f98378696de0b9a93217cd163aa9bd1e3d201fe4dfab0bf78335feb
     Name: Tree
     TransformComponent:
-      Translation: [-6.85547638, 6.10351562e-05, -2.15809274]
-      Rotation: [0, -48.0296745, 0]
-      Scale: [1.54690802, 1.61795855, 1.12]
+      Translation: [-7.06451511, -6.21036816e-05, 1.61616683]
+      Rotation: [-161.975159, -56.961338, 158.412704]
+      Scale: [1.54690981, 1.61795783, 1.23400152]
       Parent:
         guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Components:
@@ -343,9 +307,9 @@ Entities:
     guid: e200a54bc68e84f0d94d9bf4086cd34212962d0fc483b09484a771d14a979e69
     Name: Fence
     TransformComponent:
-      Translation: [-7.43212938, 6.10351562e-05, 1.03633213]
-      Rotation: [180, 17.8376198, 180]
-      Scale: [1, 1, 1]
+      Translation: [-6.73979712, 0.000128001833, -2.55893469]
+      Rotation: [-180, 17.8376198, -180]
+      Scale: [2, 2, 2]
       Parent:
         guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Components:
@@ -375,83 +339,11 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
-  - Entity: Fence
-    guid: b6e6ad53e300749e7dd82e103a0ea2bb4884d2020962a1d0aae9b80c9d3e1206
-    Name: Fence
-    TransformComponent:
-      Translation: [-7.46036005, -6.10351562e-05, -0.564861]
-      Rotation: [180, -14.0715046, 180]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
-    Components:
-      - ComponentName: ModelComponent
-        guid: 01865515629f235ecf76bdda34bae1685af9fc81811276f1ecc191cb68e5ba5a
-        custom_name: ""
-        model_path: ./res/models\fence\fence.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-      - ComponentName: Collider2DComponent
-        guid: e3a72d5a5f7e4712622970b208b08df5bbda51a535ab25faa19aaf5b222a4168
-        custom_name: ""
-        offset: [0, 0]
-        is_trigger: false
-        is_static: true
-        collider_type: 0
-        width: 0.150000006
-        height: 0.5
-        radius: 1
-        drag: 0.00999999978
-        velocity: [0, 0]
-  - Entity: Fence
-    guid: 439db477a4a5e7398c0238065780a309860da5ba9fc0f5ba70f3382418e0f9b5
-    Name: Fence
-    TransformComponent:
-      Translation: [-7.39411163, 0, 0.251819611]
-      Rotation: [180, 1.65825677, 180]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
-    Components:
-      - ComponentName: ModelComponent
-        guid: 8430ab93d34e42b677e4eed55bbf3be452dc1020cce15aae4f05494cb2167f07
-        custom_name: ""
-        model_path: ./res/models\fence\fence.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-      - ComponentName: Collider2DComponent
-        guid: 76ba1679b5d22de40bc9f083af50e2089070de1fdeb93f35f7890aa26393c80c
-        custom_name: ""
-        offset: [0, 0]
-        is_trigger: false
-        is_static: true
-        collider_type: 0
-        width: 0.150000006
-        height: 0.5
-        radius: 1
-        drag: 0.00999999978
-        velocity: [0, 0]
   - Entity: Rocks
     guid: faaae8dbb4b69967895d8db49cb381a452dacc2d9d89a31a61077d27c6cb5f48
     Name: Rocks
     TransformComponent:
-      Translation: [-6.21277142, 0.000302944158, 4.39436626]
+      Translation: [-6.4550519, 0.000302599277, 5.22940111]
       Rotation: [0, -11.244586, 0]
       Scale: [2.39770865, 4.03558159, 2.47474098]
       Parent:
@@ -487,7 +379,7 @@ Entities:
     guid: 8e0eed7246abba75f065b658ea6dc56590d2a7fd4560f784a87e0742f6973ffd
     Name: Rocks
     TransformComponent:
-      Translation: [-6.32137203, 6.10351562e-05, -5.77506924]
+      Translation: [-5.72508049, 6.10351562e-05, -5.91073513]
       Rotation: [0, 38.5893822, 0]
       Scale: [1.54690874, 1.61795855, 1.12]
       Parent:
@@ -519,20 +411,20 @@ Entities:
         radius: 0.200000003
         drag: 0.00999999978
         velocity: [0, 0]
-  - Entity: Rocks
+  - Entity: House
     guid: 6f993841009f1fb281174252cc733a6502eb6de0710da071f443b50abb263302
-    Name: Rocks
+    Name: House
     TransformComponent:
-      Translation: [8.96765614, 6.10351562e-05, -5.51865005]
-      Rotation: [0, -12.9970245, 0]
-      Scale: [1.64802659, 1.72372127, 1.19321215]
+      Translation: [-8.08888149, 4.42418968e-05, -4.62405014]
+      Rotation: [0, -89.4471512, 0]
+      Scale: [1.64802694, 1.72372127, 1.19321156]
       Parent:
         guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Components:
       - ComponentName: ModelComponent
         guid: 33ce62a841b9842bc40143391e5e8d9e2aafa13a1ff035f5dcc6567ea42f3316
         custom_name: ""
-        model_path: ./res/models\rocks2\rocks2.gltf
+        model_path: ./res/models\house\house.gltf
         material:
           Shader:
             VertexPath: ./res/shaders/lit.hlsl
@@ -546,12 +438,12 @@ Entities:
       - ComponentName: Collider2DComponent
         guid: 6a38e3bf990396e8bf05470df8ece9b18fa45291659fcf2b2c7807d3e677ab5b
         custom_name: ""
-        offset: [0, -0.400000006]
+        offset: [0, 0]
         is_trigger: false
         is_static: true
-        collider_type: 1
-        width: 1
-        height: 0.699999988
+        collider_type: 0
+        width: 3.4000001
+        height: 3.4000001
         radius: 1.5
         drag: 0.00999999978
         velocity: [0, 0]
@@ -637,4 +529,352 @@ Entities:
           RenderOrder: 3003
           NeedsForward: true
           CastsShadows: false
+          IsBillboard: false
+  - Entity: Planks
+    guid: 3695f15d36a4190cba51f35fd4a01ab10b2d63ae88ec1bc19e9407bae4a12946
+    Name: Planks
+    TransformComponent:
+      Translation: [6.58391285, -0.125841722, 4.8814683]
+      Rotation: [0, -12.9970245, 0]
+      Scale: [1.23601997, 1.29279077, 0.894909084]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: a3871db75e764d89138dcea10321352c6599dcb100db9e49142327099379daf9
+        custom_name: ""
+        model_path: ./res/models\wood\wood1.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Planks
+    guid: 56dd02cf3d96646580b9bc23b7462d5c10e64c57be7b78f6802d01a5c8a5f13a
+    Name: Planks
+    TransformComponent:
+      Translation: [7.06611538, -0.0777002424, 3.58771706]
+      Rotation: [0, -12.9970236, 0]
+      Scale: [1.12065804, 1.17213047, 0.811384261]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: 37f61db55f647ae775622c6672490b77f97b6de620c3b1068af983b0e3e073d3
+        custom_name: ""
+        model_path: ./res/models\wood\wood2.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Fence
+    guid: d1d1d506f24abfa2da1a8d05569b0e768a94f92c3b5e65c74c5cb8dfad098bc7
+    Name: Fence
+    TransformComponent:
+      Translation: [-7.12174034, 0.000127887353, -1.8358674]
+      Rotation: [180, 32.8552055, 180]
+      Scale: [2.00000024, 2, 1.99999952]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: ba7e4d8708cf475ee26cc54bacf6e30c1e37662950d78add44632df2e36338f2
+        custom_name: ""
+        model_path: ./res/models\fence\fence.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: 2aaa82fc7630d3f77eba2c560a93aa1c001b5d9d539e5c1edb3d66d8b43f9cb8
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 0.150000006
+        height: 0.5
+        radius: 1
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Fence
+    guid: 6e5e1adb97de0f5892d2a144b03cf0b3d5cb3a7dd0a2997142743d83c23bbc84
+    Name: Fence
+    TransformComponent:
+      Translation: [-7.6814518, 0.000127855703, -1.24084973]
+      Rotation: [-180, 52.8933678, -180]
+      Scale: [2.00000095, 2, 2.00000048]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: 39da8c70b94c3d45f1e092b7f5932d43ed46c26e17bfc5d585de06cda1e5c988
+        custom_name: ""
+        model_path: ./res/models\fence\fence.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: 1976ce3543f67563feb3d3160778a48a22665fedfaf8e6188fa6b1fd35054d3c
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 0.150000006
+        height: 0.5
+        radius: 1
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Fence
+    guid: 39297815d19c84184fdfe218f484ec67b0b670ecf1b7b904abf9b9334668af45
+    Name: Fence
+    TransformComponent:
+      Translation: [-8.44153976, 0.000128135944, -0.938752592]
+      Rotation: [179.999985, 81.9109879, 179.999985]
+      Scale: [2.00000358, 2, 2.00000238]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: 8a94e99273ca1b4ae87aec114f17dff3ecf2659c716061d4d1c3a2fd70a83d95
+        custom_name: ""
+        model_path: ./res/models\fence\fence.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: e850fd8d34775edf00220716c95e35efe619306822a889e4033109d1a792830d
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 0.150000006
+        height: 0.5
+        radius: 1
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Tree
+    guid: c137dfb09b8f5d019387f18af738b78fc810682736a899d071757157ed8d679b
+    Name: Tree
+    TransformComponent:
+      Translation: [7.37128639, 5.70481934e-05, 1.74179089]
+      Rotation: [21.0549164, 71.1129456, 34.4020386]
+      Scale: [1.54690707, 1.77876389, 0.888709784]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: 01a0d9c6b8131e2ad744b14783cdf4c47ddc1b579205e6e29145662898d7788d
+        custom_name: ""
+        model_path: ./res/models\tree2\tree.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: 17beb8d36c8e76364796bc9726bd94aa2924dbbb4bb2e07d1883bb1f7e7e12a4
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 1
+        width: 1
+        height: 1
+        radius: 0.200000003
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Rocks
+    guid: e331ec6254702642e698ed40e32c31a94ac2720a048c23c2d3f0ee7a4b56bb08
+    Name: Rocks
+    TransformComponent:
+      Translation: [8.98413086, 6.05614987e-05, -5.5977664]
+      Rotation: [0, -12.9970264, 0]
+      Scale: [2.09448814, 1.72372127, 1.19321215]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: e4dcaa1dd86a0596b832612bf5927f2d65b3a04db4131d5b59cd1a61aea378e2
+        custom_name: ""
+        model_path: ./res/models\rocks2\rocks2.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: 4fbcddb0e0e75558f7b984d0b08e6a4a637e291447d33d3cdb8acce00e1effbc
+        custom_name: ""
+        offset: [0, -0.400000006]
+        is_trigger: false
+        is_static: true
+        collider_type: 1
+        width: 1
+        height: 0.699999988
+        radius: 1.5
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Tree
+    guid: bec6ce61a35654ee949c082ec4049857bd879ccc4f34962722c4d5d3a85a0f56
+    Name: Tree
+    TransformComponent:
+      Translation: [-6.65888977, 0.000121627796, 3.61655331]
+      Rotation: [0.514565408, 4.09548378, 7.02190208]
+      Scale: [1.54690719, 1.77876377, 1.23399806]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: ec25b178ab51785275a656754d49b8476d545808b8d486ca9d36532843a50ebe
+        custom_name: ""
+        model_path: ./res/models\tree2\tree.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: cd969513964d3aad8ae0e3b1cc0013d97de0b5b4ae0d113c50262fd8854d5d22
+        custom_name: ""
+        offset: [0, 0]
+        is_trigger: false
+        is_static: true
+        collider_type: 1
+        width: 1
+        height: 1
+        radius: 0.200000003
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Bush
+    guid: 940eaf3303116beac209db62a6190bdf8b0d02798b5d62f7765b0deb05e92c95
+    Name: Bush
+    TransformComponent:
+      Translation: [3.68797183, -0.748814523, -6.43005514]
+      Rotation: [174.99472, -32.7745743, -165.668747]
+      Scale: [0.670585275, 0.771094799, 0.468105972]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: 205c541cbe56473798f7c2a6e80e094a8206e3b024a3915a9285a366f836f595
+        custom_name: ""
+        model_path: ./res/models\tree2\tree.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+  - Entity: Bush
+    guid: c0d72065ff6a143a9e4eeb20249c2c0ac9f6355ac2d4cc733aac651e24038908
+    Name: Bush
+    TransformComponent:
+      Translation: [3.87113786, -0.748814642, -6.26909065]
+      Rotation: [-106.043671, 77.3237152, -108.483078]
+      Scale: [0.670585096, 0.771094799, 0.46810627]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: b4caeb50ed5d62d41778425f42d7970289d6ad913ccb8c500540b61fc1c68422
+        custom_name: ""
+        model_path: ./res/models\tree2\tree.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
+          IsBillboard: false
+      - ComponentName: Collider2DComponent
+        guid: 9d239dd97e1e41511248d30fe8f3dba01cced17641be35d899ea185ab79a34c6
+        custom_name: ""
+        offset: [0.200000003, -0.400000006]
+        is_trigger: false
+        is_static: true
+        collider_type: 0
+        width: 0.800000012
+        height: 2.20000005
+        radius: 0.200000003
+        drag: 0.00999999978
+        velocity: [0, 0]
+  - Entity: Bush
+    guid: 0267cd8e1b83a6a63659b729ef12665416884a9d92eeb0466a7929936ad6740d
+    Name: Bush
+    TransformComponent:
+      Translation: [3.16153932, -0.748814404, -6.33633804]
+      Rotation: [172.648651, -39.8232307, -164.2771]
+      Scale: [0.670584857, 0.771094799, 0.468106627]
+      Parent:
+        guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
+    Components:
+      - ComponentName: ModelComponent
+        guid: a164a55629f0bec875a7553c605a8d95c6b8cf7b68453ee2aea9fd25a7f7442b
+        custom_name: ""
+        model_path: ./res/models\tree2\tree.gltf
+        material:
+          Shader:
+            VertexPath: ./res/shaders/lit.hlsl
+            FragmentPath: ./res/shaders/lit.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 0
+          NeedsForward: false
+          CastsShadows: true
           IsBillboard: false
