@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: JeepAndReflector
-    guid: cdf51d7fe8a7d46f6f6077dacf59ec81ad5819d8b5ea0e12578f80ea187a86ca
+    guid: ba2b75c63a86a7811307c369c84743ad1a87ec5bdaecce0f0f0d60e897f52a29
     Name: JeepAndReflector
     TransformComponent:
       Translation: [0, 0, 0]
@@ -12,17 +12,17 @@ Entities:
     Components:
       []
   - Entity: Jeep
-    guid: 0c0f008160bc688a845043e984eb958e03ad802c67b937947a9c5cb5fee36f31
+    guid: c3d509ad1e3392f127a0ee6db7a965f4ed00933d06b72dab5be1f55f388083f8
     Name: Jeep
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [2, 2, 2]
       Parent:
-        guid: cdf51d7fe8a7d46f6f6077dacf59ec81ad5819d8b5ea0e12578f80ea187a86ca
+        guid: ba2b75c63a86a7811307c369c84743ad1a87ec5bdaecce0f0f0d60e897f52a29
     Components:
       - ComponentName: PathComponent
-        guid: cb645bfadfe9172c7b1474e2655fa0f6b9d0329411034f8937314549b2663b8d
+        guid: f6c4598c52824f961ae11aa432eb9dc10b8d617186cb9ef3cb323bc301550fce
         custom_name: ""
         points:
           - [-5.01866913, -4.75103235]
@@ -31,7 +31,7 @@ Entities:
           - [5.06346655, -5.07014847]
           - [-4.8888793, -5.07014847]
       - ComponentName: ModelComponent
-        guid: f25a23f2809ba7e38962945af2d9c74b599c1d5e58324ebbc15feeca070380d3
+        guid: 3eb2f64ca2629ab920658de1e2847520047de45c208bc3b2a79767c8d95fb7fa
         custom_name: ""
         model_path: ./res/models\jeep_base\jeep.gltf
         material:
@@ -45,47 +45,38 @@ Entities:
           CastsShadows: true
           IsBillboard: false
       - ComponentName: JeepComponent
-        guid: 49409ce80767412f985d888eec09e7d8ed69280693333fa16d5e864587571ba0
+        guid: 6fba67322869790037a35f3e70405e29c9f1e375970eef47f3749de069a177f9
         custom_name: ""
         maximum_speed: 5
         acceleration: 0.200000003
         deceleration: 0.100000001
+        is_active: false
         player:
           guid: nullptr
-  - Entity: Child
-    guid: 1bec74cbf04309d2be28ecfd510fef5969cbe0aa104724d59cf1805634108932
-    Name: Child
-    TransformComponent:
-      Translation: [0, -0.0479924344, -0.150000006]
-      Rotation: [0, -0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: 0c0f008160bc688a845043e984eb958e03ad802c67b937947a9c5cb5fee36f31
-    Components:
       - ComponentName: Collider2DComponent
-        guid: b0d9b3c25a3b664021555c97d9c6a48b7aa9ef34ba7a050791508a94c6b2827d
+        guid: a109e9118aeaaab6c94ddb2468607643975fbfab51c3db2e88284418ad2054dc
         custom_name: ""
-        offset: [0, 0]
-        is_trigger: false
+        offset: [0, -0.150000006]
+        is_trigger: true
         is_static: false
         collider_type: 1
         width: 1
         height: 1
-        radius: 0.349999994
+        radius: 0.649999976
         drag: 0.00999999978
         velocity: [0, 0]
   - Entity: Reflector
-    guid: 3e7f918ecd6baa52eaccf2d9bc5fb133b66cdf4520a73ed5736a3c262db2bedc
+    guid: a859b79db40796838f4c201f9402ae7c12d907ce88939ca0fe9234dff2c9e725
     Name: Reflector
     TransformComponent:
       Translation: [0.31099999, 0.751999974, 0.484887719]
       Rotation: [0, -7.19999981, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: cdf51d7fe8a7d46f6f6077dacf59ec81ad5819d8b5ea0e12578f80ea187a86ca
+        guid: ba2b75c63a86a7811307c369c84743ad1a87ec5bdaecce0f0f0d60e897f52a29
     Components:
       - ComponentName: SpotLightComponent
-        guid: a407e808d6b60691affbd157402d71fe6a7240066ad4e30d1a6eeb2d0eb75f88
+        guid: b88b836ed3dbaff777e330151d134547fe973fb6c778faebcb278c6fce4b4472
         custom_name: ""
         constant: 1
         linear: 0.0900000036
@@ -103,7 +94,7 @@ Entities:
         m_light_world_size: 0.5
         m_light_frustum_width: 30
       - ComponentName: JeepReflectorComponent
-        guid: 99ae6794287d2ef6c9e39c7c3118c6b2ef7a0610c991e84cf8febe994d39dc7b
+        guid: adf4e1afddb5cd5eccd03f1c55b94ceee9be65227b3554353426fb6955b26b34
         custom_name: ""
         jeep:
-          guid: 49409ce80767412f985d888eec09e7d8ed69280693333fa16d5e864587571ba0
+          guid: 6fba67322869790037a35f3e70405e29c9f1e375970eef47f3749de069a177f9

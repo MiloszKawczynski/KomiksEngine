@@ -47,10 +47,6 @@ void Jeep::awake()
     entity->transform->set_local_position({m_target.x, 0.375f, m_target.y});
 }
 
-void Jeep::update()
-{
-}
-
 void Jeep::fixed_update()
 {
     i32 horizontal = 0;
@@ -175,18 +171,6 @@ void Jeep::draw_editor()
     ImGuiEx::draw_ptr("Truther", player);
 }
 #endif
-
-void Jeep::on_trigger_enter(std::shared_ptr<Collider2D> const& other)
-{
-}
-void Jeep::on_trigger_exit(std::shared_ptr<Collider2D> const& other)
-{
-}
-
-void Jeep::on_destroyed()
-{
-    Component::on_destroyed();
-}
 
 glm::vec2 Jeep::get_speed() const
 {

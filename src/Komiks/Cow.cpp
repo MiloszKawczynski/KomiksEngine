@@ -151,11 +151,40 @@ void Cow::on_collision_enter(std::shared_ptr<Collider2D> const& other)
         return;
     }
 
+    auto speed = truther->get_speed();
+
     auto const collider_locked = m_collider.lock();
-    collider_locked->add_force(truther->get_speed() * 0.05f);
+    collider_locked->add_force(speed * 0.05f);
     collider_locked->velocity = glm::clamp(collider_locked->velocity, {-3.0f, -3.0f}, {3.0f, 3.0f});
 
     // Choose another random destination after being poked by the player
+
+    if (cow_manager.expired())
+    {
+        return;
+    }
+
+    auto const l_cow_manager = cow_manager.lock();
+
+    m_destination = l_cow_manager->get_random_position_with_minimal_distance(entity->transform->get_position());
+}
+
+void Cow::on_trigger_enter(std::shared_ptr<Collider2D> const& other)
+{
+    auto const jeep = other->entity->get_component<Jeep>();
+
+    if (jeep == nullptr)
+    {
+        return;
+    }
+
+    auto speed = jeep->get_speed();
+
+    auto const collider_locked = m_collider.lock();
+    collider_locked->add_force(speed * 0.6f);
+    collider_locked->velocity = glm::clamp(collider_locked->velocity, {-3.0f, -3.0f}, {3.0f, 3.0f});
+
+    // Choose another random destination after being poked by jeep
 
     if (cow_manager.expired())
     {
