@@ -1,19 +1,19 @@
 Scene: Untitled
 Entities:
   - Entity: WheatOverlay
-    guid: 82b1a8825ec248bc70289e0620f1eb5e7aa7b15766def99bc4dac228c7e94172
+    guid: 14df9823c4f2ca876e56d80dac17e0ba22ea2f69a59f988a379419513fa550bd
     Name: WheatOverlay
     TransformComponent:
-      Translation: [0, 1, 0]
-      Rotation: [-90, 0, 0]
-      Scale: [4.5, 4.5, 1]
+      Translation: [0.166999996, 0.215000004, 0.0960000008]
+      Rotation: [-89.9999847, 0, 0]
+      Scale: [4.5, 4.49995804, 0.999994755]
       Parent:
         guid: ""
     Components:
       - ComponentName: QuadComponent
-        guid: d44825b45851067ed12e3454a80915858b1fc948caff86921eacd1cca6065731
+        guid: 17e2287326a82c9bf3f82d4d612c0986d0baf07ec1b8cc5e1b4a8bf2e0aa9c48
         custom_name: ""
-        path: ./res/textures/UI\testOverlay.png
+        path: ./res/textures/UI\overlay00.png
         material:
           Shader:
             VertexPath: ./res/shaders/particle.hlsl
@@ -25,5 +25,5 @@ Entities:
           CastsShadows: false
           IsBillboard: false
       - ComponentName: WheatOverlayComponent
-        guid: 1ab2d38c995cac9a1964e9ce26d1e814c6bb98067b60ae50ca8d3405893e236c
+        guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
         custom_name: ""

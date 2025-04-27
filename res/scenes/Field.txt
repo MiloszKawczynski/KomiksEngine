@@ -60,21 +60,22 @@ Entities:
         guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
         custom_name: ""
         rows_number: 13
-        punishment_multiplier: 0.0799999982
+        punishment_multiplier: 0.00999999978
+        punishment_power: 1.20000005
   - Entity: WheatOverlay
     guid: 14df9823c4f2ca876e56d80dac17e0ba22ea2f69a59f988a379419513fa550bd
     Name: WheatOverlay
     TransformComponent:
-      Translation: [0, 0.649999976, 0]
+      Translation: [0.166999996, 0.215000004, 0.0960000008]
       Rotation: [-89.9999847, 0, 0]
-      Scale: [4.5, 4.49996948, 0.999996185]
+      Scale: [4.5, 4.49995804, 0.999994755]
       Parent:
         guid: ""
     Components:
       - ComponentName: QuadComponent
         guid: 17e2287326a82c9bf3f82d4d612c0986d0baf07ec1b8cc5e1b4a8bf2e0aa9c48
         custom_name: ""
-        path: ./res/textures/UI\testOverlay.png
+        path: ./res/textures/UI\overlay00.png
         material:
           Shader:
             VertexPath: ./res/shaders/particle.hlsl
@@ -88,56 +89,6 @@ Entities:
       - ComponentName: WheatOverlayComponent
         guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
         custom_name: ""
-  - Entity: Truther
-    guid: 20052525263cbb091601283e5b80c47bfc96cc83d869e24868c4e89f467a2975
-    Name: Truther
-    TransformComponent:
-      Translation: [-4.63779974, 0, 1.15108466]
-      Rotation: [0, 1.69007552, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: ""
-    Components:
-      - ComponentName: ModelComponent
-        guid: 0dba841ea1f8e3f72070ba7515b819ce88b9cb9f3918c4200cd5635afe96d89a
-        custom_name: ""
-        model_path: ./res/models/keeperInHovercraft/keeper.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-      - ComponentName: Collider2DComponent
-        guid: 727af3fc53a31f030bdfac70706a247470d9afdfa08edaa0e471ee81f8803198
-        custom_name: ""
-        offset: [0, 0]
-        is_trigger: false
-        is_static: false
-        collider_type: 1
-        width: 2
-        height: 2
-        radius: 0.100000001
-        drag: 0.00999999978
-        velocity: [0, 0]
-      - ComponentName: TrutherComponent
-        guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
-        custom_name: ""
-        truther_bends: true
-        maximum_speed: 2
-        acceleration: 0.5
-        deceleration: 0.100000001
-        jump_power: 0.0250000004
-        jump_horizontal_power: 2.5
-        gravitation: 0.00100000005
-        suck_power: 0.00999999978
-        is_sucked: false
-        wheat_overlay:
-          guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
   - Entity: CowManager
     guid: f95f1a8d937b4b1457a04818977dcd3b8065624c70de733b241e63f712162992
     Name: CowManager
@@ -155,6 +106,20 @@ Entities:
           []
         cows:
           []
+        truther:
+          guid: nullptr
+        ufo:
+          guid: nullptr
+        jeep:
+          guid: nullptr
+        wheat_overlay:
+          guid: 59e0087a9a2937933ed80b15de03c987e515167f13d9dc877cd44beef8864bb8
+        clock_text_ref:
+          guid: 3e30b6fe8c278dccea14f63fa492095ae232ca110685e7489ef1d38920d0b3f8
+        friel_grid:
+          guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
+        event_timer: 0
+        does_level_ended: false
       - ComponentName: PathComponent
         guid: f61646bebcca77f6a9d5ac6c0550002e637ce0e4b4431ccf284a89a6a2a6460f
         custom_name: ""
@@ -263,79 +228,6 @@ Entities:
         radius: 1
         drag: 0.00999999978
         velocity: [0, 0]
-  - Entity: UFO
-    guid: 2be3ada3349915525f2c90162d4375699a168ee90591958278e0180fd0acadd3
-    Name: UFO
-    TransformComponent:
-      Translation: [10.7037325, 2, -0.799844265]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: ""
-    Components:
-      - ComponentName: UFOComponent
-        guid: 67c4c11fc698a69d1f66fac1900544ca1fd7b3cb6a67fee75c64fc598355b341
-        custom_name: ""
-        field_grid:
-          guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
-        truther:
-          guid: de4ee7903aec843a3a92ca3bc8f8b12a91aaaed7649cd7d8ff765422fae889a5
-        attract_bean:
-          guid: 8a95f79540b4302d459357ebf62376b19a3954c4db53e5414252ca438af79c88
-        cow_manager:
-          guid: cd975188fef08d9230966c62bcd8b17301f1d92b55c5530ff46c6bbd11f7b886
-  - Entity: Model
-    guid: f08780859539b89f0eef53e4fbda12e7ec327554854e8b0c49b910f4085152e9
-    Name: Model
-    TransformComponent:
-      Translation: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [0.5, 0.5, 0.5]
-      Parent:
-        guid: 2be3ada3349915525f2c90162d4375699a168ee90591958278e0180fd0acadd3
-    Components:
-      - ComponentName: ModelComponent
-        guid: d7acca22183c1ff9b3a02c0d5985d4c54d80bd3335c29faee8dd22547a30d277
-        custom_name: ""
-        model_path: ./res/models\ufo\ufo.gltf
-        material:
-          Shader:
-            VertexPath: ./res/shaders/lit.hlsl
-            FragmentPath: ./res/shaders/lit.hlsl
-            GeometryPath: ""
-          Color: [1, 1, 1, 1]
-          RenderOrder: 0
-          NeedsForward: false
-          CastsShadows: true
-          IsBillboard: false
-  - Entity: Spotlight
-    guid: a9c7c6a1414f804eb0d2ea0cbfc430726b73dac4d83c57e709cbcbb2d95a386f
-    Name: Spotlight
-    TransformComponent:
-      Translation: [0, 0, 0]
-      Rotation: [-89.9999847, 0, 0]
-      Scale: [1, 1, 1]
-      Parent:
-        guid: 2be3ada3349915525f2c90162d4375699a168ee90591958278e0180fd0acadd3
-    Components:
-      - ComponentName: SpotLightComponent
-        guid: 8a95f79540b4302d459357ebf62376b19a3954c4db53e5414252ca438af79c88
-        custom_name: ""
-        constant: 1
-        linear: 1
-        quadratic: 1
-        scattering_factor: 0.061999999
-        cut_off: 0.843391418
-        outer_cut_off: 0.937239408
-        ambient: [0.200000003, 0.200000003, 0.200000003]
-        diffuse: [0.133333325, 1, 0]
-        specular: [1, 1, 1]
-        m_near_plane: 0.5
-        m_far_plane: 0.100000001
-        m_blocker_search_num_samples: 16
-        m_pcf_num_samples: 16
-        m_light_world_size: 0.5
-        m_light_frustum_width: 30
   - Entity: Fog
     guid: 6f79cc0aa1db25ef2e969a9911279e7fc2a5b5f36e6581792dbecaa3f99d4206
     Name: Fog
@@ -381,7 +273,7 @@ Entities:
     TransformComponent:
       Translation: [-7.47422457, 6.10351562e-05, 1.73950005]
       Rotation: [180, -11.8761721, 180]
-      Scale: [0.99998492, 1, 0.99998492]
+      Scale: [1, 1, 1]
       Parent:
         guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Components:
@@ -453,7 +345,7 @@ Entities:
     TransformComponent:
       Translation: [-7.43212938, 6.10351562e-05, 1.03633213]
       Rotation: [180, 17.8376198, 180]
-      Scale: [0.999988258, 1, 0.999988258]
+      Scale: [1, 1, 1]
       Parent:
         guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Components:
@@ -489,7 +381,7 @@ Entities:
     TransformComponent:
       Translation: [-7.46036005, -6.10351562e-05, -0.564861]
       Rotation: [180, -14.0715046, 180]
-      Scale: [0.999991417, 1, 0.999991417]
+      Scale: [1, 1, 1]
       Parent:
         guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Components:
@@ -525,7 +417,7 @@ Entities:
     TransformComponent:
       Translation: [-7.39411163, 0, 0.251819611]
       Rotation: [180, 1.65825677, 180]
-      Scale: [0.999992013, 1, 0.999992013]
+      Scale: [1, 1, 1]
       Parent:
         guid: f8d71928213501ffd0a020792b954c85924cf36f60e62b5962eb16de4ffc1dbb
     Components:
@@ -663,3 +555,86 @@ Entities:
         radius: 1.5
         drag: 0.00999999978
         velocity: [0, 0]
+  - Entity: UI_MainPanel
+    guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
+    Name: UI_MainPanel
+    TransformComponent:
+      Translation: [0, 0.850000024, 0]
+      Rotation: [0, 0, 0]
+      Scale: [0.197734162, 0.153902978, 0.172426298]
+      Parent:
+        guid: ""
+    Components:
+      - ComponentName: PanelComponent
+        guid: dd239f3cb6aa9cc02896c537779c9e0b6f6984cddeb16d4333abed7a61959c26
+        custom_name: ""
+        background_path: ./res/textures/UI\UFOclock_base.png
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+      - ComponentName: ClockComponent
+        guid: b5b9611506ae6e3e854883ee7b415e407fb3cb86dc48429134351cc0539b1d21
+        custom_name: ""
+  - Entity: Glass
+    guid: 11f32051eb12cb6b92cc8d2d12a6d4989f821e3ce0c23c1a1bf294c062850d91
+    Name: Glass
+    TransformComponent:
+      Translation: [0, 0, -2.18367338]
+      Rotation: [0, 0, 0]
+      Scale: [1, 0.899999797, 0.999999881]
+      Parent:
+        guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
+    Components:
+      - ComponentName: PanelComponent
+        guid: 12f2e2a59d25061dedf4daaeb607e272902d1fae3a12b8872ce42992ae7b8ff6
+        custom_name: ""
+        background_path: ./res/textures/UI\UFOclock_glass.png
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3001
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false
+  - Entity: Clock
+    guid: 2aa34bf2d99be8004b1251d9d226b6afdecf8c486dea420c46386cbdcc4d0bb9
+    Name: Clock
+    TransformComponent:
+      Translation: [0, 0.351999998, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      Parent:
+        guid: 05ad4c880a6e18ebd68dfca79bcb7610ce3a9c1a8c94da9cec3386859a3f192b
+    Components:
+      - ComponentName: ScreenTextComponent
+        guid: 3e30b6fe8c278dccea14f63fa492095ae232ca110685e7489ef1d38920d0b3f8
+        custom_name: ""
+        text: 21:38
+        position: [0, 0]
+        font_size: 40
+        color: 4278229503
+        flags: 2053
+        font_name: KG The Last Time
+        bold: true
+        button_ref:
+          guid: nullptr
+        material:
+          Shader:
+            VertexPath: ./res/shaders/ui.hlsl
+            FragmentPath: ./res/shaders/ui.hlsl
+            GeometryPath: ""
+          Color: [1, 1, 1, 1]
+          RenderOrder: 3003
+          NeedsForward: true
+          CastsShadows: false
+          IsBillboard: false

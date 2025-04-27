@@ -22,7 +22,8 @@ public:
     float calculate_faked_similarity(); // In percent
 
     i32 rows_number = 13;
-    float punishment_multiplier = 0.05f;
+    float punishment_multiplier = 0.1f;
+    float punishment_power = 1.3f;
 
 private:
     void generate_grid_colliders();
@@ -46,7 +47,6 @@ private:
         0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, //
         0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, //
     }};
-    u32 m_selected_pattern_id = 0;
 
     // clang-format off
     pattern m_current_field_status =
@@ -65,6 +65,7 @@ private:
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //
     };
-
     // clang-format on
+
+    u32 m_selected_pattern_id = 0;
 };
