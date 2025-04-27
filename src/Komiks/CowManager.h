@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "Cow.h"
+#include "DialoguePromptController.h"
 #include "Game/Path.h"
 #include "Komiks/UFO.h"
 #include "Sound.h"
@@ -35,6 +36,7 @@ public:
     void get_spawn_paths();
     glm::vec2 get_random_position_with_minimal_distance(glm::vec3 current_position) const;
 
+    std::weak_ptr<DialoguePromptController> dialogue_prompt_controller = {};
     std::vector<std::weak_ptr<Path>> paths = {};
     std::vector<std::weak_ptr<Cow>> cows = {};
     std::weak_ptr<Truther> truther = {};
