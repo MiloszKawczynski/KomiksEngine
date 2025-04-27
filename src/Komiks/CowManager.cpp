@@ -16,12 +16,26 @@
 
 std::shared_ptr<CowManager> CowManager::create()
 {
-    return std::make_shared<CowManager>(AK::Badge<CowManager> {});
+    auto instance = std::make_shared<CowManager>(AK::Badge<CowManager> {});
+
+    if (m_instance)
+    {
+        Debug::log("Instance already exists in the scene.", DebugType::Error);
+    }
+
+    m_instance = instance;
+    return instance;
 }
 
 CowManager::CowManager(AK::Badge<CowManager>)
 {
 }
+
+std::shared_ptr<CowManager> CowManager::get_instance()
+{
+    return m_instance;
+}
+
 
 void CowManager::awake()
 {

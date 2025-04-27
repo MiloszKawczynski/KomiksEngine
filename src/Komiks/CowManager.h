@@ -20,6 +20,7 @@ public:
 
     explicit CowManager(AK::Badge<CowManager>);
 
+    static std::shared_ptr<CowManager> get_instance();
     virtual void awake() override;
     virtual void update() override;
 #if EDITOR
@@ -56,4 +57,6 @@ private:
     void activate_jeep();
     void change_jeep_direction();
     void end_level();
+
+    inline static std::shared_ptr<CowManager> m_instance;
 };
