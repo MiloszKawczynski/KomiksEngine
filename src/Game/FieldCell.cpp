@@ -1,8 +1,11 @@
 #include "FieldCell.h"
 
 #include "AK/AK.h"
+#include "Model.h"
 #include "SceneSerializer.h"
 #include "imgui_extensions.h"
+
+class Model;
 
 std::shared_ptr<FieldCell> FieldCell::create()
 {
@@ -57,12 +60,14 @@ void FieldCell::awake()
 
 void FieldCell::update()
 {
-    if (is_cell_bended(25))
+    if (is_cell_bended(35))
     {
         m_field_grid_ref->set_cell(1, m_id);
+        // auto x = Debug::draw_debug_box(entity->transform->get_position(), {}, {0.69f, 0.69f, 0.69f}, 0.5f);
+        // x->get_component<Model>()->set_rasterizer_draw_type(RasterizerDrawType::Solid);
     }
 
-    if (!is_cell_bended(25))
+    if (!is_cell_bended(35))
     {
         m_field_grid_ref->set_cell(0, m_id);
     }

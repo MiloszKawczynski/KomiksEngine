@@ -60,14 +60,15 @@ Entities:
         guid: 8cf0742c7642e62ebbf0b805b312e69744b7a9b73acdbdbcde5169f467aab134
         custom_name: ""
         rows_number: 13
-        punishment_multiplier: 0.0799999982
+        punishment_multiplier: 0.00999999978
+        punishment_power: 1.20000005
   - Entity: WheatOverlay
     guid: 14df9823c4f2ca876e56d80dac17e0ba22ea2f69a59f988a379419513fa550bd
     Name: WheatOverlay
     TransformComponent:
-      Translation: [0, 0.649999976, 0]
+      Translation: [0.166999996, 0.215000004, 0.0960000008]
       Rotation: [-89.9999847, 0, 0]
-      Scale: [4.5, 4.49996948, 0.999996185]
+      Scale: [4.5, 4.49995804, 0.999994755]
       Parent:
         guid: ""
     Components:

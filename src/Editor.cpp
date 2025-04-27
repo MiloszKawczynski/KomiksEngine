@@ -40,12 +40,14 @@
 #include "Game/Customer.h"
 #include "Game/CustomerManager.h"
 #include "Game/EndScreen.h"
+#include "Game/EndScreenFoliage.h"
 #include "Game/Factory.h"
 #include "Game/FieldCell.h"
 #include "Game/FieldGrid.h"
 #include "Game/GameController.h"
 #include "Game/HovercraftWithoutKeeper.h"
 #include "Game/IceBound.h"
+#include "Game/Jeep.h"
 #include "Game/LevelController.h"
 #include "Game/Lighthouse.h"
 #include "Game/LighthouseKeeper.h"
@@ -66,6 +68,7 @@
 #include "Input.h"
 #include "Komiks/Cow.h"
 #include "Komiks/CowManager.h"
+#include "Komiks/JeepReflector.h"
 #include "Komiks/UFO.h"
 #include "Komiks/Wheat.h"
 #include "Light.h"
@@ -85,9 +88,6 @@
 #include "SpotLight.h"
 #include "Sprite.h"
 #include "Water.h"
-#include "Game/Jeep.h"
-#include "Komiks/JeepReflector.h"
-#include "Game/EndScreenFoliage.h"
 // # Put new header here
 
 namespace Editor

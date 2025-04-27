@@ -68,7 +68,7 @@ void Truther::update()
 
         auto const l_wheat = wheat.lock();
 
-        if (glm::distance(truther_position, l_wheat->entity->transform->get_position()) < 0.15f)
+        if (glm::distance(truther_position, l_wheat->entity->transform->get_position()) < 0.25f)
         {
             if (!l_wheat->is_bended() && m_grass_sound_timer > 0.5f)
             {
