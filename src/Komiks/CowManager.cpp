@@ -360,6 +360,8 @@ void CowManager::spawn_ufo()
     auto const ufo_comp = new_ufo->get_component<UFO>();
     ufo = ufo_comp;
     ufo.lock()->truther = truther;
+    ufo.lock()->field_grid = friel_grid;
+    ufo.lock()->cow_manager = static_pointer_cast<CowManager>(shared_from_this());
 }
 
 void CowManager::spawn_jeep()

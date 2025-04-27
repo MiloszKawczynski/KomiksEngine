@@ -60,6 +60,11 @@ bool FieldGrid::get_cell_value(u32 x, u32 y)
 
 std::weak_ptr<Entity> FieldGrid::get_cell()
 {
+    if (entity == nullptr || entity->transform == nullptr || entity->transform->children.size() < rows_number * rows_number - 1)
+    {
+        return {};
+    }
+
     return entity->transform->children.at(glm::linearRand(0, rows_number * rows_number - 1))->entity;
 }
 
