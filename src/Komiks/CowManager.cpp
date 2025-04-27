@@ -371,7 +371,8 @@ void CowManager::spawn_jeep()
     jeep = jeep_comp;
     jeep.lock()->player = truther;
 
-    jeep_comp->entity->transform->set_local_position({spawn_position.x, 0.0f, spawn_position.y});
+    jeep_comp->entity->transform->set_local_position(
+        {spawn_position.x, jeep_comp->entity->transform->get_local_position().y, spawn_position.y});
 }
 
 void CowManager::activate_ufo()
