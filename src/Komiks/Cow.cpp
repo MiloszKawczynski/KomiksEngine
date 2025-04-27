@@ -52,8 +52,15 @@ void Cow::fixed_update()
     {
         if (m_height == 0.0f)
         {
-            entity->transform->set_position(AK::convert_2d_to_3d(
-                AK::move_towards(AK::convert_3d_to_2d(entity->transform->get_position()), m_destination, 0.3f * delta_time)));
+            if (m_stopped_timer > 0.0f)
+            {
+                m_stopped_timer -= delta_time;
+            }
+            else
+            {
+                entity->transform->set_position(AK::convert_2d_to_3d(
+                    AK::move_towards(AK::convert_3d_to_2d(entity->transform->get_position()), m_destination, 0.3f * delta_time)));
+            }
         }
         else
         {
@@ -95,6 +102,7 @@ void Cow::fixed_update()
         auto const l_cow_manager = cow_manager.lock();
 
         m_destination = l_cow_manager->get_random_position_with_minimal_distance(entity->transform->get_position());
+        m_stopped_timer = glm::linearRand(m_time_to_stop_range.x, m_time_to_stop_range.y);
     }
 
     auto const cow_position = entity->transform->get_position();
@@ -110,10 +118,13 @@ void Cow::fixed_update()
 
     // Mincing
 
-    glm::vec3 pos = entity->transform->get_position();
-    float const sin_mapped_value = AK::Math::map_range_clamped(-1.0f, 1.0f, -0.05f, 0.05f, sin(glfwGetTime() * 8.0f));
-    pos.y += sin_mapped_value;
-    entity->transform->set_position(pos);
+    if (m_stopped_timer <= 0.0f)
+    {
+        glm::vec3 pos = entity->transform->get_position();
+        float const sin_mapped_value = AK::Math::map_range_clamped(-1.0f, 1.0f, -0.05f, 0.05f, sin(glfwGetTime() * 8.0f));
+        pos.y += sin_mapped_value;
+        entity->transform->set_position(pos);
+    }
 
     // Rotating
 

@@ -33,4 +33,6 @@ private:
     float m_height = 0.0f;
     float m_gravitation = 0.001f;
     float m_velocity = 0.0f;
+    float m_stopped_timer = 0.0f;
+    glm::vec2 m_time_to_stop_range = {2.5f, 5.0f};
 };
