@@ -105,7 +105,7 @@ void EndScreenFoliage::update()
     percentage_text.lock()->set_text(std::to_string(static_cast<int>(percentage)) + "%");
     percentage_text.lock()->font_size = (percentage / 100.0f) * 3 * 40 + 40;
     percentage_bar.lock()->entity->transform->set_local_position({0.0, -0.95f * (1 - scale), 0.0f});
-    percentage_bar.lock()->entity->transform->set_local_scale({0.95f, scale, 1.0f});
+    percentage_bar.lock()->entity->transform->set_local_scale({0.8f, scale, 1.0f});
 
     if (Input::input->get_key_down(GLFW_KEY_F4))
     {
