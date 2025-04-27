@@ -183,7 +183,6 @@ void Truther::fixed_update()
         m_stun_timer -= fixed_delta_time;
     }
 
-    wheat_overlay.lock()->is_flash_on = false;
     if (Input::input->get_key(GLFW_KEY_LEFT_SHIFT))
     {
         horizontal = 0;
