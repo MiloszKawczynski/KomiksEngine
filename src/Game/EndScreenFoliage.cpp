@@ -22,6 +22,7 @@
 #include "imgui_extensions.h"
 #include <imgui.h>
 #endif
+#include <Komiks/CowManager.h>
 #include <glm/gtx/easing.hpp>
 
 std::shared_ptr<EndScreenFoliage> EndScreenFoliage::create()
@@ -82,7 +83,9 @@ void EndScreenFoliage::update()
 
                 if (m_is_hiding)
                 {
+                    Clock::get_instance()->update_visibility(false);
                     entity->destroy_immediate();
+                    return;
                 }
             }
         }
