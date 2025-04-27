@@ -1,7 +1,7 @@
 Scene: Untitled
 Entities:
   - Entity: EndScreenFoliage
-    guid: 05a26b1dfbac25ddd1f80556068ef203939640b0291a80d08da9c4fdfb0b9a59
+    guid: a9f16eb7f0ebefd66f848a0dc5ee8affff2d964e8ba344168873f8d712653c6d
     Name: EndScreenFoliage
     TransformComponent:
       Translation: [0, 2, 0]
@@ -11,7 +11,7 @@ Entities:
         guid: ""
     Components:
       - ComponentName: PanelComponent
-        guid: 032161471e6f6083641a959597670cbd97bcc65d8825e7d6f61d42aa5f81494c
+        guid: 404f817903651eff85ab4a5e2de939513469749f2e12e30ee1d49eac66d96ff2
         custom_name: ""
         background_path: ./res/textures/UI\UFOend_lvl.png
         material:
@@ -25,39 +25,39 @@ Entities:
           CastsShadows: false
           IsBillboard: false
       - ComponentName: EndScreenFoliageComponent
-        guid: 7efadda8a530855999b1825682467400a92e65c8cfa57f299216978f9eabc368
+        guid: 11dedb40fce062e415547c2dc34ec8f7981b7ac38d1c42e4b510ff3c5e5305b0
         custom_name: ""
         next_level_button:
-          guid: 518a413d3dbc934e88be4e95037159ba9c38c1f577e6c2c97124e6d9bea3b66a
+          guid: 3e199ca326b4f702893d627cf926030d9b90ccb3cf46733b26c23f23bbc1648f
         percentage: 0
         percentage_gained: 0
         percentage_text:
-          guid: 96d66b1c31c13b83e916f06afa05549dc5922e7b9e708841c806317a83405e97
+          guid: 1b19ebdf902082cb4802d41901c876ba74bdd9af0618dde7f2ceb231325c0eac
         percentage_bar:
-          guid: c8e66b8e46a5144b5e928e235f7c3b915708e384a0082b6013c837700d736da7
+          guid: 6c7dfa07ca5ffce2be1e6d48f3c0ebcbbac6674ea88977226f2c9b3579dfd451
   - Entity: Buttons
-    guid: 5173bea0e7e4076323d46bd3d3a6508e6cf83bd75373ee58e6463aec466a9fda
+    guid: 264419bd268df8fae46c5c4f2caf000c94add7229b8b0e6226fe52d543781bd0
     Name: Buttons
     TransformComponent:
       Translation: [0.300000012, -0.61284411, 0.0601073354]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 05a26b1dfbac25ddd1f80556068ef203939640b0291a80d08da9c4fdfb0b9a59
+        guid: a9f16eb7f0ebefd66f848a0dc5ee8affff2d964e8ba344168873f8d712653c6d
     Components:
       []
   - Entity: ButtonNextLevel
-    guid: ca4786618a225afcd3901ee833013b8b0e3d3888f202017c534c4bbebbd27417
+    guid: f1524bbf2683b057d0c8de04a0573ef323374e965156a369f7ed7d4bb0361914
     Name: ButtonNextLevel
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [0.129999995, 0.073368609, 1]
       Parent:
-        guid: 5173bea0e7e4076323d46bd3d3a6508e6cf83bd75373ee58e6463aec466a9fda
+        guid: 264419bd268df8fae46c5c4f2caf000c94add7229b8b0e6226fe52d543781bd0
     Components:
       - ComponentName: ButtonComponent
-        guid: 518a413d3dbc934e88be4e95037159ba9c38c1f577e6c2c97124e6d9bea3b66a
+        guid: 3e199ca326b4f702893d627cf926030d9b90ccb3cf46733b26c23f23bbc1648f
         custom_name: ""
         path_default: ./res/textures/UI\buttons\UFObtn\nxt_lvl.png
         path_hovered: ./res/textures/UI\buttons\UFObtn\nxt_lvl_hover.png
@@ -77,17 +77,17 @@ Entities:
           CastsShadows: false
           IsBillboard: false
   - Entity: Percentage
-    guid: 4800222ac8f71ae4c817d8ae485b290d580a6d9cfe131546702da047bafa974e
+    guid: b314697ea3cec43047f6c51eefa37bad3961b809e5acf970ada97b0a151d9abe
     Name: Percentage
     TransformComponent:
       Translation: [0.300000012, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       Parent:
-        guid: 05a26b1dfbac25ddd1f80556068ef203939640b0291a80d08da9c4fdfb0b9a59
+        guid: a9f16eb7f0ebefd66f848a0dc5ee8affff2d964e8ba344168873f8d712653c6d
     Components:
       - ComponentName: ScreenTextComponent
-        guid: 96d66b1c31c13b83e916f06afa05549dc5922e7b9e708841c806317a83405e97
+        guid: 1b19ebdf902082cb4802d41901c876ba74bdd9af0618dde7f2ceb231325c0eac
         custom_name: ""
         text: Example text
         position: [0, 0]
@@ -109,17 +109,17 @@ Entities:
           CastsShadows: false
           IsBillboard: false
   - Entity: Bar
-    guid: f73bc1e28f115720870714c9d51acf02d88080044dd175e936eedf168ce86311
+    guid: 77acf6652cd5ff0e78a2b15e4f98e3a9fe64412e0a8260bf7641f696dd893009
     Name: Bar
     TransformComponent:
       Translation: [-0.5, -0.100000001, 0]
       Rotation: [0, 0, 0]
       Scale: [0.200000003, 0.600000024, 1]
       Parent:
-        guid: 05a26b1dfbac25ddd1f80556068ef203939640b0291a80d08da9c4fdfb0b9a59
+        guid: a9f16eb7f0ebefd66f848a0dc5ee8affff2d964e8ba344168873f8d712653c6d
     Components:
       - ComponentName: PanelComponent
-        guid: c6c3a37eacb61b09d8d31c33ff3aecefa77f36afecadeed9f8eab465781ea91c
+        guid: 64e814c36aa99977f3224308974b4ad031af489dfc39a7cdc6ae27d3ac9439c6
         custom_name: ""
         background_path: ./res/textures/UI\progress_bar_base.png
         material:
@@ -133,17 +133,17 @@ Entities:
           CastsShadows: false
           IsBillboard: false
   - Entity: BarValue
-    guid: 84ff8ed79f79b0b7ecf252b5d8997ed5ff503c705b2b190855922d2b9a9afb99
+    guid: 4307ab539e9b6efddc4aa092c0ed23846f157f09e5a5607f124031984d0715d5
     Name: BarValue
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [0.800000012, 0.949999988, 1]
       Parent:
-        guid: f73bc1e28f115720870714c9d51acf02d88080044dd175e936eedf168ce86311
+        guid: 77acf6652cd5ff0e78a2b15e4f98e3a9fe64412e0a8260bf7641f696dd893009
     Components:
       - ComponentName: PanelComponent
-        guid: c8e66b8e46a5144b5e928e235f7c3b915708e384a0082b6013c837700d736da7
+        guid: 6c7dfa07ca5ffce2be1e6d48f3c0ebcbbac6674ea88977226f2c9b3579dfd451
         custom_name: ""
         background_path: ./res/textures/lime.jpg
         material:
@@ -157,17 +157,17 @@ Entities:
           CastsShadows: false
           IsBillboard: false
   - Entity: Alien
-    guid: cea39b26488db7a0027300f7c35b04d7b6e5d883ccd63352637962b16efd8e49
+    guid: f7b38926910c2528b9db6183cbe726f01dd0a4d3796e1c0d8bb4e251c213aafa
     Name: Alien
     TransformComponent:
       Translation: [-0.100000001, 0.25, -3.99890256]
       Rotation: [0.999999881, 1.00000012, -8.33890346e-10]
-      Scale: [0.300000012, 0.300000012, 0.5]
+      Scale: [0.300000012, 0.5, 0.5]
       Parent:
-        guid: 05a26b1dfbac25ddd1f80556068ef203939640b0291a80d08da9c4fdfb0b9a59
+        guid: a9f16eb7f0ebefd66f848a0dc5ee8affff2d964e8ba344168873f8d712653c6d
     Components:
       - ComponentName: PanelComponent
-        guid: 4d340a2c4591f22f264739144b6ab5ac92e9068a314431ba62c72caeb9896ef8
+        guid: 346ceb7821d63ea4a3036434eebb9f8b849cc832bc225b2429d6437cc0868581
         custom_name: ""
         background_path: ./res/textures/UI\alien_head.png
         material:
@@ -181,17 +181,17 @@ Entities:
           CastsShadows: false
           IsBillboard: false
   - Entity: Human
-    guid: d302c645f026daf39b333b2055b98406107823a4ace2ddc986474edcb97f44e9
+    guid: 5ec402f8ca474fbc4f8122486fbf32e754e3873efded9190388f3b307acd9ae0
     Name: Human
     TransformComponent:
       Translation: [-0.100000001, -0.649999976, 0]
       Rotation: [0.999999881, 1.00000012, -8.33890346e-10]
-      Scale: [0.300000012, 0.300000012, 1]
+      Scale: [0.300000012, 0.5, 1]
       Parent:
-        guid: 05a26b1dfbac25ddd1f80556068ef203939640b0291a80d08da9c4fdfb0b9a59
+        guid: a9f16eb7f0ebefd66f848a0dc5ee8affff2d964e8ba344168873f8d712653c6d
     Components:
       - ComponentName: PanelComponent
-        guid: c235661084041bcf62ded18d84e23be2cad14c7313f29f0d7cbc8342cab4d9b6
+        guid: 1e4f3606bc63fddc8d76a59b55689799909f9a375f70a9a6fa59c03b878d3b00
         custom_name: ""
         background_path: ./res/textures/UI\truther_head.png
         material:
@@ -205,17 +205,17 @@ Entities:
           CastsShadows: false
           IsBillboard: false
   - Entity: BarFront
-    guid: 878c558ea4be869e81bb6e6859252eced6ee2a9a20b07a328d54679c1e6b4939
+    guid: b9176abd357b1bb125a09d363d39d170b7e838429279f0f8a1e65c70c203084d
     Name: BarFront
     TransformComponent:
       Translation: [-0.5, -0.100000001, 0]
       Rotation: [0, 0, 0]
       Scale: [0.200000003, 0.600000024, 1]
       Parent:
-        guid: 05a26b1dfbac25ddd1f80556068ef203939640b0291a80d08da9c4fdfb0b9a59
+        guid: a9f16eb7f0ebefd66f848a0dc5ee8affff2d964e8ba344168873f8d712653c6d
     Components:
       - ComponentName: PanelComponent
-        guid: 6b94d5174796089e0e67ef90c473ca42eb96c56102f8faab486a68dce52cafda
+        guid: f544e9968edf91c67329bdfa5b7cb2e91d61f58bad2b8c06efeae95d64f54a30
         custom_name: ""
         background_path: ./res/textures/UI\progress_bar_top.png
         material:
