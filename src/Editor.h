@@ -3,6 +3,7 @@
 #include "AK/Badge.h"
 #include "AK/Types.h"
 #include "Scene.h"
+#include "Texture.h"
 #include "Transform.h"
 
 #include <array>
@@ -276,6 +277,8 @@ private:
     std::array<std::string, 3> m_known_audio_formats = {".wav"};
     std::array<std::string, 1> m_known_scene_formats = {".txt"};
     std::array<std::string, 1> m_known_textures_formats = {".png"};
+
+    std::unordered_map<std::string, std::shared_ptr<Texture>> m_textures_map = {};
 
     std::string m_search_filter = {};
     std::string m_content_search_filter = {};

@@ -313,19 +313,83 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
 
         if (ImGui::BeginTabItem("Textures"))
         {
-            for (auto const& asset : m_assets)
+            float thumbnail_size = 64.0f;
+            int column_count = static_cast<int>(ImGui::GetContentRegionAvail().x / (thumbnail_size + ImGui::GetStyle().ItemSpacing.x)) - 1;
+
+            if (column_count < 1)
             {
-                std::string ui_name_lower(asset.path.c_str());
-                std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
-                if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
+                column_count = 1;
+            }
+
+            if (ImGui::BeginTable("TextureTable", column_count, ImGuiTableFlags_BordersInner | ImGuiTableFlags_SizingFixedSame))
+            {
+                u32 id = 0;
+                for (auto const& asset : m_assets)
                 {
-                    if (asset.type == AssetType::Texture
-                        && ImGui::Selectable(
-                            asset.path.substr(m_textures_path.length(), asset.path.length() - m_textures_path.length()).c_str()))
+                    std::string ui_name_lower(asset.path.c_str());
+                    std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
+
+                    if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
                     {
-                        ImGui::SetClipboardText(asset.path.c_str());
+                        if (asset.type == AssetType::Texture)
+                        {
+                            ImGui::TableNextColumn();
+
+                            std::shared_ptr<Texture> texture = m_textures_map.find(asset.path)->second;
+
+                            float tex_w = static_cast<float>(texture->width);
+                            float tex_h = static_cast<float>(texture->height);
+                            float aspect = tex_w / tex_h;
+
+                            ImVec2 image_size;
+                            if (aspect > 1.0f)
+                            {
+                                image_size = ImVec2(thumbnail_size, thumbnail_size / aspect);
+                            }
+                            else
+                            {
+                                image_size = ImVec2(thumbnail_size * aspect, thumbnail_size);
+                            }
+
+                            ImVec2 cursor_pos = ImGui::GetCursorScreenPos();
+                            ImGui::InvisibleButton(("##imgbtn" + std::to_string(id)).c_str(), ImVec2(thumbnail_size, thumbnail_size));
+
+                            bool hovered = ImGui::IsItemHovered();
+                            bool clicked = ImGui::IsItemActive();
+
+                            ImVec2 img_pos = ImVec2(cursor_pos.x + (thumbnail_size - image_size.x) * 0.5f,
+                                                    cursor_pos.y + (thumbnail_size - image_size.y) * 0.5f);
+
+                            ImDrawList* draw_list = ImGui::GetWindowDrawList();
+                            draw_list->AddImage((ImTextureID)(intptr_t)texture->shader_resource_view, img_pos,
+                                                ImVec2(img_pos.x + image_size.x, img_pos.y + image_size.y));
+
+                            ImU32 overlay_color = IM_COL32(0, 0, 0, 0);
+
+                            if (hovered)
+                            {
+                                overlay_color = IM_COL32(0, 0, 0, 255 * 0.75);
+                            }
+
+                            if (clicked)
+                            {
+                                overlay_color = IM_COL32(255, 255, 255, 255 * 0.75);
+                            }
+
+                            draw_list->AddRectFilled(cursor_pos, ImVec2(cursor_pos.x + thumbnail_size, cursor_pos.y + thumbnail_size),
+                                                     overlay_color);
+
+                            if (hovered && ImGui::IsMouseClicked(0))
+                            {
+                                ImGui::SetClipboardText(asset.path.c_str());
+                            }
+                        }
                     }
+
+                    id++;
                 }
+
+                ImGui::EndTable();
             }
             ImGui::EndTabItem();
         }
@@ -958,6 +1022,16 @@ void Editor::load_assets()
         if (std::ranges::find(m_known_textures_formats, entry.path().extension().string()) != m_known_textures_formats.end())
         {
             m_assets.emplace_back(entry.path().string(), AssetType::Texture);
+
+            TextureSettings texture_settings = {};
+            texture_settings.wrap_mode_x = TextureWrapMode::ClampToBorder;
+            texture_settings.wrap_mode_y = TextureWrapMode::ClampToBorder;
+            texture_settings.flip_vertically = false;
+
+            std::shared_ptr<Texture> texture =
+                ResourceManager::get_instance().load_texture(entry.path().string(), TextureType::Diffuse, texture_settings);
+
+            m_textures_map.insert({entry.path().string(), texture});
         }
     }
 
