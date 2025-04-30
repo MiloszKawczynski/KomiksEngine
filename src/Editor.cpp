@@ -634,14 +634,25 @@ void Editor::draw_game(std::shared_ptr<EditorWindow> const& window)
         ImGui::EndMenuBar();
     }
 
-    auto vec2 = ImGui::GetContentRegionAvail();
-    m_game_size = {vec2.x, vec2.y};
+    auto window_size = ImGui::GetContentRegionAvail();
+    float aspect = window_size.x / window_size.y;
 
-    vec2 = ImGui::GetWindowPos();
-    m_game_position = {vec2.x, vec2.y};
+    if (aspect > 16.0f / 9.0f)
+    {
+        m_game_size = {window_size.y * 16.0f / 9.0f, window_size.y};
+    }
+    else
+    {
+        m_game_size = {window_size.x, window_size.x * 9.0f / 16.0f};
+    }
+
+    auto window_position = ImGui::GetCursorPos();
+    m_game_position.x = window_position.x + (window_size.x - m_game_size.x) / 2.0f;
+    m_game_position.y = window_position.y + (window_size.y - m_game_size.y) / 2.0f;
 
     if (Renderer::renderer_api == Renderer::RendererApi::DirectX11)
     {
+        ImGui::SetCursorPos(ImVec2(m_game_position.x, m_game_position.y));
         ImGui::Image(RendererDX11::get_instance_dx11()->get_render_texture_view(), ImVec2(m_game_size.x, m_game_size.y));
     }
 
