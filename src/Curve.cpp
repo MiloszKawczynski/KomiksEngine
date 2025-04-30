@@ -20,6 +20,8 @@ std::shared_ptr<Curve> Curve::create()
 
 Curve::Curve(AK::Badge<Curve>)
 {
+    points.push_back({0.0f, 0.0f});
+    points.push_back({1.0f, 1.0f});
 }
 
 Curve::Curve() = default;
@@ -29,8 +31,9 @@ void Curve::draw_editor()
 {
     Component::draw_editor();
 
-    if (ImPlot::BeginPlot("Path visualised"))
+    if (ImPlot::BeginPlot("Path visualised", nullptr, nullptr, ImVec2(-1, 0), ImPlotFlags_CanvasOnly))
     {
+        ImPlot::SetupAxesLimits(0.0f, 1.0f, 0.0f, 1.0f, ImGuiCond_Always);
         ImPlot::PushStyleVar(ImPlotStyleVar_LineWeight, 2.0f);
         ImPlot::SetupLegend(ImPlotFlags_NoLegend);
 
@@ -67,6 +70,8 @@ void Curve::draw_editor()
                 points[i].x = glm::clamp(points[i].x, left_clamp, right_clamp);
 
                 points[i].y = py;
+
+                points[i] = glm::clamp(points[i], 0.0f, 1.0f);
             }
         }
 
