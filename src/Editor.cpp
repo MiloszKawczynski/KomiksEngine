@@ -300,7 +300,9 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
                 std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
                 if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
                 {
-                    if (asset.type == AssetType::Model && ImGui::Selectable(asset.path.c_str()))
+                    if (asset.type == AssetType::Model
+                        && ImGui::Selectable(
+                            asset.path.substr(m_models_path.length(), asset.path.length() - m_models_path.length()).c_str()))
                     {
                         ImGui::SetClipboardText(asset.path.c_str());
                     }
@@ -317,7 +319,9 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
                 std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
                 if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
                 {
-                    if (asset.type == AssetType::Texture && ImGui::Selectable(asset.path.c_str()))
+                    if (asset.type == AssetType::Texture
+                        && ImGui::Selectable(
+                            asset.path.substr(m_textures_path.length(), asset.path.length() - m_textures_path.length()).c_str()))
                     {
                         ImGui::SetClipboardText(asset.path.c_str());
                     }
@@ -334,7 +338,8 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
                 std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
                 if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
                 {
-                    if (asset.type == AssetType::Audio && ImGui::Selectable(asset.path.c_str()))
+                    if (asset.type == AssetType::Audio
+                        && ImGui::Selectable(asset.path.substr(m_audio_path.length(), asset.path.length() - m_audio_path.length()).c_str()))
                     {
                         ImGui::SetClipboardText(asset.path.c_str());
                     }
@@ -353,7 +358,8 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
                 std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
                 if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
                 {
-                    if (asset.type == AssetType::Scene && ImGui::Selectable(asset.path.c_str()))
+                    if (asset.type == AssetType::Scene
+                        && ImGui::Selectable(asset.path.substr(m_scene_path.length(), asset.path.length() - m_scene_path.length()).c_str()))
                     {
                         std::filesystem::path file_path(asset.path);
                         std::string const filename = file_path.stem().string();
@@ -383,7 +389,9 @@ void Editor::draw_content_browser(std::shared_ptr<EditorWindow> const& window)
                 std::ranges::transform(ui_name_lower, ui_name_lower.begin(), [](u8 const c) { return std::tolower(c); });
                 if (m_content_search_filter.empty() || ui_name_lower.find(m_content_search_filter) != std::string::npos)
                 {
-                    if (asset.type == AssetType::Prefab && ImGui::Selectable(asset.path.c_str()))
+                    if (asset.type == AssetType::Prefab
+                        && ImGui::Selectable(
+                            asset.path.substr(m_prefab_path.length(), asset.path.length() - m_prefab_path.length()).c_str()))
                     {
                         std::filesystem::path file_path(asset.path);
                         std::string const filename = file_path.stem().string();
