@@ -570,6 +570,8 @@ void Editor::draw_game(std::shared_ptr<EditorWindow> const& window)
                 ImGui::SetTooltip("Shortcut: \\");
             }
 
+            ImGui::Checkbox("Crop viewport", &m_viewport_crop);
+
             ImGui::PopStyleColor();
         }
 
@@ -637,13 +639,32 @@ void Editor::draw_game(std::shared_ptr<EditorWindow> const& window)
     auto window_size = ImGui::GetContentRegionAvail();
     float aspect = window_size.x / window_size.y;
 
-    if (aspect > 16.0f / 9.0f)
+    if (ImGui::IsMouseReleased(ImGuiMouseButton_Right) && ImGui::IsWindowHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup)
+        && !ImGui::IsAnyItemHovered())
     {
-        m_game_size = {window_size.y * 16.0f / 9.0f, window_size.y};
+        ImGui::OpenPopup("viewportPopup");
+    }
+    if (m_viewport_crop)
+    {
+        if (aspect > 16.0f / 9.0f)
+        {
+            m_game_size = {window_size.x, window_size.x * 9.0f / 16.0f};
+        }
+        else
+        {
+            m_game_size = {window_size.y * 16.0f / 9.0f, window_size.y};
+        }
     }
     else
     {
-        m_game_size = {window_size.x, window_size.x * 9.0f / 16.0f};
+        if (aspect > 16.0f / 9.0f)
+        {
+            m_game_size = {window_size.y * 16.0f / 9.0f, window_size.y};
+        }
+        else
+        {
+            m_game_size = {window_size.x, window_size.x * 9.0f / 16.0f};
+        }
     }
 
     auto window_position = ImGui::GetCursorPos();

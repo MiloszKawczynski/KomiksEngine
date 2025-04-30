@@ -286,6 +286,8 @@ private:
 
     bool m_append_scene = false;
 
+    bool m_viewport_crop = false;
+
     inline static std::shared_ptr<Editor> m_instance = nullptr;
 
 #endif
