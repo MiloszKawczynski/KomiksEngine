@@ -916,7 +916,7 @@ void Editor::load_assets()
 {
     m_assets.clear();
 
-    for (auto const& entry : std::filesystem::recursive_directory_iterator(m_content_path))
+    for (auto const& entry : std::filesystem::recursive_directory_iterator(m_models_path))
     {
         if (std::ranges::find(m_known_model_formats, entry.path().extension().string()) != m_known_model_formats.end())
         {

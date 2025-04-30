@@ -267,6 +267,7 @@ private:
     glm::vec3 const m_position_snap = {0.1f, 0.1f, 0.1f};
 
     std::string m_content_path = "./res/";
+    std::string m_models_path = "./res/models/";
     std::string m_scene_path = "./res/scenes/";
     std::string m_prefab_path = "./res/prefabs/";
     std::string m_textures_path = "./res/textures/";
