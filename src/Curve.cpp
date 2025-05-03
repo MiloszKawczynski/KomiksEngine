@@ -75,8 +75,34 @@ void Curve::draw_editor()
             }
         }
 
-        ImPlot::EndPlot();
+        if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsMouseClicked(0))
+        {
+            ImPlotPoint mouse_position = ImPlot::GetPlotMousePos();
+            bool is_point_being_removed = false;
+
+            for (u32 i = 1; i < points.size() - 1; i++)
+            {
+                ImPlotPoint point = ImPlotPoint(points[i].x, points[i].y);
+
+                if (glm::epsilonEqual(mouse_position.x, point.x, 0.01) && glm::epsilonEqual(mouse_position.y, point.y, 0.01))
+                {
+                    is_point_being_removed = true;
+                    points.erase(points.begin() + i);
+                }
+            }
+
+            if (!is_point_being_removed)
+            {
+                glm::vec2 new_point_position = {glm::clamp(mouse_position.x, 0.0, 1.0), mouse_position.y};
+
+                u32 point_after = get_point_index_after(new_point_position.x);
+
+                points.insert(points.begin() + point_after, new_point_position);
+            }
+        }
     }
+
+    ImPlot::EndPlot();
 
     if (ImGui::Button("Add point"))
     {
@@ -179,4 +205,40 @@ float Curve::get_y_at(float x) const
 void Curve::add_points(std::initializer_list<glm::vec2> new_points)
 {
     points.insert(points.end(), new_points.begin(), new_points.end());
+}
+
+int Curve::get_point_index_before(float x) const
+{
+    int index = 0;
+
+    for (u32 i = 0; i < points.size() - 1; i++)
+    {
+        if (points[i].x < x)
+        {
+            index = i;
+            continue;
+        }
+
+        break;
+    }
+
+    return index;
+}
+
+int Curve::get_point_index_after(float x) const
+{
+    int index = 0;
+
+    for (u32 i = 0; i < points.size(); i++)
+    {
+        if (points[i].x < x)
+        {
+            continue;
+        }
+
+        index = i;
+        break;
+    }
+
+    return index;
 }

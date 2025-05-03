@@ -20,6 +20,8 @@ public:
     glm::vec2 get_point_at(float x) const;
     float get_y_at(float x) const;
     void add_points(std::initializer_list<glm::vec2> new_points);
+    int get_point_index_before(float x) const;
+    int get_point_index_after(float x) const;
     float length() const;
 
 protected:
