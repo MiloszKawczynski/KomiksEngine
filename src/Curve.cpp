@@ -122,10 +122,13 @@ void Curve::draw_editor()
     {
         ImGuiEx::InputFloat2(("Position##" + std::to_string(i)).c_str(), glm::value_ptr(points[i]));
         ImGui::SameLine();
+
+        ImGui::BeginDisabled(i == 0 || i == points.size() - 1);
         if (ImGui::Button(("Remove point##" + std::to_string(i)).c_str()))
         {
             points.erase(points.begin() + i);
         }
+        ImGui::EndDisabled();
     }
 }
 #endif
