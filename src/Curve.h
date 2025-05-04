@@ -18,6 +18,7 @@ public:
 #endif
 
     std::vector<glm::vec2> points = {};
+    bool is_smoothe = false;
 
     glm::vec2 get_point_at(float x) const;
     float get_y_at(float x) const;
@@ -32,7 +33,6 @@ protected:
     explicit Curve();
 
 private:
-    bool m_is_smoothe = false;
     i32 m_smoothe_precision = 6;
     std::vector<glm::vec2> m_smoothe_points = {};
 };
