@@ -174,14 +174,21 @@ float Curve::length() const
 
 glm::vec2 Curve::get_point_at(float x) const
 {
-    if (points.empty())
+    std::vector<glm::vec2> operational_set = points;
+
+    if (m_is_smoothe)
+    {
+        operational_set = m_smoothe_points;
+    }
+
+    if (operational_set.empty())
     {
         return {0.0f, 0.0f};
     }
 
-    if (points.size() == 1)
+    if (operational_set.size() == 1)
     {
-        return points[0];
+        return operational_set[0];
     }
 
     x = glm::clamp(x, 0.0f, 1.0f);
@@ -190,20 +197,20 @@ glm::vec2 Curve::get_point_at(float x) const
     float const desired_length = path_length * x;
     float distance = 0.0f;
 
-    for (u32 i = 0; i < points.size() - 1; i++)
+    for (u32 i = 0; i < operational_set.size() - 1; i++)
     {
-        float const segment_length = glm::distance(points[i], points[i + 1]);
+        float const segment_length = glm::distance(operational_set[i], operational_set[i + 1]);
 
         if (distance + segment_length >= desired_length)
         {
             float const segment_ratio = (desired_length - distance) / segment_length;
-            return glm::mix(points[i], points[i + 1], segment_ratio);
+            return glm::mix(operational_set[i], operational_set[i + 1], segment_ratio);
         }
 
         distance += segment_length;
     }
 
-    return points.back();
+    return operational_set.back();
 }
 
 float Curve::get_y_at(float x) const
@@ -215,14 +222,21 @@ float Curve::get_y_at(float x) const
 
     x = glm::clamp(x, 0.0f, 1.0f);
 
-    for (u32 i = 0; i < points.size() - 1; i++)
+    std::vector<glm::vec2> operational_set = points;
+
+    if (m_is_smoothe)
     {
-        if (x >= points[i].x && x <= points[i + 1].x)
+        operational_set = m_smoothe_points;
+    }
+
+    for (u32 i = 0; i < operational_set.size() - 1; i++)
+    {
+        if (x >= operational_set[i].x && x <= operational_set[i + 1].x)
         {
-            float const x0 = points[i].x;
-            float const y0 = points[i].y;
-            float const x1 = points[i + 1].x;
-            float const y1 = points[i + 1].y;
+            float const x0 = operational_set[i].x;
+            float const y0 = operational_set[i].y;
+            float const x1 = operational_set[i + 1].x;
+            float const y1 = operational_set[i + 1].y;
 
             float const t = (x - x0) / (x1 - x0);
             float const y = y0 + t * (y1 - y0);
