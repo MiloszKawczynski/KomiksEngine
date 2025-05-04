@@ -112,22 +112,18 @@ void Curve::draw_editor()
             u32 point_after = get_point_index_after(new_point_position.x);
 
             points.insert(points.begin() + point_after, new_point_position);
-            generate_smoothe_points(m_smoothe_precision);
         }
 
-        if (is_smoothe)
-        {
-            generate_smoothe_points(m_smoothe_precision);
-        }
     }
 
     ImPlot::EndPlot();
 
     ImGui::Checkbox("Smoothe", &is_smoothe);
+    ImGui::SameLine();
 
-    if (ImGui::InputInt("Smoothe precistion", &m_smoothe_precision))
+    ImGui::InputInt("Smoothe precistion", &m_smoothe_precision);
+
     {
-        generate_smoothe_points(m_smoothe_precision);
     }
 
     if (ImGui::CollapsingHeader("Points"))
@@ -137,23 +133,18 @@ void Curve::draw_editor()
             if (points.size() == 0)
             {
                 points.push_back({0.1f, 0.5f});
-                generate_smoothe_points(m_smoothe_precision);
             }
             else
             {
                 points.push_back({points.back().x + 0.1f, points.back().y});
 
                 points.back().x = glm::clamp(points.back().x, 0.0f, 1.0f);
-                generate_smoothe_points(m_smoothe_precision);
             }
         }
 
         for (u32 i = 0; i < points.size(); i++)
         {
-            if (ImGuiEx::InputFloat2(("Position##" + std::to_string(i)).c_str(), glm::value_ptr(points[i])))
-            {
-                generate_smoothe_points(m_smoothe_precision);
-            }
+            ImGuiEx::InputFloat2(("Position##" + std::to_string(i)).c_str(), glm::value_ptr(points[i]));
 
             ImGui::SameLine();
 
@@ -161,10 +152,14 @@ void Curve::draw_editor()
             if (ImGui::Button(("Remove point##" + std::to_string(i)).c_str()))
             {
                 points.erase(points.begin() + i);
-                generate_smoothe_points(m_smoothe_precision);
             }
             ImGui::EndDisabled();
         }
+    }
+
+    if (is_smoothe)
+    {
+        generate_smoothe_points(m_smoothe_precision);
     }
 }
 #endif
