@@ -58,19 +58,19 @@ void draw_ptr(std::string const& label, std::weak_ptr<T>& ptr)
     }
 }
 
-inline void InputFloat(char const* label, float* v)
+inline bool InputFloat(char const* label, float* v)
 {
-    ImGui::InputFloat(label, v, 0, 0, "%.3f", ImGuiInputTextFlags_CharsDecimal);
+    return ImGui::InputFloat(label, v, 0, 0, "%.3f", ImGuiInputTextFlags_CharsDecimal);
 }
 
-inline void InputFloat2(char const* label, float v[2])
+inline bool InputFloat2(char const* label, float v[2])
 {
-    ImGui::InputFloat2(label, v, "%.3f", ImGuiInputTextFlags_CharsDecimal);
+    return ImGui::InputFloat2(label, v, "%.3f", ImGuiInputTextFlags_CharsDecimal);
 }
 
-inline void InputFloat3(char const* label, float v[3])
+inline bool InputFloat3(char const* label, float v[3])
 {
-    ImGui::InputFloat3(label, v, "%.3f", ImGuiInputTextFlags_CharsDecimal);
+    return ImGui::InputFloat3(label, v, "%.3f", ImGuiInputTextFlags_CharsDecimal);
 }
 
 }
