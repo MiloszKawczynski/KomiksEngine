@@ -50,7 +50,8 @@ void Curve::draw_editor()
         {
             double px = xs[i];
             double py = ys[i];
-            if (ImPlot::DragPoint(i, &px, &py, ImVec4(0, 0.9f, 0, 1), 4))
+            bool is_clicked = false;
+            if (ImPlot::DragPoint(i, &px, &py, ImVec4(0, 0.9f, 0, 1), 4, 0, &is_clicked))
             {
                 points[i].x = px;
 
@@ -76,32 +77,21 @@ void Curve::draw_editor()
                 points[0].x = 0.0f;
                 points[points.size() - 1].x = 1.0f;
             }
+
+            if ((i != 0 && i != points.size() - 1) && is_clicked && ImGui::IsKeyDown(ImGuiKey_LeftCtrl))
+            {
+                points.erase(points.begin() + i);
+            }
         }
 
-        if (ImGui::IsKeyDown(ImGuiKey_LeftCtrl) && ImGui::IsMouseClicked(0))
+        if (ImGui::IsMouseDoubleClicked(0))
         {
             ImPlotPoint mouse_position = ImPlot::GetPlotMousePos();
-            bool is_point_being_removed = false;
+            glm::vec2 new_point_position = {glm::clamp(mouse_position.x, 0.0, 1.0), mouse_position.y};
 
-            for (u32 i = 1; i < points.size() - 1; i++)
-            {
-                ImPlotPoint point = ImPlotPoint(points[i].x, points[i].y);
+            u32 point_after = get_point_index_after(new_point_position.x);
 
-                if (glm::epsilonEqual(mouse_position.x, point.x, 0.01) && glm::epsilonEqual(mouse_position.y, point.y, 0.01))
-                {
-                    is_point_being_removed = true;
-                    points.erase(points.begin() + i);
-                }
-            }
-
-            if (!is_point_being_removed)
-            {
-                glm::vec2 new_point_position = {glm::clamp(mouse_position.x, 0.0, 1.0), mouse_position.y};
-
-                u32 point_after = get_point_index_after(new_point_position.x);
-
-                points.insert(points.begin() + point_after, new_point_position);
-            }
+            points.insert(points.begin() + point_after, new_point_position);
         }
     }
 
