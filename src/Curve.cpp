@@ -130,38 +130,41 @@ void Curve::draw_editor()
         generate_smoothe_points(m_smoothe_precision);
     }
 
-    if (ImGui::Button("Add point"))
+    if (ImGui::CollapsingHeader("Points"))
     {
-        if (points.size() == 0)
+        if (ImGui::Button("Add point"))
         {
-            points.push_back({0.1f, 0.5f});
-            generate_smoothe_points(m_smoothe_precision);
-        }
-        else
-        {
-            points.push_back({points.back().x + 0.1f, points.back().y});
+            if (points.size() == 0)
+            {
+                points.push_back({0.1f, 0.5f});
+                generate_smoothe_points(m_smoothe_precision);
+            }
+            else
+            {
+                points.push_back({points.back().x + 0.1f, points.back().y});
 
-            points.back().x = glm::clamp(points.back().x, 0.0f, 1.0f);
-            generate_smoothe_points(m_smoothe_precision);
-        }
-    }
-
-    for (u32 i = 0; i < points.size(); i++)
-    {
-        if (ImGuiEx::InputFloat2(("Position##" + std::to_string(i)).c_str(), glm::value_ptr(points[i])))
-        {
-            generate_smoothe_points(m_smoothe_precision);
+                points.back().x = glm::clamp(points.back().x, 0.0f, 1.0f);
+                generate_smoothe_points(m_smoothe_precision);
+            }
         }
 
-        ImGui::SameLine();
-
-        ImGui::BeginDisabled(i == 0 || i == points.size() - 1);
-        if (ImGui::Button(("Remove point##" + std::to_string(i)).c_str()))
+        for (u32 i = 0; i < points.size(); i++)
         {
-            points.erase(points.begin() + i);
-            generate_smoothe_points(m_smoothe_precision);
+            if (ImGuiEx::InputFloat2(("Position##" + std::to_string(i)).c_str(), glm::value_ptr(points[i])))
+            {
+                generate_smoothe_points(m_smoothe_precision);
+            }
+
+            ImGui::SameLine();
+
+            ImGui::BeginDisabled(i == 0 || i == points.size() - 1);
+            if (ImGui::Button(("Remove point##" + std::to_string(i)).c_str()))
+            {
+                points.erase(points.begin() + i);
+                generate_smoothe_points(m_smoothe_precision);
+            }
+            ImGui::EndDisabled();
         }
-        ImGui::EndDisabled();
     }
 }
 #endif
