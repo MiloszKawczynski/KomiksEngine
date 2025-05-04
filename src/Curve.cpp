@@ -33,7 +33,7 @@ void Curve::draw_editor()
 
     if (ImPlot::BeginPlot("Path visualised", nullptr, nullptr, ImVec2(-1, 0), ImPlotFlags_CanvasOnly))
     {
-        ImPlot::SetupAxesLimits(0.0f, 1.0f, 0.0f, 1.0f, ImGuiCond_Always);
+        ImPlot::SetupAxisLimits(ImAxis_X1, 0.0f, 1.0f, ImGuiCond_Always);
         ImPlot::PushStyleVar(ImPlotStyleVar_LineWeight, 2.0f);
         ImPlot::SetupLegend(ImPlotFlags_NoLegend);
 
@@ -86,7 +86,7 @@ void Curve::draw_editor()
 
                 points[i].y = py;
 
-                points[i] = glm::clamp(points[i], 0.0f, 1.0f);
+                points[i].x = glm::clamp(points[i].x, 0.0f, 1.0f);
 
                 points[0].x = 0.0f;
                 points[points.size() - 1].x = 1.0f;
