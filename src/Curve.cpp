@@ -143,7 +143,11 @@ void Curve::draw_editor()
 
     for (u32 i = 0; i < points.size(); i++)
     {
-        ImGuiEx::InputFloat2(("Position##" + std::to_string(i)).c_str(), glm::value_ptr(points[i]));
+        if (ImGuiEx::InputFloat2(("Position##" + std::to_string(i)).c_str(), glm::value_ptr(points[i])))
+        {
+            generate_smoothe_points(m_smoothe_precision);
+        }
+
         ImGui::SameLine();
 
         ImGui::BeginDisabled(i == 0 || i == points.size() - 1);
