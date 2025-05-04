@@ -37,6 +37,11 @@ void Curve::draw_editor()
         ImPlot::PushStyleVar(ImPlotStyleVar_LineWeight, 2.0f);
         ImPlot::SetupLegend(ImPlotFlags_NoLegend);
 
+        if (ImGui::IsMouseClicked(2))
+        {
+            ImPlot::SetupAxisLimits(ImAxis_Y1, 0.0, 1.0, ImGuiCond_Always);
+        }
+
         std::vector<float> xs, ys;
         for (auto const& p : points)
         {
