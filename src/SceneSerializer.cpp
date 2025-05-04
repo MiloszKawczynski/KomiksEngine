@@ -188,6 +188,8 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
             out << YAML::Key << "custom_name" << YAML::Value << curve->custom_name;
         }
         out << YAML::Key << "points" << YAML::Value << curve->points;
+        out << YAML::Key << "is_smoothe" << YAML::Value << curve->is_smoothe;
+        out << YAML::Key << "playback_speed" << YAML::Value << curve->playback_speed;
         out << YAML::EndMap;
     }
     else
@@ -1090,6 +1092,14 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->points = component["points"].as<std::vector<glm::vec2>>();
             }
+            if (component["is_smoothe"].IsDefined())
+            {
+                deserialized_component->is_smoothe = component["is_smoothe"].as<bool>();
+            }
+            if (component["playback_speed"].IsDefined())
+            {
+                deserialized_component->playback_speed = component["playback_speed"].as<float>();
+            }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
         }
@@ -1110,6 +1120,14 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["points"].IsDefined())
             {
                 deserialized_component->points = component["points"].as<std::vector<glm::vec2>>();
+            }
+            if (component["is_smoothe"].IsDefined())
+            {
+                deserialized_component->is_smoothe = component["is_smoothe"].as<bool>();
+            }
+            if (component["playback_speed"].IsDefined())
+            {
+                deserialized_component->playback_speed = component["playback_speed"].as<float>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

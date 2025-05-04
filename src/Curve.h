@@ -13,12 +13,16 @@ public:
 
     explicit Curve(AK::Badge<Curve>);
 
+    virtual void awake() override;
+    virtual void update() override;
+
 #if EDITOR
     virtual void draw_editor() override;
 #endif
 
     std::vector<glm::vec2> points = {};
     bool is_smoothe = false;
+    float playback_speed = 0.01f;
 
     glm::vec2 get_point_at(float x) const;
     float get_y_at(float x) const;
@@ -35,4 +39,6 @@ protected:
 private:
     i32 m_smoothe_precision = 6;
     std::vector<glm::vec2> m_smoothe_points = {};
+    bool m_is_playing = false;
+    float m_playback_position = 0.0f;
 };
