@@ -99,7 +99,7 @@ void Curve::draw_editor()
             }
         }
 
-        if (ImGui::IsMouseDoubleClicked(0))
+        if (ImPlot::IsPlotHovered() && ImGui::IsMouseDoubleClicked(0))
         {
             ImPlotPoint mouse_position = ImPlot::GetPlotMousePos();
             glm::vec2 new_point_position = {glm::clamp(mouse_position.x, 0.0, 1.0), mouse_position.y};
