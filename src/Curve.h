@@ -79,4 +79,6 @@ private:
     LinkToArgumentTypes m_link_to_argument = LinkToArgumentTypes::X;
     bool m_is_stuck_in_middle = false;
     bool m_is_allowed_to_leave_middle = false;
+    std::vector<bool> m_is_line_grabbed = {false, false, false};
+    i32 m_id_of_grabbed_point = -1;
 };

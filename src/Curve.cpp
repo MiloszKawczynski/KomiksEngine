@@ -125,13 +125,28 @@ void Curve::draw_editor()
             ImPlot::PlotLine("##Line", xs.data(), ys.data(), points.size());
         }
 
+        bool is_any_grabbed = false;
         for (u32 i = 0; i < points.size(); i++)
         {
             double px = xs[i];
             double py = ys[i];
             bool is_clicked = false;
-            if (ImPlot::DragPoint(i, &px, &py, ImVec4(0, 0.9f, 0, 1), 4, 0, &is_clicked))
+            if (ImPlot::DragPoint(i, &px, &py, ImVec4(0, 0.9f, 0, m_id_of_grabbed_point == i ? 0 : 1), 4, 0, &is_clicked))
             {
+                if ((i != 0 && i != points.size() - 1))
+                {
+                    if (ImGui::IsKeyDown(ImGuiKey_LeftShift))
+                    {
+                        px = std::round(px * 20.0) / 20.0;
+                        py = std::round(py * 20.0) / 20.0;
+                        points[i].x = px;
+                        points[i].y = py;
+                        ImPlot::DragPoint(i + points.size(), &px, &py, ImVec4(0, 0.9f, 0, 1), 4, 0);
+                        m_id_of_grabbed_point = i;
+                        is_any_grabbed = true;
+                    }
+                }
+
                 points[i].x = px;
 
                 float left_clamp = 0.0f;
@@ -164,6 +179,11 @@ void Curve::draw_editor()
             }
         }
 
+        if (!is_any_grabbed)
+        {
+            m_id_of_grabbed_point = -1;
+        }
+
         if (ImPlot::IsPlotHovered() && ImGui::IsMouseClicked(0) && ImGui::IsKeyDown(ImGuiKey_LeftCtrl))
         {
             ImPlotPoint mouse_position = ImPlot::GetPlotMousePos();
@@ -181,22 +201,67 @@ void Curve::draw_editor()
 
         if (easing_type == EaseTypes::EaseInOut)
         {
-            if (ImPlot::DragLineX(0, &in_out_line, ImVec4(1, 1, 1, 1)))
+            if (ImPlot::DragLineX(1, &in_out_line, ImVec4(1, 1, 1, !m_is_line_grabbed[0])))
             {
                 in_out_line = glm::clamp(in_out_line, 0.0, 1.0);
+
+                if (ImGui::IsKeyDown(ImGuiKey_LeftShift))
+                {
+                    m_is_line_grabbed[0] = true;
+                    in_out_line = std::round(in_out_line * 20.0) / 20.0;
+                    ImPlot::DragLineX(11, &in_out_line, ImVec4(1, 1, 1, 1));
+                }
+                else
+                {
+                    m_is_line_grabbed[0] = false;
+                }
+            }
+            else
+            {
+                m_is_line_grabbed[0] = false;
             }
         }
 
         if (easing_type == EaseTypes::EaseInMiddleOut)
         {
-            if (ImPlot::DragLineX(1, &in_middle_line, ImVec4(1, 0, 0, 1)))
+            if (ImPlot::DragLineX(2, &in_middle_line, ImVec4(1, 0, 0, !m_is_line_grabbed[1])))
             {
                 in_middle_line = glm::clamp(in_middle_line, 0.0, middle_out_line);
+
+                if (ImGui::IsKeyDown(ImGuiKey_LeftShift))
+                {
+                    m_is_line_grabbed[1] = true;
+                    in_middle_line = std::round(in_middle_line * 20.0) / 20.0;
+                    ImPlot::DragLineX(21, &in_middle_line, ImVec4(1, 0, 0, 1));
+                }
+                else
+                {
+                    m_is_line_grabbed[1] = false;
+                }
+            }
+            else
+            {
+                m_is_line_grabbed[1] = false;
             }
 
-            if (ImPlot::DragLineX(2, &middle_out_line, ImVec4(0, 1, 0, 1)))
+            if (ImPlot::DragLineX(3, &middle_out_line, ImVec4(0, 1, 0, !m_is_line_grabbed[2])))
             {
                 middle_out_line = glm::clamp(middle_out_line, in_middle_line, 1.0);
+
+                if (ImGui::IsKeyDown(ImGuiKey_LeftShift))
+                {
+                    m_is_line_grabbed[2] = true;
+                    middle_out_line = std::round(middle_out_line * 20.0) / 20.0;
+                    ImPlot::DragLineX(31, &middle_out_line, ImVec4(0, 1, 0, 1));
+                }
+                else
+                {
+                    m_is_line_grabbed[2] = false;
+                }
+            }
+            else
+            {
+                m_is_line_grabbed[2] = false;
             }
         }
     }
