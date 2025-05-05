@@ -39,9 +39,11 @@ void Curve::update()
 
         if (m_playback_position > 1.0f)
         {
-            m_playback_position = 0.0f;
+            m_playback_position = 1.0f;
             m_is_playing = false;
         }
+
+        update_link_value();
     }
 }
 
@@ -151,8 +153,63 @@ void Curve::draw_editor()
         m_playback_position = 0.0f;
         m_is_playing = true;
     }
+
     ImGui::SameLine();
+
+    if (ImGui::Button("Reset"))
+    {
+        m_playback_position = 0.0f;
+        update_link_value();
+    }
+
     ImGuiEx::InputFloat("Playback speed", &playback_speed);
+
+    ImGui::Text("Link to...");
+    ImGui::SameLine();
+
+    if (ImGui::BeginCombo("##LinkToTypes", link_type_to_string(m_link_to).c_str()))
+    {
+        for (u32 i = static_cast<u32>(LinkToTypes::Position); i <= static_cast<u32>(LinkToTypes::Scale); i++)
+        {
+            bool const is_selected = m_link_to == static_cast<LinkToTypes>(i);
+
+            if (ImGui::Selectable(link_type_to_string(static_cast<LinkToTypes>(i)).c_str(), is_selected))
+            {
+                m_link_to = static_cast<LinkToTypes>(i);
+            }
+
+            if (is_selected)
+            {
+                ImGui::SetItemDefaultFocus();
+            }
+        }
+        ImGui::EndCombo();
+    }
+
+    ImGui::SameLine();
+
+    if (ImGui::BeginCombo("##LinkToArgumentTypes", link_type_to_argument_string(m_link_to_argument).c_str()))
+    {
+        for (u32 i = static_cast<u32>(LinkToArgumentTypes::X); i <= static_cast<u32>(LinkToArgumentTypes::Z); i++)
+        {
+            bool const is_selected = m_link_to_argument == static_cast<LinkToArgumentTypes>(i);
+
+            if (ImGui::Selectable(link_type_to_argument_string(static_cast<LinkToArgumentTypes>(i)).c_str(), is_selected))
+            {
+                m_link_to_argument = static_cast<LinkToArgumentTypes>(i);
+            }
+
+            if (is_selected)
+            {
+                ImGui::SetItemDefaultFocus();
+            }
+        }
+        ImGui::EndCombo();
+    }
+
+    ImGui::InputFloat("Ease from", &easing_from);
+    ImGui::SameLine();
+    ImGui::InputFloat("Ease to", &easing_to);
 
     if (ImGui::CollapsingHeader("Points"))
     {
@@ -190,6 +247,43 @@ void Curve::draw_editor()
         generate_smoothe_points(m_smoothe_precision);
     }
 }
+
+std::string Curve::link_type_to_string(LinkToTypes const type)
+{
+    switch (type)
+    {
+    case LinkToTypes::Position:
+        return "Position";
+
+    case LinkToTypes::Rotation:
+        return "Rotation";
+
+    case LinkToTypes::Scale:
+        return "Scale";
+
+    default:
+        return "Undefined Link";
+    }
+}
+
+std::string Curve::link_type_to_argument_string(LinkToArgumentTypes const type)
+{
+    switch (type)
+    {
+    case LinkToArgumentTypes::X:
+        return "x";
+
+    case LinkToArgumentTypes::Y:
+        return "y";
+
+    case LinkToArgumentTypes::Z:
+        return "z";
+
+    default:
+        return "Undefined Argument Link";
+    }
+}
+
 #endif
 
 float Curve::length() const
@@ -356,4 +450,81 @@ void Curve::generate_smoothe_points(u32 segments_per_curve)
     }
 
     m_smoothe_points.push_back(points.back());
+}
+
+void Curve::update_link_value()
+{
+    glm::vec3 position = entity->transform->get_local_position();
+    glm::vec3 rotation = entity->transform->get_euler_angles();
+    glm::vec3 scale = entity->transform->get_local_scale();
+
+    switch (m_link_to)
+    {
+    case LinkToTypes::Position:
+        switch (m_link_to_argument)
+        {
+        case LinkToArgumentTypes::X:
+            position.x = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        case LinkToArgumentTypes::Y:
+            position.y = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        case LinkToArgumentTypes::Z:
+            position.z = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        default:
+            break;
+        }
+        break;
+
+    case LinkToTypes::Rotation:
+        switch (m_link_to_argument)
+        {
+        case LinkToArgumentTypes::X:
+            rotation.x = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        case LinkToArgumentTypes::Y:
+            rotation.y = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        case LinkToArgumentTypes::Z:
+            rotation.z = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        default:
+            break;
+        }
+        break;
+
+    case LinkToTypes::Scale:
+        switch (m_link_to_argument)
+        {
+        case LinkToArgumentTypes::X:
+            scale.x = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        case LinkToArgumentTypes::Y:
+            scale.y = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        case LinkToArgumentTypes::Z:
+            scale.z = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            break;
+
+        default:
+            break;
+        }
+        break;
+
+    default:
+        break;
+    }
+
+    entity->transform->set_local_position(position);
+    entity->transform->set_euler_angles(rotation);
+    entity->transform->set_local_scale(scale);
 }
