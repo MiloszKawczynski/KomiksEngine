@@ -191,6 +191,10 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "is_smoothe" << YAML::Value << curve->is_smoothe;
         out << YAML::Key << "playback_speed" << YAML::Value << curve->playback_speed;
         out << YAML::Key << "easing_from_to" << YAML::Value << curve->easing_from_to;
+        out << YAML::Key << "easing_type" << YAML::Value << curve->easing_type;
+        out << YAML::Key << "in_out_line" << YAML::Value << curve->in_out_line;
+        out << YAML::Key << "in_middle_line" << YAML::Value << curve->in_middle_line;
+        out << YAML::Key << "middle_out_line" << YAML::Value << curve->middle_out_line;
         out << YAML::EndMap;
     }
     else
@@ -1105,6 +1109,22 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->easing_from_to = component["easing_from_to"].as<glm::vec2>();
             }
+            if (component["easing_type"].IsDefined())
+            {
+                deserialized_component->easing_type = component["easing_type"].as<EaseTypes>();
+            }
+            if (component["in_out_line"].IsDefined())
+            {
+                deserialized_component->in_out_line = component["in_out_line"].as<double>();
+            }
+            if (component["in_middle_line"].IsDefined())
+            {
+                deserialized_component->in_middle_line = component["in_middle_line"].as<double>();
+            }
+            if (component["middle_out_line"].IsDefined())
+            {
+                deserialized_component->middle_out_line = component["middle_out_line"].as<double>();
+            }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
         }
@@ -1137,6 +1157,22 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             if (component["easing_from_to"].IsDefined())
             {
                 deserialized_component->easing_from_to = component["easing_from_to"].as<glm::vec2>();
+            }
+            if (component["easing_type"].IsDefined())
+            {
+                deserialized_component->easing_type = component["easing_type"].as<EaseTypes>();
+            }
+            if (component["in_out_line"].IsDefined())
+            {
+                deserialized_component->in_out_line = component["in_out_line"].as<double>();
+            }
+            if (component["in_middle_line"].IsDefined())
+            {
+                deserialized_component->in_middle_line = component["in_middle_line"].as<double>();
+            }
+            if (component["middle_out_line"].IsDefined())
+            {
+                deserialized_component->middle_out_line = component["middle_out_line"].as<double>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();

@@ -37,10 +37,49 @@ void Curve::update()
     {
         m_playback_position += playback_speed;
 
-        if (m_playback_position > 1.0f)
+        switch (easing_type)
         {
-            m_playback_position = 1.0f;
-            m_is_playing = false;
+        case EaseTypes::Ease:
+            if (m_playback_position > 1.0f)
+            {
+                m_playback_position = 1.0f;
+                m_is_playing = false;
+            }
+            break;
+        case EaseTypes::EaseInOut:
+            if (!m_is_allowed_to_leave_middle)
+            {
+                if (m_playback_position > in_out_line)
+                {
+                    m_playback_position = in_out_line;
+                    m_is_stuck_in_middle = true;
+                    m_is_playing = false;
+                }
+            }
+            break;
+        case EaseTypes::EaseInMiddleOut:
+
+            if (m_is_stuck_in_middle)
+            {
+                if (m_playback_position > middle_out_line)
+                {
+                    m_playback_position = in_middle_line;
+                }
+            }
+            else
+            {
+                if (!m_is_allowed_to_leave_middle)
+                {
+                    if (m_playback_position > in_middle_line)
+                    {
+                        m_is_stuck_in_middle = true;
+                    }
+                }
+            }
+
+            break;
+        default:
+            break;
         }
 
         update_link_value();
@@ -139,6 +178,27 @@ void Curve::draw_editor()
         ppxs.push_back(m_playback_position);
         ppys.push_back(get_y_at(m_playback_position));
         ImPlot::PlotScatter("##Playback Point", ppxs.data(), ppys.data(), 1);
+
+        if (easing_type == EaseTypes::EaseInOut)
+        {
+            if (ImPlot::DragLineX(0, &in_out_line, ImVec4(1, 1, 1, 1)))
+            {
+                in_out_line = glm::clamp(in_out_line, 0.0, 1.0);
+            }
+        }
+
+        if (easing_type == EaseTypes::EaseInMiddleOut)
+        {
+            if (ImPlot::DragLineX(1, &in_middle_line, ImVec4(1, 0, 0, 1)))
+            {
+                in_middle_line = glm::clamp(in_middle_line, 0.0, middle_out_line);
+            }
+
+            if (ImPlot::DragLineX(2, &middle_out_line, ImVec4(0, 1, 0, 1)))
+            {
+                middle_out_line = glm::clamp(middle_out_line, in_middle_line, 1.0);
+            }
+        }
     }
 
     ImPlot::EndPlot();
@@ -161,16 +221,14 @@ void Curve::draw_editor()
         ImGui::TableSetColumnIndex(0);
         if (ImGui::Button("Play"))
         {
-            m_playback_position = 0.0f;
-            m_is_playing = true;
+            play();
         }
 
         ImGui::SameLine();
 
         if (ImGui::Button("Reset"))
         {
-            m_playback_position = 0.0f;
-            update_link_value();
+            reset();
         }
 
         ImGui::TableSetColumnIndex(1);
@@ -231,6 +289,30 @@ void Curve::draw_editor()
 
         ImGui::TableSetColumnIndex(1);
         ImGuiEx::InputFloat2("##Ease from to", glm::value_ptr(easing_from_to));
+
+        ImGui::TableNextRow();
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Text("Ease Type");
+
+        ImGui::TableSetColumnIndex(1);
+        if (ImGui::BeginCombo("##EaseTypes", ease_type_to_string(easing_type).c_str()))
+        {
+            for (u32 i = static_cast<u32>(EaseTypes::Ease); i <= static_cast<u32>(EaseTypes::EaseInMiddleOut); i++)
+            {
+                bool const is_selected = easing_type == static_cast<EaseTypes>(i);
+
+                if (ImGui::Selectable(ease_type_to_string(static_cast<EaseTypes>(i)).c_str(), is_selected))
+                {
+                    easing_type = static_cast<EaseTypes>(i);
+                }
+
+                if (is_selected)
+                {
+                    ImGui::SetItemDefaultFocus();
+                }
+            }
+            ImGui::EndCombo();
+        }
 
         ImGui::EndTable();
     }
@@ -305,6 +387,24 @@ std::string Curve::link_type_to_argument_string(LinkToArgumentTypes const type)
 
     default:
         return "Undefined Argument Link";
+    }
+}
+
+std::string Curve::ease_type_to_string(EaseTypes const type)
+{
+    switch (type)
+    {
+    case EaseTypes::Ease:
+        return "Ease";
+
+    case EaseTypes::EaseInOut:
+        return "Ease In-Out";
+
+    case EaseTypes::EaseInMiddleOut:
+        return "Ease In-Middle-Out";
+
+    default:
+        return "Undefined Ease Type";
     }
 }
 
@@ -551,4 +651,32 @@ void Curve::update_link_value()
     entity->transform->set_local_position(position);
     entity->transform->set_euler_angles(rotation);
     entity->transform->set_local_scale(scale);
+}
+
+void Curve::play()
+{
+    if (m_is_stuck_in_middle)
+    {
+        m_is_allowed_to_leave_middle = true;
+        m_is_stuck_in_middle = false;
+        m_is_playing = true;
+    }
+    else
+    {
+        if (m_playback_position >= 1.0f)
+        {
+            reset();
+        }
+
+        m_is_playing = true;
+    }
+}
+
+void Curve::reset()
+{
+    m_is_playing = false;
+    m_is_allowed_to_leave_middle = false;
+    m_is_stuck_in_middle = false;
+    m_playback_position = 0.0f;
+    update_link_value();
 }

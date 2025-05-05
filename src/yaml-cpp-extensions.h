@@ -404,6 +404,28 @@ struct convert<ShipType>
 };
 
 template<>
+struct convert<EaseTypes>
+{
+    static Node encode(EaseTypes const rhs)
+    {
+        Node node;
+        node.push_back(to_integral(rhs));
+        return node;
+    }
+
+    static bool decode(Node const& node, EaseTypes& rhs)
+    {
+        if (!node.IsScalar())
+        {
+            return false;
+        }
+
+        rhs = static_cast<EaseTypes>(node.as<int>());
+        return true;
+    }
+};
+
+template<>
 struct convert<FloeButtonType>
 {
     static Node encode(FloeButtonType const rhs)
@@ -748,6 +770,13 @@ inline Emitter& operator<<(YAML::Emitter& out, SpawnType const& v)
 }
 
 inline Emitter& operator<<(YAML::Emitter& out, ShipType const& v)
+{
+    out << YAML::Flow;
+    out << to_integral(v);
+    return out;
+}
+
+inline Emitter& operator<<(YAML::Emitter& out, EaseTypes const& v)
 {
     out << YAML::Flow;
     out << to_integral(v);
