@@ -39,8 +39,7 @@ public:
     std::vector<glm::vec2> points = {};
     bool is_smoothe = false;
     float playback_speed = 0.01f;
-    float easing_from = 0.0f;
-    float easing_to = 1.0f;
+    glm::vec2 easing_from_to = {0.0f, 1.0f};
 
     glm::vec2 get_point_at(float x) const;
     float get_y_at(float x) const;

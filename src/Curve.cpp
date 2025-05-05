@@ -143,73 +143,97 @@ void Curve::draw_editor()
 
     ImPlot::EndPlot();
 
-    ImGui::Checkbox("Smoothe", &is_smoothe);
-    ImGui::SameLine();
-
-    ImGui::InputInt("Smoothe precistion", &m_smoothe_precision);
-
-    if (ImGui::Button("Play"))
+    if (ImGui::BeginTable("EditorTable", 2))
     {
-        m_playback_position = 0.0f;
-        m_is_playing = true;
-    }
+        ImGui::TableSetupColumn("##Label", ImGuiTableColumnFlags_WidthFixed, 200.0f);
+        ImGui::TableSetupColumn("##Content", ImGuiTableColumnFlags_WidthFixed, 400.0f);
 
-    ImGui::SameLine();
+        ImGui::TableNextRow();
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Checkbox("Smoothe", &is_smoothe);
 
-    if (ImGui::Button("Reset"))
-    {
-        m_playback_position = 0.0f;
-        update_link_value();
-    }
+        ImGui::TableSetColumnIndex(1);
+        ImGui::BeginDisabled(!is_smoothe);
+        ImGui::InputInt("Smoothe precistion", &m_smoothe_precision);
+        ImGui::EndDisabled();
 
-    ImGuiEx::InputFloat("Playback speed", &playback_speed);
-
-    ImGui::Text("Link to...");
-    ImGui::SameLine();
-
-    if (ImGui::BeginCombo("##LinkToTypes", link_type_to_string(m_link_to).c_str()))
-    {
-        for (u32 i = static_cast<u32>(LinkToTypes::Position); i <= static_cast<u32>(LinkToTypes::Scale); i++)
+        ImGui::TableNextRow();
+        ImGui::TableSetColumnIndex(0);
+        if (ImGui::Button("Play"))
         {
-            bool const is_selected = m_link_to == static_cast<LinkToTypes>(i);
-
-            if (ImGui::Selectable(link_type_to_string(static_cast<LinkToTypes>(i)).c_str(), is_selected))
-            {
-                m_link_to = static_cast<LinkToTypes>(i);
-            }
-
-            if (is_selected)
-            {
-                ImGui::SetItemDefaultFocus();
-            }
+            m_playback_position = 0.0f;
+            m_is_playing = true;
         }
-        ImGui::EndCombo();
-    }
 
-    ImGui::SameLine();
+        ImGui::SameLine();
 
-    if (ImGui::BeginCombo("##LinkToArgumentTypes", link_type_to_argument_string(m_link_to_argument).c_str()))
-    {
-        for (u32 i = static_cast<u32>(LinkToArgumentTypes::X); i <= static_cast<u32>(LinkToArgumentTypes::Z); i++)
+        if (ImGui::Button("Reset"))
         {
-            bool const is_selected = m_link_to_argument == static_cast<LinkToArgumentTypes>(i);
-
-            if (ImGui::Selectable(link_type_to_argument_string(static_cast<LinkToArgumentTypes>(i)).c_str(), is_selected))
-            {
-                m_link_to_argument = static_cast<LinkToArgumentTypes>(i);
-            }
-
-            if (is_selected)
-            {
-                ImGui::SetItemDefaultFocus();
-            }
+            m_playback_position = 0.0f;
+            update_link_value();
         }
-        ImGui::EndCombo();
-    }
 
-    ImGui::InputFloat("Ease from", &easing_from);
-    ImGui::SameLine();
-    ImGui::InputFloat("Ease to", &easing_to);
+        ImGui::TableSetColumnIndex(1);
+        ImGuiEx::InputFloat("Playback speed", &playback_speed);
+
+        ImGui::TableNextRow();
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Text("Link to");
+
+        ImGui::TableSetColumnIndex(1);
+        float width = ImGui::GetContentRegionAvail().x;
+        ImGui::SetNextItemWidth(width / 3.15f);
+
+        if (ImGui::BeginCombo("##LinkToTypes", link_type_to_string(m_link_to).c_str()))
+        {
+            for (u32 i = static_cast<u32>(LinkToTypes::Position); i <= static_cast<u32>(LinkToTypes::Scale); i++)
+            {
+                bool const is_selected = m_link_to == static_cast<LinkToTypes>(i);
+
+                if (ImGui::Selectable(link_type_to_string(static_cast<LinkToTypes>(i)).c_str(), is_selected))
+                {
+                    m_link_to = static_cast<LinkToTypes>(i);
+                }
+
+                if (is_selected)
+                {
+                    ImGui::SetItemDefaultFocus();
+                }
+            }
+            ImGui::EndCombo();
+        }
+
+        ImGui::SameLine();
+        ImGui::SetNextItemWidth(width / 3.15f);
+
+        if (ImGui::BeginCombo("##LinkToArgumentTypes", link_type_to_argument_string(m_link_to_argument).c_str()))
+        {
+            for (u32 i = static_cast<u32>(LinkToArgumentTypes::X); i <= static_cast<u32>(LinkToArgumentTypes::Z); i++)
+            {
+                bool const is_selected = m_link_to_argument == static_cast<LinkToArgumentTypes>(i);
+
+                if (ImGui::Selectable(link_type_to_argument_string(static_cast<LinkToArgumentTypes>(i)).c_str(), is_selected))
+                {
+                    m_link_to_argument = static_cast<LinkToArgumentTypes>(i);
+                }
+
+                if (is_selected)
+                {
+                    ImGui::SetItemDefaultFocus();
+                }
+            }
+            ImGui::EndCombo();
+        }
+
+        ImGui::TableNextRow();
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Text("Ease from to");
+
+        ImGui::TableSetColumnIndex(1);
+        ImGuiEx::InputFloat2("##Ease from to", glm::value_ptr(easing_from_to));
+
+        ImGui::EndTable();
+    }
 
     if (ImGui::CollapsingHeader("Points"))
     {
@@ -464,15 +488,15 @@ void Curve::update_link_value()
         switch (m_link_to_argument)
         {
         case LinkToArgumentTypes::X:
-            position.x = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            position.x = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         case LinkToArgumentTypes::Y:
-            position.y = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            position.y = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         case LinkToArgumentTypes::Z:
-            position.z = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            position.z = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         default:
@@ -484,15 +508,15 @@ void Curve::update_link_value()
         switch (m_link_to_argument)
         {
         case LinkToArgumentTypes::X:
-            rotation.x = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            rotation.x = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         case LinkToArgumentTypes::Y:
-            rotation.y = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            rotation.y = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         case LinkToArgumentTypes::Z:
-            rotation.z = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            rotation.z = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         default:
@@ -504,15 +528,15 @@ void Curve::update_link_value()
         switch (m_link_to_argument)
         {
         case LinkToArgumentTypes::X:
-            scale.x = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            scale.x = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         case LinkToArgumentTypes::Y:
-            scale.y = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            scale.y = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         case LinkToArgumentTypes::Z:
-            scale.z = glm::mix(easing_from, easing_to, get_y_at(m_playback_position));
+            scale.z = glm::mix(easing_from_to.x, easing_from_to.y, get_y_at(m_playback_position));
             break;
 
         default:

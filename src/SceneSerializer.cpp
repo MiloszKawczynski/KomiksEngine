@@ -190,8 +190,7 @@ void SceneSerializer::auto_serialize_component(YAML::Emitter& out, std::shared_p
         out << YAML::Key << "points" << YAML::Value << curve->points;
         out << YAML::Key << "is_smoothe" << YAML::Value << curve->is_smoothe;
         out << YAML::Key << "playback_speed" << YAML::Value << curve->playback_speed;
-        out << YAML::Key << "easing_from" << YAML::Value << curve->easing_from;
-        out << YAML::Key << "easing_to" << YAML::Value << curve->easing_to;
+        out << YAML::Key << "easing_from_to" << YAML::Value << curve->easing_from_to;
         out << YAML::EndMap;
     }
     else
@@ -1102,13 +1101,9 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->playback_speed = component["playback_speed"].as<float>();
             }
-            if (component["easing_from"].IsDefined())
+            if (component["easing_from_to"].IsDefined())
             {
-                deserialized_component->easing_from = component["easing_from"].as<float>();
-            }
-            if (component["easing_to"].IsDefined())
-            {
-                deserialized_component->easing_to = component["easing_to"].as<float>();
+                deserialized_component->easing_from_to = component["easing_from_to"].as<glm::vec2>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
@@ -1139,13 +1134,9 @@ void SceneSerializer::auto_deserialize_component(YAML::Node const& component, st
             {
                 deserialized_component->playback_speed = component["playback_speed"].as<float>();
             }
-            if (component["easing_from"].IsDefined())
+            if (component["easing_from_to"].IsDefined())
             {
-                deserialized_component->easing_from = component["easing_from"].as<float>();
-            }
-            if (component["easing_to"].IsDefined())
-            {
-                deserialized_component->easing_to = component["easing_to"].as<float>();
+                deserialized_component->easing_from_to = component["easing_from_to"].as<glm::vec2>();
             }
             deserialized_entity->add_component(deserialized_component);
             deserialized_component->reprepare();
